@@ -26,6 +26,10 @@ h3 {
 	letter-spacing: 7px;
 }
 
+pre {
+	font-size: 16px;
+}
+
 .side-nav h4 {
 	font-family: 'Open Sans', sans-serif;
 	text-transform: uppercase;
@@ -233,6 +237,10 @@ header.global {
 	font-size: 1rem;
 }
 
+.side-nav-mobile .button {
+	font-family: 'Open Sans', sans-serif;
+}
+
 button:hover, button:focus, .button:hover, .button:focus {
 	background-color: #09222B;
 }
@@ -306,8 +314,36 @@ h3.getting-started-content {
 	.fixed {
 		position: absolute !important;
 	}
+
+	/*.logomark {
+		background-image: url("../img/animated-logo-static.png");
+		height: 25px;
+		width: 25px;
+		margin-top: 10px;
+		margin-right: 8px;
+		position: relative;
+		float: left;
+		background-size: 25px 25px;
+		background-repeat: no-repeat;
+	}
+
+	.logo-hub {
+		font-size: 19px;
+	}
+
+	.logo-context {
+		font-size: 19px;
+	}*/
+
+
 }
 
+
+@media only screen and (max-width : 640px) {
+	.top-bar .name h1 a {
+		width:80%;
+	}
+}
 
 @media only screen and (min-width : 1025px) {
 	.side-nav-mobile {
