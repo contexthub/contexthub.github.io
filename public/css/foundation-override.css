@@ -278,9 +278,13 @@ h3.getting-started-content {
 }
 
 @media only screen and (max-width : 1024px) {
-/*	.top-bar-section li:not(.has-form) a:not(.button) {
+	.top-bar-section ul.right.dark a {
 		background: #E64B19;
-	}*/
+	}
+
+	.top-bar-section ul.right.dark a:hover {
+		background: #F2511C;
+	}
 
 	.side-nav {
 		display:none;
