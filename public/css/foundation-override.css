@@ -347,6 +347,10 @@ h3.getting-started-content {
 	.top-bar-section ul.right.dark a:hover {
 		background: #F2511C;
 	}
+
+	.top-bar-section li:not(.has-form) a:not(.button) {
+		padding-top: 22px;
+	}
 }
 
 @media only screen and (min-width : 1025px) {
