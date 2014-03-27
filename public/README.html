@@ -87,9 +87,6 @@
 <p>Now repeat the previous steps, this time start by exporting your Development certificate.</p>
 
 
-<!--above has been added -->
-
-
 <h3>The basics</h3>
 <h4>Register For Remote Notifications</h4>
 <p>To register for push notifications you'll need to add one more line of code to your AppDelegate, and you'll need to implement a couple more delegate methods.</p>
@@ -101,225 +98,42 @@
 <h3>Going Further with Push</h3>
 
 <h4>Register with an Alias</h4>
-<p>TODO: text</p>
-<p>`objective-c</p>
-<ul>
-<li>(void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {</li>
-</ul>
-<pre>
-<code>CCHNotificationService *sharedService = [CCHNotificationService sharedService];
-NSString *deviceID = [ContextHub deviceId];
-</code>
-</pre>
-<pre>
-<code>[sharedService registerDeviceToken:deviceToken withAlias:deviceID withCompletion:^(NSError *error) {
-    if(error) {
-        NSLog(@"%@", error);
-    } else { 
-        NSLog(@"Success :)");
-    }
-}];
-</code>
-</pre>
-<p>}</p>
-<p>`</p>
 <h4>Send to an Alias</h4>
-<p>TODO:text</p>
-<p>`objective-c</p>
-<pre>
-<code>NSDictionary *userInfo = @{ @"alert":self.messageField.text};
-</code>
-</pre>
-<pre>
-<code>[[CCHNotificationService sharedService] sendAPNSNotificationToAliases:@[[ContextHub deviceId]] userInfo:userInfo withCompletion:^(NSError *error) {
-    NSLog(@"Error %@", error);
-}];
-</code>
-</pre>
-<p>`</p>
 <h4>Register tags</h4>
-<p>TODO:text</p>
-<p>`objective-c</p>
-<ul>
-<li>(void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {</li>
-</ul>
-<pre>
-<code>CCHNotificationService *sharedService = [CCHNotificationService sharedService];
-NSString *deviceID = [ContextHub deviceId];
-[sharedService registerDeviceToken:deviceToken
-                         withAlias:deviceID
-                           andTags:@[@"tag1", @"tag2"]
-                    withCompletion:^(NSError *error) {
-    if(error) {
-        NSLog(@"%@", error);
-    } else {
-        NSLog(@"Success :)");
-    }
-</code>
-</pre>
-<pre>
-<code>}];  
-</code>
-</pre>
-<p>}</p>
-<p>`</p>
 <h4>Send to Tags</h4>
-<p>TODO:text</p>
-<p>`objective-c</p>
-<pre>
-<code>NSDictionary *userInfo = @{ @"alert":self.messageField.text};
-</code>
-</pre>
-<pre>
-<code>[[CCHNotificationService sharedService] sendAPNSNotificationToTags:@[@"tag1"] userInfo:userInfo withCompletion:^(NSError *error) {
-    NSLog(@"Error %@", error);
-}];
-</code>
-</pre>
-<p>`</p>
 <h3>Send Custom Data</h3>
-<p>`objective-c</p>
-<pre>
-<code>NSDictionary *userInfo = @{@"custom":self.customData.text, @"alert":@"Data was pushed!"};
-</code>
-</pre>
-<pre>
-<code>[[CCHNotificationService sharedService] sendAPNSNotificationToAliases:@[[ContextHub deviceId]] userInfo:userInfo withCompletion:^(NSError *error) {
-    NSLog(@"Error %@", error);
-}];
-</code>
-</pre>
-<p>`</p>
 <h3>Send Badges, Custom Sounds, and Custom Data</h3>
-<p>`objective-c</p>
-<pre>
-<code>NSDictionary *userInfo = @{@"sound":@"techno.aif", @"custom":self.customData.text, @"alert":@"CAN YOU HEAR ME NOW?", @"badge":@"1000"};
-</code>
-</pre>
-<pre>
-<code>[[CCHNotificationService sharedService] sendAPNSNotificationToAliases:@[[ContextHub deviceId]] userInfo:userInfo withCompletion:^(NSError *error) {
-    NSLog(@"Error %@", error);
-}];
-</code>
-</pre>
-<p>`</p>
 <h3>Send Background Push</h3>
-<p>`objective-c</p>
-<pre>
-<code>NSDictionary *userInfo = @{@"content-available":@"1", @"sound":@"", @"custom":self.customData.text, @"alert":@""};
-</code>
-</pre>
-<pre>
-<code>[[CCHNotificationService sharedService] sendAPNSNotificationToAliases:@[[ContextHub deviceId]] userInfo:userInfo withCompletion:^(NSError *error) {
-    NSLog(@"Error %@", error);
-}];
-</code>
-</pre>
-<p>`</p>
+
+
+<!--above has been added -->
+
+
 <h2>Vault Cloud Storage</h2>
 <p>If you need to store data that all installations can access, you can use the ContextHub Vault Service. The vault services allows you to store an NSDictionary of strings. When you save items to the vault you put them inside containers. You can think of containers as tables or collections of similar things. For instance, you may want to store artwork in a paintings container, or office addresses in an offices container. It's really up to you.</p>
 <h3>Create an Item</h3>
-<p>To create an item in the vault you must prvide an NSDictionary of the item that you want to save and container name for the item.</p>
-<p>`objective-c</p>
-<pre>
-<code>NSString *containerName = @"paintings";
-NSDictionary *item = @{@"name":self.nameTextField.text};
-[[CCHVaultService sharedService] createItem:item inContainer:containerName completion:^(NSDictionary *carbonResponse, NSError *error) {
-    if (error) {
-        NSLog(@"Error %@", error);
-    } else {
-        NSLog(@"Success %@", carbonResponse);
-    }
-}];
-</code>
-</pre>
-<p>`</p>
+<p>To create an item in the vault you must provide an NSDictionary of the item that you want to save and container name for the item.</p>
+
+
+
 <h3>List All Items</h3>
 <p>To view items in the vault you must provide the container name of the items you want to view.</p>
-<p>`objective-c</p>
-<pre>
-<code>[[CCHVaultService sharedService] getItemsInContainer:@"paintings" completion:^(NSArray *carbonResponses, NSError *error) {
-    if (error) {
-        NSLog(@"Error %@", error);
-    } else {
-        NSLog(@"Success %@", carbonResponse);
-    }
-}];
-</code>
-</pre>
-<p>`</p>
+
+
 <p>You'll notice that each of the items returned have a vaultInfo key. The value of the key contains the information that the vault uses to keep track of your items.</p>
+
 <h3>Update Item</h3>
 <p>To update an items you must either retrieve the item from the SDK TODO:Link TO Item Retrieval, or update an item that was retrieved from the getItemsInContainer:completion method.</p>
-<p>`objective-c</p>
-<pre>
-<code>NSMutableDictionary *item = [NSMutableDictionary dictionaryWithDictionary:self.item];
-[item setObject:self.nameTextField.text forKey:@"name"];
-</code>
-</pre>
-<pre>
-<code>[[CCHVaultService sharedService] updateItem:item completion:^(NSDictionary *carbonResponse, NSError *error) {
-    if (error) {
-        NSLog(@"Error %@",error);
-    } else {
-        NSLog(@"Success %@", carbonResponse);
-    }
-}];
-</code>
-</pre>
-<p>`</p>
+
+
 <h3>Delete Item</h3>
-<p>`objective-c</p>
-<pre>
-<code>[[CCHVaultService sharedService] deleteItem:item completion:^(NSDictionary *carbonResponse, NSError *error) {
-    if (!error) {
-        NSLog(@"Item Deleted %@", item);
-    } else {
-        NSLog(@"Error deleting item %@", item);
-    }
-}];
-</code>
-</pre>
-<p>`</p>
+
+
 <h3>Adding a File</h3>
 <p>You can also store files with your vault items. To accomplish this, the files will be stored on our S3 sever, and a url to the file will be saved with your item. You will need to create a CCBResource object to describe your file and then save it using the createItem:withResources:inContainer:completion In the following example, we are saving a profile picture with some profile metadata, and saving the item in the profiles container.</p>
-<p>`objective-c</p>
-<pre>
-<code>NSData *imageData = UIImageJPEGRepresentation(profilePicture,.99);
-</code>
-</pre>
-<pre>
-<code>NSString *fileName = @"ProfilePicture.png";
-</code>
-</pre>
-<pre>
-<code>CCHVaultResource *profilePictureResource = [[CCHVaultResource alloc]initWithName:@"profile_picture_url"
-                                                                        fileName:fileName
-                                                                        mimeType:@"image/png"
-                                                                            data:imageData];
-</code>
-</pre>
-<pre>
-<code>NSString *container = @"profiles";
-</code>
-</pre>
-<pre>
-<code>NSDictionary *profileInfo = @{@"name" : @"Your Name",
-                              @"nick_name":@"Bubba"};
-</code>
-</pre>
-<pre>
-<code>[[CCHVaultService sharedService] createItem:profileInfo withResources:@[profilePictureResource] inContainer:container completion:^(NSDictionary *carbonResponse, NSError *error) {
-    if (error) {
-        NSLog(@"Error %@", error);
-    } else {
-        NSLog(@"Success %@", carbonResponse);
-    }
-}];
-</code>
-</pre>
-<p>`</p>
-<h2>Event Dictionary Samples</h2>
+
+
+<h2>Event NSDictionary Samples</h2>
 <p>ContextHub supports the following events</p>
 <ul>
 <li>location_changed</li>
