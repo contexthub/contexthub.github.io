@@ -39,12 +39,12 @@
         <a href="#" class="button" data-dropdown="downDrop">Sections &#9662;</a>
         <ul id="downDrop" class="f-dropdown" data-dropdown-content>
           <li><a data-scroll data-options="easing: easeInQuad" href="#getting-started">Getting Started</a></li>
-          <li><a data-scroll data-options="easing: easeInQuad" href="#podfile">Podfile</a></li>
+          <li><a data-scroll data-options="easing: easeInQuad" href="#installation">Installation</a></li>
           <li><a data-scroll data-options="easing: easeInQuad" href="#registration">Registration</a></li>
-          <li><a data-scroll data-options="easing: easeInQuad" href="#adding-custom-data-to-events">Adding custom data to events</a></li>
-          <li><a data-scroll data-options="easing: easeInQuad" href="#cancel-an-event">Cancel an event</a></li>
-          <li><a data-scroll data-options="easing: easeInQuad" href="#working-with-events">Working with events</a></li>
-          <li><a data-scroll data-options="easing: easeInQuad" href="#background-updates">Background updates</a></li>
+          <li><a data-scroll data-options="easing: easeInQuad" href="#event-lifecycle">Event Lifecycle</a></li>
+          <li><a data-scroll data-options="easing: easeInQuad" href="#adding-custom-data-to-events">Adding Your Data to Events</a></li>          
+					<li><a data-scroll data-options="easing: easeInQuad" href="#background-updates">Background Updates</a></li>
+          <li><a data-scroll data-options="easing: easeInQuad" href="#certificates">Push Certificates</a></li>
         </ul>
       </div>
     </div>
@@ -57,11 +57,13 @@
           <li><h4>DOCUMENTATION</h4></li>
           <li><a data-scroll data-options="easing: easeInQuad" href="#getting-started">Getting Started</a></li>
           <li><a data-scroll data-options="easing: easeInQuad" href="#installation">Installation</a></li>
-          <li><a data-scroll data-options="easing: easeInQuad" href="#registration">Registration</a></li>
-          <li><a data-scroll data-options="easing: easeInQuad" href="#adding-custom-data-to-events">Adding custom data to events</a></li>
+          <li><a data-scroll data-options="easing: easeInQuad" href="#registration">Registration</a></li>          
           <li><a data-scroll data-options="easing: easeInQuad" href="#event-lifecycle">Event lifecycle</a></li>
-          <li><a data-scroll data-options="easing: easeInQuad" href="#working-with-events">Working with events</a></li>
-          <li><a data-scroll data-options="easing: easeInQuad" href="#background-updates">Background updates</a></li>
+          <li><a data-scroll data-options="easing: easeInQuad" href="#adding-custom-data-to-events">Adding Your Data to Events</a></li>
+					<li><a data-scroll data-options="easing: easeInQuad" href="#background-updates">Background Updates</a></li>
+          <li><a data-scroll data-options="easing: easeInQuad" href="#certificates">Push Certificates</a></li>
+          <li><a data-scroll data-options="easing: easeInQuad" href="#register-push">Registering For Push</a></li>
+          <li><a data-scroll data-options="easing: easeInQuad" href="#send-push">Send a Push</a></li>
         </ul>
       </div>
 
@@ -115,14 +117,6 @@
 				<h3>The Event Pipeline</h3>
 				<p>If you want to hook into the events that are triggered by the SDK, the SDK provides DataSource and Delegate protocols that you can implement.</p>
 								
-        <span id="adding-custom-data-to-events"></span>
-        <h3>Adding custom data to events</h3>
-        <p>The DataSource protocol gives you the ability to add data to the Event. The data will be accessible on in the server-side context rule in the <em>event.payload</em> property.</p>
-
-        <script src="https://gist.github.com/Kevinwlee/9808727.js"></script>
-
-        <hr>
-
         <span id="event-lifecycle"></span>
         <h3>Event Lifecycle</h3>
 				<p>The Delegate protocol is called during the lifecycle of the event. It also gives you a way to cancel an event to keep it from posting to the server.</p>
@@ -131,45 +125,71 @@
 				<script src="https://gist.github.com/Kevinwlee/9809003.js"></script>				
 				<p>To keep an event from being sent you can implement contextEventManager:shouldPostEvent.</p>
 				<script src="https://gist.github.com/Kevinwlee/72f2594cfa15885866e4.js"></script>
-        <hr>
-
-        <span id="working-with-events"></span>
-        <h3 id="">Working with events</h3>
-        <p>Praesent eget dictum tortor. Proin nec gravida sem, vitae consectetur libero. Phasellus sit amet porta justo, sit amet luctus risus. Nam ut turpis vulputate, aliquet odio eu, varius velit. Aliquam feugiat, nisi a adipiscing sagittis, enim lacus viverra velit, nec vehicula lectus erat id dui. Integer luctus dolor at diam dapibus, ac ultrices dui pulvinar. Curabitur in neque quis tortor molestie ullamcorper sed ut purus. Duis congue eros enim, vel blandit erat posuere nec. Donec a leo elementum, aliquam diam sit amet, imperdiet leo. Praesent imperdiet magna eget nulla consequat, sed luctus dui imperdiet. Morbi blandit sit amet quam eget pulvinar. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum quis tortor tortor. Vestibulum aliquam sapien quam, nec tempor massa congue sodales. Ut orci turpis, vehicula eu est in, consequat ullamcorper sapien. Aliquam nec sapien vel metus mattis aliquet et quis arcu.</p>
-
-        <div class="panel" style="overflow:auto;">
-          <pre>#pragma mark  - CCBContextEventManagerDelegate
-
-- (void)contextEventManager:(CCBContextEventManager *)eventManager willPostEvent:(NSDictionary *)event {
-    NSLog(@"Carbon WILL Post Event %@", event);
-}
-
-- (void)contextEventManager:(CCBContextEventManager *)eventManager didPostEvent:(NSDictionary *)event {
-    NSLog(@"Carbon DID Post Event %@", event);
-}          </pre>
-        </div>
 
         <hr>
 
-        <span id="background-updates"></span> 
-        <h3>Background updates</h3>
-        <p>Context changes will trigger background pushes to your app. If you pass the background notification to CarbonBlack, CarbonBlack will update the contextual situation on the device while in the background. You must have background pushes enabled in your project, and you must configure your push certificates on ContextHub.</p>
-        
-        <div class="panel" style="overflow:auto;">
-          <pre>- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
-        [carbonBlack application:application didReceiveRemoteNotification:userInfo completion:^(UIBackgroundFetchResult) {
-        completionHandler(completion);
-    }];
-}          </pre>
-        </div>
+        <span id="adding-custom-data-to-events"></span>
+        <h3>Adding Your Data to Events</h3>
+        <p>The DataSource protocol gives you the ability to add data to the Event. The data will be accessible on in the server-side context rule in the <em>event.payload</em> property.</p>
 
-          <a data-scroll href="#top">Back to top</a>
-        </div>
+        <script src="https://gist.github.com/Kevinwlee/9808727.js"></script>
+
+        <hr>
+
+        <span id="background-updates"></span>
+				<h3>Background updates</h3>
+				<p>Context changes will trigger background pushes to your app. If you pass the background notification to ContextHub, the SDK will update the contextual situation on the device while in the background.</p>
+				<p>You must have background pushes enabled in your project, and you must configure your push certificates on the ContextHub server.</p>
+				<script src="https://gist.github.com/Kevinwlee/9810937.js"></script>
+				
+        <hr>
+
+				<h3>Push Notifications</h3>
+				<p>The ContextHub SDK provides an api for sending push notifications to your application. You can send messages directly to a device token, or you can organize your installations using tags and alias so that you can send messages to groups of devices.</p>
+
+        <span id="certificates"></span> 
+
+				<h3>Certificates</h3>
+				<p>Before you can use the push services you will need to create a Production and Development push certificate for you application.</p>
+				<p>After you have downloaded your push certificates, you will need to create a PEM file out of both of them.</p>
+				<ol>
+					<li>Open the Keychain Access application and select your production certificate and its private key.</li>
+					<li>From the File menu select "Export Items..."</li>
+					<li>Name the export "Certificates.p12" and save them to your desktop.</li>
+					<li>Open a terminal window and change directories to your Desktop</li>
+					<li>run the following command line</li>
+				</ol>
+
+				<script src="https://gist.github.com/Kevinwlee/9811049.js"></script>
+
+				<ol>
+					<li>Open "certificate.pem" using your favorite text editor.</li>
+					<li>Copy all of the contents of the pem file and paste it into the certificate field located under the settings for your application on ContextHub.com.</li>
+				</ol>
+
+				<p>Now repeat the previous steps, this time start by exporting your Development certificate.</p>
 
 
-  	   </div>
-
-
+				<hr>
+				<span id="register-push"></span>
+				
+				<h3>Register For Remote Notifications</h3>
+				<p>To register for push notifications you'll need to add one more line of code to your AppDelegate, and you'll need to implement a couple more delegate methods.</p>
+				<p>Register your app with Apple</p>
+				<script src="https://gist.github.com/Kevinwlee/9811343.js"></script>
+				
+				<hr>
+				<span id="send-push"></span>
+				<h3> Send a Push</h3>				
+				<script src="https://gist.github.com/Kevinwlee/9811396.js"></script>
+				
+				
+				
+				<a data-scroll href="#top">Back to top</a>
+				<hr>
+			</div>
+			<!--End Content -->
+  	</div>
 
     
     <script src="js/vendor/jquery.js"></script>
