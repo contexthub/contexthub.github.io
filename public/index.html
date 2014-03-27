@@ -52,6 +52,12 @@
 					<li><a data-scroll data-options="easing: easeInQuad" href="#push-custom-data">Push Custom Data</a></li>
 					<li><a data-scroll data-options="easing: easeInQuad" href="#push-metadata">Push Badges and Sounds</a></li>
 					<li><a data-scroll data-options="easing: easeInQuad" href="#push-background">Background Pushes</a></li>
+					<li><a data-scroll data-options="easing: easeInQuad" href="#vault">Vault</a></li>
+					<li><a data-scroll data-options="easing: easeInQuad" href="#vault-create">Creating an Item</a></li>
+					<li><a data-scroll data-options="easing: easeInQuad" href="#vault-list">Retrieving Items</a></li>
+					<li><a data-scroll data-options="easing: easeInQuad" href="#vault-update">Updating an Item</a></li>
+					<li><a data-scroll data-options="easing: easeInQuad" href="#vault-delete">Deleting an Item</a></li>
+					<li><a data-scroll data-options="easing: easeInQuad" href="#vault-resource">Adding Files</a></li>					
         </ul>
       </div>
     </div>
@@ -76,6 +82,12 @@
 					<li><a data-scroll data-options="easing: easeInQuad" href="#push-custom-data">Push Custom Data</a></li>
 					<li><a data-scroll data-options="easing: easeInQuad" href="#push-metadata">Push Badges and Sounds</a></li>
 					<li><a data-scroll data-options="easing: easeInQuad" href="#push-background">Background Pushes</a></li>
+					<li><a data-scroll data-options="easing: easeInQuad" href="#vault">Vault</a></li>
+					<li><a data-scroll data-options="easing: easeInQuad" href="#vault-create">Creating an Item</a></li>
+					<li><a data-scroll data-options="easing: easeInQuad" href="#vault-list">Retrieving Items</a></li>
+					<li><a data-scroll data-options="easing: easeInQuad" href="#vault-update">Updating an Item</a></li>
+					<li><a data-scroll data-options="easing: easeInQuad" href="#vault-delete">Deleting an Item</a></li>
+					<li><a data-scroll data-options="easing: easeInQuad" href="#vault-resource">Adding Files</a></li>
         </ul>
       </div>
 
@@ -226,6 +238,48 @@
 				<span id="push-background"></span>
 				<h3>Send Background Push</h3>
 				<script src="https://gist.github.com/Kevinwlee/9814320.js"></script>
+				
+				<hr>
+				<span id="vault"></span>
+				<h3>Vault Cloud Storage</h3>
+				<p>If you need to store data that all installations can access, you can use the ContextHub Vault Service. The vault services allows you to store an NSDictionary of strings. When you save items to the vault you put them inside containers. You can think of containers as tables or collections of similar things. For instance, you may want to store artwork in a paintings container, or office addresses in an offices container. It's really up to you.</p>
+				
+				<hr>
+				<span id="vault-create"></span>				
+				<h3>Create an Item</h3>
+				<p>To create an item in the vault you must provide an NSDictionary of the item that you want to save and container name for the item.</p>
+
+				<script src="https://gist.github.com/Kevinwlee/9814921.js"></script>
+
+				<hr>
+				<span id="vault-list"></span>
+				<h3>Retrieve All Items</h3>
+				<p>To view items in the vault you must provide the container name of the items you want to view.</p>
+				
+				<script src="https://gist.github.com/Kevinwlee/9814933.js"></script>
+
+				<p>You'll notice that each of the items returned have a vaultInfo key. The value of the key contains the information that the vault uses to keep track of your items.</p>
+
+				<hr>
+				<span id="vault-update"></span>
+				<h3>Update Item</h3>
+				<p>To update an items you must either retrieve the item from the SDK TODO:Link TO Item Retrieval, or update an item that was retrieved from the getItemsInContainer:completion method.</p>
+				
+				<script src="https://gist.github.com/Kevinwlee/9815271.js"></script>
+
+				<hr>
+				<span id="vault-delete"></span>
+				<h3>Delete Item</h3>
+				
+				<script src="https://gist.github.com/Kevinwlee/9815278.js"></script>
+
+				<hr>
+				<span id="vault-resource"></span>				
+				<h3>Adding a File</h3>
+				<p>You can also store files with your vault items. To accomplish this, the files will be stored on our S3 sever, and a url to the file will be saved with your item. You will need to create a CCBResource object to describe your file and then save it using the createItem:withResources:inContainer:completion In the following example, we are saving a profile picture with some profile metadata, and saving the item in the profiles container.</p>
+				
+				<script src="https://gist.github.com/Kevinwlee/9815294.js"></script>
+				
 				
 				
 				<a data-scroll href="#top">Back to top</a>
