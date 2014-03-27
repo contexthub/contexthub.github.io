@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for HTML5 (experimental) for Mac OS X https://github.com/w3c/tidy-html5/tree/c63cc39" />
+<meta charset="UTF-8" />
+<title>README</title>
+<meta name="generator" content="iA Writer for Mac 1.5.1 (5593)" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+</head>
+<body>
+<h1>ContextHub SDK Guide</h1>
+<p>Need help getting started, you are in the right place. These guides will help you get up and running quickly.</p>
+<ul>
+<li>Getting Started with Context</li>
+<li>Push Notifications</li>
+<li>Vault Services</li>
+<li>Event Notifications</li>
+<li>Event Dictionary Examples</li>
+</ul>
+<!--section not included -->
+<h2>Getting Started With Context</h2>
+<p>To begin using ContextHub in your iOS applications you'll need to complete two steps.</p>
+<ol>
+<li><strong>Install</strong> the SDK in your project. (we recommend using cocoapods to do this)</li>
+<li><strong>Register</strong> your application with the ContextHub SDK</li>
+</ol>
+<!--end section not included -->
+
+<h4>Installation</h4>
+<p>The quickest way to install the ContextHub SDK is to use the cocoapod. Your Podfile should look something like this.</p>
+<p>`ruby</p>
+<p>platform :ios, '7.0'</p>
+<p>pod 'ContextHub', :git =&gt; 'https://github.com/chaione/carbon-black-ios', :branch=&gt;'master'</p>
+<p>`</p>
+
+<p>You can find out more about cocoapods at http://cocoapods.org/. You can also watch an NSScreencast about cocoapods here http://nsscreencast.com/episodes/5-cocoapods.</p>
+<h4>Registration</h4>
+<p>Before you can use the ContextHub SDK, you need to register your Application Id with the SDK. Your Application Id can be found on ContextHub.com. The Application Id is the GUID that is found next to your application name.</p>
+<p>You need to register your Application Id in the application:didFinishLaunchingWithOptions method of you AppDelegate.</p>
+
+<script src="https://gist.github.com/Kevinwlee/9808130.js"></script>
+
+<p>The SDK will <strong>throw an exception</strong> if you attempt to use the SDK without registering your Application Id first.</p>
+<p>After you have installed the SDK and registered your Application Id, you are done. The SDK will communicate with context service on ContextHub. It will automatically register the services that are needed for your contexts, and it will notify ContextHub as contextual events occur.</p>
+
+<!--section not included -->
+<h2>The Event Pipeline</h2>
+<p>If you want to hook into the events that are triggered by the SDK, the SDK provides DataSource and Delegate protocols that you can implement.</p>
+<!--end section not included -->
+
+<!--above has been added -->
+
+<h3>Adding Custom Data To Events</h3>
+<p>The DataSource protocol gives you the ability to add data to the Event. The data will be accessible on in the server-side context rule in the <em>event.payload</em> property.</p>
+<h4>CCHContextEventManagerDataSource</h4>
+<p>`objective-c</p>
+<p>#pragma mark - CCHContextEventManagerDataSource</p>
+<ul>
+<li>(NSDictionary *)contextEventManager:(CCHContextEventManager *)eventManager payloadForEvent:(NSDictionary *)event {</li>
+</ul>
+<pre>
+<code>return @{@"company":@"ChaiONE", @"project":@"ContextHub"};
+</code>
+</pre>
+<p>}</p>
+<p>`</p>
+<h3>Event Lifecycle</h3>
+<p>The Delegate protocol is called during the lifecycle of the event. It also gives you a way to cancel an event to keep it from posting to the server.</p>
+<h4>CCHContextEventManagerDelegate</h4>
+<p>`objective-c</p>
+<p>#pragma mark - CCHContextEventManagerDelegate</p>
+<ul>
+<li>(void)contextEventManager:(CCHContextEventManager *)eventManager willPostEvent:(NSDictionary *)event {</li>
+</ul>
+<pre>
+<code>NSLog(@"Carbon WILL Post Event %@", event);
+</code>
+</pre>
+<p>}</p>
+<ul>
+<li>(void)contextEventManager:(CCHContextEventManager *)eventManager didPostEvent:(NSDictionary *)event {</li>
+</ul>
+<pre>
+<code>NSLog(@"Carbon DID Post Event %@", event);
+</code>
+</pre>
+<p>}</p>
+<p>`</p>
+<p>To keep an event from being sent you can implement contextEventManager:shouldPostEvent.</p>
+<p>`objective-c</p>
+<p>#pragma mark - CCHContextEventManagerDelegate</p>
+<ul>
+<li>(BOOL)contextEventManager:(CCHContextEventManager *)eventManager shouldPostEvent:(NSDictionary *)event {</li>
+</ul>
+<pre>
+<code>if(event[@"key"] == @"notImportant") {
+        return NO;
+} else {
+        return YES;
+}
+</code>
+</pre>
+<p>}</p>
+<p>`</p>
+<h4>Background updates</h4>
+<p>Context changes will trigger background pushes to your app. If you pass the background notification to ContextHub, the SDK will update the contextual situation on the device while in the background.</p>
+<p>You must have background pushes enabled in your project, and you must configure your push certificates on the ContextHub server.</p>
+<p>`objective-c</p>
+<ul>
+<li>(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {</li>
+</ul>
+<p>[ContextHub application:application didReceiveRemoteNotification:userInfo completion:^(UIBackgroundFetchResult) {</p>
+<pre>
+<code>     completionHandler(completion);
+}];
+</code>
+</pre>
+<p>}</p>
+<p>`</p>
+<h2>Push Notifications</h2>
+<p>The ContextHub SDK provides an api for sending push notifications to your application. You can send messages directly to a device token, or you can organize your installations using tags and alias so that you can send messages to groups of devices.</p>
+<h3>Certificates</h3>
+<p>Before you can use the push services you will need to create a Production and Development push certificate for you application.</p>
+<p>After you have downloaded your push certificates, you will need to create a PEM file out of both of them.</p>
+<ol>
+<li>Open the Keychain Access application and select your production certificate and its private key.</li>
+<li>From the File menu select "Export Items..."</li>
+<li>Name the export "Certificates.p12" and save them to your desktop.</li>
+<li>Open a terminal window and change directories to your Desktop</li>
+<li>run the following command line</li>
+</ol>
+<p>`</p>
+<p>openssl pkcs12 -in Certificates.p12 -out certificate.pem -nodes -clcerts</p>
+<p>`</p>
+<ol>
+<li>Open "certificate.pem" using your favorite text editor.</li>
+<li>Copy all of the contents of the pem file and paste it into the certificate field located under the settings for your application on ContextHub.com.</li>
+</ol>
+<p>Now repeat the previous steps, this time start by exporting your Development certificate.</p>
+<h3>The basics</h3>
+<h4>Register For Remote Notifications</h4>
+<p>To register for push notifications you'll need to add one more line of code to your AppDelegate, and you'll need to implement a couple more delegate methods.</p>
+<p>Register your app with Apple</p>
+<p>`objective-c</p>
+<ul>
+<li>(BOOL)application:(UIApplication *)application</li>
+</ul>
+<pre>
+<code>             didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+</code>
+</pre>
+<pre>
+<code>//Register your app
+[ContextHub registerWithAppId:@"823b8648-YOUR-UUID-a653-748d4fff9128"];
+</code>
+</pre>
+<p>[application registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound ];</p>
+<pre>
+<code>return YES;
+</code>
+</pre>
+<p>}</p>
+<ul>
+<li>(void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {</li>
+</ul>
+<pre>
+<code>NSLog(@"Did fail to register %@", error);
+</code>
+</pre>
+<p>}</p>
+<ul>
+<li>(void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {</li>
+</ul>
+<pre>
+<code>CCHNotificationService *sharedService = [CCHNotificationService sharedService];
+  [sharedService registerDeviceToken:deviceToken withCompletion:^(NSError *error) {     
+    if(error) {
+        NSLog(@"%@", error);
+    } else { 
+        NSLog(@"Success :)");
+    }
+}];
+</code>
+</pre>
+<p>}</p>
+<p>`</p>
+<h4>Send a Push</h4>
+<p>TODO:text</p>
+<p>`objective-c</p>
+<pre>
+<code>NSDictionary *userInfo = @{ @"alert":self.messageField.text};
+</code>
+</pre>
+<pre>
+<code>[[CCHNotificationService sharedService] sendAPNSNotificationToDevices:@[@"longdevicetokenhere", @"anotherlongdevicetokenhere"] userInfo:userInfo withCompletion:^(NSError *error) {
+    NSLog(@"Error %@", error);
+}];
+</code>
+</pre>
+<p>`</p>
+<h3>Going Further with Push</h3>
+<p>TODO: text</p>
+<h4>Register with an Alias</h4>
+<p>TODO: text</p>
+<p>`objective-c</p>
+<ul>
+<li>(void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {</li>
+</ul>
+<pre>
+<code>CCHNotificationService *sharedService = [CCHNotificationService sharedService];
+NSString *deviceID = [ContextHub deviceId];
+</code>
+</pre>
+<pre>
+<code>[sharedService registerDeviceToken:deviceToken withAlias:deviceID withCompletion:^(NSError *error) {
+    if(error) {
+        NSLog(@"%@", error);
+    } else { 
+        NSLog(@"Success :)");
+    }
+}];
+</code>
+</pre>
+<p>}</p>
+<p>`</p>
+<h4>Send to an Alias</h4>
+<p>TODO:text</p>
+<p>`objective-c</p>
+<pre>
+<code>NSDictionary *userInfo = @{ @"alert":self.messageField.text};
+</code>
+</pre>
+<pre>
+<code>[[CCHNotificationService sharedService] sendAPNSNotificationToAliases:@[[ContextHub deviceId]] userInfo:userInfo withCompletion:^(NSError *error) {
+    NSLog(@"Error %@", error);
+}];
+</code>
+</pre>
+<p>`</p>
+<h4>Register tags</h4>
+<p>TODO:text</p>
+<p>`objective-c</p>
+<ul>
+<li>(void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {</li>
+</ul>
+<pre>
+<code>CCHNotificationService *sharedService = [CCHNotificationService sharedService];
+NSString *deviceID = [ContextHub deviceId];
+[sharedService registerDeviceToken:deviceToken
+                         withAlias:deviceID
+                           andTags:@[@"tag1", @"tag2"]
+                    withCompletion:^(NSError *error) {
+    if(error) {
+        NSLog(@"%@", error);
+    } else {
+        NSLog(@"Success :)");
+    }
+</code>
+</pre>
+<pre>
+<code>}];  
+</code>
+</pre>
+<p>}</p>
+<p>`</p>
+<h4>Send to Tags</h4>
+<p>TODO:text</p>
+<p>`objective-c</p>
+<pre>
+<code>NSDictionary *userInfo = @{ @"alert":self.messageField.text};
+</code>
+</pre>
+<pre>
+<code>[[CCHNotificationService sharedService] sendAPNSNotificationToTags:@[@"tag1"] userInfo:userInfo withCompletion:^(NSError *error) {
+    NSLog(@"Error %@", error);
+}];
+</code>
+</pre>
+<p>`</p>
+<h3>Send Custom Data</h3>
+<p>`objective-c</p>
+<pre>
+<code>NSDictionary *userInfo = @{@"custom":self.customData.text, @"alert":@"Data was pushed!"};
+</code>
+</pre>
+<pre>
+<code>[[CCHNotificationService sharedService] sendAPNSNotificationToAliases:@[[ContextHub deviceId]] userInfo:userInfo withCompletion:^(NSError *error) {
+    NSLog(@"Error %@", error);
+}];
+</code>
+</pre>
+<p>`</p>
+<h3>Send Badges, Custom Sounds, and Custom Data</h3>
+<p>`objective-c</p>
+<pre>
+<code>NSDictionary *userInfo = @{@"sound":@"techno.aif", @"custom":self.customData.text, @"alert":@"CAN YOU HEAR ME NOW?", @"badge":@"1000"};
+</code>
+</pre>
+<pre>
+<code>[[CCHNotificationService sharedService] sendAPNSNotificationToAliases:@[[ContextHub deviceId]] userInfo:userInfo withCompletion:^(NSError *error) {
+    NSLog(@"Error %@", error);
+}];
+</code>
+</pre>
+<p>`</p>
+<h3>Send Background Push</h3>
+<p>`objective-c</p>
+<pre>
+<code>NSDictionary *userInfo = @{@"content-available":@"1", @"sound":@"", @"custom":self.customData.text, @"alert":@""};
+</code>
+</pre>
+<pre>
+<code>[[CCHNotificationService sharedService] sendAPNSNotificationToAliases:@[[ContextHub deviceId]] userInfo:userInfo withCompletion:^(NSError *error) {
+    NSLog(@"Error %@", error);
+}];
+</code>
+</pre>
+<p>`</p>
+<h2>Vault Cloud Storage</h2>
+<p>If you need to store data that all installations can access, you can use the ContextHub Vault Service. The vault services allows you to store an NSDictionary of strings. When you save items to the vault you put them inside containers. You can think of containers as tables or collections of similar things. For instance, you may want to store artwork in a paintings container, or office addresses in an offices container. It's really up to you.</p>
+<h3>Create an Item</h3>
+<p>To create an item in the vault you must prvide an NSDictionary of the item that you want to save and container name for the item.</p>
+<p>`objective-c</p>
+<pre>
+<code>NSString *containerName = @"paintings";
+NSDictionary *item = @{@"name":self.nameTextField.text};
+[[CCHVaultService sharedService] createItem:item inContainer:containerName completion:^(NSDictionary *carbonResponse, NSError *error) {
+    if (error) {
+        NSLog(@"Error %@", error);
+    } else {
+        NSLog(@"Success %@", carbonResponse);
+    }
+}];
+</code>
+</pre>
+<p>`</p>
+<h3>List All Items</h3>
+<p>To view items in the vault you must provide the container name of the items you want to view.</p>
+<p>`objective-c</p>
+<pre>
+<code>[[CCHVaultService sharedService] getItemsInContainer:@"paintings" completion:^(NSArray *carbonResponses, NSError *error) {
+    if (error) {
+        NSLog(@"Error %@", error);
+    } else {
+        NSLog(@"Success %@", carbonResponse);
+    }
+}];
+</code>
+</pre>
+<p>`</p>
+<p>You'll notice that each of the items returned have a vaultInfo key. The value of the key contains the information that the vault uses to keep track of your items.</p>
+<h3>Update Item</h3>
+<p>To update an items you must either retrieve the item from the SDK TODO:Link TO Item Retrieval, or update an item that was retrieved from the getItemsInContainer:completion method.</p>
+<p>`objective-c</p>
+<pre>
+<code>NSMutableDictionary *item = [NSMutableDictionary dictionaryWithDictionary:self.item];
+[item setObject:self.nameTextField.text forKey:@"name"];
+</code>
+</pre>
+<pre>
+<code>[[CCHVaultService sharedService] updateItem:item completion:^(NSDictionary *carbonResponse, NSError *error) {
+    if (error) {
+        NSLog(@"Error %@",error);
+    } else {
+        NSLog(@"Success %@", carbonResponse);
+    }
+}];
+</code>
+</pre>
+<p>`</p>
+<h3>Delete Item</h3>
+<p>`objective-c</p>
+<pre>
+<code>[[CCHVaultService sharedService] deleteItem:item completion:^(NSDictionary *carbonResponse, NSError *error) {
+    if (!error) {
+        NSLog(@"Item Deleted %@", item);
+    } else {
+        NSLog(@"Error deleting item %@", item);
+    }
+}];
+</code>
+</pre>
+<p>`</p>
+<h3>Adding a File</h3>
+<p>You can also store files with your vault items. To accomplish this, the files will be stored on our S3 sever, and a url to the file will be saved with your item. You will need to create a CCBResource object to describe your file and then save it using the createItem:withResources:inContainer:completion In the following example, we are saving a profile picture with some profile metadata, and saving the item in the profiles container.</p>
+<p>`objective-c</p>
+<pre>
+<code>NSData *imageData = UIImageJPEGRepresentation(profilePicture,.99);
+</code>
+</pre>
+<pre>
+<code>NSString *fileName = @"ProfilePicture.png";
+</code>
+</pre>
+<pre>
+<code>CCHVaultResource *profilePictureResource = [[CCHVaultResource alloc]initWithName:@"profile_picture_url"
+                                                                        fileName:fileName
+                                                                        mimeType:@"image/png"
+                                                                            data:imageData];
+</code>
+</pre>
+<pre>
+<code>NSString *container = @"profiles";
+</code>
+</pre>
+<pre>
+<code>NSDictionary *profileInfo = @{@"name" : @"Your Name",
+                              @"nick_name":@"Bubba"};
+</code>
+</pre>
+<pre>
+<code>[[CCHVaultService sharedService] createItem:profileInfo withResources:@[profilePictureResource] inContainer:container completion:^(NSDictionary *carbonResponse, NSError *error) {
+    if (error) {
+        NSLog(@"Error %@", error);
+    } else {
+        NSLog(@"Success %@", carbonResponse);
+    }
+}];
+</code>
+</pre>
+<p>`</p>
+<h2>Event Dictionary Samples</h2>
+<p>ContextHub supports the following events</p>
+<ul>
+<li>location_changed</li>
+<li>geofence_in</li>
+<li>geofence_out</li>
+<li>beacon_in</li>
+<li>beacon_out</li>
+<li>beacon_changed</li>
+<li>motion_changed</li>
+</ul>
+<p>When these events are triggered, context hub creates an event dictionary containing event, context and user defined data. The following sections will show samples of the different event data structures.</p>
+<p>The basic structure of every event is as follows.</p>
+<p>`</p>
+<p>event = {</p>
+<pre>
+<code>context = (),
+data = {},
+name = "location_changed",
+payload = {}
+</code>
+</pre>
+<p>}</p>
+<p>`</p>
+<ul>
+<li><strong>context</strong> the array contains event data for each of the context types that you have used in your contexts on ContextHub.</li>
+<li><strong>data</strong> the dictionary of data that is associated with the triggering event. The data object are shown in the sections to follow.</li>
+<li><strong>name</strong> this is the name of the triggering event. This name will match the event_types on ContextHub.</li>
+<li><strong>payload</strong> this is the user defined data that can be supplied in the CCBContextEventManagerDatasource protocol.</li>
+</ul>
+<p>Here's an example of an actual event dictionary that was written to the console:</p>
+<p>`</p>
+<p>{</p>
+<pre>
+<code>event =     {
+    context =         (
+                    {
+            "location_context" =                 {
+                "location_context" =                     {
+                    altitude = 0;
+                    course = 0;
+                    datetime = "2014-03-26 20:07:41 +0000";
+                    "device_id" = "BEE8D95B-01FF-4835-8A71-F1D89A39771C";
+                    latitude = 0;
+                    longitude = 0;
+                    speed = 0;
+                };
+            };
+        },
+                    {
+            "motion_context" =                 {
+            };
+        },
+                    {
+            "device_context" =                 {
+                "device_id" = "BEE8D95B-01FF-4835-8A71-F1D89A39771C";
+                model = "iPhone Simulator";
+                name = "iPhone Simulator";
+                "system_name" = "iPhone OS";
+                "system_version" = "7.1";
+                type = iPhone;
+            };
+        }
+    );
+    data =         {
+        altitude = 0;
+        course = 0;
+        datetime = "2014-03-26 20:07:41 +0000";
+        "device_id" = "BEE8D95B-01FF-4835-8A71-F1D89A39771C";
+        latitude = 0;
+        longitude = 0;
+        speed = 0;
+    };
+    name = "location_changed";
+    payload =         {
+    };
+};
+</code>
+</pre>
+<p>}</p>
+<p>`</p>
+<h3>Location Changed</h3>
+<p>When a location changed event is detected, this is the data that is collected from the event.</p>
+<p>`</p>
+<p>data = {</p>
+<pre>
+<code>altitude = 0;
+course = 0;
+datetime = "2014-03-26 20:07:41 +0000";
+"device_id" = "BEE8D95B-01FF-4835-8A71-F1D89A39771C";
+latitude = 0;
+longitude = 0;
+speed = 0;
+</code>
+</pre>
+<p>};</p>
+<p>`</p>
+<h3>Geofence In/Out</h3>
+<p>The data structure for geofence in/out events are the same except for the state value.</p>
+<p>`</p>
+<p>data = {</p>
+<pre>
+<code>altitude = 0;
+course = "-1";
+datetime = "2014-03-26 21:20:24 +0000";
+"device_id" = "BEE8D95B-01FF-4835-8A71-F1D89A39771C";
+fence = {
+        id = sandcreek;
+        latitude = "30.054381";
+        longitude = "-95.17071199999999";
+        radius = 100;
+};
+latitude = "30.054381";
+longitude = "-95.17071";
+speed = "-1";
+state = "geofence_in";
+</code>
+</pre>
+<p>};</p>
+<p>`</p>
+<h3>Beacon In/Out</h3>
+<p>The beacon in/out events are identical except for the state property.</p>
+<p>`</p>
+<p>data = {</p>
+<pre>
+<code>altitude = "21.54464340209961";
+beacon = {
+        major = "";
+        minor = "";
+        name = JP;
+        uuid = "E2C56DB5-DFFB-48D2-B060-8876223462A3";
+};
+course = "-1";
+datetime = "2014-03-26 20:38:20 +0000";
+"device_id" = "27AC62BF-C149-43B4-88DC-1C203ECA5DF3";
+latitude = "30.05432790613738";
+longitude = "-95.17062616543394";
+speed = 0;
+state = "beacon_in";
+</code>
+</pre>
+<p>}</p>
+<p>`</p>
+<h3>Beacon Changed</h3>
+<p>The beach changed state is triggered when an iBeacon changes proximity.</p>
+<p>`</p>
+<p>data = {</p>
+<pre>
+<code>altitude = "18.16732978820801";
+beacon = {
+        major = 32872;
+        minor = 7821;
+        proximity = "immediate_state";
+        rssi = "-40";
+        uuid = "E2C56DB5-DFFB-48D2-B060-8876223462A3";
+};
+course = "-1";
+datetime = "2014-03-26 20:53:05 +0000";
+"device_id" = "27AC62BF-C149-43B4-88DC-1C203ECA5DF3";
+latitude = "30.05434992720021";
+longitude = "-95.17065884947016";
+speed = "-1";
+state = "immediate_state";
+</code>
+</pre>
+<p>};</p>
+<p>`</p>
+<p>The states that you can expect are:</p>
+<ul>
+<li>far_sate</li>
+<li>near_sate</li>
+<li>immediate_sate</li>
+</ul>
+<p>NOTE: The beacon data structure is slightly different in the beacon_changed event than it is in the beacon_in/out events. This is because when you determine the distance to a beacon, know as ranging a beacon, you are always given the major, minor, and rssi values of the .</p>
+<h3>Motion Changed</h3>
+<p>The motion changed data shows current and previous activity information.</p>
+<p>`</p>
+<p>data = {</p>
+<pre>
+<code>"current_activity" = {
+        activities = (
+                stationary
+        );
+        confidence = 2;
+        "start_date" = "2014-03-26 21:32:51 +0000";
+};
+"previous_activity" = {
+        activities = (
+                stationary
+        );
+        confidence = 1;
+        "start_date" = "2014-03-26 21:32:48 +0000";
+};
+</code>
+</pre>
+<p>};</p>
+<p>`</p>
+<h2>NSNotifications</h2>
+<p>Context hub also posts notifications when throughout the lifecycle of an event. This gives you an opportunity to update your UI based on triggered events.</p>
+<p>TODO:code</p>
+<hr />
+<h2>Resources and Samples</h2>
+<ul>
+<li>Mac App iBeacon: <a href="https://github.com/lgaches/BeaconEmitter">BeaconEmitter</a></li>
+<li>iOS App iBeacon: <a href="https://github.com/chaione/beacon">beacon</a></li>
+</ul>
+<h2>p12 to pem</h2>
+<p>`</p>
+<p>openssl pkcs12 -in Certificates.p12 -out certificate.pem -nodes -clcerts</p>
+<p>`</p>
+<h2>SDK Docs</h2>
+<p>http://chaione.github.io/carbon-black-ios/</p>
+</body>
+</html>

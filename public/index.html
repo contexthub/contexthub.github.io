@@ -56,7 +56,7 @@
         <ul class="side-nav">
           <li><h4>DOCUMENTATION</h4></li>
           <li><a data-scroll data-options="easing: easeInQuad" href="#getting-started">Getting Started</a></li>
-          <li><a data-scroll data-options="easing: easeInQuad" href="#podfile">Podfile</a></li>
+          <li><a data-scroll data-options="easing: easeInQuad" href="#installation">Installation</a></li>
           <li><a data-scroll data-options="easing: easeInQuad" href="#registration">Registration</a></li>
           <li><a data-scroll data-options="easing: easeInQuad" href="#adding-custom-data-to-events">Adding custom data to events</a></li>
           <li><a data-scroll data-options="easing: easeInQuad" href="#cancel-an-event">Cancel an event</a></li>
@@ -76,49 +76,40 @@
         <div class="row">
           <div class="large-6 columns">
             <img src="img/contexthub-1.png" alt="Context Hub" class="getting-started-image ">
-            <h3 class="getting-started-content" style="margin-top:20px;">Getting Started</h3>
+            <h3 class="getting-started-content" style="margin-top:20px;">ContextHub.com</h3>
             <p class="getting-started-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus consequat rutrum consequat. Pellentesque ac arcu vitae urna vehicula pretium. Vestibulum volutpat odio risus, at fringilla urna laoreet sed. Mauris id convallis leo. Sed sed rutrum velit, vitae imperdiet metus.</p>
           </div>
                       
           <div class="large-6 columns">
             <img src="img/contexthub-2.png" alt="Context Hub" class="getting-started-image ">
-            <h3 class="getting-started-content" style="margin-top:20px;">Getting Started</h3>
-            <p class="getting-started-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus consequat rutrum consequat. Pellentesque ac arcu vitae urna vehicula pretium. Vestibulum volutpat odio risus, at fringilla urna laoreet sed. Mauris id convallis leo. Sed sed rutrum velit, vitae imperdiet metus.</p>
+            <h3 class="getting-started-content" style="margin-top:20px;">Install And Register</h3>
+            <p class="getting-started-description">
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus consequat rutrum consequat. Pellentesque ac arcu vitae urna vehicula pretium. Vestibulum volutpat odio risus, at fringilla urna laoreet sed. Mauris id convallis leo. Sed sed rutrum velit, vitae imperdiet metus.</p>
           </div>
 
         </div>
 
         <hr>
-
-        <span id="podfile"></span>
-        <h3>Podfile</h3>
-        <p>Praesent eget dictum tortor. Proin nec gravida sem, vitae consectetur libero. Phasellus sit amet porta justo, sit amet luctus risus. Nam ut turpis vulputate, aliquet odio eu, varius velit. Aliquam feugiat, nisi a adipiscing sagittis, enim lacus viverra velit, nec vehicula lectus erat id dui. Integer luctus dolor at diam dapibus, ac ultrices dui pulvinar. Curabitur in neque quis tortor molestie ullamcorper sed ut purus. Duis congue eros enim, vel blandit erat posuere nec. Donec a leo elementum, aliquam diam sit amet, imperdiet leo. Praesent imperdiet magna eget nulla consequat, sed luctus dui imperdiet. Morbi blandit sit amet quam eget pulvinar. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum quis tortor tortor. Vestibulum aliquam sapien quam, nec tempor massa congue sodales. Ut orci turpis, vehicula eu est in, consequat ullamcorper sapien. Aliquam nec sapien vel metus mattis aliquet et quis arcu.</p>
-
-        <div class="panel" style="overflow:auto;">
-          <pre>- (BOOL)application:(UIApplication *)application 
-            didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-
-    //Register your client and your app
-    [CarbonBlack registerWithAppId:@"823b8648-2ff8-451d-a653-748d4fff9128"];
-
-    return YES;
-}          </pre>
-        </div>
+	
+        <span id="installation"></span>
+        <h3>Installation </h3>
+        <p>
+					The quickest way to install the ContextHub SDK is to use the cocoapod. Your Podfile should look something like this.
+				</p>
+				
+				<script src="https://gist.github.com/Kevinwlee/9807843.js"></script>
+				<p>You can find out more about cocoapods at <a href="http://cocoapods.org/">http://cocoapods.org/</a>. You can also watch an NSScreencast about cocoapods here <a href="http://nsscreencast.com/episodes/5-cocoapods">http://nsscreencast.com/episodes/5-cocoapods</a>.</p>
 
         <hr>
 
         <span id="registration"></span>
         <h3>Registration</h3>
-        <p>Praesent eget dictum tortor. Proin nec gravida sem, vitae consectetur libero. Phasellus sit amet porta justo, sit amet luctus risus. Nam ut turpis vulputate, aliquet odio eu, varius velit. Aliquam feugiat, nisi a adipiscing sagittis, enim lacus viverra velit, nec vehicula lectus erat id dui. Integer luctus dolor at diam dapibus, ac ultrices dui pulvinar. Curabitur in neque quis tortor molestie ullamcorper sed ut purus. Duis congue eros enim, vel blandit erat posuere nec. Donec a leo elementum, aliquam diam sit amet, imperdiet leo. Praesent imperdiet magna eget nulla consequat, sed luctus dui imperdiet. Morbi blandit sit amet quam eget pulvinar. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum quis tortor tortor. Vestibulum aliquam sapien quam, nec tempor massa congue sodales. Ut orci turpis, vehicula eu est in, consequat ullamcorper sapien. Aliquam nec sapien vel metus mattis aliquet et quis arcu.</p>
-      
-        <div class="panel" style="overflow:auto;">
-          <pre>#pragma mark - CCBContextEventManagerDataSource
-
-- (NSDictionary *)contextEventMangaer:(CCBContextEventManager *)eventManager payloadForEvent:(NSDictionary *)event {   
-    return @{@"first_name":@"Kevin", @"last_name":@"Lee"};
-}</pre>
-        </div>
-
+				<p>Before you can use the ContextHub SDK, you need to register your Application Id with the SDK. Your Application Id can be found on ContextHub.com. The Application Id is the GUID that is found next to your application name.</p>
+				<p>You need to register your Application Id in the application:didFinishLaunchingWithOptions method of you AppDelegate.</p>
+				<script src="https://gist.github.com/Kevinwlee/9808130.js"></script>
+				<p>The SDK will <strong>throw an exception</strong> if you attempt to use the SDK without registering your Application Id first.</p>
+				<p>After you have installed the SDK and registered your Application Id, you are done. The SDK will communicate with context service on ContextHub. It will automatically register the services that are needed for your contexts, and it will notify ContextHub as contextual events occur.</p>				
+				
         <hr>
 
         <span id="adding-custom-data-to-events"></span>
