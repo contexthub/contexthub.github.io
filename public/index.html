@@ -369,38 +369,33 @@
 				
 				<h3>find</h3>
 				<p>The <em>find</em> method takes one argument, the id of the vault. It returns the vault object with that id.</p>
-				<pre>
-					<code>
-						data = vault.find(3)
-					</code>
-				</pre>
+				<div class="panel" style="overflow:auto;">
+					<pre>data = vault.find(3)</pre>
+				</div>
 				
 				<h3>create</h3>
 				<p>The <em>create</em> method takes two arguments, the data's container and the data that you want to save.</p>
-				<pre>
-					<code>
-						vault.create('superheros', {'name': 'Batman'}
-					</code>
-				</pre>
+				<div class="panel" style="overflow:auto;">
+					<pre>vault.create('superheros', {'name': 'Batman'}</pre>
+				</div>
 
 				<h3>update</h3>
 				<p>The <em>update</em> method takes two arguments, the id of the vault and the data to update the vault with.</p>
-				<pre>
-					<code>
-						data = vault.find(3)
-						data.name = 'Superman'
-						vault.update(3, data)
-					</code>
-				</pre>
+				<div class="panel" style="overflow:auto;">
+					<pre>data = vault.find(3)
+data.name = 'Superman'
+vault.update(3, data)
+					</pre>
+				</div>
+				
 				
 				<h3>count</h3>
 				<p>The <em>count</em> method takes one argument, the data's container and returns the number of items that have a container of the same name.</p>
-				<pre>
-					<code>count = vault.count('superheros')
-					</code>
-				</pre>
-				
-				
+        <div class="panel" style="overflow:auto;">
+					<pre>count = vault.count('superheros')</pre>				
+        </div>				
+
+
 				<hr>
 				<a data-scroll href="#top">Back to top</a>
 				<hr>
