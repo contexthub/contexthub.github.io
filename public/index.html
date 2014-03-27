@@ -343,12 +343,65 @@
 
 				<script src="https://gist.github.com/Kevinwlee/9815606.js"></script>
 				
+				
 				<hr>
-				<span id="javascript-rules">
+				<span id="javascript-rules"></span>
 				<h3>Context Rules</h3>
 				
+				<p>When you create context rules on ContextHub.com, you will pick an event type and a web hook, and then you'll write some javascript to determine if the web hook should be called.  This section is about what you can do inside the context rule textbox.</p>				
+				
+				<p>You can think of the context rule text box as the inside of a javascript function that will get evaluated every time the Context Service receives an event for the specified event type.  The function has a three objects that that give you access to the ContextHub services.</p>
+				
+				<ul>
+					<li><strong>event</strong> - contains a json representation of all of the event data.</li>
+					<li><strong>push</strong> - an object that you can use to send push notifications</li>
+					<li><strong>vault</strong> - an object that lets you work with vault data</li>
+				</ul>
+				
+				<script src="https://gist.github.com/Kevinwlee/9818119.js"></script>
+				
+				<h3>Event Object</h3>
+				<p>You can use the data in the event object to make contextual decisions on what actions you want to take.  You access the properties through dot notation just as you do in a javascript file.  Below is a sample json event for a geofence_in.</p>
+				<script src="https://gist.github.com/Kevinwlee/9818234.js"></script>
+				
+				<h3>Vault Object</h3>
+				<p>The vault object lets you access the vault to help you make contextual decisions.  You can find, update, create, and count vault items.</p>
+				
+				<h3>find</h3>
+				<p>The <em>find</em> method takes one argument, the id of the vault. It returns the vault object with that id.</p>
+				<pre>
+					<code>
+						data = vault.find(3)
+					</code>
+				</pre>
+				
+				<h3>create</h3>
+				<p>The <em>create</em> method takes two arguments, the data's container and the data that you want to save.</p>
+				<pre>
+					<code>
+						vault.create('superheros', {'name': 'Batman'}
+					</code>
+				</pre>
+
+				<h3>update</h3>
+				<p>The <em>update</em> method takes two arguments, the id of the vault and the data to update the vault with.</p>
+				<pre>
+					<code>
+						data = vault.find(3)
+						data.name = 'Superman'
+						vault.update(3, data)
+					</code>
+				</pre>
+				
+				<h3>count</h3>
+				<p>The <em>count</em> method takes one argument, the data's container and returns the number of items that have a container of the same name.</p>
+				<pre>
+					<code>count = vault.count('superheros')
+					</code>
+				</pre>
 				
 				
+				<hr>
 				<a data-scroll href="#top">Back to top</a>
 				<hr>
 			</div>
