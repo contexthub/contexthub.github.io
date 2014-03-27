@@ -57,7 +57,9 @@
 					<li><a data-scroll data-options="easing: easeInQuad" href="#vault-list">Retrieving Items</a></li>
 					<li><a data-scroll data-options="easing: easeInQuad" href="#vault-update">Updating an Item</a></li>
 					<li><a data-scroll data-options="easing: easeInQuad" href="#vault-delete">Deleting an Item</a></li>
-					<li><a data-scroll data-options="easing: easeInQuad" href="#vault-resource">Adding Files</a></li>					
+					<li><a data-scroll data-options="easing: easeInQuad" href="#vault-resource">Adding Files</a></li>	
+					<li><a data-scroll data-options="easing: easeInQuad" href="#dictionary-samples">Event Structures</a></li>	
+					<li><a data-scroll data-options="easing: easeInQuad" href="#javascript-rules">Context Rules</a></li>				
         </ul>
       </div>
     </div>
@@ -88,6 +90,9 @@
 					<li><a data-scroll data-options="easing: easeInQuad" href="#vault-update">Updating an Item</a></li>
 					<li><a data-scroll data-options="easing: easeInQuad" href="#vault-delete">Deleting an Item</a></li>
 					<li><a data-scroll data-options="easing: easeInQuad" href="#vault-resource">Adding Files</a></li>
+					<li><a data-scroll data-options="easing: easeInQuad" href="#dictionary-samples">Event Structures</a></li>	
+					<li><a data-scroll data-options="easing: easeInQuad" href="#javascript-rules">Context Rules</a></li>				
+					
         </ul>
       </div>
 
@@ -279,6 +284,68 @@
 				<p>You can also store files with your vault items. To accomplish this, the files will be stored on our S3 sever, and a url to the file will be saved with your item. You will need to create a CCBResource object to describe your file and then save it using the createItem:withResources:inContainer:completion In the following example, we are saving a profile picture with some profile metadata, and saving the item in the profiles container.</p>
 				
 				<script src="https://gist.github.com/Kevinwlee/9815294.js"></script>
+				
+				<hr>
+				<span id="dictionary-samples"></span>				
+				<h3>Event NSDictionary Samples</h3>
+				<p>When these events are triggered, context hub creates an event dictionary containing event, context and user defined data. The following sections will show samples of the different event data structures.</p>
+				<p>The basic structure of every event is as follows.</p>
+
+				<script src="https://gist.github.com/Kevinwlee/9815525.js"></script>
+
+				<ul>
+				<li><strong>context</strong> the array contains event data for each of the context types that you have used in your contexts on ContextHub.</li>
+				<li><strong>data</strong> the dictionary of data that is associated with the triggering event. The data object are shown in the sections to follow.</li>
+				<li><strong>name</strong> this is the name of the triggering event. This name will match the event_types on ContextHub.</li>
+				<li><strong>payload</strong> this is the user defined data that can be supplied in the CCBContextEventManagerDatasource protocol.</li>
+				</ul>
+
+				<p>Here's an example of an actual event dictionary that was written to the console:</p>
+
+				<script src="https://gist.github.com/Kevinwlee/9815536.js"></script>
+				
+				<hr>
+				<h3>Location Changed</h3>
+				<p>When a location changed event is detected, this is the data that is collected from the event.</p>
+
+				<script src="https://gist.github.com/Kevinwlee/9815561.js"></script>
+
+				<hr>
+				<h3>Geofence In/Out</h3>
+				<p>The data structure for geofence in/out events are the same except for the state value.</p>
+
+				<script src="https://gist.github.com/Kevinwlee/9815570.js"></script>
+				
+				<hr>
+				<h3>Beacon In/Out</h3>
+				<p>The beacon in/out events are identical except for the state property.</p>
+
+				<script src="https://gist.github.com/Kevinwlee/9815581.js"></script>
+				
+				<hr>
+				<h3>Beacon Changed</h3>
+				<p>The beach changed state is triggered when an iBeacon changes proximity.</p>
+
+				<script src="https://gist.github.com/Kevinwlee/9815592.js"></script>
+
+				<p>The states that you can expect are:</p>
+				<ul>
+					<li>far_sate</li>
+					<li>near_sate</li>
+					<li>immediate_sate</li>
+				</ul>
+
+				<p>NOTE: The beacon data structure is slightly different in the beacon_changed event than it is in the beacon_in/out events. This is because when you determine the distance to a beacon, know as ranging a beacon, you are always given the major, minor, and rssi values of the .</p>
+				
+				<hr>
+				<h3>Motion Changed</h3>
+				<p>The motion changed data shows current and previous activity information.</p>
+
+				<script src="https://gist.github.com/Kevinwlee/9815606.js"></script>
+				
+				<hr>
+				<span id="javascript-rules">
+				<h3>Context Rules</h3>
 				
 				
 				

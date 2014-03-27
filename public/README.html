@@ -133,217 +133,56 @@ code
 <!--above has been added -->
 
 
-<h2>Event NSDictionary Samples</h2>
-<p>ContextHub supports the following events</p>
-<ul>
-<li>location_changed</li>
-<li>geofence_in</li>
-<li>geofence_out</li>
-<li>beacon_in</li>
-<li>beacon_out</li>
-<li>beacon_changed</li>
-<li>motion_changed</li>
-</ul>
+<h3>Event NSDictionary Samples</h3>
 <p>When these events are triggered, context hub creates an event dictionary containing event, context and user defined data. The following sections will show samples of the different event data structures.</p>
 <p>The basic structure of every event is as follows.</p>
-<p>`</p>
-<p>event = {</p>
-<pre>
-<code>context = (),
-data = {},
-name = "location_changed",
-payload = {}
-</code>
-</pre>
-<p>}</p>
-<p>`</p>
+
+code
+
 <ul>
 <li><strong>context</strong> the array contains event data for each of the context types that you have used in your contexts on ContextHub.</li>
 <li><strong>data</strong> the dictionary of data that is associated with the triggering event. The data object are shown in the sections to follow.</li>
 <li><strong>name</strong> this is the name of the triggering event. This name will match the event_types on ContextHub.</li>
 <li><strong>payload</strong> this is the user defined data that can be supplied in the CCBContextEventManagerDatasource protocol.</li>
 </ul>
+
 <p>Here's an example of an actual event dictionary that was written to the console:</p>
-<p>`</p>
-<p>{</p>
-<pre>
-<code>event =     {
-    context =         (
-                    {
-            "location_context" =                 {
-                "location_context" =                     {
-                    altitude = 0;
-                    course = 0;
-                    datetime = "2014-03-26 20:07:41 +0000";
-                    "device_id" = "BEE8D95B-01FF-4835-8A71-F1D89A39771C";
-                    latitude = 0;
-                    longitude = 0;
-                    speed = 0;
-                };
-            };
-        },
-                    {
-            "motion_context" =                 {
-            };
-        },
-                    {
-            "device_context" =                 {
-                "device_id" = "BEE8D95B-01FF-4835-8A71-F1D89A39771C";
-                model = "iPhone Simulator";
-                name = "iPhone Simulator";
-                "system_name" = "iPhone OS";
-                "system_version" = "7.1";
-                type = iPhone;
-            };
-        }
-    );
-    data =         {
-        altitude = 0;
-        course = 0;
-        datetime = "2014-03-26 20:07:41 +0000";
-        "device_id" = "BEE8D95B-01FF-4835-8A71-F1D89A39771C";
-        latitude = 0;
-        longitude = 0;
-        speed = 0;
-    };
-    name = "location_changed";
-    payload =         {
-    };
-};
-</code>
-</pre>
-<p>}</p>
-<p>`</p>
+
+code
+
 <h3>Location Changed</h3>
 <p>When a location changed event is detected, this is the data that is collected from the event.</p>
-<p>`</p>
-<p>data = {</p>
-<pre>
-<code>altitude = 0;
-course = 0;
-datetime = "2014-03-26 20:07:41 +0000";
-"device_id" = "BEE8D95B-01FF-4835-8A71-F1D89A39771C";
-latitude = 0;
-longitude = 0;
-speed = 0;
-</code>
-</pre>
-<p>};</p>
-<p>`</p>
+
+code
+
 <h3>Geofence In/Out</h3>
 <p>The data structure for geofence in/out events are the same except for the state value.</p>
-<p>`</p>
-<p>data = {</p>
-<pre>
-<code>altitude = 0;
-course = "-1";
-datetime = "2014-03-26 21:20:24 +0000";
-"device_id" = "BEE8D95B-01FF-4835-8A71-F1D89A39771C";
-fence = {
-        id = sandcreek;
-        latitude = "30.054381";
-        longitude = "-95.17071199999999";
-        radius = 100;
-};
-latitude = "30.054381";
-longitude = "-95.17071";
-speed = "-1";
-state = "geofence_in";
-</code>
-</pre>
-<p>};</p>
-<p>`</p>
+
+code
+
 <h3>Beacon In/Out</h3>
 <p>The beacon in/out events are identical except for the state property.</p>
-<p>`</p>
-<p>data = {</p>
-<pre>
-<code>altitude = "21.54464340209961";
-beacon = {
-        major = "";
-        minor = "";
-        name = JP;
-        uuid = "E2C56DB5-DFFB-48D2-B060-8876223462A3";
-};
-course = "-1";
-datetime = "2014-03-26 20:38:20 +0000";
-"device_id" = "27AC62BF-C149-43B4-88DC-1C203ECA5DF3";
-latitude = "30.05432790613738";
-longitude = "-95.17062616543394";
-speed = 0;
-state = "beacon_in";
-</code>
-</pre>
-<p>}</p>
-<p>`</p>
+
+code
+
 <h3>Beacon Changed</h3>
 <p>The beach changed state is triggered when an iBeacon changes proximity.</p>
-<p>`</p>
-<p>data = {</p>
-<pre>
-<code>altitude = "18.16732978820801";
-beacon = {
-        major = 32872;
-        minor = 7821;
-        proximity = "immediate_state";
-        rssi = "-40";
-        uuid = "E2C56DB5-DFFB-48D2-B060-8876223462A3";
-};
-course = "-1";
-datetime = "2014-03-26 20:53:05 +0000";
-"device_id" = "27AC62BF-C149-43B4-88DC-1C203ECA5DF3";
-latitude = "30.05434992720021";
-longitude = "-95.17065884947016";
-speed = "-1";
-state = "immediate_state";
-</code>
-</pre>
-<p>};</p>
-<p>`</p>
+
+code
+
 <p>The states that you can expect are:</p>
 <ul>
-<li>far_sate</li>
-<li>near_sate</li>
-<li>immediate_sate</li>
+	<li>far_sate</li>
+	<li>near_sate</li>
+	<li>immediate_sate</li>
 </ul>
+
 <p>NOTE: The beacon data structure is slightly different in the beacon_changed event than it is in the beacon_in/out events. This is because when you determine the distance to a beacon, know as ranging a beacon, you are always given the major, minor, and rssi values of the .</p>
+
 <h3>Motion Changed</h3>
 <p>The motion changed data shows current and previous activity information.</p>
-<p>`</p>
-<p>data = {</p>
-<pre>
-<code>"current_activity" = {
-        activities = (
-                stationary
-        );
-        confidence = 2;
-        "start_date" = "2014-03-26 21:32:51 +0000";
-};
-"previous_activity" = {
-        activities = (
-                stationary
-        );
-        confidence = 1;
-        "start_date" = "2014-03-26 21:32:48 +0000";
-};
-</code>
-</pre>
-<p>};</p>
-<p>`</p>
-<h2>NSNotifications</h2>
-<p>Context hub also posts notifications when throughout the lifecycle of an event. This gives you an opportunity to update your UI based on triggered events.</p>
-<p>TODO:code</p>
-<hr />
-<h2>Resources and Samples</h2>
-<ul>
-<li>Mac App iBeacon: <a href="https://github.com/lgaches/BeaconEmitter">BeaconEmitter</a></li>
-<li>iOS App iBeacon: <a href="https://github.com/chaione/beacon">beacon</a></li>
-</ul>
-<h2>p12 to pem</h2>
-<p>`</p>
-<p>openssl pkcs12 -in Certificates.p12 -out certificate.pem -nodes -clcerts</p>
-<p>`</p>
-<h2>SDK Docs</h2>
-<p>http://chaione.github.io/carbon-black-ios/</p>
+
+code
+
 </body>
 </html>
