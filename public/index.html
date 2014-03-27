@@ -59,7 +59,7 @@
           <li><a data-scroll data-options="easing: easeInQuad" href="#installation">Installation</a></li>
           <li><a data-scroll data-options="easing: easeInQuad" href="#registration">Registration</a></li>
           <li><a data-scroll data-options="easing: easeInQuad" href="#adding-custom-data-to-events">Adding custom data to events</a></li>
-          <li><a data-scroll data-options="easing: easeInQuad" href="#cancel-an-event">Cancel an event</a></li>
+          <li><a data-scroll data-options="easing: easeInQuad" href="#event-lifecycle">Event lifecycle</a></li>
           <li><a data-scroll data-options="easing: easeInQuad" href="#working-with-events">Working with events</a></li>
           <li><a data-scroll data-options="easing: easeInQuad" href="#background-updates">Background updates</a></li>
         </ul>
@@ -111,38 +111,26 @@
 				<p>After you have installed the SDK and registered your Application Id, you are done. The SDK will communicate with context service on ContextHub. It will automatically register the services that are needed for your contexts, and it will notify ContextHub as contextual events occur.</p>				
 				
         <hr>
-
+				
+				<h3>The Event Pipeline</h3>
+				<p>If you want to hook into the events that are triggered by the SDK, the SDK provides DataSource and Delegate protocols that you can implement.</p>
+								
         <span id="adding-custom-data-to-events"></span>
         <h3>Adding custom data to events</h3>
-        <p>Praesent eget dictum tortor. Proin nec gravida sem, vitae consectetur libero. Phasellus sit amet porta justo, sit amet luctus risus. Nam ut turpis vulputate, aliquet odio eu, varius velit. Aliquam feugiat, nisi a adipiscing sagittis, enim lacus viverra velit, nec vehicula lectus erat id dui. Integer luctus dolor at diam dapibus, ac ultrices dui pulvinar. Curabitur in neque quis tortor molestie ullamcorper sed ut purus. Duis congue eros enim, vel blandit erat posuere nec. Donec a leo elementum, aliquam diam sit amet, imperdiet leo. Praesent imperdiet magna eget nulla consequat, sed luctus dui imperdiet. Morbi blandit sit amet quam eget pulvinar. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum quis tortor tortor. Vestibulum aliquam sapien quam, nec tempor massa congue sodales. Ut orci turpis, vehicula eu est in, consequat ullamcorper sapien. Aliquam nec sapien vel metus mattis aliquet et quis arcu.</p>
+        <p>The DataSource protocol gives you the ability to add data to the Event. The data will be accessible on in the server-side context rule in the <em>event.payload</em> property.</p>
 
-        <div class="panel" style="overflow:auto;">
-          <pre>#pragma mark - CCBContextEventManagerDataSource
-
-- (NSDictionary *)contextEventMangaer:(CCBContextEventManager *)eventManager payloadForEvent:(NSDictionary *)event {   
-    return @{@"first_name":@"Kevin", @"last_name":@"Lee"};
-}</pre>
-        </div>
+        <script src="https://gist.github.com/Kevinwlee/9808727.js"></script>
 
         <hr>
 
-        <span id="cancel-an-event"></span>
-        <h3>Cancel an event</h3>
-        <p>Praesent eget dictum tortor. Proin nec gravida sem, vitae consectetur libero. Phasellus sit amet porta justo, sit amet luctus risus. Nam ut turpis vulputate, aliquet odio eu, varius velit. Aliquam feugiat, nisi a adipiscing sagittis, enim lacus viverra velit, nec vehicula lectus erat id dui. Integer luctus dolor at diam dapibus, ac ultrices dui pulvinar. Curabitur in neque quis tortor molestie ullamcorper sed ut purus. Duis congue eros enim, vel blandit erat posuere nec. Donec a leo elementum, aliquam diam sit amet, imperdiet leo. Praesent imperdiet magna eget nulla consequat, sed luctus dui imperdiet. Morbi blandit sit amet quam eget pulvinar. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum quis tortor tortor. Vestibulum aliquam sapien quam, nec tempor massa congue sodales. Ut orci turpis, vehicula eu est in, consequat ullamcorper sapien. Aliquam nec sapien vel metus mattis aliquet et quis arcu.</p>
-
-        <div class="panel" style="overflow:auto;">
-          <pre>#pragma mark - CCBContextEventManagerDelegate
-
-- (BOOL)contextEventManager:(CCBContextEventManager *)eventManager shouldPostEvent:(NSDictionary *)event {
-    if(event[@"key"] == @"notImportant") {
-        return NO;
-    } else {
-        return YES;
-    }
-}        </pre>
-
-        </div>
-
+        <span id="event-lifecycle"></span>
+        <h3>Event Lifecycle</h3>
+				<p>The Delegate protocol is called during the lifecycle of the event. It also gives you a way to cancel an event to keep it from posting to the server.</p>
+				
+				<script src="https://gist.github.com/Kevinwlee/9808880.js"></script>
+				<script src="https://gist.github.com/Kevinwlee/9809003.js"></script>				
+				<p>To keep an event from being sent you can implement contextEventManager:shouldPostEvent.</p>
+				<script src="https://gist.github.com/Kevinwlee/72f2594cfa15885866e4.js"></script>
         <hr>
 
         <span id="working-with-events"></span>
