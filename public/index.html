@@ -57,7 +57,7 @@
             <li><a data-scroll data-options="easing: easeInQuad" href="#certificates">Push Notifications</a></li>
             <li><a data-scroll data-options="easing: easeInQuad" href="#vault">Vault</a></li>
             <li><a data-scroll data-options="easing: easeInQuad" href="#dictionary-samples">Event Definitions</a></li>
-            <li><a data-scroll data-options="easing: easeInQuad" href="#javascript-rules">Javascript Rules</a></li>				
+            <li><a data-scroll data-options="easing: easeInQuad" href="#javascript-rules">Javascript Rules</a></li>
         </ul>
       </div>
 
@@ -73,14 +73,22 @@
           <div class="large-6 columns">
             <img src="img/contexthub-1.png" alt="Context Hub" class="getting-started-image ">
             <h3 class="getting-started-content" style="margin-top:20px;">ContextHub.com</h3>
-            <p class="getting-started-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus consequat rutrum consequat. Pellentesque ac arcu vitae urna vehicula pretium. Vestibulum volutpat odio risus, at fringilla urna laoreet sed. Mauris id convallis leo. Sed sed rutrum velit, vitae imperdiet metus.</p>
+            <p class="getting-started-description">
+              Getting started is simple.
+            </p>
+            <ol>
+              <li>Sign Up</li>
+              <li>Create an App</li>
+              <li>Create a context</li>
+
           </div>
 
           <div class="large-6 columns">
             <img src="img/contexthub-2.png" alt="Context Hub" class="getting-started-image ">
             <h3 class="getting-started-content" style="margin-top:20px;">Install And Register</h3>
             <p class="getting-started-description">
-	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus consequat rutrum consequat. Pellentesque ac arcu vitae urna vehicula pretium. Vestibulum volutpat odio risus, at fringilla urna laoreet sed. Mauris id convallis leo. Sed sed rutrum velit, vitae imperdiet metus.</p>
+                After you have created your app on ContextHub, you are ready to get started with the SDK.  Install the SDK and register you application id, and you will be up an running with ContextHub.
+            </p>
           </div>
 
         </div>
@@ -100,10 +108,10 @@
 
         <span id="registration"></span>
         <h3>Registration</h3>
-				<p>Before you can use the ContextHub SDK, you need to register your Application Id with the SDK. Your Application Id can be found on ContextHub.com. The Application Id is the GUID that is found next to your application name.</p>
-				<p>You need to register your Application Id in the application:didFinishLaunchingWithOptions method of you AppDelegate.</p>
+				<p>To get started with ContextHub you need to register your Application Id with the context service. Your Application Id can be found on app.contexthub.com. The Application Id is the GUID that is found next to your application name.</p>
+				<p>The best place to register your application is in he application:didFinishLaunchingWithOptions method of you AppDelegate.</p>
 				<script src="https://gist.github.com/Kevinwlee/9808130.js"></script>
-				<p>The SDK will <strong>throw an exception</strong> if you attempt to use the SDK without registering your Application Id first.</p>
+				<p>The SDK will <strong>throw an exception</strong> if you attempt to use any of the Contexthub services without registering your Application Id first.</p>
 				<p>After you have installed the SDK and registered your Application Id, you are done. The SDK will communicate with context service on ContextHub. It will automatically register the services that are needed for your contexts, and it will notify ContextHub as contextual events occur.</p>
 
         <hr>
@@ -124,56 +132,60 @@
 
         <span id="adding-custom-data-to-events"></span>
         <h3>Adding Your Data to Events</h3>
-        <p>The DataSource protocol gives you the ability to add data to the Event. The data will be accessible on in the server-side context rule in the <em>event.payload</em> property.</p>
+        <p>The DataSource protocol gives you the ability to add data to the Event. The data will be accessible in the server-side context rule in the <em>event.payload</em> property.</p>
+
 
         <script src="https://gist.github.com/Kevinwlee/9808727.js"></script>
-
+        <em>You can find out more about the <a data-scroll data-options="easing: easeInQuad" href="#javascript-rules">context rules</a> and <a data-scroll data-options="easing: easeInQuad" href="#dictionary-samples">data structures</a> in this getting started guide.</em>
         <hr>
 
         <span id="background-updates"></span>
 				<h3>Background updates</h3>
 				<p>Context changes will trigger background pushes to your app. If you pass the background notification to ContextHub, the SDK will update the contextual situation on the device while in the background.</p>
-				<p>You must have background pushes enabled in your project, and you must configure your push certificates on the ContextHub server.</p>
+
 				<script src="https://gist.github.com/Kevinwlee/9810937.js"></script>
+
+        <p><b>NOTE:</b>You must have background pushes enabled in your project and you must configure your push certificates on the ContextHub server for this feature to work.</p>
 
         <hr>
 
 				<h3>Push Notifications</h3>
-				<p>The ContextHub SDK provides an api for sending push notifications to your application. You can send messages directly to a device token, or you can organize your installations using tags and alias so that you can send messages to groups of devices.</p>
+				<p>The ContextHub SDK provides an api for sending push notifications to your application. You can send messages directly to a device token, or you can organize your push tokens using tags and aliases so that you can send messages to groups of devices.</p>
 
         <span id="certificates"></span>
 
 				<h3>Certificates</h3>
-				<p>Before you can use the push services you will need to create a Production and Development push certificate for you application.</p>
-				<p>After you have downloaded your push certificates, you will need to create a PEM file out of both of them.</p>
+				<p>You need to create Production and Development push certificate for you application before you can use the ContextHub push services.</p>
+				<p>ContextHub requires that the certificates be converted to pem files.  The following steps outline the process required to convert your certicates to pem files.</p>
 				<ol>
-					<li>Open the Keychain Access application and select your production certificate and its private key.</li>
+					<li>Open the Keychain Access application and select both your production certificate and its private key.</li>
 					<li>From the File menu select "Export Items..."</li>
-					<li>Name the export "Certificates.p12" and save them to your desktop.</li>
+					<li>Name the export "Certificates.p12" and save it to your desktop.</li>
 					<li>Open a terminal window and change directories to your Desktop</li>
-					<li>run the following command line</li>
+					<li>Run the following command from the terminal:</li>
 				</ol>
 
 				<script src="https://gist.github.com/Kevinwlee/9811049.js"></script>
 
 				<ol>
-					<li>Open "certificate.pem" using your favorite text editor.</li>
-					<li>Copy all of the contents of the pem file and paste it into the certificate field located under the settings for your application on ContextHub.com.</li>
+					<li>Open the "certificate.pem" file with your favorite text editor.</li>
+					<li>Copy all of the contents of the pem file and paste them into the production certificate field located under the settings for your application on app.contexthub.com.</li>
 				</ol>
 
-				<p>Now repeat the previous steps, this time start by exporting your Development certificate.</p>
+				<p>Now repeat the steps for your Development certificate.</p>
 
 
 				<hr>
 				<span id="register-push"></span>
 
 				<h3>Register For Remote Notifications</h3>
-				<p>To register for push notifications you'll need to add one more line of code to your AppDelegate, and you'll need to implement a couple more delegate methods.</p>
-				<p>Register your app with Apple</p>
-				<script src="https://gist.github.com/Kevinwlee/9811343.js"></script>
+				<p>To register for push notifications the same way you always do.  You will need to add request the push token from apple and implement a few delegate methods.  When you recive your token from Apple, you need to register the device token with our <b>CCHNotificationService</b>.</p>
+
+        <script src="https://gist.github.com/Kevinwlee/9811343.js"></script>
 
 				<hr>
-				<span id="send-push"></span>
+
+        <span id="send-push"></span>
 				<h3>Send a Push</h3>
 				<script src="https://gist.github.com/Kevinwlee/9811396.js"></script>
 
@@ -212,7 +224,7 @@
 				<hr>
 				<span id="vault"></span>
 				<h3>Vault Cloud Storage</h3>
-				<p>If you need to store data that all installations can access, you can use the ContextHub Vault Service. The vault services allows you to store an NSDictionary of strings. When you save items to the vault you put them inside containers. You can think of containers as tables or collections of similar things. For instance, you may want to store artwork in a paintings container, or office addresses in an offices container. It's really up to you.</p>
+				<p>If you need to store data that all installations can access, you can use the ContextHub Vault Service. The vault services allows you to store an NSDictionary of strings in the cloud. When you save items to the vault, you will organize them inside containers. You can think of containers as tables or collections of similar things. For instance, you may want to store artwork in a paintings container, or office addresses in an offices container. It's really up to you.</p>
 
 				<hr>
 				<span id="vault-create"></span>
