@@ -245,7 +245,7 @@
 				<hr>
 				<span id="vault-update"></span>
 				<h3>Update Item</h3>
-				<p>To update an items you must either retrieve the item from the SDK TODO:Link TO Item Retrieval, or update an item that was retrieved from the getItemsInContainer:completion method.</p>
+				<p>To update an items you must either retrieve the item from the SDK or update an item that was retrieved from the getItemsInContainer:completion method.</p>
 
 				<script src="https://gist.github.com/Kevinwlee/9815271.js"></script>
 
@@ -284,25 +284,25 @@
 				<hr>
 				<h3>Location Changed</h3>
 				<p>When a location changed event is detected, this is the data that is collected from the event.</p>
-
+        <em>location_changed</em>
 				<script src="https://gist.github.com/Kevinwlee/9815561.js"></script>
 
 				<hr>
 				<h3>Geofence In/Out</h3>
 				<p>The data structure for geofence in/out events are the same except for the state value.</p>
-
+        <em>geofence_in</em> or <em>geofence_out</em>
 				<script src="https://gist.github.com/Kevinwlee/9815570.js"></script>
 
 				<hr>
 				<h3>Beacon In/Out</h3>
 				<p>The beacon in/out events are identical except for the state property.</p>
-
+        <em>beacon_in</em> or <em>beacon_out</em>
 				<script src="https://gist.github.com/Kevinwlee/9815581.js"></script>
 
 				<hr>
 				<h3>Beacon Changed</h3>
 				<p>The beach changed state is triggered when an iBeacon changes proximity.</p>
-
+        <em>beacon_changed</em>
 				<script src="https://gist.github.com/Kevinwlee/9815592.js"></script>
 
 				<p>The states that you can expect are:</p>
@@ -312,14 +312,13 @@
 					<li>immediate_sate</li>
 				</ul>
 
-				<p>NOTE: The beacon data structure is slightly different in the beacon_changed event than it is in the beacon_in/out events. This is because when you determine the distance to a beacon, know as ranging a beacon, you are always given the major, minor, and rssi values of the .</p>
+				<p><b>NOTE:</b> The beacon data structure is slightly different in the beacon_changed event than it is in the beacon_in/out events. This is because when you determine the distance to a beacon, know as ranging a beacon, you are always given the major, minor, and rssi values of the .</p>
 
 				<hr>
 				<h3>Motion Changed</h3>
 				<p>The motion changed data shows current and previous activity information.</p>
-
+        <em>motion_changed</em>
 				<script src="https://gist.github.com/Kevinwlee/9815606.js"></script>
-
 
 				<hr>
 				<span id="javascript-rules"></span>
