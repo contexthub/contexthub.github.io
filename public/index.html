@@ -12,7 +12,7 @@
     <script src="js/vendor/modernizr.js"></script>
   </head>
   <body>
-    
+
 
   <!-- ****** TOP NAVIGATION ****** -->
   <header class="sticky contain-to-grid global">
@@ -25,26 +25,22 @@
       <section class="top-bar-section">
 
         <ul class="right dark">
-          <li><a href="#get-started">iOS SDK</a></li>
-          <li><a href="#get-started">iOS Reference</a></li>
-          <li><a href="#get-started">API Reference</a></li>
+          <li><a href="https://github.com/contexthub/contexthub-ios-sdk" target="blank">iOS SDK</a></li>
         </ul>
       </section>
     </nav>
   </header>
   <!-- ****** TOP NAVIGATION ****** -->
-  
+
     <div class="full-width">
-      <div class="side-nav-mobile">   
+      <div class="side-nav-mobile">
         <a href="#" class="button" data-dropdown="downDrop">Sections &#9662;</a>
         <ul id="downDrop" class="f-dropdown" data-dropdown-content>
           <li><a data-scroll data-options="easing: easeInQuad" href="#getting-started">Getting Started</a></li>
-          <li><a data-scroll data-options="easing: easeInQuad" href="#podfile">Podfile</a></li>
-          <li><a data-scroll data-options="easing: easeInQuad" href="#registration">Registration</a></li>
-          <li><a data-scroll data-options="easing: easeInQuad" href="#adding-custom-data-to-events">Adding custom data to events</a></li>
-          <li><a data-scroll data-options="easing: easeInQuad" href="#cancel-an-event">Cancel an event</a></li>
-          <li><a data-scroll data-options="easing: easeInQuad" href="#working-with-events">Working with events</a></li>
-          <li><a data-scroll data-options="easing: easeInQuad" href="#background-updates">Background updates</a></li>
+          <li><a data-scroll data-options="easing: easeInQuad" href="#certificates">Push Notifications</a></li>
+          <li><a data-scroll data-options="easing: easeInQuad" href="#vault">Vault</a></li>
+					<li><a data-scroll data-options="easing: easeInQuad" href="#dictionary-samples">Event Definitions</a></li>
+					<li><a data-scroll data-options="easing: easeInQuad" href="#javascript-rules">Javascript Rules</a></li>
         </ul>
       </div>
     </div>
@@ -55,144 +51,349 @@
       <div class="large-3 columns">
         <ul class="side-nav">
           <li><h4>DOCUMENTATION</h4></li>
-          <li><a data-scroll data-options="easing: easeInQuad" href="#getting-started">Getting Started</a></li>
-          <li><a data-scroll data-options="easing: easeInQuad" href="#podfile">Podfile</a></li>
-          <li><a data-scroll data-options="easing: easeInQuad" href="#registration">Registration</a></li>
-          <li><a data-scroll data-options="easing: easeInQuad" href="#adding-custom-data-to-events">Adding custom data to events</a></li>
-          <li><a data-scroll data-options="easing: easeInQuad" href="#cancel-an-event">Cancel an event</a></li>
-          <li><a data-scroll data-options="easing: easeInQuad" href="#working-with-events">Working with events</a></li>
-          <li><a data-scroll data-options="easing: easeInQuad" href="#background-updates">Background updates</a></li>
+            <li><a data-scroll data-options="easing: easeInQuad" href="#getting-started">Getting Started</a></li>
+            <li><a data-scroll data-options="easing: easeInQuad" href="#certificates">Push Notifications</a></li>
+            <li><a data-scroll data-options="easing: easeInQuad" href="#vault">Vault</a></li>
+            <li><a data-scroll data-options="easing: easeInQuad" href="#dictionary-samples">Event Definitions</a></li>
+            <li><a data-scroll data-options="easing: easeInQuad" href="#javascript-rules">Javascript Rules</a></li>
+						<li><a href="http://contexthub.github.io/contexthub-ios-sdk/" target="blank">iOS Reference</a></li>
+	          <li><a href="http://contexthub.github.io/contexthub-api/doc/html/index.html" target="blank">API Reference</a></li>	          
         </ul>
       </div>
 
     	<div class="large-9 columns" id="top">
-        
+
         <span id="getting-started"></span>
 
         <h1 style="text-align:center;">Getting Started</h1>
         <hr class="short">
         <p class="subhead">Build contextual capabilities into your applications with just one line of code</p>
-        
+
         <div class="row">
           <div class="large-6 columns">
             <img src="img/contexthub-1.png" alt="Context Hub" class="getting-started-image ">
-            <h3 class="getting-started-content" style="margin-top:20px;">Getting Started</h3>
-            <p class="getting-started-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus consequat rutrum consequat. Pellentesque ac arcu vitae urna vehicula pretium. Vestibulum volutpat odio risus, at fringilla urna laoreet sed. Mauris id convallis leo. Sed sed rutrum velit, vitae imperdiet metus.</p>
+            <h3 class="getting-started-content" style="margin-top:20px;">ContextHub.com</h3>
+            <p class="getting-started-description">
+              Getting started is simple.
+            </p>
+            <ol>
+              <li>Sign Up</li>
+              <li>Create an App</li>
+              <li>Create a context</li>
+
           </div>
-                      
+
           <div class="large-6 columns">
             <img src="img/contexthub-2.png" alt="Context Hub" class="getting-started-image ">
-            <h3 class="getting-started-content" style="margin-top:20px;">Getting Started</h3>
-            <p class="getting-started-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus consequat rutrum consequat. Pellentesque ac arcu vitae urna vehicula pretium. Vestibulum volutpat odio risus, at fringilla urna laoreet sed. Mauris id convallis leo. Sed sed rutrum velit, vitae imperdiet metus.</p>
+            <h3 class="getting-started-content" style="margin-top:20px;">Install And Register</h3>
+            <p class="getting-started-description">
+                After you have created your app on ContextHub, you are ready to get started with the SDK.  Install the SDK and register you application id, and you will be up an running with ContextHub.
+            </p>
           </div>
 
         </div>
 
         <hr>
 
-        <span id="podfile"></span>
-        <h3>Podfile</h3>
-        <p>Praesent eget dictum tortor. Proin nec gravida sem, vitae consectetur libero. Phasellus sit amet porta justo, sit amet luctus risus. Nam ut turpis vulputate, aliquet odio eu, varius velit. Aliquam feugiat, nisi a adipiscing sagittis, enim lacus viverra velit, nec vehicula lectus erat id dui. Integer luctus dolor at diam dapibus, ac ultrices dui pulvinar. Curabitur in neque quis tortor molestie ullamcorper sed ut purus. Duis congue eros enim, vel blandit erat posuere nec. Donec a leo elementum, aliquam diam sit amet, imperdiet leo. Praesent imperdiet magna eget nulla consequat, sed luctus dui imperdiet. Morbi blandit sit amet quam eget pulvinar. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum quis tortor tortor. Vestibulum aliquam sapien quam, nec tempor massa congue sodales. Ut orci turpis, vehicula eu est in, consequat ullamcorper sapien. Aliquam nec sapien vel metus mattis aliquet et quis arcu.</p>
+        <span id="installation"></span>
+        <h3>Installation </h3>
+        <p>
+					The quickest way to install the ContextHub SDK is to use the cocoapod. Your Podfile should look something like this.
+				</p>
 
-        <div class="panel" style="overflow:auto;">
-          <pre>- (BOOL)application:(UIApplication *)application 
-            didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-
-    //Register your client and your app
-    [CarbonBlack registerWithAppId:@"823b8648-2ff8-451d-a653-748d4fff9128"];
-
-    return YES;
-}          </pre>
-        </div>
+				<script src="https://gist.github.com/Kevinwlee/9807843.js"></script>
+				<p>You can find out more about cocoapods at <a href="http://cocoapods.org/">http://cocoapods.org/</a>. You can also watch an NSScreencast about cocoapods here <a href="http://nsscreencast.com/episodes/5-cocoapods">http://nsscreencast.com/episodes/5-cocoapods</a>.</p>
 
         <hr>
 
         <span id="registration"></span>
         <h3>Registration</h3>
-        <p>Praesent eget dictum tortor. Proin nec gravida sem, vitae consectetur libero. Phasellus sit amet porta justo, sit amet luctus risus. Nam ut turpis vulputate, aliquet odio eu, varius velit. Aliquam feugiat, nisi a adipiscing sagittis, enim lacus viverra velit, nec vehicula lectus erat id dui. Integer luctus dolor at diam dapibus, ac ultrices dui pulvinar. Curabitur in neque quis tortor molestie ullamcorper sed ut purus. Duis congue eros enim, vel blandit erat posuere nec. Donec a leo elementum, aliquam diam sit amet, imperdiet leo. Praesent imperdiet magna eget nulla consequat, sed luctus dui imperdiet. Morbi blandit sit amet quam eget pulvinar. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum quis tortor tortor. Vestibulum aliquam sapien quam, nec tempor massa congue sodales. Ut orci turpis, vehicula eu est in, consequat ullamcorper sapien. Aliquam nec sapien vel metus mattis aliquet et quis arcu.</p>
-      
-        <div class="panel" style="overflow:auto;">
-          <pre>#pragma mark - CCBContextEventManagerDataSource
+				<p>To get started with ContextHub you need to register your Application Id with the context service. Your Application Id can be found on app.contexthub.com. The Application Id is the GUID that is found next to your application name.</p>
+				<p>The best place to register your application is in he application:didFinishLaunchingWithOptions method of you AppDelegate.</p>
+				<script src="https://gist.github.com/Kevinwlee/9808130.js"></script>
+				<p>The SDK will <strong>throw an exception</strong> if you attempt to use any of the Contexthub services without registering your Application Id first.</p>
+				<p>After you have installed the SDK and registered your Application Id, you are done. The SDK will communicate with context service on ContextHub. It will automatically register the services that are needed for your contexts, and it will notify ContextHub as contextual events occur.</p>
 
-- (NSDictionary *)contextEventMangaer:(CCBContextEventManager *)eventManager payloadForEvent:(NSDictionary *)event {   
-    return @{@"first_name":@"Kevin", @"last_name":@"Lee"};
-}</pre>
-        </div>
+        <hr>
+
+				<h3>The Event Pipeline</h3>
+				<p>If you want to hook into the events that are triggered by the SDK, the SDK provides DataSource and Delegate protocols that you can implement.</p>
+
+        <span id="event-lifecycle"></span>
+        <h3>Event Lifecycle</h3>
+				<p>The Delegate protocol is called during the lifecycle of the event. It also gives you a way to cancel an event to keep it from posting to the server.</p>
+
+				<script src="https://gist.github.com/Kevinwlee/9808880.js"></script>
+				<script src="https://gist.github.com/Kevinwlee/9809003.js"></script>
+				<p>To keep an event from being sent you can implement contextEventManager:shouldPostEvent.</p>
+				<script src="https://gist.github.com/Kevinwlee/72f2594cfa15885866e4.js"></script>
 
         <hr>
 
         <span id="adding-custom-data-to-events"></span>
-        <h3>Adding custom data to events</h3>
-        <p>Praesent eget dictum tortor. Proin nec gravida sem, vitae consectetur libero. Phasellus sit amet porta justo, sit amet luctus risus. Nam ut turpis vulputate, aliquet odio eu, varius velit. Aliquam feugiat, nisi a adipiscing sagittis, enim lacus viverra velit, nec vehicula lectus erat id dui. Integer luctus dolor at diam dapibus, ac ultrices dui pulvinar. Curabitur in neque quis tortor molestie ullamcorper sed ut purus. Duis congue eros enim, vel blandit erat posuere nec. Donec a leo elementum, aliquam diam sit amet, imperdiet leo. Praesent imperdiet magna eget nulla consequat, sed luctus dui imperdiet. Morbi blandit sit amet quam eget pulvinar. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum quis tortor tortor. Vestibulum aliquam sapien quam, nec tempor massa congue sodales. Ut orci turpis, vehicula eu est in, consequat ullamcorper sapien. Aliquam nec sapien vel metus mattis aliquet et quis arcu.</p>
+        <h3>Adding Your Data to Events</h3>
+        <p>The DataSource protocol gives you the ability to add data to the Event. The data will be accessible in the server-side context rule in the <em>event.payload</em> property.</p>
 
-        <div class="panel" style="overflow:auto;">
-          <pre>#pragma mark - CCBContextEventManagerDataSource
 
-- (NSDictionary *)contextEventMangaer:(CCBContextEventManager *)eventManager payloadForEvent:(NSDictionary *)event {   
-    return @{@"first_name":@"Kevin", @"last_name":@"Lee"};
-}</pre>
-        </div>
+        <script src="https://gist.github.com/Kevinwlee/9808727.js"></script>
+        <em>You can find out more about the <a data-scroll data-options="easing: easeInQuad" href="#javascript-rules">context rules</a> and <a data-scroll data-options="easing: easeInQuad" href="#dictionary-samples">data structures</a> in this getting started guide.</em>
+        <hr>
+
+        <span id="background-updates"></span>
+				<h3>Background updates</h3>
+				<p>Context changes will trigger background pushes to your app. If you pass the background notification to ContextHub, the SDK will update the contextual situation on the device while in the background.</p>
+
+				<script src="https://gist.github.com/Kevinwlee/9810937.js"></script>
+
+        <p><b>NOTE:</b>You must have background pushes enabled in your project and you must configure your push certificates on the ContextHub server for this feature to work.</p>
 
         <hr>
 
-        <span id="cancel-an-event"></span>
-        <h3>Cancel an event</h3>
-        <p>Praesent eget dictum tortor. Proin nec gravida sem, vitae consectetur libero. Phasellus sit amet porta justo, sit amet luctus risus. Nam ut turpis vulputate, aliquet odio eu, varius velit. Aliquam feugiat, nisi a adipiscing sagittis, enim lacus viverra velit, nec vehicula lectus erat id dui. Integer luctus dolor at diam dapibus, ac ultrices dui pulvinar. Curabitur in neque quis tortor molestie ullamcorper sed ut purus. Duis congue eros enim, vel blandit erat posuere nec. Donec a leo elementum, aliquam diam sit amet, imperdiet leo. Praesent imperdiet magna eget nulla consequat, sed luctus dui imperdiet. Morbi blandit sit amet quam eget pulvinar. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum quis tortor tortor. Vestibulum aliquam sapien quam, nec tempor massa congue sodales. Ut orci turpis, vehicula eu est in, consequat ullamcorper sapien. Aliquam nec sapien vel metus mattis aliquet et quis arcu.</p>
+				<h3>Push Notifications</h3>
+				<p>The ContextHub SDK provides an api for sending push notifications to your application. You can send messages directly to a device token, or you can organize your push tokens using tags and aliases so that you can send messages to groups of devices.</p>
 
+        <span id="certificates"></span>
+
+				<h3>Certificates</h3>
+				<p>You need to create Production and Development push certificate for you application before you can use the ContextHub push services.</p>
+				<p>ContextHub requires that the certificates be converted to pem files.  The following steps outline the process required to convert your certicates to pem files.</p>
+				<ol>
+					<li>Open the Keychain Access application and select both your production certificate and its private key.</li>
+					<li>From the File menu select "Export Items..."</li>
+					<li>Name the export "Certificates.p12" and save it to your desktop.</li>
+					<li>Open a terminal window and change directories to your Desktop</li>
+					<li>Run the following command from the terminal:</li>
+				</ol>
+
+				<script src="https://gist.github.com/Kevinwlee/9811049.js"></script>
+
+				<ol>
+					<li>Open the "certificate.pem" file with your favorite text editor.</li>
+					<li>Copy all of the contents of the pem file and paste them into the production certificate field located under the settings for your application on app.contexthub.com.</li>
+				</ol>
+
+				<p>Now repeat the steps for your Development certificate.</p>
+
+
+				<hr>
+				<span id="register-push"></span>
+
+				<h3>Register For Remote Notifications</h3>
+				<p>To register for push notifications the same way you always do.  You will need to add request the push token from apple and implement a few delegate methods.  When you recive your token from Apple, you need to register the device token with our <b>CCHNotificationService</b>.</p>
+
+        <script src="https://gist.github.com/Kevinwlee/9811343.js"></script>
+
+				<hr>
+
+        <span id="send-push"></span>
+				<h3>Send a Push</h3>
+				<script src="https://gist.github.com/Kevinwlee/9811396.js"></script>
+
+				<hr>
+
+				<span id="push-alias"></span>
+				<h3>Register with an Alias</h3>
+				<script src="https://gist.github.com/Kevinwlee/9814233.js"></script>
+
+				<h3>Send to an Alias</h3>
+				<script src="https://gist.github.com/Kevinwlee/9814245.js"></script>
+
+				<hr>
+				<span id="push-tags"></span>
+				<h3>Register tags</h3>
+				<script src="https://gist.github.com/Kevinwlee/9814258.js"></script>
+
+				<h3>Send to Tags</h3>
+				<script src="https://gist.github.com/Kevinwlee/9814274.js"></script>
+
+				<hr>
+				<span id="push-custom-data"></span>
+				<h3>Send Custom Data</h3>
+				<script src="https://gist.github.com/Kevinwlee/9814294.js"></script>
+
+				<hr>
+				<span id="push-metadata">
+				<h3>Send Badges, Custom Sounds, and Custom Data</h3>
+				<script src="https://gist.github.com/Kevinwlee/9814308.js"></script>
+
+				<hr>
+				<span id="push-background"></span>
+				<h3>Send Background Push</h3>
+				<script src="https://gist.github.com/Kevinwlee/9814320.js"></script>
+
+				<hr>
+				<span id="vault"></span>
+				<h3>Vault Cloud Storage</h3>
+				<p>If you need to store data that all installations can access, you can use the ContextHub Vault Service. The vault services allows you to store an NSDictionary of strings in the cloud. When you save items to the vault, you will organize them inside containers. You can think of containers as tables or collections of similar things. For instance, you may want to store artwork in a paintings container, or office addresses in an offices container. It's really up to you.</p>
+
+				<hr>
+				<span id="vault-create"></span>
+				<h3>Create an Item</h3>
+				<p>To create an item in the vault you must provide an NSDictionary of the item that you want to save and container name for the item.</p>
+
+				<script src="https://gist.github.com/Kevinwlee/9814921.js"></script>
+
+				<hr>
+				<span id="vault-list"></span>
+				<h3>Retrieve All Items</h3>
+				<p>To view items in the vault you must provide the container name of the items you want to view.</p>
+
+				<script src="https://gist.github.com/Kevinwlee/9814933.js"></script>
+
+				<p>You'll notice that each of the items returned has a <em>vaultInfo</em> key. The value of the key contains the information that the vault uses to keep track of the item.</p>
+
+				<hr>
+				<span id="vault-update"></span>
+				<h3>Update Item</h3>
+				<p>To update an items you must either retrieve the item from the SDK or update an item that was retrieved from the getItemsInContainer:completion method.</p>
+
+				<script src="https://gist.github.com/Kevinwlee/9815271.js"></script>
+
+				<hr>
+				<span id="vault-delete"></span>
+				<h3>Delete Item</h3>
+
+				<script src="https://gist.github.com/Kevinwlee/9815278.js"></script>
+
+				<hr>
+				<span id="vault-resource"></span>
+				<h3>Adding a File</h3>
+				<p>You can also store files with your vault items. To accomplish this, the files will be stored on our S3 sever, and a url to the file will be saved with your item. You will need to create a CCBResource object to describe your file and then save it using the createItem:withResources:inContainer:completion In the following example, we are saving a profile picture with some profile metadata, and saving the item in the profiles container.</p>
+
+				<script src="https://gist.github.com/Kevinwlee/9815294.js"></script>
+
+				<hr>
+				<span id="dictionary-samples"></span>
+				<h3>Event NSDictionary Samples</h3>
+				<p>When these events are triggered, context hub creates an event dictionary containing event, context and user defined data. The following sections will show samples of the different event data structures.</p>
+				<p>The basic structure of every event is as follows.</p>
+
+				<script src="https://gist.github.com/Kevinwlee/9815525.js"></script>
+
+				<ul>
+				<li><strong>context</strong> the array contains event data for each of the context types that you have used in your contexts on ContextHub.</li>
+				<li><strong>data</strong> the dictionary of data that is associated with the triggering event. The data object are shown in the sections to follow.</li>
+				<li><strong>name</strong> this is the name of the triggering event. This name will match the event_types on ContextHub.</li>
+				<li><strong>payload</strong> this is the user defined data that can be supplied in the CCBContextEventManagerDatasource protocol.</li>
+				</ul>
+
+				<p>Here's an example of an actual event dictionary that was written to the console:</p>
+
+				<script src="https://gist.github.com/Kevinwlee/9815536.js"></script>
+
+				<hr>
+				<h3>Location Changed</h3>
+				<p>When a location changed event is detected, this is the data that is collected from the event.</p>
+        <p>
+          Event name: <em>location_changed</em>
+        </p>
+				<script src="https://gist.github.com/Kevinwlee/9815561.js"></script>
+
+				<hr>
+				<h3>Geofence In/Out</h3>
+				<p>The data structure for geofence in/out events are the same except for the state value.</p>
+        <p>
+          Event name: <em>geofence_in</em> or <em>geofence_out</em>
+        </p>
+
+				<script src="https://gist.github.com/Kevinwlee/9815570.js"></script>
+
+				<hr>
+				<h3>Beacon In/Out</h3>
+				<p>The beacon in/out events are identical except for the state property.</p>
+        <p>
+          Event name: <em>beacon_in</em> or <em>beacon_out</em>
+        </p>
+
+				<script src="https://gist.github.com/Kevinwlee/9815581.js"></script>
+
+				<hr>
+				<h3>Beacon Changed</h3>
+				<p>The beach changed state is triggered when an iBeacon changes proximity.</p>
+        <p>
+          Event name: <em>beacon_changed</em>
+        </p>
+
+				<script src="https://gist.github.com/Kevinwlee/9815592.js"></script>
+
+				<p>The states that you can expect are:</p>
+				<ul>
+					<li>far_sate</li>
+					<li>near_sate</li>
+					<li>immediate_sate</li>
+				</ul>
+
+				<p><b>NOTE:</b> The beacon data structure is slightly different in the beacon_changed event than it is in the beacon_in/out events. This is because when you determine the distance to a beacon, know as ranging a beacon, you are always given the major, minor, and rssi values of the .</p>
+
+				<hr>
+				<h3>Motion Changed</h3>
+				<p>The motion changed data shows current and previous activity information.</p>
+        <p>
+          Event name: <em>motion_changed</em>
+        </p>
+
+				<script src="https://gist.github.com/Kevinwlee/9815606.js"></script>
+
+				<hr>
+				<span id="javascript-rules"></span>
+				<h3>Context Rules</h3>
+
+				<p>When you create context rules on ContextHub.com, you will pick an event type and a web hook, and then you'll write some javascript to determine if the web hook should be called.  This section is about what you can do inside the context rule textbox.</p>
+
+				<p>You can think of the context rule text box as the inside of a javascript function that will get evaluated every time the Context Service receives an event for the specified event type.  The function has a three objects that that give you access to the ContextHub services.</p>
+
+				<ul>
+					<li><strong>event</strong> - contains a json representation of all of the event data.</li>
+					<li><strong>push</strong> - an object that you can use to send push notifications</li>
+					<li><strong>vault</strong> - an object that lets you work with vault data</li>
+				</ul>
+
+				<script src="https://gist.github.com/Kevinwlee/9818119.js"></script>
+
+				<h3>Event Object</h3>
+				<p>You can use the data in the event object to make contextual decisions on what actions you want to take.  You access the properties through dot notation just as you do in a javascript file.  Below is a sample json event for a geofence_in.</p>
+				<script src="https://gist.github.com/Kevinwlee/9818234.js"></script>
+
+				<h3>Vault Object</h3>
+				<p>The vault object lets you access the vault to help you make contextual decisions.  You can find, update, create, and count vault items.</p>
+
+				<h3>find</h3>
+				<p>The <em>find</em> method takes one argument, the id of the vault. It returns the vault object with that id.</p>
+				<div class="panel" style="overflow:auto;">
+					<pre>data = vault.find(3)</pre>
+				</div>
+
+				<h3>create</h3>
+				<p>The <em>create</em> method takes two arguments, the data's container and the data that you want to save.</p>
+				<div class="panel" style="overflow:auto;">
+					<pre>vault.create('superheros', {'name': 'Batman'}</pre>
+				</div>
+
+				<h3>update</h3>
+				<p>The <em>update</em> method takes two arguments, the id of the vault and the data to update the vault with.</p>
+				<div class="panel" style="overflow:auto;">
+					<pre>data = vault.find(3)
+data.name = 'Superman'
+vault.update(3, data)
+					</pre>
+				</div>
+
+
+				<h3>count</h3>
+				<p>The <em>count</em> method takes one argument, the data's container and returns the number of items that have a container of the same name.</p>
         <div class="panel" style="overflow:auto;">
-          <pre>#pragma mark - CCBContextEventManagerDelegate
-
-- (BOOL)contextEventManager:(CCBContextEventManager *)eventManager shouldPostEvent:(NSDictionary *)event {
-    if(event[@"key"] == @"notImportant") {
-        return NO;
-    } else {
-        return YES;
-    }
-}        </pre>
-
-        </div>
-
-        <hr>
-
-        <span id="working-with-events"></span>
-        <h3 id="">Working with events</h3>
-        <p>Praesent eget dictum tortor. Proin nec gravida sem, vitae consectetur libero. Phasellus sit amet porta justo, sit amet luctus risus. Nam ut turpis vulputate, aliquet odio eu, varius velit. Aliquam feugiat, nisi a adipiscing sagittis, enim lacus viverra velit, nec vehicula lectus erat id dui. Integer luctus dolor at diam dapibus, ac ultrices dui pulvinar. Curabitur in neque quis tortor molestie ullamcorper sed ut purus. Duis congue eros enim, vel blandit erat posuere nec. Donec a leo elementum, aliquam diam sit amet, imperdiet leo. Praesent imperdiet magna eget nulla consequat, sed luctus dui imperdiet. Morbi blandit sit amet quam eget pulvinar. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum quis tortor tortor. Vestibulum aliquam sapien quam, nec tempor massa congue sodales. Ut orci turpis, vehicula eu est in, consequat ullamcorper sapien. Aliquam nec sapien vel metus mattis aliquet et quis arcu.</p>
-
-        <div class="panel" style="overflow:auto;">
-          <pre>#pragma mark  - CCBContextEventManagerDelegate
-
-- (void)contextEventManager:(CCBContextEventManager *)eventManager willPostEvent:(NSDictionary *)event {
-    NSLog(@"Carbon WILL Post Event %@", event);
-}
-
-- (void)contextEventManager:(CCBContextEventManager *)eventManager didPostEvent:(NSDictionary *)event {
-    NSLog(@"Carbon DID Post Event %@", event);
-}          </pre>
-        </div>
-
-        <hr>
-
-        <span id="background-updates"></span> 
-        <h3>Background updates</h3>
-        <p>Context changes will trigger background pushes to your app. If you pass the background notification to CarbonBlack, CarbonBlack will update the contextual situation on the device while in the background. You must have background pushes enabled in your project, and you must configure your push certificates on ContextHub.</p>
-        
-        <div class="panel" style="overflow:auto;">
-          <pre>- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
-        [carbonBlack application:application didReceiveRemoteNotification:userInfo completion:^(UIBackgroundFetchResult) {
-        completionHandler(completion);
-    }];
-}          </pre>
-        </div>
-
-          <a data-scroll href="#top">Back to top</a>
+					<pre>count = vault.count('superheros')</pre>
         </div>
 
 
-  	   </div>
+				<hr>
+				<a data-scroll href="#top">Back to top</a>
+				<hr>
+			</div>
+			<!--End Content -->
+  	</div>
 
 
-
-    
     <script src="js/vendor/jquery.js"></script>
     <script src="js/foundation.min.js"></script>
     <script src="js/foundation/foundation.dropdown.js"></script>
