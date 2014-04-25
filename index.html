@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Foundation | Welcome</title>
+    <title>ContextHub | Getting Started</title>
     <link rel="stylesheet" href="css/foundation.css" />
     <link rel="stylesheet" href="css/foundation-override.css" />
     <link rel="icon" href="img/favicon.png" type="image" />
@@ -25,7 +25,14 @@
       <section class="top-bar-section">
 
         <ul class="right dark">
-          <li><a href="https://github.com/contexthub/contexthub-ios-sdk" target="blank">iOS SDK</a></li>
+          <li class="has-dropdown">
+          <a href="#">Documentation</a>
+          <ul class="dropdown">
+            <li><a href="https://github.com/contexthub/contexthub-ios-sdk" target="_blank">IOS SDK</a></li>
+            <li><a href="http://docs.contexthub.com/contexthub-ios-sdk/" target="_blank">IOS Reference</a></li>
+            <li><a href="http://docs.contexthub.com/contexthub-api" target="_blank">API Reference</a></li>
+          </ul>
+          </li>
         </ul>
       </section>
     </nav>
@@ -56,6 +63,10 @@
             <li><a data-scroll data-options="easing: easeInQuad" href="#vault">Vault</a></li>
             <li><a data-scroll data-options="easing: easeInQuad" href="#dictionary-samples">Event Definitions</a></li>
             <li><a data-scroll data-options="easing: easeInQuad" href="#javascript-rules">Javascript Rules</a></li>
+        <li><h4>Examples</h4></li>
+        <li><a data-scroll data-options="easing: easeInQuad" href="#wayfinder">WayFinder</a></li>
+        
+        
         </ul>
       </div>
 
@@ -383,6 +394,20 @@ vault.update(3, data)
 					<pre>count = vault.count('superheros')</pre>
         </div>
 
+        <hr>
+
+        <span id="wayfinder"></span>
+        <h3>WayFinder</h3>
+        <p>WayFinder is the product of a ContextHub hackathon we held at ChaiOne in March 2014. It uses bluetooth beacons to help newcomers to our Houston location get a tour of the office right on their device. Each time they reach a beacon, they get interesting facts about the company, or info about some of our more recent projects.</p>
+        <p>The reason we chose this project for the ContextHub hackathon is because normally this would be a pretty intense undertaking for a hackathon. However, thanks to the simplicity ContextHub provides, the WayFinder team was able to produce this fully functioning, beacon powered application in no time.</p>
+
+        <p>Grab the <a href="https://github.com/contexthub/Wayfinder">source</a> off of GitHub, and build your own WayFinder app in minutes!</p>
+        <p>
+          <ul class="clearing-thumbs" data-clearing>
+            <li><a href="img/atlobby_mockup.png"><img src="img/atlobby_mockup.png"></a></li>
+            <li><a href="img/straightandleft_mockup.png"><img src="img/straightandleft_mockup.png"></a></li>
+          </ul>
+        </p>
 
 				<hr>
 				<a data-scroll href="#top">Back to top</a>
