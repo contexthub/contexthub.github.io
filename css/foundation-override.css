@@ -263,6 +263,11 @@ button:hover, button:focus, .button:hover, .button:focus {
 
 h3.getting-started-content {
   text-align: center;
+  margin-top: 20px;
+}
+
+div.panel {
+  overflow: auto;
 }
 
 .getting-started-image {
