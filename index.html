@@ -44,7 +44,7 @@
         <a href="#" class="button" data-dropdown="downDrop">Sections &#9662;</a>
         <ul id="downDrop" class="f-dropdown" data-dropdown-content>
           <li><a data-scroll data-options="easing: easeInQuad" href="#getting-started">Getting Started</a></li>
-          <li><a data-scroll data-options="easing: easeInQuad" href="#certificates">Push Notifications</a></li>
+          <li><a data-scroll data-options="easing: easeInQuad" href="#push-notifications">Push Notifications</a></li>
           <li><a data-scroll data-options="easing: easeInQuad" href="#vault">Vault</a></li>
           <li><a data-scroll data-options="easing: easeInQuad" href="#dictionary-samples">Event Definitions</a></li>
           <li><a data-scroll data-options="easing: easeInQuad" href="#context-rules">Context Rules</a></li>
@@ -60,7 +60,7 @@
         <ul class="side-nav">
           <li><h4>DOCUMENTATION</h4></li>
             <li><a data-scroll data-options="easing: easeInQuad" href="#getting-started">Getting Started</a></li>
-            <li><a data-scroll data-options="easing: easeInQuad" href="#certificates">Push Notifications</a></li>
+            <li><a data-scroll data-options="easing: easeInQuad" href="#push-notifications">Push Notifications</a></li>
             <li><a data-scroll data-options="easing: easeInQuad" href="#vault">Vault</a></li>
             <li><a data-scroll data-options="easing: easeInQuad" href="#dictionary-samples">Event Definitions</a></li>
             <li><a data-scroll data-options="easing: easeInQuad" href="#context-rules">Context Rules</a></li>
@@ -95,7 +95,7 @@
             <img src="img/contexthub-2.png" alt="Context Hub" class="getting-started-image ">
             <h3 class="getting-started-content">Install And Register</h3>
             <p class="getting-started-description">
-                After you have created your app on ContextHub, you are ready to get started with the SDK.  Install the SDK and register you application id, and you will be up an running with ContextHub.
+                After you have created your app on ContextHub, you are ready to get started with the SDK.  Install the SDK and register you application id, and you will be up and running with ContextHub.
             </p>
           </div>
 
@@ -148,14 +148,15 @@
 
         <script src="https://gist.github.com/Kevinwlee/9810937.js"></script>
 
-        <p><b>NOTE:</b>You must have background pushes enabled in your project and you must configure your push certificates on the ContextHub server for this feature to work.</p>
+        <p><b>NOTE:</b> You must have background pushes enabled in your project and you must configure your push certificates on the ContextHub server for this feature to work.</p>
 
         <hr>
 
-        <h3 id="certificates">Push Notifications</h3>
-        <p>The ContextHub SDK provides an api for sending push notifications to your application. You can send messages directly to a device token, or you can organize your push tokens using tags and aliases so that you can send messages to groups of devices.</p>
+        <h1 class="text-center" id="push-notifications">Push Notifications</h1>
+        <hr class="short">
+        <p>The ContextHub SDK provides an <abbr title="Application Programming Interface">API</abbr> for sending push notifications to your application. You can send messages directly to a device token, or you can organize your push tokens using tags and aliases so that you can send messages to groups of devices.</p>
 
-        <h3>Certificates</h3>
+        <h3 id="certificates">Certificates</h3>
         <p>You need to create Production and Development push certificate for you application before you can use the ContextHub push services.</p>
         <p>ContextHub requires that the certificates be converted to pem files.  The following steps outline the process required to convert your certicates to pem files.</p>
         <ol>
@@ -179,7 +180,7 @@
         <hr>
 
         <h3 id="register-push">Register For Remote Notifications</h3>
-        <p>To register for push notifications the same way you always do.  You will need to add request the push token from apple and implement a few delegate methods.  When you recive your token from Apple, you need to register the device token with our <b>CCHNotificationService</b>.</p>
+        <p>To register for push notifications the same way you always do.  You will need to add request the push token from apple and implement a few delegate methods.  When you receive your token from Apple, you need to register the device token with our <b>CCHNotificationService</b>.</p>
 
         <script src="https://gist.github.com/Kevinwlee/9811343.js"></script>
 
@@ -216,7 +217,8 @@
         <script src="https://gist.github.com/Kevinwlee/9814320.js"></script>
 
         <hr>
-        <h3 id="vault">Vault Cloud Storage</h3>
+        <h1 class="text-center" id="vault">Vault Cloud Storage</h1>
+        <hr class="short">
         <p>If you need to store data that all installations can access, you can use the ContextHub Vault Service. The vault services allows you to store an NSDictionary of strings in the cloud. When you save items to the vault, you will organize them inside containers. You can think of containers as tables or collections of similar things. For instance, you may want to store artwork in a paintings container, or office addresses in an offices container. It's really up to you.</p>
 
         <hr>
@@ -251,7 +253,8 @@
         <script src="https://gist.github.com/Kevinwlee/9815294.js"></script>
 
         <hr>
-        <h3 id="dictionary-samples">Event NSDictionary Samples</h3>
+        <h1 class="text-center" id="dictionary-samples">Event NSDictionary Samples</h1>
+        <hr class="short">
         <p>When these events are triggered, context hub creates an event dictionary containing event, context and user defined data. The following sections will show samples of the different event data structures.</p>
         <p>The basic structure of every event is as follows.</p>
 
@@ -322,7 +325,8 @@
         <script src="https://gist.github.com/Kevinwlee/9815606.js"></script>
 
         <hr>
-        <h3 id="context-rules">Context Rules</h3>
+        <h1 class="text-center" id="context-rules">Context Rules</h1>
+        <hr class="short">
 
         <p>When you create context rules on ContextHub.com, you will pick an event type and a web hook, and then you'll write some javascript to determine if the web hook should be called.  This section is about what you can do inside the context rule textbox.</p>
 
@@ -373,7 +377,8 @@ vault.update(3, data)
 
         <hr>
 
-        <h3 id="wayfinder">WayFinder</h3>
+        <h1 class="text-center" id="wayfinder">WayFinder</h1>
+        <hr class="short">
         <p>
           <ul class="clearing-thumbs" data-clearing>
             <li><a href="img/atlobby_mockup.png"><img src="img/atlobby_mockup_thumb.png"></a></li>
