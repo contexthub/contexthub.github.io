@@ -43,6 +43,7 @@
       <div class="side-nav-mobile">
         <a href="#" class="button" data-dropdown="downDrop">Sections &#9662;</a>
         <ul id="downDrop" class="f-dropdown" data-dropdown-content>
+          <li><a data-scroll data-options="easing: easeInQuad" href="#overview">Overview</a></li>
           <li><a data-scroll data-options="easing: easeInQuad" href="#getting-started">Getting Started</a></li>
           <li><a data-scroll data-options="easing: easeInQuad" href="#push-notifications">Push Notifications</a></li>
           <li><a data-scroll data-options="easing: easeInQuad" href="#vault">Vault</a></li>
@@ -53,12 +54,11 @@
       </div>
     </div>
 
-
-
     <div class="row content">
       <div class="small-3 columns">
         <ul class="side-nav">
           <li><h4>DOCUMENTATION</h4></li>
+            <li><a data-scroll data-options="easing: easeInQuad" href="#overview">Overview</a></li>
             <li><a data-scroll data-options="easing: easeInQuad" href="#getting-started">Getting Started</a></li>
             <li><a data-scroll data-options="easing: easeInQuad" href="#push-notifications">Push Notifications</a></li>
             <li><a data-scroll data-options="easing: easeInQuad" href="#vault">Vault</a></li>
@@ -72,10 +72,131 @@
       </div>
 
       <div class="small-9 columns right" id="top">
+        
+        <h1 class="text-center" id="overview">Overview</h1>
+        <hr class="short">
+        <p class="subhead">Build contextual capabilities into your applications with just one line of code</p>
+
+        <p>
+          ContextHub provides a mechanism for third party developers to quickly and easily add powerful contextual capabilities to their applications with just a few lines of code. This enables developers to create unique and engaging experiences for their users.
+        </p>
+        <p>
+          ContextHub makes this possible through the following five major components:
+        </p>
+        <ol>
+          <li>
+            <strong>Element Services.</strong> Enable the creation of contextual object abstractions in ContextHub. These can be elements like geofences, beacons, motion states, thermal or proximity ranges, etc.) so applications can monitor and respond to user interactions or changes with them.
+          </li>
+          <li>
+            <strong>Event Services.</strong> Establish interfaces with mobile devices and other smart objects, to allow easy collection of sensor data <em>(GPS, motion, accelerometer, etc.)</em>. This allows their data and capabilities to become available not only locally, but remotely as well.
+          </li>
+          <li>
+            <strong>Contextual Engine.</strong> Provides developers with a central, cloud-based rules engine that responds to contextual events, with a context-aware language that allows triggering customized actions based on an evaluation of relevant data.
+          </li>
+          <li>
+            <strong>Application Services.</strong> Provide a set of convenient cloud-based services that facilitate development of contextual applications and reduce the need for developers to establish and manage a back-end scalable infrastructure of their own - for example, data storage <em>(Vault)</em> or push messaging <em>(Push)</em>.
+          </li>
+          <li>
+            <strong>Analytics Services.</strong> Provide a robust set of analytical capabilities for developers and administrators.
+          </li>
+        </ol>
+
+        <p>
+          ContextHub provides seamless integration across mobile phones and smart objects from different vendors (Apple iOS, Android, etc.), providing a unified interface to them. It also allows developers to create applications using higher-level abstractions that are not vendor or implementation-specific, allowing for new physical devices and capabilities to be added to an application without the need for any code changes or having to learn that particular device’s technical interaction considerations (API’s, SDK).
+        </p>
+        <p>
+          The data, events and rules engine in ContextHub are available not only to mobile applications, but through a REST interface as well. This allows for easy integration of the contextual capabilities mentioned above with third party cloud-based applications.
+        </p>
+
+        <hr>
+
+        <h3 id="element-services">Element Services</h3>
+
+        <p>
+          Through Element Services, applications create and maintain contextual object abstractions in ContextHub. Each type of abstraction (geofences, beacons, timers, etc) has its own class, which defines specific methods for that particular object:
+        </p>
+
+        <ul>
+          <li>
+            <strong>Geofences -</strong> allows the creation, retrieval, updating &amp; deletion of geofence objects - which are circular areas defined by a particular location with a radius around it.
+          </li>
+          <li>
+            <strong>Beacons -</strong> allows the creation, retrieval, updating &amp; deletion of beacon objects. Each beacon object represents a device that has iBeacon capabilities - for example an iOS device (iPhone, iPad) or smart beacons (Estimote, etc.)
+          </li>
+        </ul>
+
+        <p>
+          To complement these, Element Services provides Subscription functionality, which is used to let ContextHub know that a particular application is interested in changes to the definition of one or more Elements. This way, an application can stay proactively updated when contextual objects are added, modified or deleted in ContextHub - without the need to perform frequent polling.
+        </p>
+
+        <hr>
+
+        <h3 id="event-services">Event Services</h3>
+
+        <p>
+          ContextHub provides a mechanism to sense and collect data from mobile devices and other smart objects. This allows physical objects to connect and interact with the logical contextual objects defined in Element Services. There are three ways of doing this:
+        </p>
+
+        <ol>
+          <li>
+            <strong>Mobile phones and tablets -</strong> simply need to enable the Sensor Pipeline which is part of the ContextHub Framework, and subscribe it to one or more Elements. This subscription can be done through a convenient tagging mechanism to subscribe to one or more Elements at once.
+          </li>
+        </ol>
+
+        <hr>
+
+        <h3 id="application-services">Application Services</h3>
+
+        <p>
+          ContextHub provides a set of application services that make developing contextual applications easier and in some cases enable developers to avoid having to create a robust, scalable back-end infrastructure at all. These services are:
+        </p>
+
+        <ul>
+          <li>
+            <strong>Vault -</strong> allows for easy storage and retrieval of user-defined data in the ContextHub cloud. This storage is application specific, and can contain JSON data.
+          </li>
+          <li>
+            <strong>Push -</strong> allows devices to register and receive messages from ContextHub or other devices. This service is also required to enable the communication between the ContextHub Contextual Engine and the mobile application.
+          </li>
+        </ul>
+
+        <hr>
+
+        <h3 id="contextual-engine">Contextual Engine</h3>
+
+        <p>
+        At the heart of ContextHub is the Contextual Engine. The contextual engine is accessed through the developer portal and allows the creation and management of Contexts:
+      </p>
+        <ul>
+          <li>
+            Context - is a small computer program triggered by a contextual event that allows developers to evaluate a variety of factors so they can drive specific actions.
+          </li>
+        </ul>
+        <p>
+        The event that triggers a Context can be any event generated by Event Services - for example, crossing a geofence or approaching a beacon.
+        </p>
+        <p>
+        The snippet of code is written in JavaScript, and ContextHub makes available to it the following JavaScript objects:
+        </p>
+        <ul>
+          <li>
+            <strong>Event -</strong> an object with information pertaining to the triggering event, local sensor data captured when the event happened and a user-defined payload.
+          </li>
+          <li>
+            <strong>Push -</strong> allows the developer to send push messages (foreground or background) to a specific device, alias or group of devices through the use of tags.
+          </li>
+          <li>
+            <strong>Vault -</strong> allows the Context to store, retrieve, update and delete user-defined information in the ContextHub cloud. This is the same storage area that is accessed from the SDK through the Vault Application Service.
+          </li>
+          <li>
+            <strong>Web hook -</strong> a destination URL with customizable parameters and data that can be associated with a Context so it is triggered by the Context. This allows for Contexts to trigger other Contexts, or to reach out to any external system or device connected to the Internet. Of course, developers can customize the headers, verb type (post/get/etc), parameters and data that is sent.
+          </li>
+        </ul>
+
+        <hr>
 
         <h1 class="text-center" id="getting-started">Getting Started</h1>
         <hr class="short">
-        <p class="subhead">Build contextual capabilities into your applications with just one line of code</p>
 
         <div class="row">
           <div class="large-6 columns">
