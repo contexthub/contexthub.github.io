@@ -45,10 +45,9 @@
         <ul id="downDrop" class="f-dropdown" data-dropdown-content>
           <li><a data-scroll data-options="easing: easeInQuad" href="#overview">Overview</a></li>
           <li><a data-scroll data-options="easing: easeInQuad" href="#getting-started">Getting Started</a></li>
-          <li><a data-scroll data-options="easing: easeInQuad" href="#push-notifications">Push Notifications</a></li>
+          <li><a data-scroll data-options="easing: easeInQuad" href="#push">Push Notifications</a></li>
           <li><a data-scroll data-options="easing: easeInQuad" href="#vault">Vault</a></li>
-          <li><a data-scroll data-options="easing: easeInQuad" href="#dictionary-samples">Event Definitions</a></li>
-          <li><a data-scroll data-options="easing: easeInQuad" href="#context-rules">Context Rules</a></li>
+          <li><a data-scroll data-options="easing: easeInQuad" href="#contextual-service">Context Rules</a></li>
           <li><a data-scroll data-options="easing: easeInQuad" href="#wayfinder">WayFinder</a></li>
         </ul>
       </div>
@@ -60,10 +59,9 @@
           <li><h4>DOCUMENTATION</h4></li>
             <li><a data-scroll data-options="easing: easeInQuad" href="#overview">Overview</a></li>
             <li><a data-scroll data-options="easing: easeInQuad" href="#getting-started">Getting Started</a></li>
-            <li><a data-scroll data-options="easing: easeInQuad" href="#push-notifications">Push Notifications</a></li>
+            <li><a data-scroll data-options="easing: easeInQuad" href="#push">Push Notifications</a></li>
             <li><a data-scroll data-options="easing: easeInQuad" href="#vault">Vault</a></li>
-            <li><a data-scroll data-options="easing: easeInQuad" href="#dictionary-samples">Event Definitions</a></li>
-            <li><a data-scroll data-options="easing: easeInQuad" href="#context-rules">Context Rules</a></li>
+            <li><a data-scroll data-options="easing: easeInQuad" href="#contextual-service">Context Rules</a></li>
         <li><h4>Examples</h4></li>
         <li><a data-scroll data-options="easing: easeInQuad" href="#wayfinder">WayFinder</a></li>
 
@@ -72,7 +70,7 @@
       </div>
 
       <div class="small-9 columns right" id="top">
-        
+       <div> 
         <h1 class="text-center" id="overview">Overview</h1>
         <hr class="short">
         <p class="subhead">Build contextual capabilities into your applications with just one line of code</p>
@@ -194,309 +192,444 @@
         </ul>
 
         <hr>
+			</div>
+<div>				
+				<h1 class="text-center" id="getting-started">Getting Started Guide - iOS</h1>
+				<p>ContextHub provides a mechanism for third party developers to quickly and easily add powerful contextual capabilities to their applications with just a few lines of code. This enables developers to create unique and engaging experiences for their users.</p>
+				<h3>Apps</h3>
+				<p>On ContextHub, you create a separate app for each of your mobile applications. Each app has its own application id which you will use to register with the ContextHub iOS SDK. Each account on ContextHub can have multiple application ids for multiple apps. This lets you accommodate both testing and production versions of your app with the same account.</p>
+				
+				<h2 id="setup">Initial Setup</h2>
+				<h3>Sign up</h3>
+				<p>Sign up for ContextHub at http://www.contexthub.com.</p>
+				<h3>Download</h3>
+				<p>Download the framework from GitHub at https://github.com/contexthub/contexthub-ios-framework and add it to your project as well as include the necessary libraries (CoreLocation, CoreMotion, and MobileCoreServices)</p>
+				
+				<h2>Sample apps</h2>
+				<p>Sample apps are available to walk you through the different services ContextHub offers. Below are the following sample apps to choose from. We recommend starting off with Hello ContextHub to get an idea of how to ContextHub works before looking into other examples</p>
+				<p>Each sample app usually has a v1.0 with a simple concept dealing with only one elemental service. Successive versions of apps then integrate more services to create more interesting use cases</p>
+				<h3>Samples</h3>
+				<p><strong>Hello ContextHub</strong> - introduces you to the basic ideas behind ContextHub, the iOS SDK framework, and contextual engine. You'll see how events triggered on the device end up on the server and write rules to respond to events on ContextHub.</p>
+				<p>https://github.com/contexthub/hello-contexthub</p>
+				<p><strong>WayFinder</strong> - iBeacons</p>
+				<ul>
+				<li>WayFinder v1.0 - Dives into how to detect and use iBeacons to develop a location-aware application. You'll be setting up a few iBeacons and can pretend you are right in the ChaiOne office!</li>
+				<li>WayFinder v2.0 - Building off of WayFinder v1.0, you'll expand the scope of your app by storing data on the server and learn the concept of tags, a way to group similar elements together in ContextHub for easy retrieval from the server. (+ vault)</li>
+				<li>WayFinder v3.0 - After WayFinder v2.0, it's time to integrate Apple Push Notification Services (also known as push notifications). You'll write a rule that will send a push notification each time a beacon has entered range and also send a push when the last beacon leaves range. (+ push)</li>
+				</ul>
+				<p>https://github.com/contexthub/Wayfinder</p>
+				
+				<h2>Documentation</h2>
+				<p>Reference documentation is available and is included in the same GitHub repository where the ContextHub iOS SDK is hosted. The docs are generated to integrate with Xcode for quick reference during development. All of the classes and their methods have parameter information listed for their intended use.</p>
+				<p>http://docs.contexthub.com/contexthub-ios-framework/</p>
+				
+				<h2>Services</h2>
+				<p>ContextHub made up primarily of 5 different services: elements (geofences, beacons), events (subscriptions to tags), contexts, <em>application</em> (push, vault), and analytics.</p>
+
+				<h2 id="element-services">Element Services</h2>
+				<h4>Beacons</h4>
+				<p><code>CCHBeaconService</code> allows you access to beacon information that lives on the ContextHub server. You have the ability to create, retrieve, update, and delete (CRUD) beacons with an associated tag.</p>
+				<p><strong>Creating</strong></p>
+				<p>For example, let's say we wanted to create a beacon on the server with the tag "demo".</p>
+				<p>Beacons have information such as UUID, major and minor</p>
+				<p>To create a beacon, call</p>
+				<pre>
+				<code>[[CCHBeaconService sharedInstance] createBeaconWithProximityUUID:uuid major:major minor:minor name:@"Beacon" tags:@"demo" completionHandler:^(NSDictionary *beacon, NSError *error) { // beacon dictionary has info about beacon created }]. 
+				</code>
+				</pre>
+				<p><strong>Retrieving</strong></p>
+				<p>Retrieving a beacon to change it is also similarly easy. You can retrieve beacons by either id (unique) or by tag (array).</p>
+				<p>Retrieving by id is as follows:</p>
+				<pre>
+				<code>[[CCHBeaconService sharedInstance] getBeaconWithId:@"100" completionHandler:^(NSDictionary *beacon, NSError *error) { // beacon dictionary has info about beacon retrieved}]
+				</code>
+				</pre>
+				<p>Retrieving by tag gives you an array of beacons:</p>
+				<pre>
+				<code>[[CCHBeaconService sharedInstance] getBeaconsWithTags:@[@"demo"] completionHandler:(NSArray *beacon, NSError *error) { // access first beacon like so: beacon[0]}]
+				</code>
+				</pre>
+				<p><strong>Updating</strong></p>
+				<p>Updating a beacon is a single call:</p>
+				<pre>
+				<code>[[CCHBeaconService sharedService] updateBeacon:beacon completionHandler:(NSError *error) {}]
+				</code>
+				</pre>
+				<p><strong>Deleting</strong></p>
+				<p>Deleting a beacon is also similar:</p>
+				<pre>
+				<code>[[CCHBeaconService sharedService] deleteBeacon:beacon completionHandler:(NSError *error) {}]
+				</code>
+				</pre>
+				<h4>Geofences</h4>
+				<p>CCHGeofenceService allows you access to geofence information that lives on the ContextHub server. You have the ability to create, retrieve, update, and delete (CRUD) geofences with an associated tag.</p>
+				<p><strong>Creating</strong></p>
+				<p>For example, let's say we wanted to create a geofence on the server with the tag "demo".</p>
+				<p>Geofences have information such as latitude and longitude which define the center of the fence, then a radius value as well. Let's make that now</p>
+				<pre>
+				<code>CLLLocationDegrees lat = -29.7635349f;
+				CLLLocationDegrees lng = -95.4619215f;
+				CCLLocationCoordinate2D center = CLLLocationCoordinate2DMake(lat, lng);
+				CLLLocationDistance radius = 20.0f; // in meters
+				</code>
+				</pre>
+				<p>Call</p>
+				<pre>
+				<code>[[CCHGeofenceService sharedInstance] createGeofenceWithCenter:center radius:radius name:@"Geofence" tags:@"demo" completionHandler:^(NSDictionary *geofence, NSError *error) {}
+				</code>
+				</pre>
+				<p>This call will fail if latitude is not between -90 and 90 and longitude is not between -180 and 180.</p>
+				<p><strong>Retrieving</strong></p>
+				<p>Retrieving a geofence to change it is also similarly easy. You can retrieve beacons by either id (unique) or by tag (array).</p>
+				<p>Retrieving by id is as follows:</p>
+				<pre>
+				<code>[[CCHGeofenceService sharedInstance] getGeofenceWithId:@"100" completionHandler:^(NSDictionary *geofence, NSError *error) { // geofence dictionary has info about geofence created}]
+				</code>
+				</pre>
+				<p>Retrieving by tag gives you an array of geofences, you have the option of passing in your location to limit the scope to those close to you:</p>
+				<pre>
+				<code>[[CCHGeofenceService sharedInstance] getGeofencesWithTag:@"demo" location:location radius:radius completionHandler:(NSArray *geofences, NSError *error) { // access first geofence like so: geofences[0]}]
+				</code>
+				</pre>
+				<p>The location parameter helps to isolate the number of geofences returned by CCHGeofenceService to those within the radius parameter measured in meters sorted by nearest distance</p>
+				<p><strong>Updating</strong></p>
+				<p>Updating a geofence is a single call</p>
+				<pre>
+				<code>[[CCHGeofenceService sharedService] updateGeofence:geofence completionHandler:(NSError *error) {}]
+				</code>
+				</pre>
+				<p><strong>Deleting</strong></p>
+				<p>Deleting a geofence is also similar</p>
+				<pre>
+				<code>[[CCHGeofenceService sharedService] deleteGeofence:geofence completionHandler:(NSError *error) {}]
+				</code>
+				</pre>
+				
+				<h2  id="event-service">Event Service</h2>
+				<h3>Events</h3>
+				<p><code>CCHSensorPipeline</code> allows you to tap into the events triggered by changes in state which then flow up to ContextHub for processing. You can listen in on a variety of events including beacon_in, beacon_out, and beacon_changed events, geofence_in and geofence_out events, and then location_changed and motion_changed events. In order to conserve battery, only events which are subscribed to will generate events in ContextHub (with exception of location_changed)</p>
+				<p><strong>Protocols</strong></p>
+				<p>Set the pipeline delegate and datasource to one of your classes ` [[CCHSensorPipeline sharedInstance] setDataSource:self];` and ` [[CCHSensorPipeline sharedInstance] setDelegate: self];` Conforming to the CCHSensorPipelineDataSource and CCHSensorPipelineDelegate protocols gives you the ability to see and control which events should, will, and have flown up to the ContextHub server as well as send custom event payloads.</p>
+				<p><strong>Subscribing</strong></p>
+				<p>You then need to subscribe to the tag of the element on the server (beacons, geofences, etc..) to have your app be notified of events:</p>
+				<pre>
+				<code>[[CCHSensorPipeline sharedInstance] addSubscriptionForTags:@[@"demo"]]
+				</code>
+				</pre>
+				<p><strong>Observing</strong></p>
+				<p>Then, you need to observe the notification so your specific method for handling events can be called:</p>
+				<pre>
+				<code>[[NSNotificationCenter defaultCenter] addObserver: self selector:@selector("your-method-here") name: CCHSensorPipelineDidPostEvent object:nil]
+				</code>
+				</pre>
+				<p>There are a series of helper class extensions which extend CLBeaconRegion and CLCircularRegion which make processing generated events easier (CLBeaconRegion+ContextHub and CLCircularRegion+ContextHub)</p>
+				<p><strong>Responding</strong></p>
+				<p>Finally, you'll start getting notifications sent to your method about events. For example, if you had named your method "handleNotification", you would structure your method like this:</p>
+				<ul>
+				<li>
+				<ul>
+				<li>(void)handleNotification:(NSNotification *)notification {</li>
+				</ul>
+				</li>
+				</ul>
+				<pre>
+				<code>     NSDictionary *event = notification.object; 
+				        // handle event notification here 
+				}
+				</code>
+				</pre>
+				<h3>Subscriptions</h3>
+				<p><code>CCHSubscriptionService</code> allows you to plug into CRUD notifications of objects located on the ContextHub server. This allows you to respond to state changes instantly instead of constantly polling the ContextHub server for new data, draining the battery. CCHSubscriptionService uses APNS which must be setup in order to receive these messages.</p>
+				<p><strong>Subscribing</strong></p>
+				<p>First subscribe to the tag which you are interested in on the ContextHub server:</p>
+				<pre>
+				<code>[[CCHSubscriptionService sharedInstance] addGeofenceSubscriptionForTags:@["demo"] completionHandler:^(NSError *error){}]
+				</code>
+				</pre>
+				<p><strong>Observing</strong></p>
+				<p>Then observe the notification you are interested in using NSNotificationCenter like so:</p>
+				<pre>
+				<code>[[NSNotificationCenter defaultCenter] addObserver: self selector:@selector("your-method-here") name:"notification-name-here" object:nil]
+				</code>
+				</pre>
+				<p><strong>Responding</strong></p>
+				<p>Lastly in your <code>[application: didReceiveRemoteNotification: fetchCompletionHandler:]</code> method, make sure to call <code>[[CCHPush sharedInstance] application:application didReceiveRemoteNotification:userInfo completionHandler:completionHandler]</code>. This will allow the ContextHub SDK to process background notifications then notify your app of any changes if they were to happen.</p>
+				
+				<h2 id="contextual-service">Contextual Service</h2>
+				<h3>Contexts</h3>
+				<p>The contextual engine evaluates contextual rules written in JavaScript to respond to events triggered by devices and sensors to cause actions which happen on the ContextHub server which affect other devices. These actions include sending push notification, storing data in vault, sending and receiving http requests, and logging console data to your server logs. These actions happen through objects which have a set of methods available to you to create powerful contexts in your applications.</p>
+				<p><strong>Objects</strong></p>
+				<p><strong>Event</strong></p>
+				<p>This object contains the information which triggered the event. Within every event object contains the name, data, payload, and context keys available for you to access.</p>
+				<p>Sample event:</p>
+				<pre>
+				<code>{
+				event =     {
+				    context =         (
+				                    {
+				            "location_context" =                 {
+				                "location_context" =                     {
+				                    altitude = 0;
+				                    course = 0;
+				                    datetime = "2014-03-26 20:07:41 +0000";
+				                    "device_id" = "BEE8D95B-01FF-4835-8A71-F1D89A39771C";
+				                    latitude = 0;
+				                    longitude = 0;
+				                    speed = 0;
+				                };
+				            };
+				        },
+				                    {
+				            "motion_context" =                 {
+				            };
+				        },
+				                    {
+				            "device_context" =                 {
+				                "device_id" = "BEE8D95B-01FF-4835-8A71-F1D89A39771C";
+				                model = "iPhone Simulator";
+				                name = "iPhone Simulator";
+				                "system_name" = "iPhone OS";
+				                "system_version" = "7.1";
+				                type = iPhone;
+				            };
+				        }
+				    );
+				    data =         {
+				        altitude = 0;
+				        course = 0;
+				        datetime = "2014-03-26 20:07:41 +0000";
+				        "device_id" = "BEE8D95B-01FF-4835-8A71-F1D89A39771C";
+				        latitude = 0;
+				        longitude = 0;
+				        speed = 0;
+				    };
+				    name = "location_changed";
+				    payload =         {
+				    };
+				};
+				}
+				</code>
+				</pre>
+				<p><strong>Specifics:</strong></p>
+				<ul>
+				<li>Name - name of the event, which matches one of the available event types</li>
+				<li>Data - data for each event matches its event type</li>
+				</ul>
+				<p><strong>Beacons</strong></p>
+				<pre>
+				<code>data = {
+				        altitude = "21.54464340209961";
+				        beacon = {
+				                major = "";
+				                minor = "";
+				                name = JP;
+				                uuid = "E2C56DB5-DFFB-48D2-B060-8876223462A3";
+				        };
+				        course = "-1";
+				        datetime = "2014-03-26 20:38:20 +0000";
+				        "device_id" = "27AC62BF-C149-43B4-88DC-1C203ECA5DF3";
+				        latitude = "30.05432790613738";
+				        longitude = "-95.17062616543394";
+				        speed = 0;
+				        state = "beacon_in";
+				}
+				</code>
+				</pre>
+				<p><strong>Changed:</strong></p>
+				<pre>
+				<code>data = {
+				        altitude = "18.16732978820801";
+				        beacon = {
+				                major = 32872;
+				                minor = 7821;
+				                proximity = "immediate_state";
+				                rssi = "-40";
+				                uuid = "E2C56DB5-DFFB-48D2-B060-8876223462A3";
+				        };
+				        course = "-1";
+				        datetime = "2014-03-26 20:53:05 +0000";
+				        "device_id" = "27AC62BF-C149-43B4-88DC-1C203ECA5DF3";
+				        latitude = "30.05434992720021";
+				        longitude = "-95.17065884947016";
+				        speed = "-1";
+				        state = "immediate_state";
+				};
+				</code>
+				</pre>
+				<p><strong>Geofences In/out:</strong></p>
+				<pre>
+				<code>data = {
+				        altitude = 0;
+				        course = "-1";
+				        datetime = "2014-03-26 21:20:24 +0000";
+				        "device_id" = "BEE8D95B-01FF-4835-8A71-F1D89A39771C";
+				        fence = {
+				                id = sandcreek;
+				                latitude = "30.054381";
+				                longitude = "-95.17071199999999";
+				                radius = 100;
+				        };
+				        latitude = "30.054381";
+				        longitude = "-95.17071";
+				        speed = "-1";
+				        state = "geofence_in";
+				};
+				</code>
+				</pre>
+				<p>&nbsp;</p>
+				<p><strong>Location Changed</strong></p>
+				<pre>
+				<code>data = {
+				        altitude = 0;
+				        course = 0;
+				        datetime = "2014-03-26 20:07:41 +0000";
+				        "device_id" = "BEE8D95B-01FF-4835-8A71-F1D89A39771C";
+				        latitude = 0;
+				        longitude = 0;
+				        speed = 0;
+				};
+				</code>
+				</pre>
+				<p><strong>Motion Changed</strong></p>
+				<pre>
+				<code>data = {
+				        "current_activity" = {
+				                activities = (
+				                        stationary
+				                );
+				                confidence = 2;
+				                "start_date" = "2014-03-26 21:32:51 +0000";
+				        };
+				        "previous_activity" = {
+				                activities = (
+				                        stationary
+				                );
+				                confidence = 1;
+				                "start_date" = "2014-03-26 21:32:48 +0000";
+				                };
+				        };
+				</code>
+				</pre>
+				<ul>
+				<li>Context - The array contains event data for each of the context types that you have used in your contexts on ContextHub.</li>
+				<li>Device - info specific to the device which triggered the event</li>
+				</ul>
+				<p>'</p>
+				<pre>
+				<code>{
+				"device_context" = {
+				        "device_id" = "BEE8D95B-01FF-4835-8A71-F1D89A39771C";
+				        model = "iPhone Simulator";
+				        name = "iPhone Simulator";
+				        "system_name" = "iPhone OS";
+				        "system_version" = "7.1";
+				        type = iPhone;
+				};
+				}
+				</code>
+				</pre>
+				<p>'</p>
+				<ul>
+				<li>Payload - this is additional data sent by your application in addition to the event data. It is defined as a CCHSensorPipelineDataSource protocol method for you to implement.</li>
+				</ul>
+				<p><strong>Push</strong></p>
+				<p>This object allows you to send foreground (with alert messages) and background (without alert messages) push notifications to either devices, aliases, tags or push tokens. Writing rules to send to specific push tokens is discouraged, as a push token has no guarantee of staying the same for the lifetime of an application installation.</p>
+				<p><strong>Vault</strong></p>
+				<p>This object allows you to store information within the vault directly from a contextual rule. You have the ability to create, retrieve (by id, keypath, and tag), update, and delete vault items.</p>
+				<p><strong>HTTP</strong></p>
+				<p>This object lets you make HTTP get and post requests within a contextual rule. You have the ability to set parameters and custom headers for your requests, then get back a response and respond accordingly. Note: a contextual rule only has 30 seconds of processing before timing out and these HTTP requests occur synchronously, so be aware that your rule may not be fully executed if waiting for an HTTP request to complete.</p>
+				<p><strong>Console</strong></p>
+				<p>This object allows you to log messages into your server logs to diagnose potential issues in your contextual rule as well as keep a record of what has occurred.</p>
+				<p><strong>Rules</strong></p>
+				<p>Each rule written is triggered when a specific event type is posted to the ContextHub server from a device and then evaluated. Using the objects listed above, you can create complex rules using JavaScript and trigger events to occur. Rules have 30 seconds to finish processing before they timeout.</p>
+				<p><strong>Example</strong></p>
+				<p>For example, a simple rule that logs and stores a geofence event in the vault would look like this:</p>
+				<pre>
+				<code>var deviceName = event.context[2].device_context.name
+				var event =  deviceName + " triggered a geofence_in event"
+				Console.log(event)
+				var eventData = {"deviceName":deviceName, "event":"geofence_in"}
+				Vault.create(eventData, "geofence-tag")
+				</code>
+				</pre>
+				
+				<h2 id="application-services">Application Services</h2>
+				<h3 id="push">Push Notifications</h3>
+				<p>CCHPush deals with registering, sending and receiving push notifications within ContextHub. This is covered in greater detail in the WayFinder v3.0 sample app (including generating private keys and certs)</p>
+				<p><strong>Registering</strong></p>
+				<pre>
+				<code>[[UIApplication sharedApplication] registerForRemoteNotificationTypes: (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)
+				</code>
+				</pre>
+				<p>Call to trigger the device to get a push notification token from Apple's servers. This is often called in the <code>[application: didFinishLaunchingWithOptions:]</code> method in your application delegate</p>
+				<p>Then in your <code>[application: didRegisterforRemoteNotificationsWithDeviceToken:]</code> method, pass that push token to <code>[[CCHPush sharedInstance] registerDeviceToken: alias: tags: completionHandler:^(NSError *error) {}]</code> method.</p>
+				<p>Aliases are a way of abstracting a user's devices to be less dependent on a specific push token (as they may change for a number of reasons). They need not be unique, a common pattern is to hash a user's username or email address so it is the same between multiple devices, and a single push is sent to all a user's devices at once. Do not store personally identifiable information in the alias, salt and hash it to keep it from being easily discoverable.</p>
+				<p>Tags are a method of organizing specific groups of devices to have push notifications sent to. Tags are meant to be more general than aliases, as a device can have many tags but only one alias.</p>
+				<p>If you need to change the alias or tags for a device, simply call <code>[[CCHPush sharedInstance] registerDeviceToken: alias: tags: completionHandler:^(NSError *error) {}]</code> again to update that info on the server.</p>
+				<p>At this point, if everything is working, when your app is launched, a popup will appear asking for permission to accept remote notifications.</p>
+				<p><strong>Sending</strong></p>
+				<p>You have three options for sending push notifications to other devices: by device id, alias, and tag. Each method accepts an array of identifiers to send a push at once. You need to construct an NSDictionary that has at least the alert key set with your message in order to be delivered with a visible notification. Other optional keys include sound and badge, which let you set what sound to play or badge number to set. Content-available is another key that allows you to set whether a message should be sent in the background as a silent notification which will not alert the user so your app can process data in the background. Here are the methods you can use:</p>
+				<p>To device(s)</p>
+				<pre>
+				<code>[[CCHPush sharedInstance] sendNotificationToDevices: userInfo: completionHandler^(NSError *error): {}]
+				</code>
+				</pre>
+				<p>To alias(es)</p>
+				<pre>
+				<code>[[CCHPush sharedInstance] sendNotificationToAliases: userInfo: completionHandler:^(NSError *error) {}]
+				</code>
+				</pre>
+				<p>To tag(s)</p>
+				<pre>
+				<code>[[CCHPush sharedInstance] sendNotificationToTags: userInfo: completionHandler:^(NSError *error) {}]
+				</code>
+				</pre>
+				<p>Apple push notification services makes a best effort to deliver the message to a device, however there is no guarantee in delivery. Silent notifications often piggyback on other foreground notifications before they are delivered, so during testing, they may not be received immediately.</p>
+				<p><strong>Receiving</strong></p>
+				<p>Receiving and responding to push notifications happens with a simple method implemented in your application delegate: <code>[application: didReceiveRemoteNotification: fetchCompletionHandler:]</code></p>
+				<p>Call <code>[[CCHPush sharedInstance] application: didReceiveRemoteNotification: completionHandler: {}]</code> on all remote notifications. Within the completion handler, you can put your own code in to process notifications that are <em>not</em> from ContextHub. Be sure to still call the completionHandler with either UIBackgroundFetchResultNewData/NoData/Failed method so iOS knows how often to launch your app in the background for processing.</p>
+				<h3 id="vault">Vault</h3>
+				<p><code>CCHVault</code> allows you persist important information so it can live on the ContextHub server. You have the ability to create, retrieve, update, and delete (CRUD) vault items with an associated tag.</p>
+				<p><strong>Creating</strong></p>
+				<p>For example, let's say we wanted to store a bit of extra information about a beacon. We would store the UUID, major and minor which unique identifies the beacon, plus its associated data in an NSDictionary to be sent up to the server.</p>
+				<p>Our sample dictionary item:</p>
+				<pre>
+				<code>NSDictionary *item = @{@"uuid":@"BEACON-UUID", @"major":@100, @"minor":@1,@"associatedData":@"This beacon is placed near the entrance to ChaiOne"}
+				</code>
+				</pre>
+				<p>Then create that item on the server:</p>
+				<pre>
+				<code>[[CCHVault sharedInstance] createItem:item tags:@"demo" completionHandler:^(NSDictionary *response, NSError *error) { //Returns NSDictionary with info in data key }]
+				</code>
+				</pre>
+				<p><strong>Retrieving</strong></p>
+				<p>Retrieving a vault item to change it is also similarly easy. You can retrieve beacons by either id (unique) or by tag (array).</p>
+				<p>Retrieval by id:</p>
+				<pre>
+				<code>[[CCHVault sharedInstance] getItemWithId:@"ITEM-ID" completionHandler:^(NSDictionary *response, NSError *error) {}];
+				</code>
+				</pre>
+				<p>Retrieval by tag:</p>
+				<pre>
+				<code>[[CCHVault sharedInstance] getItemWithTags:@[@"demo"] 
+				</code>
+				</pre>
+				<p>completionHandler:^(NSArray *responses, NSError *error) {}];</p>
+				<p><strong>Updating</strong></p>
+				<p>Updating a vault item is a single call</p>
+				<pre>
+				<code>[[CCHVault sharedInstance] updateItem:item completionHandler:^(NSDictionary *response, NSError *error) {}]
+				</code>
+				</pre>
+				<p><strong>Deleting</strong></p>
+				<p>Deleting a vault item is also similar</p>
+				<pre>
+				<code>[[CCHVault sharedInstance] deleteItem:item completionHandler:^(NSDictionary *response, NSError *error) {}]
+				</code>
+				</pre>
+</div>
+				<hr>
 
-        <h1 class="text-center" id="getting-started">Getting Started</h1>
-        <hr class="short">
-
-        <div class="row">
-          <div class="large-6 columns">
-            <img src="img/contexthub-1.png" alt="Context Hub" class="getting-started-image ">
-            <h3 class="getting-started-content">ContextHub.com</h3>
-            <p class="getting-started-description">
-              Getting started is simple.
-            </p>
-            <ol>
-              <li>Sign Up</li>
-              <li>Create an App</li>
-              <li>Create a context</li>
-
-          </div>
-
-          <div class="large-6 columns">
-            <img src="img/contexthub-2.png" alt="Context Hub" class="getting-started-image ">
-            <h3 class="getting-started-content">Install And Register</h3>
-            <p class="getting-started-description">
-                After you have created your app on ContextHub, you are ready to get started with the SDK.  Install the SDK and register you application id, and you will be up and running with ContextHub.
-            </p>
-          </div>
-
-        </div>
-
-        <hr>
-
-        <h3 id="installation">Installation </h3>
-        <p>
-          The quickest way to install the ContextHub SDK is to use the cocoapod. Your Podfile should look something like this.
-        </p>
-
-        <script src="https://gist.github.com/Kevinwlee/9807843.js"></script>
-        <p>You can find out more about cocoapods at <a href="http://cocoapods.org/">http://cocoapods.org/</a>. You can also watch an NSScreencast about cocoapods here <a href="http://nsscreencast.com/episodes/5-cocoapods">http://nsscreencast.com/episodes/5-cocoapods</a>.</p>
-
-        <hr>
-
-        <h3 id="registration">Registration</h3>
-        <p>To get started with ContextHub you need to register your Application Id with the context service. Your Application Id can be found on app.contexthub.com. The Application Id is the GUID that is found next to your application name.</p>
-        <p>The best place to register your application is in he application:didFinishLaunchingWithOptions method of you AppDelegate.</p>
-        <script src="https://gist.github.com/Kevinwlee/9808130.js"></script>
-        <p>The SDK will <strong>throw an exception</strong> if you attempt to use any of the Contexthub services without registering your Application Id first.</p>
-        <p>After you have installed the SDK and registered your Application Id, you are done. The SDK will communicate with context service on ContextHub. It will automatically register the services that are needed for your contexts, and it will notify ContextHub as contextual events occur.</p>
-
-        <hr>
-
-        <h3>The Event Pipeline</h3>
-        <p>If you want to hook into the events that are triggered by the SDK, the SDK provides DataSource and Delegate protocols that you can implement.</p>
-
-        <h3 id="event-lifecycle">Event Lifecycle</h3>
-        <p>The Delegate protocol is called during the lifecycle of the event. It also gives you a way to cancel an event to keep it from posting to the server.</p>
-
-        <script src="https://gist.github.com/Kevinwlee/9808880.js"></script>
-        <script src="https://gist.github.com/Kevinwlee/9809003.js"></script>
-        <p>To keep an event from being sent you can implement contextEventManager:shouldPostEvent.</p>
-        <script src="https://gist.github.com/Kevinwlee/72f2594cfa15885866e4.js"></script>
-
-        <hr>
-
-        <h3 id="adding-custom-data-to-events">Adding Your Data to Events</h3>
-        <p>The DataSource protocol gives you the ability to add data to the Event. The data will be accessible in the server-side context rule in the <em>event.payload</em> property.</p>
-
-
-        <script src="https://gist.github.com/Kevinwlee/9808727.js"></script>
-        <em>You can find out more about the <a data-scroll data-options="easing: easeInQuad" href="#context-rules">context rules</a> and <a data-scroll data-options="easing: easeInQuad" href="#dictionary-samples">data structures</a> in this getting started guide.</em>
-        <hr>
-
-        <h3 id="background-updates">Background updates</h3>
-        <p>Context changes will trigger background pushes to your app. If you pass the background notification to ContextHub, the SDK will update the contextual situation on the device while in the background.</p>
-
-        <script src="https://gist.github.com/Kevinwlee/9810937.js"></script>
-
-        <p><b>NOTE:</b> You must have background pushes enabled in your project and you must configure your push certificates on the ContextHub server for this feature to work.</p>
-
-        <hr>
-
-        <h1 class="text-center" id="push-notifications">Push Notifications</h1>
-        <hr class="short">
-        <p>The ContextHub SDK provides an <abbr title="Application Programming Interface">API</abbr> for sending push notifications to your application. You can send messages directly to a device token, or you can organize your push tokens using tags and aliases so that you can send messages to groups of devices.</p>
-
-        <h3 id="certificates">Certificates</h3>
-        <p>You need to create Production and Development push certificate for you application before you can use the ContextHub push services.</p>
-        <p>ContextHub requires that the certificates be converted to pem files.  The following steps outline the process required to convert your certicates to pem files.</p>
-        <ol>
-          <li>Open the Keychain Access application and select both your production certificate and its private key.</li>
-          <li>From the File menu select "Export Items..."</li>
-          <li>Name the export "Certificates.p12" and save it to your desktop.</li>
-          <li>Open a terminal window and change directories to your Desktop</li>
-          <li>Run the following command from the terminal:</li>
-        </ol>
-
-        <script src="https://gist.github.com/Kevinwlee/9811049.js"></script>
-
-        <ol>
-          <li>Open the "certificate.pem" file with your favorite text editor.</li>
-          <li>Copy all of the contents of the pem file and paste them into the production certificate field located under the settings for your application on app.contexthub.com.</li>
-        </ol>
-
-        <p>Now repeat the steps for your Development certificate.</p>
-
-
-        <hr>
-
-        <h3 id="register-push">Register For Remote Notifications</h3>
-        <p>To register for push notifications the same way you always do.  You will need to add request the push token from apple and implement a few delegate methods.  When you receive your token from Apple, you need to register the device token with our <b>CCHNotificationService</b>.</p>
-
-        <script src="https://gist.github.com/Kevinwlee/9811343.js"></script>
-
-        <hr>
-
-        <h3 id="send-push">Send a Push</h3>
-        <script src="https://gist.github.com/Kevinwlee/9811396.js"></script>
-
-        <hr>
-
-        <h3 id="push-alias">Register with an Alias</h3>
-        <script src="https://gist.github.com/Kevinwlee/9814233.js"></script>
-
-        <h3>Send to an Alias</h3>
-        <script src="https://gist.github.com/Kevinwlee/9814245.js"></script>
-
-        <hr>
-        <h3 id="push-tags">Register tags</h3>
-        <script src="https://gist.github.com/Kevinwlee/9814258.js"></script>
-
-        <h3>Send to Tags</h3>
-        <script src="https://gist.github.com/Kevinwlee/9814274.js"></script>
-
-        <hr>
-        <h3 id="push-custom-data">Send Custom Data</h3>
-        <script src="https://gist.github.com/Kevinwlee/9814294.js"></script>
-
-        <hr>
-        <h3 id="push-metadata">Send Badges, Custom Sounds, and Custom Data</h3>
-        <script src="https://gist.github.com/Kevinwlee/9814308.js"></script>
-
-        <hr>
-        <h3 id="push-background">Send Background Push</h3>
-        <script src="https://gist.github.com/Kevinwlee/9814320.js"></script>
-
-        <hr>
-        <h1 class="text-center" id="vault">Vault Cloud Storage</h1>
-        <hr class="short">
-        <p>If you need to store data that all installations can access, you can use the ContextHub Vault Service. The vault services allows you to store an NSDictionary of strings in the cloud. When you save items to the vault, you will organize them inside containers. You can think of containers as tables or collections of similar things. For instance, you may want to store artwork in a paintings container, or office addresses in an offices container. It's really up to you.</p>
-
-        <hr>
-        <h3 id="vault-create">Create an Item</h3>
-        <p>To create an item in the vault you must provide an NSDictionary of the item that you want to save and container name for the item.</p>
-
-        <script src="https://gist.github.com/Kevinwlee/9814921.js"></script>
-
-        <hr>
-        <h3 id="vault-list">Retrieve All Items</h3>
-        <p>To view items in the vault you must provide the container name of the items you want to view.</p>
-
-        <script src="https://gist.github.com/Kevinwlee/9814933.js"></script>
-
-        <p>You'll notice that each of the items returned has a <em>vaultInfo</em> key. The value of the key contains the information that the vault uses to keep track of the item.</p>
-
-        <hr>
-        <h3 id="vault-update">Update Item</h3>
-        <p>To update an items you must either retrieve the item from the SDK or update an item that was retrieved from the getItemsInContainer:completion method.</p>
-
-        <script src="https://gist.github.com/Kevinwlee/9815271.js"></script>
-
-        <hr>
-        <h3 id="vault-delete">Delete Item</h3>
-
-        <script src="https://gist.github.com/Kevinwlee/9815278.js"></script>
-
-        <hr>
-        <h3 id="vault-resource">Adding a File</h3>
-        <p>You can also store files with your vault items. To accomplish this, the files will be stored on our S3 sever, and a url to the file will be saved with your item. You will need to create a CCBResource object to describe your file and then save it using the createItem:withResources:inContainer:completion In the following example, we are saving a profile picture with some profile metadata, and saving the item in the profiles container.</p>
-
-        <script src="https://gist.github.com/Kevinwlee/9815294.js"></script>
-
-        <hr>
-        <h1 class="text-center" id="dictionary-samples">Event NSDictionary Samples</h1>
-        <hr class="short">
-        <p>When these events are triggered, context hub creates an event dictionary containing event, context and user defined data. The following sections will show samples of the different event data structures.</p>
-        <p>The basic structure of every event is as follows.</p>
-
-        <script src="https://gist.github.com/Kevinwlee/9815525.js"></script>
-
-        <ul>
-        <li><strong>context</strong> the array contains event data for each of the context types that you have used in your contexts on ContextHub.</li>
-        <li><strong>data</strong> the dictionary of data that is associated with the triggering event. The data object are shown in the sections to follow.</li>
-        <li><strong>name</strong> this is the name of the triggering event. This name will match the event_types on ContextHub.</li>
-        <li><strong>payload</strong> this is the user defined data that can be supplied in the CCBContextEventManagerDatasource protocol.</li>
-        </ul>
-
-        <p>Here's an example of an actual event dictionary that was written to the console:</p>
-
-        <script src="https://gist.github.com/Kevinwlee/9815536.js"></script>
-
-        <hr>
-        <h3>Location Changed</h3>
-        <p>When a location changed event is detected, this is the data that is collected from the event.</p>
-        <p>
-          Event name: <em>location_changed</em>
-        </p>
-        <script src="https://gist.github.com/Kevinwlee/9815561.js"></script>
-
-        <hr>
-        <h3>Geofence In/Out</h3>
-        <p>The data structure for geofence in/out events are the same except for the state value.</p>
-        <p>
-          Event name: <em>geofence_in</em> or <em>geofence_out</em>
-        </p>
-
-        <script src="https://gist.github.com/Kevinwlee/9815570.js"></script>
-
-        <hr>
-        <h3>Beacon In/Out</h3>
-        <p>The beacon in/out events are identical except for the state property.</p>
-        <p>
-          Event name: <em>beacon_in</em> or <em>beacon_out</em>
-        </p>
-
-        <script src="https://gist.github.com/Kevinwlee/9815581.js"></script>
-
-        <hr>
-        <h3>Beacon Changed</h3>
-        <p>The beach changed state is triggered when an iBeacon changes proximity.</p>
-        <p>
-          Event name: <em>beacon_changed</em>
-        </p>
-
-        <script src="https://gist.github.com/Kevinwlee/9815592.js"></script>
-
-        <p>The states that you can expect are:</p>
-        <ul>
-          <li>far_sate</li>
-          <li>near_sate</li>
-          <li>immediate_sate</li>
-        </ul>
-
-        <p><b>NOTE:</b> The beacon data structure is slightly different in the beacon_changed event than it is in the beacon_in/out events. This is because when you determine the distance to a beacon, know as ranging a beacon, you are always given the major, minor, and rssi values of the .</p>
-
-        <hr>
-        <h3>Motion Changed</h3>
-        <p>The motion changed data shows current and previous activity information.</p>
-        <p>
-          Event name: <em>motion_changed</em>
-        </p>
-
-        <script src="https://gist.github.com/Kevinwlee/9815606.js"></script>
-
-        <hr>
-        <h1 class="text-center" id="context-rules">Context Rules</h1>
-        <hr class="short">
-
-        <p>When you create context rules on ContextHub.com, you will pick an event type and a web hook, and then you'll write some javascript to determine if the web hook should be called.  This section is about what you can do inside the context rule textbox.</p>
-
-        <p>You can think of the context rule text box as the inside of a javascript function that will get evaluated every time the Context Service receives an event for the specified event type.  The function has three objects that that give you access to the ContextHub services.</p>
-
-        <ul>
-          <li><strong>event</strong> - contains a json representation of all of the event data.</li>
-          <li><strong>push</strong> - an object that you can use to send push notifications</li>
-          <li><strong>vault</strong> - an object that lets you work with vault data</li>
-        </ul>
-
-        <script src="https://gist.github.com/Kevinwlee/9818119.js"></script>
-
-        <h3>Event Object</h3>
-        <p>You can use the data in the event object to make contextual decisions on what actions you want to take.  You access the properties through dot notation just as you do in a javascript file.  Below is a sample json event for a geofence_in.</p>
-        <script src="https://gist.github.com/Kevinwlee/9818234.js"></script>
-
-        <h3>Vault Object</h3>
-        <p>The vault object lets you access the vault to help you make contextual decisions.  You can find, update, create, and count vault items.</p>
-
-        <h3>find</h3>
-        <p>The <em>find</em> method takes one argument, the id of the vault. It returns the vault object with that id.</p>
-        <div class="panel">
-          <pre>data = vault.find(3)</pre>
-        </div>
-
-        <h3>create</h3>
-        <p>The <em>create</em> method takes two arguments, the data's container and the data that you want to save.</p>
-        <div class="panel">
-          <pre>vault.create('superheros', {'name': 'Batman'}</pre>
-        </div>
-
-        <h3>update</h3>
-        <p>The <em>update</em> method takes two arguments, the id of the vault and the data to update the vault with.</p>
-        <div class="panel">
-          <pre>data = vault.find(3)
-data.name = 'Superman'
-vault.update(3, data)
-          </pre>
-        </div>
-
-
-        <h3>count</h3>
-        <p>The <em>count</em> method takes one argument, the data's container and returns the number of items that have a container of the same name.</p>
-        <div class="panel">
-          <pre>count = vault.count('superheros')</pre>
-        </div>
-
-        <hr>
 
         <h1 class="text-center" id="wayfinder">WayFinder</h1>
         <hr class="short">
