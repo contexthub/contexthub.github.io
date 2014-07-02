@@ -230,75 +230,39 @@
 				<h4>Beacons</h4>
 				<p><code>CCHBeaconService</code> allows you access to beacon information that lives on the ContextHub server. You have the ability to create, retrieve, update, and delete (CRUD) beacons with an associated tag.</p>
 				<p><strong>Creating</strong></p>
-				<p>For example, let's say we wanted to create a beacon on the server with the tag "demo".</p>
-				<p>Beacons have information such as UUID, major and minor</p>
-				<p>To create a beacon, call</p>
-				<pre>
-				<code>[[CCHBeaconService sharedInstance] createBeaconWithProximityUUID:uuid major:major minor:minor name:@"Beacon" tags:@"demo" completionHandler:^(NSDictionary *beacon, NSError *error) { // beacon dictionary has info about beacon created }]. 
-				</code>
-				</pre>
+				<p>For example, let's say we wanted to create a beacon on the server with the tag "demo". Beacons have information such as UUID, major and minor To create a beacon, call:</p>
+        <script src="https://gist.github.com/Kevinwlee/bddcc29fe2629ee425bc.js"></script>
 				<p><strong>Retrieving</strong></p>
-				<p>Retrieving a beacon to change it is also similarly easy. You can retrieve beacons by either id (unique) or by tag (array).</p>
-				<p>Retrieving by id is as follows:</p>
-				<pre>
-				<code>[[CCHBeaconService sharedInstance] getBeaconWithId:@"100" completionHandler:^(NSDictionary *beacon, NSError *error) { // beacon dictionary has info about beacon retrieved}]
-				</code>
-				</pre>
+				<p>Retrieving a beacon to change it is also similarly easy. You can retrieve beacons by either id (unique) or by tag (array). Retrieving by id is as follows:</p>
+        <script src="https://gist.github.com/Kevinwlee/d07b400c01bbca4de2e0.js"></script>
 				<p>Retrieving by tag gives you an array of beacons:</p>
-				<pre>
-				<code>[[CCHBeaconService sharedInstance] getBeaconsWithTags:@[@"demo"] completionHandler:(NSArray *beacon, NSError *error) { // access first beacon like so: beacon[0]}]
-				</code>
-				</pre>
-				<p><strong>Updating</strong></p>
+        <script src="https://gist.github.com/Kevinwlee/ae805f63833fec291937.js"></script>
+        <p><strong>Updating</strong></p>
 				<p>Updating a beacon is a single call:</p>
-				<pre>
-				<code>[[CCHBeaconService sharedService] updateBeacon:beacon completionHandler:(NSError *error) {}]
-				</code>
-				</pre>
-				<p><strong>Deleting</strong></p>
+        <script src="https://gist.github.com/Kevinwlee/f8fcd1ee194525e5e8a4.js"></script>
+        <p><strong>Deleting</strong></p>
 				<p>Deleting a beacon is also similar:</p>
-				<pre>
-				<code>[[CCHBeaconService sharedService] deleteBeacon:beacon completionHandler:(NSError *error) {}]
-				</code>
-				</pre>
-				<h4>Geofences</h4>
+        <script src="https://gist.github.com/Kevinwlee/c9f108e5e7d97c0c9259.js"></script>
+        <h4>Geofences</h4>
 				<p>CCHGeofenceService allows you access to geofence information that lives on the ContextHub server. You have the ability to create, retrieve, update, and delete (CRUD) geofences with an associated tag.</p>
 				<p><strong>Creating</strong></p>
 				<p>For example, let's say we wanted to create a geofence on the server with the tag "demo".</p>
 				<p>Geofences have information such as latitude and longitude which define the center of the fence, then a radius value as well. Let's make that now</p>
-				<pre>
-				<code>CLLLocationDegrees lat = -29.7635349f;
-				CLLLocationDegrees lng = -95.4619215f;
-				CCLLocationCoordinate2D center = CLLLocationCoordinate2DMake(lat, lng);
-				CLLLocationDistance radius = 20.0f; // in meters
-				</code>
-				</pre>
-				<p>Call</p>
-				<pre>
-				<code>[[CCHGeofenceService sharedInstance] createGeofenceWithCenter:center radius:radius name:@"Geofence" tags:@"demo" completionHandler:^(NSDictionary *geofence, NSError *error) {}
-				</code>
-				</pre>
-				<p>This call will fail if latitude is not between -90 and 90 and longitude is not between -180 and 180.</p>
+        <script src="https://gist.github.com/Kevinwlee/114d81f9192c2dfe745a.js"></script>
+        <p>Call</p>
+        <script src="https://gist.github.com/Kevinwlee/7120ff389ce85aeaf23d.js"></script>
+        <p>This call will fail if latitude is not between -90 and 90 and longitude is not between -180 and 180.</p>
 				<p><strong>Retrieving</strong></p>
 				<p>Retrieving a geofence to change it is also similarly easy. You can retrieve beacons by either id (unique) or by tag (array).</p>
 				<p>Retrieving by id is as follows:</p>
-				<pre>
-				<code>[[CCHGeofenceService sharedInstance] getGeofenceWithId:@"100" completionHandler:^(NSDictionary *geofence, NSError *error) { // geofence dictionary has info about geofence created}]
-				</code>
-				</pre>
-				<p>Retrieving by tag gives you an array of geofences, you have the option of passing in your location to limit the scope to those close to you:</p>
-				<pre>
-				<code>[[CCHGeofenceService sharedInstance] getGeofencesWithTag:@"demo" location:location radius:radius completionHandler:(NSArray *geofences, NSError *error) { // access first geofence like so: geofences[0]}]
-				</code>
-				</pre>
+        <script src="https://gist.github.com/Kevinwlee/a36aaa2d1f898dde4f36.js"></script>
+        <p>Retrieving by tag gives you an array of geofences, you have the option of passing in your location to limit the scope to those close to you:</p>
+        <script src="https://gist.github.com/Kevinwlee/cfcc84f8ff0d6c6cd5e2.js"></script>
 				<p>The location parameter helps to isolate the number of geofences returned by CCHGeofenceService to those within the radius parameter measured in meters sorted by nearest distance</p>
 				<p><strong>Updating</strong></p>
 				<p>Updating a geofence is a single call</p>
-				<pre>
-				<code>[[CCHGeofenceService sharedService] updateGeofence:geofence completionHandler:(NSError *error) {}]
-				</code>
-				</pre>
-				<p><strong>Deleting</strong></p>
+        <script src="https://gist.github.com/Kevinwlee/738ff4434d8944fed952.js"></script>				
+        <p><strong>Deleting</strong></p>
 				<p>Deleting a geofence is also similar</p>
 				<pre>
 				<code>[[CCHGeofenceService sharedService] deleteGeofence:geofence completionHandler:(NSError *error) {}]
