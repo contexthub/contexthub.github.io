@@ -308,121 +308,22 @@
 				<li>Data - data for each event matches its event type</li>
 				</ul>
 				<p><strong>Beacons</strong></p>
-				<pre>
-				<code>data = {
-				        altitude = "21.54464340209961";
-				        beacon = {
-				                major = "";
-				                minor = "";
-				                name = JP;
-				                uuid = "E2C56DB5-DFFB-48D2-B060-8876223462A3";
-				        };
-				        course = "-1";
-				        datetime = "2014-03-26 20:38:20 +0000";
-				        "device_id" = "27AC62BF-C149-43B4-88DC-1C203ECA5DF3";
-				        latitude = "30.05432790613738";
-				        longitude = "-95.17062616543394";
-				        speed = 0;
-				        state = "beacon_in";
-				}
-				</code>
-				</pre>
+				<script src="https://gist.github.com/Kevinwlee/4d590d9baa29084edfde.js"></script>
 				<p><strong>Changed:</strong></p>
-				<pre>
-				<code>data = {
-				        altitude = "18.16732978820801";
-				        beacon = {
-				                major = 32872;
-				                minor = 7821;
-				                proximity = "immediate_state";
-				                rssi = "-40";
-				                uuid = "E2C56DB5-DFFB-48D2-B060-8876223462A3";
-				        };
-				        course = "-1";
-				        datetime = "2014-03-26 20:53:05 +0000";
-				        "device_id" = "27AC62BF-C149-43B4-88DC-1C203ECA5DF3";
-				        latitude = "30.05434992720021";
-				        longitude = "-95.17065884947016";
-				        speed = "-1";
-				        state = "immediate_state";
-				};
-				</code>
-				</pre>
+				<script src="https://gist.github.com/Kevinwlee/a6915dc76c05adf86d2a.js"></script>
 				<p><strong>Geofences In/out:</strong></p>
-				<pre>
-				<code>data = {
-				        altitude = 0;
-				        course = "-1";
-				        datetime = "2014-03-26 21:20:24 +0000";
-				        "device_id" = "BEE8D95B-01FF-4835-8A71-F1D89A39771C";
-				        fence = {
-				                id = sandcreek;
-				                latitude = "30.054381";
-				                longitude = "-95.17071199999999";
-				                radius = 100;
-				        };
-				        latitude = "30.054381";
-				        longitude = "-95.17071";
-				        speed = "-1";
-				        state = "geofence_in";
-				};
-				</code>
-				</pre>
-				<p>&nbsp;</p>
+				<script src="https://gist.github.com/Kevinwlee/b056f1eab3712b528d0e.js"></script>
 				<p><strong>Location Changed</strong></p>
-				<pre>
-				<code>data = {
-				        altitude = 0;
-				        course = 0;
-				        datetime = "2014-03-26 20:07:41 +0000";
-				        "device_id" = "BEE8D95B-01FF-4835-8A71-F1D89A39771C";
-				        latitude = 0;
-				        longitude = 0;
-				        speed = 0;
-				};
-				</code>
-				</pre>
+				<script src="https://gist.github.com/Kevinwlee/a059f2277a0620431fe1.js"></script>
 				<p><strong>Motion Changed</strong></p>
-				<pre>
-				<code>data = {
-				        "current_activity" = {
-				                activities = (
-				                        stationary
-				                );
-				                confidence = 2;
-				                "start_date" = "2014-03-26 21:32:51 +0000";
-				        };
-				        "previous_activity" = {
-				                activities = (
-				                        stationary
-				                );
-				                confidence = 1;
-				                "start_date" = "2014-03-26 21:32:48 +0000";
-				                };
-				        };
-				</code>
-				</pre>
+				<script src="https://gist.github.com/Kevinwlee/d97b5608522e8912d641.js"></script>
 				<ul>
-				<li>Context - The array contains event data for each of the context types that you have used in your contexts on ContextHub.</li>
-				<li>Device - info specific to the device which triggered the event</li>
+					<li>Context - The array contains event data for each of the context types that you have used in your contexts on ContextHub.</li>
+					<li>Device - info specific to the device which triggered the event</li>
 				</ul>
-				<p>'</p>
-				<pre>
-				<code>{
-				"device_context" = {
-				        "device_id" = "BEE8D95B-01FF-4835-8A71-F1D89A39771C";
-				        model = "iPhone Simulator";
-				        name = "iPhone Simulator";
-				        "system_name" = "iPhone OS";
-				        "system_version" = "7.1";
-				        type = iPhone;
-				};
-				}
-				</code>
-				</pre>
-				<p>'</p>
+				<script src="https://gist.github.com/Kevinwlee/8856e24cf1564470d52f.js"></script>
 				<ul>
-				<li>Payload - this is additional data sent by your application in addition to the event data. It is defined as a CCHSensorPipelineDataSource protocol method for you to implement.</li>
+					<li>Payload - this is additional data sent by your application in addition to the event data. It is defined as a CCHSensorPipelineDataSource protocol method for you to implement.</li>
 				</ul>
 				<p><strong>Push</strong></p>
 				<p>This object allows you to send foreground (with alert messages) and background (without alert messages) push notifications to either devices, aliases, tags or push tokens. Writing rules to send to specific push tokens is discouraged, as a push token has no guarantee of staying the same for the lifetime of an application installation.</p>
@@ -436,23 +337,13 @@
 				<p>Each rule written is triggered when a specific event type is posted to the ContextHub server from a device and then evaluated. Using the objects listed above, you can create complex rules using JavaScript and trigger events to occur. Rules have 30 seconds to finish processing before they timeout.</p>
 				<p><strong>Example</strong></p>
 				<p>For example, a simple rule that logs and stores a geofence event in the vault would look like this:</p>
-				<pre>
-				<code>var deviceName = event.context[2].device_context.name
-				var event =  deviceName + " triggered a geofence_in event"
-				Console.log(event)
-				var eventData = {"deviceName":deviceName, "event":"geofence_in"}
-				Vault.create(eventData, "geofence-tag")
-				</code>
-				</pre>
+				<script src="https://gist.github.com/Kevinwlee/43d707615ab3f3b5cb8f.js"></script>
 				
 				<h2 id="application-services">Application Services</h2>
 				<h3 id="push">Push Notifications</h3>
 				<p>CCHPush deals with registering, sending and receiving push notifications within ContextHub. This is covered in greater detail in the WayFinder v3.0 sample app (including generating private keys and certs)</p>
 				<p><strong>Registering</strong></p>
-				<pre>
-				<code>[[UIApplication sharedApplication] registerForRemoteNotificationTypes: (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)
-				</code>
-				</pre>
+				<script src="https://gist.github.com/Kevinwlee/f7e3567823ba985cff1e.js"></script>
 				<p>Call to trigger the device to get a push notification token from Apple's servers. This is often called in the <code>[application: didFinishLaunchingWithOptions:]</code> method in your application delegate</p>
 				<p>Then in your <code>[application: didRegisterforRemoteNotificationsWithDeviceToken:]</code> method, pass that push token to <code>[[CCHPush sharedInstance] registerDeviceToken: alias: tags: completionHandler:^(NSError *error) {}]</code> method.</p>
 				<p>Aliases are a way of abstracting a user's devices to be less dependent on a specific push token (as they may change for a number of reasons). They need not be unique, a common pattern is to hash a user's username or email address so it is the same between multiple devices, and a single push is sent to all a user's devices at once. Do not store personally identifiable information in the alias, salt and hash it to keep it from being easily discoverable.</p>
@@ -462,20 +353,11 @@
 				<p><strong>Sending</strong></p>
 				<p>You have three options for sending push notifications to other devices: by device id, alias, and tag. Each method accepts an array of identifiers to send a push at once. You need to construct an NSDictionary that has at least the alert key set with your message in order to be delivered with a visible notification. Other optional keys include sound and badge, which let you set what sound to play or badge number to set. Content-available is another key that allows you to set whether a message should be sent in the background as a silent notification which will not alert the user so your app can process data in the background. Here are the methods you can use:</p>
 				<p>To device(s)</p>
-				<pre>
-				<code>[[CCHPush sharedInstance] sendNotificationToDevices: userInfo: completionHandler^(NSError *error): {}]
-				</code>
-				</pre>
+				<script src="https://gist.github.com/Kevinwlee/fba5b225958b15102908.js"></script>
 				<p>To alias(es)</p>
-				<pre>
-				<code>[[CCHPush sharedInstance] sendNotificationToAliases: userInfo: completionHandler:^(NSError *error) {}]
-				</code>
-				</pre>
+				<script src="https://gist.github.com/Kevinwlee/597008f760d801a7a60e.js"></script>
 				<p>To tag(s)</p>
-				<pre>
-				<code>[[CCHPush sharedInstance] sendNotificationToTags: userInfo: completionHandler:^(NSError *error) {}]
-				</code>
-				</pre>
+				<script src="https://gist.github.com/Kevinwlee/5441ae0e39e9a2cb50d4.js"></script>
 				<p>Apple push notification services makes a best effort to deliver the message to a device, however there is no guarantee in delivery. Silent notifications often piggyback on other foreground notifications before they are delivered, so during testing, they may not be received immediately.</p>
 				<p><strong>Receiving</strong></p>
 				<p>Receiving and responding to push notifications happens with a simple method implemented in your application delegate: <code>[application: didReceiveRemoteNotification: fetchCompletionHandler:]</code></p>
@@ -490,35 +372,20 @@
 				</code>
 				</pre>
 				<p>Then create that item on the server:</p>
-				<pre>
-				<code>[[CCHVault sharedInstance] createItem:item tags:@"demo" completionHandler:^(NSDictionary *response, NSError *error) { //Returns NSDictionary with info in data key }]
-				</code>
-				</pre>
+				<script src="https://gist.github.com/Kevinwlee/49b920d934cf5b678cba.js"></script>
 				<p><strong>Retrieving</strong></p>
 				<p>Retrieving a vault item to change it is also similarly easy. You can retrieve beacons by either id (unique) or by tag (array).</p>
 				<p>Retrieval by id:</p>
-				<pre>
-				<code>[[CCHVault sharedInstance] getItemWithId:@"ITEM-ID" completionHandler:^(NSDictionary *response, NSError *error) {}];
-				</code>
-				</pre>
+				<script src="https://gist.github.com/Kevinwlee/3aefa9607cd8b76f2c26.js"></script>
 				<p>Retrieval by tag:</p>
-				<pre>
-				<code>[[CCHVault sharedInstance] getItemWithTags:@[@"demo"] 
-				</code>
-				</pre>
+				<script src="https://gist.github.com/Kevinwlee/9c68a1552b57202c72cf.js"></script>
 				<p>completionHandler:^(NSArray *responses, NSError *error) {}];</p>
 				<p><strong>Updating</strong></p>
 				<p>Updating a vault item is a single call</p>
-				<pre>
-				<code>[[CCHVault sharedInstance] updateItem:item completionHandler:^(NSDictionary *response, NSError *error) {}]
-				</code>
-				</pre>
+				<script src="https://gist.github.com/Kevinwlee/bbd87069f922eb549b91.js"></script>
 				<p><strong>Deleting</strong></p>
 				<p>Deleting a vault item is also similar</p>
-				<pre>
-				<code>[[CCHVault sharedInstance] deleteItem:item completionHandler:^(NSDictionary *response, NSError *error) {}]
-				</code>
-				</pre>
+				<script src="https://gist.github.com/Kevinwlee/3c49553e338255152981.js"></script>
 </div>
 				<hr>
 
