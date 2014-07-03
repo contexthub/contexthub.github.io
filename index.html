@@ -261,14 +261,11 @@
 				<p>The location parameter helps to isolate the number of geofences returned by CCHGeofenceService to those within the radius parameter measured in meters sorted by nearest distance</p>
 				<p><strong>Updating</strong></p>
 				<p>Updating a geofence is a single call</p>
-        <script src="https://gist.github.com/Kevinwlee/738ff4434d8944fed952.js"></script>				
+        <script src="https://gist.github.com/Kevinwlee/738ff4434d8944fed952.js"></script>
         <p><strong>Deleting</strong></p>
 				<p>Deleting a geofence is also similar</p>
-				<pre>
-				<code>[[CCHGeofenceService sharedService] deleteGeofence:geofence completionHandler:(NSError *error) {}]
-				</code>
-				</pre>
-				
+        <script src="https://gist.github.com/Kevinwlee/1ef49eb6d0f115117660.js"></script>
+        
 				<h2  id="event-service">Event Service</h2>
 				<h3>Events</h3>
 				<p><code>CCHSensorPipeline</code> allows you to tap into the events triggered by changes in state which then flow up to ContextHub for processing. You can listen in on a variety of events including beacon_in, beacon_out, and beacon_changed events, geofence_in and geofence_out events, and then location_changed and motion_changed events. In order to conserve battery, only events which are subscribed to will generate events in ContextHub (with exception of location_changed)</p>
@@ -276,48 +273,26 @@
 				<p>Set the pipeline delegate and datasource to one of your classes ` [[CCHSensorPipeline sharedInstance] setDataSource:self];` and ` [[CCHSensorPipeline sharedInstance] setDelegate: self];` Conforming to the CCHSensorPipelineDataSource and CCHSensorPipelineDelegate protocols gives you the ability to see and control which events should, will, and have flown up to the ContextHub server as well as send custom event payloads.</p>
 				<p><strong>Subscribing</strong></p>
 				<p>You then need to subscribe to the tag of the element on the server (beacons, geofences, etc..) to have your app be notified of events:</p>
-				<pre>
-				<code>[[CCHSensorPipeline sharedInstance] addSubscriptionForTags:@[@"demo"]]
-				</code>
-				</pre>
+        <script src="https://gist.github.com/Kevinwlee/c19ae6ac8a4e2a719802.js"></script>
 				<p><strong>Observing</strong></p>
 				<p>Then, you need to observe the notification so your specific method for handling events can be called:</p>
-				<pre>
-				<code>[[NSNotificationCenter defaultCenter] addObserver: self selector:@selector("your-method-here") name: CCHSensorPipelineDidPostEvent object:nil]
-				</code>
-				</pre>
+        <script src="https://gist.github.com/Kevinwlee/c949ae2af8fedfd75c4d.js"></script>
 				<p>There are a series of helper class extensions which extend CLBeaconRegion and CLCircularRegion which make processing generated events easier (CLBeaconRegion+ContextHub and CLCircularRegion+ContextHub)</p>
 				<p><strong>Responding</strong></p>
 				<p>Finally, you'll start getting notifications sent to your method about events. For example, if you had named your method "handleNotification", you would structure your method like this:</p>
-				<ul>
-				<li>
-				<ul>
-				<li>(void)handleNotification:(NSNotification *)notification {</li>
-				</ul>
-				</li>
-				</ul>
-				<pre>
-				<code>     NSDictionary *event = notification.object; 
-				        // handle event notification here 
-				}
-				</code>
-				</pre>
+        <script src="https://gist.github.com/Kevinwlee/22af2139e6509bdf5835.js"></script>
 				<h3>Subscriptions</h3>
 				<p><code>CCHSubscriptionService</code> allows you to plug into CRUD notifications of objects located on the ContextHub server. This allows you to respond to state changes instantly instead of constantly polling the ContextHub server for new data, draining the battery. CCHSubscriptionService uses APNS which must be setup in order to receive these messages.</p>
 				<p><strong>Subscribing</strong></p>
 				<p>First subscribe to the tag which you are interested in on the ContextHub server:</p>
-				<pre>
-				<code>[[CCHSubscriptionService sharedInstance] addGeofenceSubscriptionForTags:@["demo"] completionHandler:^(NSError *error){}]
-				</code>
-				</pre>
+        <script src="https://gist.github.com/Kevinwlee/42d5db5d219cc9bba3f6.js"></script>
 				<p><strong>Observing</strong></p>
 				<p>Then observe the notification you are interested in using NSNotificationCenter like so:</p>
-				<pre>
-				<code>[[NSNotificationCenter defaultCenter] addObserver: self selector:@selector("your-method-here") name:"notification-name-here" object:nil]
-				</code>
-				</pre>
+        <script src="https://gist.github.com/Kevinwlee/c949ae2af8fedfd75c4d.js"></script>
 				<p><strong>Responding</strong></p>
-				<p>Lastly in your <code>[application: didReceiveRemoteNotification: fetchCompletionHandler:]</code> method, make sure to call <code>[[CCHPush sharedInstance] application:application didReceiveRemoteNotification:userInfo completionHandler:completionHandler]</code>. This will allow the ContextHub SDK to process background notifications then notify your app of any changes if they were to happen.</p>
+				<p>Lastly in your <code>[application: didReceiveRemoteNotification: fetchCompletionHandler:]</code> method, make sure to call </p>
+        <script src="https://gist.github.com/Kevinwlee/2b2cb7409c021d86cc80.js"></script>
+        <p>This will allow the ContextHub SDK to process background notifications then notify your app of any changes if they were to happen.</p>
 				
 				<h2 id="contextual-service">Contextual Service</h2>
 				<h3>Contexts</h3>
@@ -326,54 +301,7 @@
 				<p><strong>Event</strong></p>
 				<p>This object contains the information which triggered the event. Within every event object contains the name, data, payload, and context keys available for you to access.</p>
 				<p>Sample event:</p>
-				<pre>
-				<code>{
-				event =     {
-				    context =         (
-				                    {
-				            "location_context" =                 {
-				                "location_context" =                     {
-				                    altitude = 0;
-				                    course = 0;
-				                    datetime = "2014-03-26 20:07:41 +0000";
-				                    "device_id" = "BEE8D95B-01FF-4835-8A71-F1D89A39771C";
-				                    latitude = 0;
-				                    longitude = 0;
-				                    speed = 0;
-				                };
-				            };
-				        },
-				                    {
-				            "motion_context" =                 {
-				            };
-				        },
-				                    {
-				            "device_context" =                 {
-				                "device_id" = "BEE8D95B-01FF-4835-8A71-F1D89A39771C";
-				                model = "iPhone Simulator";
-				                name = "iPhone Simulator";
-				                "system_name" = "iPhone OS";
-				                "system_version" = "7.1";
-				                type = iPhone;
-				            };
-				        }
-				    );
-				    data =         {
-				        altitude = 0;
-				        course = 0;
-				        datetime = "2014-03-26 20:07:41 +0000";
-				        "device_id" = "BEE8D95B-01FF-4835-8A71-F1D89A39771C";
-				        latitude = 0;
-				        longitude = 0;
-				        speed = 0;
-				    };
-				    name = "location_changed";
-				    payload =         {
-				    };
-				};
-				}
-				</code>
-				</pre>
+				<script src="https://gist.github.com/Kevinwlee/a561eebf2c95acb43c69.js"></script>
 				<p><strong>Specifics:</strong></p>
 				<ul>
 				<li>Name - name of the event, which matches one of the available event types</li>
