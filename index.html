@@ -270,7 +270,7 @@
 				<h3>Events</h3>
 				<p><code>CCHSensorPipeline</code> allows you to tap into the events triggered by changes in state which then flow up to ContextHub for processing. You can listen in on a variety of events including beacon_in, beacon_out, and beacon_changed events, geofence_in and geofence_out events, and then location_changed and motion_changed events. In order to conserve battery, only events which are subscribed to will generate events in ContextHub (with exception of location_changed)</p>
 				<p><strong>Protocols</strong></p>
-				<p>Set the pipeline delegate and datasource to one of your classes ` [[CCHSensorPipeline sharedInstance] setDataSource:self];` and ` [[CCHSensorPipeline sharedInstance] setDelegate: self];` Conforming to the CCHSensorPipelineDataSource and CCHSensorPipelineDelegate protocols gives you the ability to see and control which events should, will, and have flown up to the ContextHub server as well as send custom event payloads.</p>
+				<p>Set the pipeline delegate and datasource to one of your classes <code> [[CCHSensorPipeline sharedInstance] setDataSource:self];</code> and  <code>[[CCHSensorPipeline sharedInstance] setDelegate: self];</code> Conforming to the <code>CCHSensorPipelineDataSource</code> and <code>CCHSensorPipelineDelegate</code> protocols gives you the ability to see and control which events should, will, and have flown up to the ContextHub server as well as send custom event payloads.</p>
 				<p><strong>Subscribing</strong></p>
 				<p>You then need to subscribe to the tag of the element on the server (beacons, geofences, etc..) to have your app be notified of events:</p>
         <script src="https://gist.github.com/Kevinwlee/c19ae6ac8a4e2a719802.js"></script>
