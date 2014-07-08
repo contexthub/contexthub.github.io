@@ -4,6 +4,9 @@ layout: default
 ---
 # WayFinder
 
+<div class="text-center">
+  {% include wayfinder_thumbs.html %}
+</div>
 
 WayFinder is the product of a ContextHub hackathon we held at ChaiOne in March 2014. It uses bluetooth beacons to help newcomers to our Houston location get a tour of the office right on their device. Each time they reach a beacon, they get interesting facts about the company, or info about some of our more recent projects.
 
