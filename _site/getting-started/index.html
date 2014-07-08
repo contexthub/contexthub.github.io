@@ -1,0 +1,235 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ContextHub | Getting Started</title>
+    <link rel="stylesheet" href="/css/foundation.css" />
+    <link rel="stylesheet" href="/css/foundation-override.css" />
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="icon" href="/img/favicon.png" type="image" />
+    <link rel="icon" href="/img/favicon.gif" type="image/gif" >
+    <link href='http://fonts.googleapis.com/css?family=Abel|Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
+    <script src="/js/vendor/modernizr.js"></script>
+  </head>
+  <body>
+
+
+  <!-- ****** TOP NAVIGATION ****** -->
+  <header class="sticky contain-to-grid global">
+  <nav class="top-bar" data-topbar="">
+    <ul class="title-area">
+      <li class="name"><h1><a href="http://contexthub.com/"><div class="logomark"></div><span class="logo-context">CONTEXT</span> <span class="logo-hub">HUB</span></a></h1></li>
+      <li class="toggle-topbar menu-icon"><a href="http://contexthub.com/"><span>Menu</span></a></li>
+    </ul>
+
+    <section class="top-bar-section">
+
+      <ul class="right dark">
+        <li class="has-dropdown">
+        <a href="#">Documentation</a>
+        <ul class="dropdown">
+          <li><a href="https://github.com/contexthub/contexthub-ios-framework" target="_blank">IOS SDK</a></li>
+          <li><a href="http://docs.contexthub.com/contexthub-ios-framework/" target="_blank">IOS Reference</a></li>
+          <li><a href="http://docs.contexthub.com/contexthub-api" target="_blank">API Reference</a></li>
+        </ul>
+        </li>
+      </ul>
+    </section>
+  </nav>
+</header>
+  <!-- ****** TOP NAVIGATION ****** -->
+
+    <div class="full-width">
+      <div class="side-nav-mobile">
+        <a href="#" class="button" data-dropdown="downDrop">Sections &#9662;</a>
+        <ul id="downDrop" class="f-dropdown" data-dropdown-content>
+          <li class="heading"><h4>DOCUMENTATION</h4></li>
+<li><a href="/">Overview</a></li>
+<li><a href="/getting-started">Getting Started</a></li>
+<li><a href="/contextual-services">Contextual Services</a></li>
+<li><a href="/push-notifications">Push Notifications</a></li>
+<li><a href="/vault">Vault</a></li>
+<li class="heading"><h4>Examples</h4></li>
+<li><a href="/wayfinder">WayFinder</a></li>
+
+        </ul>
+      </div>
+    </div>
+
+    <div class="row content">
+      <div class="small-2 columns">
+        <ul class="side-nav">
+          <li class="heading"><h4>DOCUMENTATION</h4></li>
+<li><a href="/">Overview</a></li>
+<li><a href="/getting-started">Getting Started</a></li>
+<li><a href="/contextual-services">Contextual Services</a></li>
+<li><a href="/push-notifications">Push Notifications</a></li>
+<li><a href="/vault">Vault</a></li>
+<li class="heading"><h4>Examples</h4></li>
+<li><a href="/wayfinder">WayFinder</a></li>
+
+        </ul>
+      </div>
+
+      <div class="small-10 columns right" id="top">
+        <h1 id="getting-started-guide---ios">Getting Started Guide - IOS</h1>
+
+<p>ContextHub provides a mechanism for third party developers to quickly and easily add powerful contextual capabilities to their applications with just a few lines of code. This enables developers to create unique and engaging experiences for their users.</p>
+
+<h3 id="apps">Apps</h3>
+
+<p>On ContextHub, you create a separate app for each of your mobile applications. Each app has its own application id which you will use to register with the ContextHub iOS SDK. Each account on ContextHub can have multiple application ids for multiple apps. This lets you accommodate both testing and production versions of your app with the same account.</p>
+
+<h2 id="intitial-setup">Intitial Setup</h2>
+
+<h3 id="sign-up">Sign Up</h3>
+
+<p>Sign up for ContextHub at <a href="http://www.contexthub.com">www.contexthub.com</a>.</p>
+
+<h3 id="download">Download</h3>
+
+<p>Download the framework from GitHub at <a href="https://github.com/contexthub/contexthub-ios-framework">https://github.com/contexthub/contexthub-ios-framework</a> and add it to your project as well as include the necessary libraries (CoreLocation, CoreMotion, and MobileCoreServices)</p>
+
+<h2 id="sample-apps">Sample Apps</h2>
+
+<p>Sample apps are available to walk you through the different services ContextHub offers. Below are the following sample apps to choose from. We recommend starting off with Hello ContextHub to get an idea of how to ContextHub works before looking into other examples</p>
+
+<p>Each sample app usually has a v1.0 with a simple concept dealing with only one elemental service. Successive versions of apps then integrate more services to create more interesting use cases</p>
+
+<h3 id="samples">Samples</h3>
+
+<p><strong><a href="https://github.com/contexthub/hello-contexthub">Hello ContextHub</a></strong> - introduces you to the basic ideas behind ContextHub, the iOS SDK framework, and contextual engine. You’ll see how events triggered on the device end up on the server and write rules to respond to events on ContextHub.</p>
+
+<p><strong><a href="https://github.com/contexthub/Wayfinder">WayFinder</a></strong> - iBeacons</p>
+
+<ul>
+  <li>WayFinder v1.0 - Dives into how to detect and use iBeacons to develop a location-aware application. You’ll be setting up a few iBeacons and can pretend you are right in the ChaiOne office!</li>
+  <li>WayFinder v2.0 - Building off of WayFinder v1.0, you’ll expand the scope of your app by storing data on the server and learn the concept of tags, a way to group similar elements together in ContextHub for easy retrieval from the server. (+ vault)</li>
+  <li>WayFinder v3.0 - After WayFinder v2.0, it’s time to integrate Apple Push Notification Services (also known as push notifications). You’ll write a rule that will send a push notification each time a beacon has entered range and also send a push when the last beacon leaves range. (+ push)</li>
+</ul>
+
+<h2 id="documentation">Documentation</h2>
+
+<p>Reference documentation is available and is included in the same GitHub repository where the ContextHub iOS SDK is hosted. The docs are generated to integrate with Xcode for quick reference during development. All of the classes and their methods have parameter information listed for their intended use.</p>
+
+<p><a href="http://docs.contexthub.com/contexthub-ios-framework/">http://docs.contexthub.com/contexthub-ios-framework/</a></p>
+
+<h2 id="services">Services</h2>
+
+<p>ContextHub made up primarily of 5 different services: elements (geofences, beacons), events (subscriptions to tags), contexts, application (push, vault), and analytics.</p>
+
+<h2 id="element-services">Element Services</h2>
+
+<h4 id="beacons">Beacons</h4>
+
+<p><code>CCHBeaconService</code> allows you access to beacon information that lives on the ContextHub server. You have the ability to create, retrieve, update, and delete (CRUD) beacons with an associated tag.</p>
+
+<h5 id="creating">Creating</h5>
+
+<p>For example, let’s say we wanted to create a beacon on the server with the tag “demo”. Beacons have information such as UUID, major and minor To create a beacon, call:</p>
+
+<script src="https://gist.github.com/Kevinwlee/bddcc29fe2629ee425bc.js"> </script>
+
+<h5 id="retrieving">Retrieving</h5>
+
+<p>Retrieving a beacon to change it is also similarly easy. You can retrieve beacons by either id (unique) or by tag (array). Retrieving by id is as follows:</p>
+
+<script src="https://gist.github.com/Kevinwlee/d07b400c01bbca4de2e0.js"> </script>
+
+<p>Retrieving by tag gives you an array of beacons:</p>
+
+<script src="https://gist.github.com/Kevinwlee/ae805f63833fec291937.js"> </script>
+
+<h5 id="updating">Updating</h5>
+
+<p>Updating a beacon is a single call:</p>
+
+<script src="https://gist.github.com/Kevinwlee/f8fcd1ee194525e5e8a4.js"> </script>
+
+<h5 id="deleting">Deleting</h5>
+
+<p>Deleting a beacon is also similar:</p>
+
+<script src="https://gist.github.com/Kevinwlee/c9f108e5e7d97c0c9259.js"> </script>
+
+<h4 id="geofences">Geofences</h4>
+
+<div class="highlight"><pre><code class="objectivec"><span class="n">CCHGeofenceService</span>
+</code></pre></div>
+<p>allows you access to geofence information that lives on the ContextHub server. You have the ability to create, retrieve, update, and delete (CRUD) geofences with an associated tag.</p>
+
+<h5 id="creating-1">Creating</h5>
+
+<p>For example, let’s say we wanted to create a geofence on the server with the tag “demo”.</p>
+
+<p>Geofences have information such as latitude and longitude which define the center of the fence, then a radius value as well. Let’s make that now.</p>
+
+<script src="https://gist.github.com/Kevinwlee/114d81f9192c2dfe745a.js"> </script>
+
+<p>Call</p>
+
+<script src="https://gist.github.com/Kevinwlee/7120ff389ce85aeaf23d.js"> </script>
+
+<p>This call will fail if latitude is not between -90 and 90 and longitude is not between -180 and 180.</p>
+
+<h5 id="retrieving-1">Retrieving</h5>
+
+<p>Retrieving a geofence to change it is also similarly easy. You can retrieve geofences by either id (unique) or by tag (array).</p>
+
+<p>Retrieving by id is as follows:</p>
+
+<script src="https://gist.github.com/Kevinwlee/a36aaa2d1f898dde4f36.js"> </script>
+
+<p>Retrieving by tag gives you an array of geofences, you have the option of passing in your location to limit the scope to those close to you:</p>
+
+<script src="https://gist.github.com/Kevinwlee/cfcc84f8ff0d6c6cd5e2.js"> </script>
+
+<p>The location parameter helps to isolate the number of geofences returned by CCHGeofenceService to those within the radius parameter measured in meters sorted by nearest distance.</p>
+
+<h5 id="updating-1">Updating</h5>
+
+<p>Updating a geofence is a single call</p>
+
+<script src="https://gist.github.com/Kevinwlee/738ff4434d8944fed952.js"> </script>
+
+<h5 id="deleting-1">Deleting</h5>
+
+<p>Deleting a geofence is also similar</p>
+
+<script src="https://gist.github.com/Kevinwlee/1ef49eb6d0f115117660.js"> </script>
+
+
+      </div>
+      <!--End Content -->
+    </div>
+
+    <script src="/js/vendor/jquery.js"></script>
+    <script src="/js/foundation.min.js"></script>
+    <script src="/js/foundation/foundation.dropdown.js"></script>
+    <script src="/js/foundation/foundation.magellan.js"></script>
+    <script src="/js/smooth-scroll.js"></script>
+    <script src="/js/sticky-tabs.js"></script>
+    <script src='/js/smooth-scroll.js'></script>
+    <script>
+      smoothScroll.init({
+        speed: 500,
+        easing: 'easeInOutCubic',
+        updateURL: false,
+        callbackBefore: function ( toggle, anchor ) {},
+        callbackAfter: function ( toggle, anchor ) {}
+      });
+    </script>
+
+
+    <script>
+      $(document).foundation();
+      $(document).ready(function() {
+        $('.content h1').after('<hr class="short">');
+        $('#downDrop a').click(function() {
+          Foundation.libs.dropdown.close($('#downDrop'));
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,116 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ContextHub | Getting Started</title>
+    <link rel="stylesheet" href="/css/foundation.css" />
+    <link rel="stylesheet" href="/css/foundation-override.css" />
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="icon" href="/img/favicon.png" type="image" />
+    <link rel="icon" href="/img/favicon.gif" type="image/gif" >
+    <link href='http://fonts.googleapis.com/css?family=Abel|Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
+    <script src="/js/vendor/modernizr.js"></script>
+  </head>
+  <body>
+
+
+  <!-- ****** TOP NAVIGATION ****** -->
+  <header class="sticky contain-to-grid global">
+  <nav class="top-bar" data-topbar="">
+    <ul class="title-area">
+      <li class="name"><h1><a href="http://contexthub.com/"><div class="logomark"></div><span class="logo-context">CONTEXT</span> <span class="logo-hub">HUB</span></a></h1></li>
+      <li class="toggle-topbar menu-icon"><a href="http://contexthub.com/"><span>Menu</span></a></li>
+    </ul>
+
+    <section class="top-bar-section">
+
+      <ul class="right dark">
+        <li class="has-dropdown">
+        <a href="#">Documentation</a>
+        <ul class="dropdown">
+          <li><a href="https://github.com/contexthub/contexthub-ios-framework" target="_blank">IOS SDK</a></li>
+          <li><a href="http://docs.contexthub.com/contexthub-ios-framework/" target="_blank">IOS Reference</a></li>
+          <li><a href="http://docs.contexthub.com/contexthub-api" target="_blank">API Reference</a></li>
+        </ul>
+        </li>
+      </ul>
+    </section>
+  </nav>
+</header>
+  <!-- ****** TOP NAVIGATION ****** -->
+
+    <div class="full-width">
+      <div class="side-nav-mobile">
+        <a href="#" class="button" data-dropdown="downDrop">Sections &#9662;</a>
+        <ul id="downDrop" class="f-dropdown" data-dropdown-content>
+          <li class="heading"><h4>DOCUMENTATION</h4></li>
+<li><a href="/">Overview</a></li>
+<li><a href="/getting-started">Getting Started</a></li>
+<li><a href="/contextual-services">Contextual Services</a></li>
+<li><a href="/push-notifications">Push Notifications</a></li>
+<li><a href="/vault">Vault</a></li>
+<li class="heading"><h4>Examples</h4></li>
+<li><a href="/wayfinder">WayFinder</a></li>
+
+        </ul>
+      </div>
+    </div>
+
+    <div class="row content">
+      <div class="small-2 columns">
+        <ul class="side-nav">
+          <li class="heading"><h4>DOCUMENTATION</h4></li>
+<li><a href="/">Overview</a></li>
+<li><a href="/getting-started">Getting Started</a></li>
+<li><a href="/contextual-services">Contextual Services</a></li>
+<li><a href="/push-notifications">Push Notifications</a></li>
+<li><a href="/vault">Vault</a></li>
+<li class="heading"><h4>Examples</h4></li>
+<li><a href="/wayfinder">WayFinder</a></li>
+
+        </ul>
+      </div>
+
+      <div class="small-10 columns right" id="top">
+        <h1 id="wayfinder">WayFinder</h1>
+
+<p>WayFinder is the product of a ContextHub hackathon we held at ChaiOne in March 2014. It uses bluetooth beacons to help newcomers to our Houston location get a tour of the office right on their device. Each time they reach a beacon, they get interesting facts about the company, or info about some of our more recent projects.</p>
+
+<p>The reason we chose this project for the ContextHub hackathon is because normally this would be a pretty intense undertaking for a hackathon. However, thanks to the simplicity ContextHub provides, the WayFinder team was able to produce this fully functioning, beacon powered application in no time.</p>
+
+<p>Grab the <a href="https://github.com/contexthub/Wayfinder">source</a> off of GitHub, and build your own WayFinder app in minutes!</p>
+
+      </div>
+      <!--End Content -->
+    </div>
+
+    <script src="/js/vendor/jquery.js"></script>
+    <script src="/js/foundation.min.js"></script>
+    <script src="/js/foundation/foundation.dropdown.js"></script>
+    <script src="/js/foundation/foundation.magellan.js"></script>
+    <script src="/js/smooth-scroll.js"></script>
+    <script src="/js/sticky-tabs.js"></script>
+    <script src='/js/smooth-scroll.js'></script>
+    <script>
+      smoothScroll.init({
+        speed: 500,
+        easing: 'easeInOutCubic',
+        updateURL: false,
+        callbackBefore: function ( toggle, anchor ) {},
+        callbackAfter: function ( toggle, anchor ) {}
+      });
+    </script>
+
+
+    <script>
+      $(document).foundation();
+      $(document).ready(function() {
+        $('.content h1').after('<hr class="short">');
+        $('#downDrop a').click(function() {
+          Foundation.libs.dropdown.close($('#downDrop'));
+        });
+      });
+    </script>
+  </body>
+</html>
