@@ -54,17 +54,19 @@ Sample event:
 
 This object allows you to send foreground (with alert messages) and background (without alert messages) push notifications to either devices, aliases, tags or push tokens. Writing rules to send to specific push tokens is discouraged, as a push token has no guarantee of staying the same for the lifetime of an application installation.
 
+{% gist jeffkibbule/1ca14a51402b3b06288e %}
+
 ####Vault
 
 This object allows you to store information within the vault directly from a contextual rule. You have the ability to create, retrieve (by id, keypath, and tag), update, and delete vault items.
 
-####HTTP
-
-This object lets you make HTTP get and post requests within a contextual rule. You have the ability to set parameters and custom headers for your requests, then get back a response and respond accordingly. Note: a contextual rule only has 30 seconds of processing before timing out and these HTTP requests occur synchronously, so be aware that your rule may not be fully executed if waiting for an HTTP request to complete.
+{% gist jeffkibuule/57776c703c24f4f16ce7 %}
 
 ####Console
 
 This object allows you to log messages into your server logs to diagnose potential issues in your contextual rule as well as keep a record of what has occurred.
+
+{% gist jeffkibuule/532e7c902d8661da5529 %}
 
 ####Rules
 
