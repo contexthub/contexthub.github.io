@@ -1,8 +1,8 @@
 ---
-title: Event Service
+title: Event Services
 layout: default
 ---
-#Event Service
+#Event Services
 
 ##EVENTS
 
