@@ -1,0 +1,16 @@
+---
+
+exclude: ['Gemfile', 'Gemfile.lock', 'Rakefile', 'README.md']
+gems:
+  - jekyll-sitemap
+baseurl: ''
+markdown:      kramdown
+markdown_ext:  markdown,mkdown,mkdn,mkd,md
+kramdown:
+  input: GFM
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      layout: "default.html"

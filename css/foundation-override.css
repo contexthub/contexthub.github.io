@@ -14,6 +14,17 @@ h1 {
   font-family: 'Abel', sans-serif;
   color:#28A5CE;
   text-transform: uppercase;
+  text-align: center;
+}
+
+ h2 {
+  font-family: 'Open Sans', sans-serif;
+  color: #474747;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.4;
+  text-align: center;
+  margin-bottom: 40px;
 }
 
 h3 {
@@ -38,17 +49,6 @@ pre {
   font-size: 18px;
   color: #28A5CE;
   margin-bottom: 2px;
-}
-
-
- .subhead {
-  font-family: 'Open Sans', sans-serif;
-  color: #474747;
-  font-size: 24px;
-  font-weight: 400;
-  line-height: 1.4;
-  text-align: center;
-  margin-bottom: 40px;
 }
 
 hr.short {
@@ -282,6 +282,55 @@ div.panel {
   text-align: center;
 }
 
+/************ Footer *****************/
+footer {
+  background-color: #fff;
+  
+  background-repeat: no-repeat;
+}
+
+footer .contact {
+  padding:60px 0px 30px 0px;
+}
+
+footer h1 {
+  color: #28A5CE;
+}
+
+footer .closing {
+  height: auto;
+  background-color: #0D2F3A;
+  padding-top:20px;
+  bottom: 0px;
+}
+
+footer .closing p {
+  font-size: 14px;
+  color: #797979;
+}
+
+footer .closing p a {
+  color:#F2511C;
+}
+
+.social-media ul {
+  list-style-type:none;
+  margin:0;
+  padding:0;
+  overflow:hidden;
+}
+
+.social-media li {
+  float:left;
+}
+
+.social-media a {
+  display:block;
+  width:40px;
+}
+
+
+
 @media only screen and (max-width : 1024px) {
   .side-nav {
     display:none;
@@ -302,6 +351,10 @@ div.panel {
     max-width: none;
     top: 121px;
     left: 0%;
+
+    .heading {
+      display: none;
+    }
   }
 
   .f-dropdown:before {
@@ -369,5 +422,4 @@ div.panel {
     background: #F2511C;
   }
 }
-
 
