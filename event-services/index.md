@@ -1,8 +1,8 @@
 ---
-title: Event Service
+title: Event Services
 layout: default
 ---
-#Event Service
+#Event Services
 
 ##EVENTS
 
@@ -31,21 +31,3 @@ There are a series of helper class extensions which extend CLBeaconRegion and CL
 Finally, you'll start getting notifications sent to your method about events. For example, if you had named your method "handleNotification", you would structure your method like this:
 
 {% gist Kevinwlee/22af2139e6509bdf5835 %}
-
-##SUBSCRIPTIONS
-
-`CCHSubscriptionService` allows you to plug into CRUD notifications of objects located on the ContextHub server. This allows you to respond to state changes instantly instead of constantly polling the ContextHub server for new data, draining the battery. `CCHSubscriptionService` uses *APNS* which must be setup in order to receive these messages.
-
-#####Subscribing
-
-First subscribe to the tag which you are interested in on the ContextHub server:
-
-{% gist Kevinwlee/c949ae2af8fedfd75c4d %}
-
-#####Responding
-
-Lastly in your `[application: didReceiveRemoteNotification: fetchCompletionHandler:]` method, make sure to call
-
-{% gist Kevinwlee/2b2cb7409c021d86cc80 %}
-
-This will allow the ContextHub SDK to process background notifications then notify your app of any changes if they were to happen.
