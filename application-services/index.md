@@ -66,7 +66,7 @@ Then create that item on the server:
 
 ###Retrieving
 
-Retrieving a vault item to change it is also similarly easy. You can retrieve beacons by either id (unique) or by tag (array).
+Retrieving a vault item to change it is also similarly easy. You can retrieve items by id (unique), tag (array), or key path.
 
 #####Retrieval by id:
 
@@ -76,7 +76,13 @@ Retrieving a vault item to change it is also similarly easy. You can retrieve be
 
 {% gist Kevinwlee/9c68a1552b57202c72cf %}
 
-`completionHandler:^(NSArray *responses, NSError *error) {}];`
+##### Retrieval by key path:
+
+You can query the vault for items that have a specified value at a key path.  For example, if you saved an item `{ "employee":{ "first_name":"Joe" } }`. You can retrieve all employees with Joe as their name like so:
+{% gist Kevinwlee/8bb77c96baaf613ec364 %}
+
+Setting value to nil will retrieve all vault items that have the specified key path.
+{% gist Kevinwlee/c0e27e88dbd8bdeb135d %}
 
 ###Updating
 
