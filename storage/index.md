@@ -3,10 +3,10 @@ title: Storage (Vault)
 layout: default
 ---
 # Storage (Vault)
-
+<!--
 <div class="text-center">
   {% include storage_thumbs.html %}
-</div>
+</div>-->
 
 Cloud storage of data can be difficult. When dealign with an ever expanding world of devices, keeping track of what's going in involves more than simply storing data on a single device for retrieval later. Especially with the coming "Internet of Things" revolution, maintaining state in your contextual apps allows you to build smarter rules that know not just what happened right now, but what happened 30 minutes or a day ago. So instead of asking "is my light on now?", we can save data saying "my light was on 5 minutes ago."
 
