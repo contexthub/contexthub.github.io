@@ -13,3 +13,7 @@ layout: default
 
 
 [Subscriptions](/element-services/subscriptions) are handled by CCHSubscriptionService. The service deals with background notifications when other contextual elements are created, updated, or deleted.
+
+<br />
+<br />
+
