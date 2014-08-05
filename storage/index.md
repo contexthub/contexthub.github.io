@@ -12,4 +12,7 @@ Cloud storage of data can be difficult. When dealign with an ever expanding worl
 
 Storage is the showcase sample app that introduces you to the vault features of the ContextHub iOS SDK and developer portal. As a developer, you will learn how to create, retreive, update, and delete vault items in only a few lines of code. ContextHub allows you to store small amounts of data on the server which can be accessed by all devices without starting up your own database server.
 
-Grab the [source](https://github.com/contexthub/https://github.com/contexthub/storage) off of GitHub, follow along, and start integrating vault into your apps and make your apps more contextually aware!
+Grab the [source](https://github.com/contexthub/storage) off of GitHub, follow along, and start integrating vault into your apps and make your apps more contextually aware!
+
+<br />
+<br />

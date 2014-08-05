@@ -13,4 +13,7 @@ Positional awareness is quickly going from a nifty feature to a must have. Users
 
 Geofences is the showcase sample app that introduces you to the geofences features of the ContextHub iOS SDK and developer portal. As a developer, you will learn how to create, retreive, update, and delete geofences as well as handle events in only a few lines of code. ContextHub takes care of setting up and monitoring geofences to generate events that the server can listen and respond to and then save those events in a vault to be accessed later.
 
-Grab the [source](https://github.com/contexthub/https://github.com/contexthub/geofences) off of GitHub, follow along, and start integrating geofences into your apps and make them contextually aware!
+Grab the [source](https://github.com/contexthub/geofences) off of GitHub, follow along, and start integrating geofences into your apps and make them contextually aware!
+
+<br />
+<br />

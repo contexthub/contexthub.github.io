@@ -6,7 +6,7 @@ layout: default
 
 ## Beacons
 
-[Beacons](/element-services/beacons) are handled by CCHBeaconService. The service deals with creating, retrieving, updating, and deleting beacon contextual elements.
+[Beacons](/element-services/beacons) are handled by CCHBeaconService. The service deals with creating, retrieving, updating, and deleting beacon contextual elements. 
 
 
 [Geofences](/element-services/geofences) are handled by CCHGeofenceService. The service deals with creating, retrieving, updating, and deleting geofence contextual elements.
