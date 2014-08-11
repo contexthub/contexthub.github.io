@@ -3,10 +3,10 @@ title: Detect Me (Beacons)
 layout: default
 ---
 # Detect Me (Beacons)
-<!--
+
 <div class="text-center">
   {% include detect-me_thumbs.html %}
-</div>-->
+</div>
 
 In 2013 at WWDC with iOS 7, Apple introduced the world to iBeacons, low-power Bluetooth 4.0 devices that help to give contextual location information to smartphones in areas where GPS, WiFi, and cellular tower triangulation could not pinpoint a user's exact location. This is extraordinarliy helpful in indooor locations with profound impact in retail and commercial markets.
 
