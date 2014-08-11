@@ -3,10 +3,10 @@ title: Hello ContextHub
 layout: default
 ---
 # Hello ContextHub
-<!--
+
 <div class="text-center">
   {% include hello_contexthub_thumbs.html %}
-</div>-->
+</div>
 
 Today's world is full of devices and sensors just waiting to be tapped into. Meaningful events happen all the time, when we get home from work, approach an interesting painting, or visit our favorite coffee shop. ContextHub takes those meaningful events in our lives and transforms them into powerful triggers your apps can respond to turn apps into experiences for your end users.
 
