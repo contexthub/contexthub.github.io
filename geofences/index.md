@@ -3,11 +3,10 @@ title: Geofences
 layout: default
 ---
 # Geofences
-<!--
+
 <div class="text-center">
   {% include geofences_thumbs.html %}
-</div> -->
-
+</div>
 
 Positional awareness is quickly going from a nifty feature to a must have. Users expect more out their devices each and every day with location being a prime example of a data point that's ready to be taken advantage of. Geofences allow your applicationt to be notified when a device enters or exits an area of interest so you can provide relevant data to your users right when they need it.
 
