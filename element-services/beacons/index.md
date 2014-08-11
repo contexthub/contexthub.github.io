@@ -7,6 +7,7 @@ layout: default
 ##BEACONS
 
 Beacons are powerful objects that allow you to locate your device close to some point of reference even indoors. Here's how to use them:
+<br />
 
 ### Creating
 {% gist CHLibrarian/9a88528f3c94bc524a47 %}
@@ -21,9 +22,9 @@ Beacons are powerful objects that allow you to locate your device close to some 
 <br />
 
 ### Updating
-{% gist CHLibrarian/8a124104fe165ca06deb %}
+{% gist CHLibrarian/d9bc6b5675b062b11dbf %}
 <br />
 
 ### Deleting
-{% gist CHLibrarian/8a124104fe165ca06deb %}
+{% gist CHLibrarian/191d805bf82b563cabf0 %}
 <br />
