@@ -28,7 +28,7 @@ Reference documentation is available and is included in the same GitHub reposito
 
 ## Services
 
-ContextHub made up primarily of 5 different services: [elements](/element-services) (beacons, geofences), [events](/event-service) (subscriptions to tags), [contexts](/contextual-services), application (push, vault), and analytics.
+ContextHub made up primarily of 5 different services: [elements](/element-services) (beacons, geofences), [events](/event-services) (subscriptions to tags), [contexts](/contextual-engine), [application](/application-services) (push, vault), and analytics.
 
 
 ## Sample Apps
