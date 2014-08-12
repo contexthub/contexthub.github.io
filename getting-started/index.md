@@ -39,11 +39,11 @@ Sample apps are available to walk you through the different services ContextHub 
 
 **[Hello ContextHub](https://github.com/contexthub/hello-contexthub)** - introduces you to the basic ideas behind ContextHub, the iOS SDK framework, and contextual engine. You'll see how events triggered on the device end up on the server and write rules to respond to events on ContextHub.
 
-**[Detect Me](https://github.com/contexthub/detect-me)** - introduces you to the beacon features in ContextHub. You'll see how to create, retrieve, update, delete and handle events from beacons all in a few lines of code.
+**[Detect Me](https://github.com/contexthub/detect-me)** (Beacons) - introduces you to the beacon features in ContextHub. You'll see how to create, retrieve, update, delete and handle events from beacons all in a few lines of code.
 
-**[Geofences](https://github.com/contexthub/geofences)** - introduces you to the geofence features in ContextHub. You'll see how to create, retrieve, update, delete and handle events from geofences all in a few lines of code.
+**[Geofences](https://github.com/contexthub/geofences)** (Geofences) - introduces you to the geofence features in ContextHub. You'll see how to create, retrieve, update, delete and handle events from geofences all in a few lines of code.
 
-**[Storage](https://github.com/contexthub/storage)** - introduces you to the vault features in ContextHub. You'll see how to create, retrieve, update, delete vault items all in a few lines of code.
+**[Storage](https://github.com/contexthub/storage)** (Vault) - introduces you to the vault features in ContextHub. You'll see how to create, retrieve, update, delete vault items all in a few lines of code.
 
 ### Demos
 
