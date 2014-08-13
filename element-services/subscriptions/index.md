@@ -2,7 +2,7 @@
 title: Subscriptions
 layout: default
 ---
-#Subscriptions
+#Element Services
 
 ##SUBSCRIPTIONS
 
