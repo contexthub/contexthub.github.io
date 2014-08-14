@@ -23,11 +23,11 @@ Sample event:
 * Name - name of the event, which matches one of the available event types
 * Data - data for each event matches its event type
 
-#####Beacons
+#####Beacons In/out
 
 {% gist Kevinwlee/4d590d9baa29084edfde %}
 
-#####Changed
+#####Beacon Changed
 
 {% gist Kevinwlee/a6915dc76c05adf86d2a %}
 

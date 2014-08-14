@@ -1,8 +1,8 @@
 ---
-title: Getting Started Guide - IOS
+title: Getting Started Guide - iOS
 layout: default
 ---
-# Getting Started Guide - IOS
+# Getting Started Guide - iOS
 
 ContextHub provides a mechanism for third party developers to quickly and easily add powerful contextual capabilities to their applications with just a few lines of code. This enables developers to create unique and engaging experiences for their users.
 
@@ -20,25 +20,6 @@ Sign up for ContextHub at [www.contexthub.com](http://www.contexthub.com).
 
 Download the framework from GitHub at [https://github.com/contexthub/contexthub-ios-framework](https://github.com/contexthub/contexthub-ios-framework) and add it to your project as well as include the necessary libraries (CoreLocation, CoreMotion, and MobileCoreServices)
 
-## Sample Apps
-
-Sample apps are available to walk you through the different services ContextHub offers. Below are the following sample apps to choose from. We recommend starting off with Hello ContextHub to get an idea of how to ContextHub works before looking into other examples
-
-Each sample app usually has a v1.0 with a simple concept dealing with only one elemental service. Successive versions of apps then integrate more services to create more interesting use cases
-
-### Samples
-
-**[Hello ContextHub](https://github.com/contexthub/hello-contexthub)** - introduces you to the basic ideas behind ContextHub, the iOS SDK framework, and contextual engine. You'll see how events triggered on the device end up on the server and write rules to respond to events on ContextHub.
-
-
-**[WayFinder](https://github.com/contexthub/Wayfinder)** - iBeacons
-
-* WayFinder v1.0 - Dives into how to detect and use iBeacons to develop a location-aware application. You'll be setting up a few iBeacons and can pretend you are right in the ChaiOne office!
-* WayFinder v2.0 - Building off of WayFinder v1.0, you'll expand the scope of your app by storing data on the server and learn the concept of tags, a way to group similar elements together in ContextHub for easy retrieval from the server. (+ vault)
-* WayFinder v3.0 - After WayFinder v2.0, it's time to integrate Apple Push Notification Services (also known as push notifications). You'll write a rule that will send a push notification each time a beacon has entered range and also send a push when the last beacon leaves range. (+ push)
-
-
-
 ## Documentation
 
 Reference documentation is available and is included in the same GitHub repository where the ContextHub iOS SDK is hosted. The docs are generated to integrate with Xcode for quick reference during development. All of the classes and their methods have parameter information listed for their intended use.
@@ -47,5 +28,31 @@ Reference documentation is available and is included in the same GitHub reposito
 
 ## Services
 
-ContextHub made up primarily of 5 different services: [elements](/element-services) (geofences, beacons), [events](/event-service) (subscriptions to tags), [contexts](/contextual-services), application (push, vault), and analytics.
+ContextHub made up primarily of 5 different services: [elements](/element-services) (beacons, geofences), [events](/event-services) (subscriptions to tags), [contexts](/contextual-engine), [application](/application-services) (push, vault), and analytics.
+
+
+## Sample Apps
+
+Sample apps are available to walk you through the different services ContextHub offers. Below are the following sample apps to choose from. We recommend starting off with Hello ContextHub to get an idea of how to ContextHub works before looking into other examples
+
+### Samples
+
+**[Hello ContextHub](https://github.com/contexthub/hello-contexthub)** - introduces you to the basic ideas behind ContextHub, the iOS SDK framework, and contextual engine. You'll see how events triggered on the device end up on the server and write rules to respond to events on ContextHub.
+
+**[Detect Me](https://github.com/contexthub/detect-me)** (Beacons) - introduces you to the beacon features in ContextHub. You'll see how to create, retrieve, update, delete and handle events from beacons all in a few lines of code.
+
+**[Geofences](https://github.com/contexthub/geofences)** (Geofences) - introduces you to the geofence features in ContextHub. You'll see how to create, retrieve, update, delete and handle events from geofences all in a few lines of code.
+
+**[Storage](https://github.com/contexthub/storage)** (Vault) - introduces you to the vault features in ContextHub. You'll see how to create, retrieve, update, delete vault items all in a few lines of code.
+
+### Demos
+
+Demo apps take different features present in ContextHub and integrate it into a more real-world use case. You'll be able to see how beacons can interact with vault items and context rules to create a truly contextual application.
+
+**[WayFinder](https://github.com/contexthub/Wayfinder)** - iBeacons
+
+* WayFinder v1.0 - Dives into how to detect and use iBeacons to develop a location-aware application. You'll be setting up a few iBeacons and can pretend you are right in the ChaiOne office!
+* WayFinder v2.0 - Building off of WayFinder v1.0, you'll expand the scope of your app by storing data on the server and learn the concept of tags, a way to group similar elements together in ContextHub for easy retrieval from the server. (+ vault)
+* WayFinder v3.0 - After WayFinder v2.0, it's time to integrate Apple Push Notification Services (also known as push notifications). You'll write a rule that will send a push notification each time a beacon has entered range and also send a push when the last beacon leaves range. (+ push)
+
 
