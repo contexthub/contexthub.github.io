@@ -4,6 +4,8 @@ layout: default
 ---
 # Element Services
 
+## Elements
+
 **[Beacons](/element-services/beacons)** are handled by `CCHBeaconService`. The service deals with creating, retrieving, updating, and deleting beacon contextual elements. 
 
 
