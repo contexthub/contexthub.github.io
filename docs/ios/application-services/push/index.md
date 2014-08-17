@@ -7,6 +7,7 @@ layout: default
 ##PUSH NOTIFICATIONS
 
 Push notifications let you send foreground messages which your users will be alerted to as well as background notifications which trigger your app to run for up to 30 seconds. Combined with elements that trigger events, this allows for increased functionality that forms the foundation of most apps that use ContextHub. Here's how to use it:
+<br />
 
 ### Registering
 

@@ -6,6 +6,9 @@ layout: default
 
 ##Vault
 
+Vault lets you save data to the server which all devices and context rules can access. Combined with element services, it allows beacons and geofences to have state. Here's how to use it:
+<br />
+
 ### Creating
 
 {% gist CHLibrarian/d013c0329fe1b76c4573 %}
