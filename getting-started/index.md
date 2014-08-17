@@ -53,8 +53,8 @@ Demo apps take different features present in ContextHub and integrate it into a 
 
 **[WayFinder](https://github.com/contexthub/Wayfinder)** - iBeacons
 
-* WayFinder v1.0 - Dives into how to detect and use iBeacons to develop a location-aware application. You'll be setting up a few iBeacons and can pretend you are right in the ChaiOne office!
-* WayFinder v2.0 - Building off of WayFinder v1.0, you'll expand the scope of your app by storing data on the server and learn the concept of tags, a way to group similar elements together in ContextHub for easy retrieval from the server. (+ vault)
-* WayFinder v3.0 - After WayFinder v2.0, it's time to integrate Apple Push Notification Services (also known as push notifications). You'll write a rule that will send a push notification each time a beacon has entered range and also send a push when the last beacon leaves range. (+ push)
+**[WayFinder v1.0](https://github.com/contexthub/wayfinder) - Dives into how to detect and use iBeacons to develop a location-aware application. You'll be setting up a few iBeacons and can pretend you are right in the ChaiOne office!
+**[WayFinder v2.0](https://github.com/contexthub/wayfinder-vault) - Building off of WayFinder v1.0, you'll expand the scope of your app by storing data on the server and learn the concept of tags, a way to group similar elements together in ContextHub for easy retrieval from the server. (+ vault)
+**[WayFinder v3.0](https://github.com/contexthub/wayfinder-vault-push) - After WayFinder v2.0, it's time to integrate Apple Push Notification Services (also known as push notifications). You'll write a rule that will send a push notification each time a beacon has entered range and also send a push when the last beacon leaves range. (+ push)
 
 
