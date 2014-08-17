@@ -43,6 +43,8 @@ Sample apps are available to walk you through the different services ContextHub 
 
 **[Geofences](https://github.com/contexthub/geofences)** (Geofences) - introduces you to the geofence features in ContextHub. You'll see how to create, retrieve, update, delete and handle events from geofences all in a few lines of code.
 
+**[Notify Me](https://github.com/contexthub/geofences)** (Push) - introduces you to the push features in ContextHub. You'll see how easy it is to send messages to multiple devices in different ways, and with enabling push, automatically get the latest server data about elements (beacons, geofences) through background pushes.
+
 **[Storage](https://github.com/contexthub/storage)** (Vault) - introduces you to the vault features in ContextHub. You'll see how to create, retrieve, update, delete vault items all in a few lines of code.
 
 ### Demos
