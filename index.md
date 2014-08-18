@@ -4,7 +4,7 @@ layout: default
 ---
 # OVERVIEW
 
-## Build contextual capabilities into your applications with just one line of code
+## Build contextual capabilities into your applications with just a few lines of code
 
 ContextHub provides a mechanism for third party developers to quickly and easily add powerful contextual capabilities to their applications with just a few lines of code. This enables developers to create unique and engaging experiences for their users.
 
