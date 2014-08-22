@@ -46,7 +46,7 @@ Retrieve a specific vault item from ContextHub by passing a vault ID present eit
 
 ### Updating
 
-Updating a vault item requires passing back a structure similar to the one returned to you from create/retrieve calls with both data and vault_info keys. ContextHub does an entire replacement of the vault item with your new data, so you must pass the entire structure, not a patch to an existing structure currently on the vault. This is to prevent errors from happening when multiple devices attempt to access the same record.
+Updating a vault item requires passing back a structure similar to the one returned to you from create/retrieve calls with both data and vault_info keys. ContextHub does an entire replacement of the vault item with your new data, so you must pass the entire structure, not a patch to an existing structure currently on the vault. This is to prevent errors from happening when multiple devices attempt to access the same record. 
 
 {% gist CHLibrarian/07bb9aa25f2dec34c353 %}
 <br />
