@@ -39,9 +39,10 @@ Sample event:
 
 {% gist Kevinwlee/a059f2277a0620431fe1 %}
 
+<!--
 #####Motion Changed
 
-{% gist Kevinwlee/d97b5608522e8912d641 %}
+{% gist Kevinwlee/d97b5608522e8912d641 %} -->
 
 * Context - The array contains event data for each of the context types that you have used in your contexts on ContextHub.
 * Device - info specific to the device which triggered the event
