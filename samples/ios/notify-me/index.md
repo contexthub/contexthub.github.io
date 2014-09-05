@@ -2,7 +2,9 @@
 title: Notify Me (Push)
 layout: default
 ---
-# Notify Me (Push)
+# Notify Me
+
+## Push Sample App
 
 <div class="text-center">
   {% include notify-me_thumbs.html %}

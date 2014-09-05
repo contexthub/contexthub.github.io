@@ -4,6 +4,8 @@ layout: default
 ---
 # Hello ContextHub
 
+## Intro Sample App
+
 <div class="text-center">
   {% include hello_contexthub_thumbs.html %}
 </div>

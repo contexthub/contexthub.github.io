@@ -4,6 +4,8 @@ layout: default
 ---
 # Boundaries
 
+## Geofences Sample App
+
 <div class="text-center">
   {% include boundaries_thumbs.html %}
 </div>

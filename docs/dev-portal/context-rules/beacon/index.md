@@ -19,17 +19,17 @@ Creating a beacon contextual element in ContextHub is simple. Every beacon has a
 
 ### Response
 
-Once a vault item is created, a hash response is returned with the following keys: 
+Once a beacon is created, a hash response is returned with the following keys: 
 
-- `id` - the unique id identifying the beacon
-- `name` - the name of the beacon 
-- `uuid` - a 32-hexadecimal character string displayed in five groups separated by hyphens, in standardized UUID/GUID format (`8-4-4-4-12`)
-- `major` - a 16-bit value from 1-65535
-- `minor` - a 16-bit value from 1-65535 
-- `tags` - an array of strings representing the tags for the beacon
-- `tag_string` - an auto-generated read-only string representation of the tags used by Keen.io for analysis  
+- `id` - The unique id identifying the beacon
+- `name` - The name of the beacon 
+- `uuid` - A 32-hexadecimal character string displayed in five groups separated by hyphens, in standardized UUID/GUID format (`8-4-4-4-12`)
+- `major` - A 16-bit value from 1-65535
+- `minor` - A 16-bit value from 1-65535 
+- `tags` - An array of strings representing the tags for the beacon
+- `tag_string` - An auto-generated read-only string representation of the tags used by Keen.io for analysis  
 
-Here's the structure of a vault item that was created above:
+Here's the structure of a beacon that was created above:
 
 {% gist CHLibrarian/13d02a106b74289d1dc3 %}
 <br />
@@ -50,7 +50,7 @@ Retrieve a specific beacon from ContextHub by passing a beacon ID present either
 
 ### Updating
 
-Updating a beacon is similar to creating a beacon. ContextHub then updates the beacon, and triggers pushes to devices interested in beacons with that specific tag.
+Updating a beacon is similar to creating one. ContextHub first updates the beacon on the server, then triggers pushes to devices interested in beacons with that specific tag.
 
 {% gist CHLibrarian/84a08b4677d54937dc81 %}
 <br />
@@ -58,7 +58,7 @@ Updating a beacon is similar to creating a beacon. ContextHub then updates the b
 
 ### Deleting
 
-Deleting a beacon only requires passing the id to the `beacon` object. The beacon is then deleted from ContextHub.
+Deleting a beacon only requires passing the id to the `beacon` object. The beacon is deleted from ContextHub, then triggers pushes to devices interested in beacon deletions with those specific tags.
 
 {% gist CHLibrarian/6bb47bccf63793f6864c %}
 <br />

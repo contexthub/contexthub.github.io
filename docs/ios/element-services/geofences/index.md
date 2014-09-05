@@ -32,14 +32,14 @@ Retrieve a specific geofence from ContextHub by passing a geofence ID present ei
 
 ### Updating
 
-Updating a geofence requires passing back a structure similar to the one returned to you from create/retrieve calls. ContextHub then updates the geofence, and triggers  pushes to devices interested in geofence with that specific tag.
+Updating a geofence requires passing back a structure similar to the one returned to you from create/retrieve calls. ContextHub then updates the geofence, and triggers pushes to devices interested in geofence with that specific tag.
 
 {% gist CHLibrarian/81a90f9f2c08c4f35cf2 %}
 <br />
 
 ### Deleting
 
-Deleting a geofence is similar to updating, and requires passing a strecture similar to one returned to you from create/retrieve calls. The geofence is then deleted from ContextHub.
+Deleting a geofence is similar to updating, and requires passing a strecture similar to one returned to you from create/retrieve calls. The geofence is deleted from ContextHub, then triggers pushes to devices interested in geofence deletions with those specific tags.
 
 {% gist CHLibrarian/fec0abd474cf6c1acc36 %}
 <br />

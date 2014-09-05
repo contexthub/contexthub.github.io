@@ -16,7 +16,7 @@ Registering for push involves telling the device what kind of notification types
 {% gist CHLibrarian/8b4d81f756ef8588629c %}
 <br />
 
-### Setting up a push
+### Setting up
 
 Setting up push involves creating an `NSDictionary` which the pre-specified keys to send the message you want. Keys are optional based on what kind of message you would like to send (foreground of background) and additional information can be sent along with the push. The total message must be under 256 bytes or it will not be delivered.
 

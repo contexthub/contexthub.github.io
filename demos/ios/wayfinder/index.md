@@ -4,6 +4,8 @@ layout: default
 ---
 # WayFinder
 
+## iBeacons Demo App
+
 <div class="text-center">
   {% include wayfinder_thumbs.html %}
 </div>

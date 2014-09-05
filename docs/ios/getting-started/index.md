@@ -37,11 +37,13 @@ Sample apps are available to walk you through the different services ContextHub 
 
 **[Hello ContextHub](https://github.com/contexthub/hello-contexthub)** - introduces you to the basic ideas behind ContextHub, the iOS SDK framework, and contextual engine. You'll see how events triggered on the device end up on the server and write rules to respond to events on ContextHub.
 
-**[Boundaries](https://github.com/contexthub/geofences)** (Geofences) - introduces you to the geofence features in ContextHub. You'll see how to create, retrieve, update, delete and handle events from geofences all in a few lines of code.
+**[Awareness](https://github.com/contexthub/awareness)** (Context Rules) - introduces you to the context rule features in ContextHub. You'll see how to use different objects inside a context rule to interact with beacons, geofences, vault items, send push notifications, fire webhooks, log console messages and more.
+
+**[Boundaries](https://github.com/contexthub/boundaries)** (Geofences) - introduces you to the geofence features in ContextHub. You'll see how to create, retrieve, update, delete and handle events from geofences all in a few lines of code.
 
 **[Detect Me](https://github.com/contexthub/detect-me)** (Beacons) - introduces you to the beacon features in ContextHub. You'll see how to create, retrieve, update, delete and handle events from beacons all in a few lines of code.
 
-**[Notify Me](https://github.com/contexthub/geofences)** (Push) - introduces you to the push features in ContextHub. You'll see how easy it is to send messages to multiple devices in different ways, and with enabling push, automatically get the latest server data about elements (beacons, geofences) through background pushes.
+**[Notify Me](https://github.com/contexthub/notify-me)** (Push) - introduces you to the push features in ContextHub. You'll see how easy it is to send messages to multiple devices in different ways, and with enabling push, automatically get the latest server data about elements (beacons, geofences) through background pushes.
 
 **[Storage](https://github.com/contexthub/storage)** (Vault) - introduces you to the vault features in ContextHub. You'll see how to create, retrieve, update, delete vault items all in a few lines of code.
 

@@ -18,7 +18,7 @@ Creating a vault item is simple. Vault items need to be JSON-serializable `NSDic
 
 ### Response
 
-Once a vault item is created, a dictionary response is returned with two keys, "data" and "vault_info". "data" contains your data which you meant to save in ContextHub. "vault_info" stores some metadata about your vault information and contains information like the id, tags, "created_at", and "updated_at" timestamps. Here's the structure of a vault item that was created above:
+Once a vault item is created, a dictionary response is returned with two keys, `data` and `vault_info`. `data` contains your data which you meant to save in ContextHub. `vault_info` stores some metadata about your vault information and contains information like the `id`, `tags`, `created_at`, and `updated_at` timestamps. Here's the structure of a vault item that was created above:
 
 {% gist CHLibrarian/84472db06d3fd5cb3301 %}
 <br />
@@ -46,14 +46,14 @@ Retrieve a specific vault item from ContextHub by passing a vault ID present eit
 
 ### Updating
 
-Updating a vault item requires passing back a structure similar to the one returned to you from create/retrieve calls with both data and vault_info keys. ContextHub does an entire replacement of the vault item with your new data, so you must pass the entire structure, not a patch to an existing structure currently on the vault. This is to prevent errors from happening when multiple devices attempt to access the same record. 
+Updating a vault item requires passing back a structure similar to the one returned to you from create/retrieve calls with both data and vault_info keys. ContextHub does an entire replacement of the vault item with your new data, so you must pass the entire structure, not a patch to an existing structure currently on the vault. This is to prevent errors from happening when multiple devices attempt to access the same record. ContextHub then updates the vault item, and triggers pushes to devices interested in vault item with that specific tag.
 
 {% gist CHLibrarian/07bb9aa25f2dec34c353 %}
 <br />
 
 ### Deleting
 
-Deleting a vault item is similar to updating, and requires passing a strecture similar to one returned to you from create/retrieve calls with bot data and vault_info keys. The item is then deleted from ContextHub.
+Deleting a vault item is similar to updating, and requires passing a strecture similar to one returned to you from create/retrieve calls with bot data and vault_info keys. The vault item is deleted from ContextHub, then triggers pushes to devices interested in vault item deletions with those specific tags.
 
 {% gist CHLibrarian/593a3e39950d6ccf6d28 %}
 <br />
