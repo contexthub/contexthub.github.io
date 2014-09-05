@@ -2,7 +2,9 @@
 title: Detect Me (Beacons)
 layout: default
 ---
-# Detect Me (Beacons)
+# Detect Me
+
+## Beacons Sample App
 
 <div class="text-center">
   {% include detect-me_thumbs.html %}

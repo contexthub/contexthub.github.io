@@ -2,7 +2,9 @@
 title: Storage (Vault)
 layout: default
 ---
-# Storage (Vault)
+# Storage
+
+## Vault Sample App
 
 <div class="text-center">
   {% include storage_thumbs.html %}

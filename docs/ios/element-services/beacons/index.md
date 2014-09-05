@@ -32,14 +32,14 @@ Retrieve a specific beacon from ContextHub by passing a beacon ID present either
 
 ### Updating
 
-Updating a beacon requires passing back a structure similar to the one returned to you from create/retrieve calls. ContextHub then updates the beacon, and triggers  pushes to devices interested in beacons with that specific tag.
+Updating a beacon requires passing back a structure similar to the one returned to you from create/retrieve calls. ContextHub then updates the beacon, and triggers pushes to devices interested in beacons with that specific tag.
 
 {% gist CHLibrarian/d9bc6b5675b062b11dbf %}
 <br />
 
 ### Deleting
 
-Deleting a beacon is similar to updating, and requires passing a strecture similar to one returned to you from create/retrieve calls. The beacon is then deleted from ContextHub.
+Deleting a beacon is similar to updating, and requires passing a strecture similar to one returned to you from create/retrieve calls. The beacon is deleted from ContextHub, then triggers pushes to devices interested in beacon deletions with those specific tags.
 
 {% gist CHLibrarian/191d805bf82b563cabf0 %}
 <br />
