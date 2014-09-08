@@ -23,18 +23,11 @@ Once a vault item is created, a dictionary response is returned with two keys, `
 {% gist CHLibrarian/84472db06d3fd5cb3301 %}
 <br />
 
-### Retrieving by tags
+### Retrieving by Tags
 
 Retrieve a group of vault items from ContextHub by passing a tag to `CCHVault`. Adding more tags to the same method call filters only items that have *all* tags on the same vault item.
 
 {% gist CHLibrarian/77df801086743a8159e7 %}
-<br />
-
-### Retrieving by matching keypath/value
-
-Retrieve a group of vault items that have match a value for a given keypath, by passing a keypath, value and tags which ContextHub should search through. You'll receive an array of responses which match the given keypath/value combination in the data key of the response.
-
-{% gist CHLibrarian/beb09796768d42ce9523 %}
 <br />
 
 ### Retrieving by ID
@@ -42,6 +35,13 @@ Retrieve a group of vault items that have match a value for a given keypath, by 
 Retrieve a specific vault item from ContextHub by passing a vault ID present either in the ContextHub developer portal or given to you as a dictionary response from the SDK at the keypath "vault_info.id".
 
 {% gist CHLibrarian/03e46b12816e092a1f21 %}
+<br />
+
+### Retrieving by Matching KeyPath/Value
+
+Retrieve a group of vault items that have match a value for a given keypath, by passing a keypath, value and tags which ContextHub should search through. You'll receive an array of responses which match the given keypath/value combination in the data key of the response.
+
+{% gist CHLibrarian/beb09796768d42ce9523 %}
 <br />
 
 ### Updating
