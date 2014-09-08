@@ -48,6 +48,20 @@ Retrieve a specific vault item from ContextHub by passing a vault ID present eit
 {% gist CHLibrarian/08e7a097a018ae13b8b2 %}
 <br />
 
+### Retrieving by Value
+
+Contains allows you to search inside a vault item for a particular value.
+
+{% gist CHLibrarian/ccd10b6bf887a37037fc %}
+<br />
+
+### Retrieving by Matching KeyPath/Value
+
+KeyPath search allows you to get all items which a matching value for a specific keypath. 
+
+{% gist CHLibrarian/833335fce9bb9e522407 %}
+<br />
+
 ### Updating
 
 Updating a vault item is similar to creating one. ContextHub first updates the vault item on the server, then triggers pushes to devices interested in vault items with those specific tags.
@@ -63,17 +77,3 @@ Deleting a vault items only requires passing the id to the `vault` object. The v
 {% gist CHLibrarian/a55f094872efed65ad3b %}
 <br />
 
-### Contains
-
-Contains allows you to search inside a vault item for a particular value.
-
-
-{% gist CHLibrarian/ccd10b6bf887a37037fc %}
-<br />
-
-### KeyPath
-
-KeyPath search allows you to get all items which a matching value for a specific keypath. 
-
-{% gist CHLibrarian/833335fce9bb9e522407 %}
-<br />
