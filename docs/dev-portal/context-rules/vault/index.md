@@ -36,7 +36,7 @@ Here's the structure of a vault item that was created above:
 
 ### Retrieving by Tag
 
-Retrieve a group of vault items from ContextHub by passing a tag to `vault`. Adding more tags seperated by commas to the same function call filters only beacons that have *all* tags on the same vault items.
+Retrieve a group of vault items from ContextHub by passing a tag to `vault`. Adding more tags separated by commas to the same function call filters only beacons that have *all* tags on the same vault items.
 
 {% gist CHLibrarian/f95de5fabe8af80431ce %}
 <br />
