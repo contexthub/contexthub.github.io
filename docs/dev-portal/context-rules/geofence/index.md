@@ -36,7 +36,7 @@ Here's the structure of a geofence that was created above:
 
 ### Retrieving by Tag
 
-Retrieve a group of geofences from ContextHub by passing a tag to `geofence`. Adding more tags seperated by commas to the same function call filters only beacons that have *all* tags on the same geofence.
+Retrieve a group of geofences from ContextHub by passing a tag to `geofence`. Adding more tags separated by commas to the same function call filters only beacons that have *all* tags on the same geofence.
 
 {% gist CHLibrarian/4ed014db0c57e58fd3a2 %}
 <br />
