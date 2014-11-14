@@ -1,6 +1,7 @@
 ---
 title: Event Services
 layout: default
+group: "ios"
 ---
 #Event Services
 

@@ -1,6 +1,7 @@
 ---
 title: Getting Started - iOS
 layout: default
+group: "ios"
 ---
 # Getting Started
 

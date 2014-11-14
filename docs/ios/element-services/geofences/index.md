@@ -1,6 +1,8 @@
 ---
 title: Geofences
 layout: default
+group: "element-services"
+
 ---
 #Element Services
 

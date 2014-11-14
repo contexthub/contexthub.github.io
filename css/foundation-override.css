@@ -6,24 +6,31 @@ a {
   font-family: 'Open Sans', sans-serif;
 }
 
+/*.side-nav li a:not(.button){
+  color :#fff;
+}*/
+
+.heading{
+  padding-top:15px;
+}
+
 /*h1, h2, h3, h4, h5, h6 {
   font-family: 'Abel', sans-serif;
 }*/
 
 h1 {
   font-family: 'Abel', sans-serif;
-  color:#28A5CE;
+  color:#f15d37;
   text-transform: uppercase;
-  text-align: center;
 }
 
  h2 {
   font-family: 'Open Sans', sans-serif;
-  color: #474747;
+  color: #182b35;
   font-size: 24px;
   font-weight: 400;
   line-height: 1.4;
-  text-align: center;
+  
   margin-bottom: 40px;
 }
 
@@ -37,18 +44,26 @@ h3 {
   letter-spacing: 7px;
 }
 
+
 pre {
   font-size: 16px;
 }
-
+#sideNav{
+  padding-left:0px;
+}
 .side-nav h4 {
   font-family: 'Open Sans', sans-serif;
   text-transform: uppercase;
   font-weight: 700;
   margin-bottom: 2px;
   font-size: 18px;
-  color: #28A5CE;
+  color: #fff;
   margin-bottom: 2px;
+}
+
+#top{
+  padding-right:10%;
+  padding-left:2%;
 }
 
 hr.short {
@@ -63,9 +78,15 @@ hr {
 }
 
 .top-bar {
-  background: #F2511C;
-  height: 70px;
+  background: #fff;
+  height: 90px;
 }
+.contain-to-grid .top-bar{
+  max-width: 100%;
+}
+/*.top-bar .name{
+  height:90px;
+}*/
 
 div.sticky.contain-to-grid {
   z-index: 999;
@@ -79,6 +100,7 @@ body > div.row.full-width {
 
 .full-width {
   width:100%;
+
 }
 
 .add-margin-top {
@@ -87,13 +109,18 @@ body > div.row.full-width {
 }
 
 .content {
-  margin-top: 30px;
+  margin-top: 0px;
 }
-/*.one-edge-shadow {
+.row.content{
+  background-color: #f7f8f8;
+  margin-left: 0px;
+  margin-right:0px;
+}
+.one-edge-shadow {
   -webkit-box-shadow: 0 8px 6px -6px #808080;
      -moz-box-shadow: 0 8px 6px -6px #808080;
           box-shadow: 0 8px 6px -6px #808080;
-}*/
+}
 
 .top-bar-section ul li:hover:not(.has-form) > a {
   background: #DF420E;
@@ -129,12 +156,12 @@ body > div.row.full-width {
 }
 
 .top-bar .name h1 a {
-  color:#fff;
+  color:#182b35 ;
 }
 
 .top-bar .title-area {
-  height: 70px;
-  padding-top: 11px;
+  height: 90px;
+  padding-top: 20px;
 }
 
 .logo-context {
@@ -190,7 +217,7 @@ body > div.row.full-width {
 header.global {
   z-index: 99;
   position: relative;
-  background: #F2511C; 
+  background: #fff; 
 }
 
 .fixed {
@@ -204,7 +231,10 @@ header.global {
 
 .side-nav 
 {
+  padding-left:15px;
+  padding-right:15px;
   position: fixed;
+  background-color: #424b4e;
 }
 
 .button {
@@ -417,9 +447,8 @@ footer .closing p a {
   }
 }
 
-@media only screen (min-width : 641px) and (max-width : 1025px) {
+@media only screen (min-width : 641px) {
   .top-bar-section li:not(.has-form) a:not(.button) {
     background: #F2511C;
   }
 }
-

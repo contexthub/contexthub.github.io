@@ -24,15 +24,19 @@
       <div class="side-nav-mobile">
         <a href="#" class="button" data-dropdown="downDrop">Sections &#9662;</a>
         <ul id="downDrop" class="f-dropdown" data-dropdown-content>
-          {% include menu.html %}
+            <!-- include menu was here  -->
         </ul>
       </div>
     </div>
 
     <div class="row content">
-      <div class="small-2 columns">
+      <div id="sideNav" class="small-2 columns">
         <ul class="side-nav">
-          {% include menu.html %}
+
+          {% assign pages_list = site.pages %}
+          {% assign group = 'ios' %}
+          {% include pages_list.html %}
+          
         </ul>
       </div>
 
@@ -41,8 +45,6 @@
       </div>
       <!--End Content -->
     </div>
-
-    {% include footer.html %}
 
     <script src="{{ site.baseurl }}/js/vendor/jquery.js"></script>
     <script src="{{ site.baseurl }}/js/foundation.min.js"></script>
@@ -65,7 +67,7 @@
     <script>
       $(document).foundation();
       $(document).ready(function() {
-        $('.content h1').after('<hr class="short">');
+        //$('.content h1').after('<hr class="short">');
         $('#downDrop a').click(function() {
           Foundation.libs.dropdown.close($('#downDrop'));
         });
