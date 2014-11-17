@@ -3,10 +3,14 @@ title: Getting Started - iOS
 layout: default
 group: "ios"
 ---
-<a name="registration"></a>
-# Getting Started
 
-## iOS
+<a name="registration"></a>
+<a data-magellan-destination="registration"></a>
+
+
+# iOS
+
+## REGISTRATION & SETUP
 
 ContextHub provides a mechanism for third party developers to quickly and easily add powerful contextual capabilities to their applications with just a few lines of code. This enables developers to create unique and engaging experiences for their users.
 
@@ -66,9 +70,8 @@ SDK reference [documentation](http://docs.contexthub.com/contexthub-ios-framewor
 
 
 
-
 <a name="push_notifications"></a>
-<!-- <h3 data-magellan-destination="push_notifications" markdown="1">Push Notification</h3> -->
+<a data-magellan-destination="push_notifications"></a>
 
 ## Sample Apps
 
@@ -82,6 +85,9 @@ Sample apps are available to walk you through the different services ContextHub 
 
 **[Boundaries](https://github.com/contexthub/boundaries)** (Geofences) - introduces you to the geofence features in ContextHub. You'll see how to create, retrieve, update, delete and handle events from geofences all in a few lines of code.
 
+
+<a name="subnav1"></a>
+<a data-magellan-destination="subnav1"></a>
 **[Detect Me](https://github.com/contexthub/detect-me)** (Beacons) - introduces you to the beacon features in ContextHub. You'll see how to create, retrieve, update, delete and handle events from beacons all in a few lines of code.
 
 **[Notify Me](https://github.com/contexthub/notify-me)** (Push) - introduces you to the push features in ContextHub. You'll see how easy it is to send messages to multiple devices in different ways, and with enabling push, automatically get the latest server data about elements (beacons, geofences) through background pushes.
@@ -107,6 +113,9 @@ SDK reference [documentation](http://docs.contexthub.com/contexthub-ios-framewor
 ## Sample Apps
 
 Sample apps are available to walk you through the different services ContextHub offers. Below are the following sample apps to choose from. We recommend starting off with Hello ContextHub to get an idea of how to ContextHub works before looking into other examples
+
+<a name="subnav2"></a>
+<a data-magellan-destination="subnav2"></a>
 
 ### Samples
 
@@ -135,7 +144,7 @@ Demo apps take different features present in ContextHub and integrate it into a 
 
 
 <a name="events"></a>
-<!-- <h3 data-magellan-destination="events" markdown="1">EVENTS</h3> -->
+<a data-magellan-destination="events"></a>
 
 ## Sample Apps
 
@@ -154,7 +163,8 @@ Sample apps are available to walk you through the different services ContextHub 
 **[Notify Me](https://github.com/contexthub/notify-me)** (Push) - introduces you to the push features in ContextHub. You'll see how easy it is to send messages to multiple devices in different ways, and with enabling push, automatically get the latest server data about elements (beacons, geofences) through background pushes.
 
 **[Storage](https://github.com/contexthub/storage)** (Vault) - introduces you to the vault features in ContextHub. You'll see how to create, retrieve, update, delete vault items all in a few lines of code.
-
+<a name="eventssubnav1"></a>
+<a data-magellan-destination="eventssubnav1"></a>
 ### Demos
 
 Demo apps take different features present in ContextHub and integrate it into a more real-world use case. You'll be able to see how beacons can interact with vault items and context rules to create a truly contextual application.
@@ -175,6 +185,8 @@ SDK reference [documentation](http://docs.contexthub.com/contexthub-ios-framewor
 
 Sample apps are available to walk you through the different services ContextHub offers. Below are the following sample apps to choose from. We recommend starting off with Hello ContextHub to get an idea of how to ContextHub works before looking into other examples
 
+<a name="eventssubnav2"></a>
+<a data-magellan-destination="eventssubnav2"></a>
 ### Samples
 
 **[Hello ContextHub](https://github.com/contexthub/hello-contexthub)** - introduces you to the basic ideas behind ContextHub, the iOS SDK framework, and contextual engine. You'll see how events triggered on the device end up on the server and write rules to respond to events on ContextHub.

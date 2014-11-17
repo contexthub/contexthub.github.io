@@ -3,8 +3,10 @@ title: Getting Started - iOS
 layout: default
 group: "ios"
 ---
-<div></div>
-<h3 data-magellan-destination="registration">Registration here is my magellean stuff</h3>
+<a name="registration"></a>
+<a data-magellan-destination="registration"></a>
+
+
 # Getting Started
 
 ## iOS
