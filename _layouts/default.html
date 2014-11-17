@@ -25,18 +25,22 @@
         <a href="#" class="button" data-dropdown="downDrop">Sections &#9662;</a>
         <ul id="downDrop" class="f-dropdown" data-dropdown-content>
             <!-- include menu was here  -->
+          {% assign pages_list = site.pages %}
+          {% assign group = 'ios' %}
+          {% include pages_list.html %}
+
         </ul>
       </div>
     </div>
 
+   
+
     <div class="row content">
       <div id="sideNav" class="small-2 columns">
         <ul class="side-nav">
-
-          {% assign pages_list = site.pages %}
-          {% assign group = 'ios' %}
-          {% include pages_list.html %}
+          {% include menu.html %}
           
+
         </ul>
       </div>
 
