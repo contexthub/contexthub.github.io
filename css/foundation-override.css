@@ -5,6 +5,7 @@ p {
 a {
   font-family: 'Open Sans', sans-serif;
 }
+
 ./*side-nav li a:not(.button) {
   display: block;
   color: white;
@@ -17,13 +18,47 @@ ul.magellan {width: 240px}
 @media only screen and (max-width: 767px) {
   ul.magellan {position: static !important; width: 100%}
 }
+[data-magellan-destination] {
+
+  padding-top: 90px;
+}
+[data-magellan-expedition]{
+  padding:0px;
+}
+#side-nav{
+  background-color:#424b4e;
+  width:100%;
+  max-width: 235px;
+}
+
+.tabs dd > a{
+
+  background-color:#424b4e;
+}
+.sub-nav{
+  margin-left: 0px;
+}
+.sub-nav dt a, .sub-nav dd a, .sub-nav li a{
+  color:white;
+}
+.sub-nav dt.active a, .sub-nav dd.active a, .sub-nav li.active a{
+  background-color:#424b4e;
+  color:#f1411d;
+}
 /*.side-nav li a:not(.button){
   color :#fff;
 }*/
 
+
+
 .heading{
   padding-top:15px;
 }
+
+dl#side-nav.sub-nav dl.sub-nav dd a{
+  padding-left: 40px;
+}
+
 
 /*h1, h2, h3, h4, h5, h6 {
   font-family: 'Abel', sans-serif;
@@ -61,6 +96,8 @@ pre {
 }
 #sideNav{
   padding-left:0px;
+  width:100%;
+  max-width: 235px;
 }
 .side-nav h4 {
   font-family: 'Open Sans', sans-serif;
@@ -72,9 +109,13 @@ pre {
   color: #fff;
   margin-bottom: 2px;
 }
+ul.side-nav{
+  width:100%;
+  max-width:235px;
+}
 
 #top{
-  padding-right:10%;
+  padding-right:2%;
   padding-left:2%;
 }
 
@@ -247,6 +288,7 @@ header.global {
   padding-right:15px;
   position: fixed;
   background-color: #424b4e;
+  height:100%;
 }
 
 .button {
