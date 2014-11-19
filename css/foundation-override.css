@@ -51,8 +51,17 @@ ul.magellan {width: 240px}
 }
 
 .sub-nav dt, .sub-nav dd, .sub-nav li{
-  margin-left:0px;
+  margin-left:20px;
 }
+
+#activesection>dd{
+font-weight:lighter;
+}
+#activesection>dl>dd{
+  font-weight: lighter;
+}
+
+
 .sub-nav dt .home, .sub-nav dd .home, .sub-nav li .home{
 
   margin-left: -15px;
@@ -62,6 +71,10 @@ ul.magellan {width: 240px}
 }*/
 #activesection{
   background-color:#182b35;
+  /*font-weight:lighter;*/
+}
+.home{
+  font-weight: normal;
 }
 
 
@@ -128,6 +141,7 @@ ul.side-nav{
   max-width:235px;
 }
 
+
 #top{
   padding-right:2%;
   padding-left:2%;
@@ -146,7 +160,7 @@ hr {
 
 .top-bar {
   background: #fff;
-  height: 90px;
+  height: 60px;
 }
 .contain-to-grid .top-bar{
   max-width: 100%;
@@ -189,6 +203,9 @@ body > div.row.full-width {
           box-shadow: 0 8px 6px -6px #808080;
 }
 
+.top-bar-section ul{
+  background-color:#ffffff;
+}
 .top-bar-section ul li:hover:not(.has-form) > a {
   background: #DF420E;
   color: #FFF;
@@ -196,25 +213,33 @@ body > div.row.full-width {
 
 
 .top-bar-section li:not(.has-form) a:not(.button) {
-  color: #fff;
+  color: #0d2f3a;
+  background-color: white;
 }
 
 .top-bar-section li:not(.has-form) a:not(.button):hover {
-  background: #E64B19;
-  /*color: #c7c7c7;*/
-  height: 70px;
+  background: #ffffff;
+  color: #c7c7c7;
+  /*background: #efefef;*/
+  /*color:#F2511C;*/
+
+
+  /*height: 70px;*/
 }
+
+
+
 
 .top-bar-section .has-dropdown > a {
   padding-left: 25px !important;
 }
 
 .top-bar-section li:not(.has-form) a:not(.button) {
-  background: #F2511C;
+  /*background: #F2511C;*/
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
-  padding-top: 12px;
-  height: 70px;
+  padding-top: 9px;
+  height: 60px;
   font-weight: 300;
 }
 
@@ -222,13 +247,15 @@ body > div.row.full-width {
   top: 35px;
 }
 
+
+
 .top-bar .name h1 a {
   color:#182b35 ;
 }
 
 .top-bar .title-area {
-  height: 90px;
-  padding-top: 20px;
+  height: 60px;
+  padding-top: 10px;
 }
 
 .logo-context {
@@ -507,16 +534,32 @@ footer .closing p a {
   .top-bar-section li:not(.has-form) a:not(.button) {
     padding-top: 22px;
   }
+
 }
 
 @media only screen and (min-width : 1025px) {
   .side-nav-mobile {
     display: none;
   }
+  .top-bar-section li.active:not(.has-form) a:not(.button){
+    border-bottom: 5px solid #FC5427;
+    background-color:#ffffff;
+    color:#3A5865;
+    font-weight: 400;
+    bottom:-1px;
+    position:relative;
+    padding-top:9px;
+  }
+  .top-bar-section li.active:not(.has-form) a:not(.button):hover{
+    background-color: white;
+    color: #c7c7c7;
+  }
+
 }
 
 @media only screen (min-width : 641px) {
   .top-bar-section li:not(.has-form) a:not(.button) {
     background: #F2511C;
   }
+
 }

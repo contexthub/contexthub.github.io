@@ -9,8 +9,9 @@
     settings : {
       active_class: 'active',
       threshold: 0, // pixels from the top of the expedition for it to become fixes
-      destination_threshold: 20, // pixels from the top of destination for it to be considered active
+      destination_threshold: 180, // pixels from the top of destination for it to be considered active
       throttle_delay: 30, // calculation throttling to increase framerate
+      destination_offset:-68
     }, 
 
     init : function (scope, method, options) {
@@ -38,7 +39,7 @@
             if (target.length === 0) target = $('#'+hash);
 
             // Account for expedition height if fixed position
-            var scroll_top = target.offset().top;
+            var scroll_top = target.offset().top+settings.destination_offset;
             if (expedition.css('position') === 'fixed') {
               scroll_top = scroll_top - expedition.outerHeight();
             }
