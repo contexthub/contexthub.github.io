@@ -22,35 +22,220 @@
 <li class="heading"><h4>Apps (iOS)</h4></li>
 <li><a href="/production/ios/beaconbits">Beacon Bits</a></li> -->
 
+{% assign overview = '/docs/overview/index.html' %}
+{% assign pushnotifications = '/docs/pushnotifications/index.html' %}
+{% assign admin = '/docs/admin/index.html' %}
+{% assign contextualengine = '/docs/contextualengine/index.html' %}
+{% assign iOS = '/docs/iOS/index.html' %}
+{% assign android = '/docs/android/index.html' %}
+{% assign restapi = '/docs/restapi/index.html' %}
+{% assign xamarin = '/docs/xamarin/index.html' %}
+{% assign distributeddata = '/docs/distributeddata/index.html' %}
+{% assign feeds = '/docs/feeds/index.html' %}
+{% assign apilibraries = '/docs/apilibraries/index.html' %}
+{% assign downloads = '/docs/downloads/index.html' %}
+{% assign samples = '/docs/samples/index.html' %}
+
+
+
+
+
+
+
 <div class="magellan tabs vertical"  data-magellan-expedition="" >
   <dl class="sub-nav" id="side-nav">
-    <dd ><a class="home" href="/docs/admin">Admin Portal</a></dd>
-    <dd class="home"><a href="/docs/iOS">iOS</a></dd>
-    <dd data-magellan-arrival="RegistrationandSetup"><a href="#RegistrationandSetup">RegistrationandSetup</a></dd>
-    <dd data-magellan-arrival="PushNotifications"><a href="#PushNotifications">PushNotifications</a></dd>
 
-    <dd data-magellan-arrival="Events"><a href="#Events">Events</a></dd>
-    <dl class="sub-nav">
-        <dd data-magellan-arrival="triggering"><a href="#triggering">triggering</a></dd>
-        <dd data-magellan-arrival="delegate"><a href="#delegate">delegate</a></dd>
-        <dd data-magellan-arrival="datasource"><a href="#datasource">datasource</a></dd>
-    </dl>
+    {% if page.url == overview %}
+        <div id="activesection">
+            <dd ><a class="home" href="/docs/overview">overview</a></dd>
+        </div>  
+    {% else %}
+        <dd ><a class="home" href="/docs/overview">overview</a></dd>
+    {% endif %}
 
-    <dd data-magellan-arrival="DataDistribution"><a href="#DataDistribution">DataDistribution</a></dd>
-    <dl class="sub-nav">
-        <dd data-magellan-arrival="Creating"><a href="#Creating">Creating</a></dd>
-        <dd data-magellan-arrival="retrieving"><a href="#retrieving">retrieving</a></dd>
-        <dd data-magellan-arrival="updating"><a href="#updating">updating</a></dd>
-        <dd data-magellan-arrival="deleting"><a href="#deleting">deleting</a></dd>
-        <dd data-magellan-arrival="subscribing"><a href="#subscribing">subscribing</a></dd>
-        <dd data-magellan-arrival="backgroundpushnotifications"><a href="#backgroundpushnotifications">background push notifications</a></dd>
-        <dd data-magellan-arrival="NSNotificationCenternotifications"><a href="#NSNotificationCenternotifications">NSNotificationCenter notifications</a></dd>
-        <dd data-magellan-arrival="linktodatadistributionsection"><a href="#linktodatadistributionsection">link to data distribution section</a></dd>
-    </dl>
+    {% if page.url == pushnotifications %}
+        <div id="activesection">
+            <dd ><a class="home" href="/docs/pushnotifications">pushnotifications</a></dd>
+        </div>  
+    {% else %}
+        <dd ><a class="home" href="/docs/pushnotifications">pushnotifications</a></dd>
+    {% endif %}
 
-    <dd data-magellan-arrival="SubscriptionsandTags"><a href="#SubscriptionsandTags">Subscriptions and Tags</a></dd>
-    <dd data-magellan-arrival="UsingLocation"><a href="#UsingLocation">Using Location</a></dd>
-    <dd class="home"><a href="/docs/android">Android</a></dd>
+
+
+    {% if page.url == admin %}
+        <div id="activesection">
+            <dd ><a class="home" href="/docs/admin">Admin Portal</a></dd>
+
+                <dd data-magellan-arrival="Elements"><a href="#Elements">Elements</a></dd>
+                <dl class="sub-nav">
+                    <dd data-magellan-arrival="Beacons"><a href="#Beacons">Beacons</a></dd>
+                    <dd data-magellan-arrival="Geofences"><a href="#Geofences">Geofences</a></dd>
+                </dl>
+
+                <dd data-magellan-arrival="Events"><a href="#Events">Events</a></dd>
+                <dd data-magellan-arrival="Contexts"><a href="#Contexts">Contexts</a></dd>
+
+                <dd data-magellan-arrival="Application"><a href="#Application">Application</a></dd>
+                <dl class="sub-nav">
+                    <dd data-magellan-arrival="Vault"><a href="#Vault">Vault</a></dd>
+                </dl>
+
+                <dd data-magellan-arrival="Devices"><a href="#Devices">Devices</a></dd>
+                
+                <dd data-magellan-arrival="Analytics"><a href="#Analytics">Analytics</a></dd>
+                <dl class="sub-nav">
+                    <dd data-magellan-arrival="dashboard"><a href="#dashboard">dashboard</a></dd>
+                    <dd data-magellan-arrival="custom"><a href="#custom">custom</a></dd>
+                </dl>
+
+                <dd data-magellan-arrival="Feeds"><a href="#Feeds">Feeds</a></dd>
+                <dd data-magellan-arrival="Logs"><a href="#Logs">Logs</a></dd>
+
+                <dd data-magellan-arrival="Settings"><a href="#Settings">Settings</a></dd>
+                <dl class="sub-nav">
+                    <dd data-magellan-arrival="PushServices"><a href="#PushServices">PushServices</a></dd>
+                    <dd data-magellan-arrival="Collaborators"><a href="#Collaborators">Collaborators</a></dd>
+                </dl>
+        </div>  
+    {% else %}
+        <dd ><a class="home" href="/docs/admin">Admin Portal</a></dd>
+    {% endif %}
+
+
+
+    {% if page.url == contextualengine %}
+        <div id="activesection">
+            <dd ><a class="home" href="/docs/contextualengine">contextualengine</a></dd>
+        </div>  
+    {% else %}
+        <dd ><a class="home" href="/docs/contextualengine">contextualengine</a></dd>
+    {% endif %}
+
+
+
+    {% if page.url == iOS %}
+    <div id="activesection">
+        <dd ><a class="home" href="/docs/iOS">iOS</a></dd>
+            <dd data-magellan-arrival="RegistrationandSetup"><a href="#RegistrationandSetup">RegistrationandSetup</a></dd>
+            <dd data-magellan-arrival="PushNotifications"><a href="#PushNotifications">PushNotifications</a></dd>
+
+            <dd data-magellan-arrival="Events"><a href="#Events">Events</a></dd>
+            <dl class="sub-nav">
+                <dd data-magellan-arrival="triggering"><a href="#triggering">triggering</a></dd>
+                <dd data-magellan-arrival="delegate"><a href="#delegate">delegate</a></dd>
+                <dd data-magellan-arrival="datasource"><a href="#datasource">datasource</a></dd>
+            </dl>
+
+            <dd data-magellan-arrival="DataDistribution"><a href="#DataDistribution">DataDistribution</a></dd>
+            <dl class="sub-nav">
+                <dd data-magellan-arrival="Creating"><a href="#Creating">Creating</a></dd>
+                <dd data-magellan-arrival="retrieving"><a href="#retrieving">retrieving</a></dd>
+                <dd data-magellan-arrival="updating"><a href="#updating">updating</a></dd>
+                <dd data-magellan-arrival="deleting"><a href="#deleting">deleting</a></dd>
+                <dd data-magellan-arrival="subscribing"><a href="#subscribing">subscribing</a></dd>
+                <dd data-magellan-arrival="backgroundpushnotifications"><a href="#backgroundpushnotifications">background push notifications</a></dd>
+                <dd data-magellan-arrival="NSNotificationCenternotifications"><a href="#NSNotificationCenternotifications">NSNotificationCenter notifications</a></dd>
+                <dd data-magellan-arrival="linktodatadistributionsection"><a href="#linktodatadistributionsection">link to data distribution section</a></dd>
+            </dl>
+
+            <dd data-magellan-arrival="SubscriptionsandTags"><a href="#SubscriptionsandTags">Subscriptions and Tags</a></dd>
+            <dd data-magellan-arrival="UsingLocation"><a href="#UsingLocation">Using Location</a></dd>
+    </div>
+    {% else %}
+        <dd ><a class="home" href="/docs/iOS">iOS</a></dd>
+    {% endif %}
+    
+
+     {% if page.url == android %}
+    <div id="activesection">
+        <dd ><a class="home" href="/docs/android">android</a></dd>
+            <dd data-magellan-arrival="RegistrationandSetup"><a href="#RegistrationandSetup">RegistrationandSetup</a></dd>
+            <dd data-magellan-arrival="PushNotifications"><a href="#PushNotifications">PushNotifications</a></dd>
+
+            <dd data-magellan-arrival="Events"><a href="#Events">Events</a></dd>
+            <dl class="sub-nav">
+                <dd data-magellan-arrival="triggering"><a href="#triggering">triggering</a></dd>
+                <dd data-magellan-arrival="delegate"><a href="#delegate">delegate</a></dd>
+                <dd data-magellan-arrival="datasource"><a href="#datasource">datasource</a></dd>
+            </dl>
+
+            <dd data-magellan-arrival="DataDistribution"><a href="#DataDistribution">DataDistribution</a></dd>
+            <dl class="sub-nav">
+                <dd data-magellan-arrival="Creating"><a href="#Creating">Creating</a></dd>
+                <dd data-magellan-arrival="retrieving"><a href="#retrieving">retrieving</a></dd>
+                <dd data-magellan-arrival="updating"><a href="#updating">updating</a></dd>
+                <dd data-magellan-arrival="deleting"><a href="#deleting">deleting</a></dd>
+                <dd data-magellan-arrival="subscribing"><a href="#subscribing">subscribing</a></dd>
+                <dd data-magellan-arrival="backgroundpushnotifications"><a href="#backgroundpushnotifications">background push notifications</a></dd>
+                <dd data-magellan-arrival="NSNotificationCenternotifications"><a href="#NSNotificationCenternotifications">NSNotificationCenter notifications</a></dd>
+                <dd data-magellan-arrival="linktodatadistributionsection"><a href="#linktodatadistributionsection">link to data distribution section</a></dd>
+            </dl>
+
+            <dd data-magellan-arrival="SubscriptionsandTags"><a href="#SubscriptionsandTags">Subscriptions and Tags</a></dd>
+            <dd data-magellan-arrival="UsingLocation"><a href="#UsingLocation">Using Location</a></dd>
+    </div>
+    {% else %}
+        <dd ><a class="home" href="/docs/android">android</a></dd>
+    {% endif %}
+
+
+    {% if page.url == restapi %}
+        <div id="activesection">
+            <dd ><a class="home" href="/docs/restapi">restapi</a></dd>
+        </div>  
+    {% else %}
+        <dd ><a class="home" href="/docs/restapi">restapi</a></dd>
+    {% endif %}
+
+    {% if page.url == xamarin %}
+        <div id="activesection">
+            <dd ><a class="home" href="/docs/xamarin">xamarin</a></dd>
+        </div>  
+    {% else %}
+        <dd ><a class="home" href="/docs/xamarin">xamarin</a></dd>
+    {% endif %}
+
+    {% if page.url == distributeddata %}
+        <div id="activesection">
+            <dd ><a class="home" href="/docs/distributeddata">distributeddata</a></dd>
+        </div>  
+    {% else %}
+        <dd ><a class="home" href="/docs/distributeddata">distributeddata</a></dd>
+    {% endif %}
+
+    {% if page.url == feeds %}
+        <div id="activesection">
+            <dd ><a class="home" href="/docs/feeds">feeds</a></dd>
+        </div>  
+    {% else %}
+        <dd ><a class="home" href="/docs/feeds">feeds</a></dd>
+    {% endif %}
+
+    {% if page.url == apilibraries %}
+        <div id="activesection">
+            <dd ><a class="home" href="/docs/apilibraries">apilibraries</a></dd>
+        </div>  
+    {% else %}
+        <dd ><a class="home" href="/docs/apilibraries">apilibraries</a></dd>
+    {% endif %}
+
+    {% if page.url == downloads %}
+        <div id="activesection">
+            <dd ><a class="home" href="/docs/downloads">downloads</a></dd>
+        </div>  
+    {% else %}
+        <dd ><a class="home" href="/docs/downloads">downloads</a></dd>
+    {% endif %}
+
+    {% if page.url == samples %}
+        <div id="activesection">
+            <dd ><a class="home" href="/docs/samples">samples</a></dd>
+        </div>  
+    {% else %}
+        <dd ><a class="home" href="/docs/samples">samples</a></dd>
+    {% endif %}
+
 
 
   </dl>

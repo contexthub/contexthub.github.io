@@ -132,7 +132,7 @@
     },
 
     custom_change_event : function(){
-      $("#side-nav>dl").hide();
+      $("#activesection>dl").hide();
       $("dd.active").parent().show();
 
       var possibleSubNav = $("dd.active").next();
