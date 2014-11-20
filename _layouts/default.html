@@ -36,7 +36,7 @@
    
 
     <div class="row content full-width">
-      <div id="sideNav" class="large-2 columns">
+      <div class="small-2 columns" id="sideNav">
         <ul class="side-nav">
           {% include menu.html %}
           
@@ -44,7 +44,7 @@
         </ul>
       </div>
 
-      <div class="large-10 columns right " id="top">
+      <div class="small-10 columns right " id="top">
         {{ content }}
       </div>
       <!--End Content -->
@@ -72,7 +72,7 @@
       $(document).foundation();
       $(document).ready(function() {
       $("#activesection>dl").hide();
-        
+
         //$('.content h1').after('<hr class="short">');
         $('#downDrop a').click(function() {
           Foundation.libs.dropdown.close($('#downDrop'));

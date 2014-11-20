@@ -25,10 +25,11 @@ ul.magellan {width: 240px}
 [data-magellan-expedition]{
   padding:0px;
 }
+
 #side-nav{
   background-color:#424b4e;
-  width:100%;
-  max-width: 235px;
+  /*width:100%;
+  max-width: 235px;*/
 }
 
 .tabs dd > a{
@@ -37,6 +38,7 @@ ul.magellan {width: 240px}
 }
 .sub-nav{
   margin-left: 0px;
+
 }
 .sub-nav dt a, .sub-nav dd a, .sub-nav li a{
   color:white;
@@ -123,8 +125,13 @@ pre {
 }
 #sideNav{
   padding-left:0px;
-  width:100%;
-  max-width: 235px;
+  height:100%;
+  position:fixed;
+
+
+
+  /*width:100%;
+  max-width: 235px;*/
 }
 .side-nav h4 {
   font-family: 'Open Sans', sans-serif;
@@ -137,14 +144,14 @@ pre {
   margin-bottom: 2px;
 }
 ul.side-nav{
-  width:100%;
-  max-width:235px;
+  /*width:100%;*/
+  /*max-width:235px;*/
 }
 
 
 #top{
   padding-right:2%;
-  padding-left:2%;
+  padding-left:10px;
 }
 
 hr.short {
@@ -327,7 +334,7 @@ header.global {
 {
 /*  padding-left:15px;
   padding-right:15px;*/
-  position: fixed;
+  /*position: fixed;*/
   background-color: #424b4e;
   height:100%;
 }
