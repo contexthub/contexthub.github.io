@@ -59,7 +59,7 @@
       self.update_arrivals();
       self.update_expedition_positions();
       self.custom_change_event();
-      console.log("check for arrivals end");
+      //console.log("check for arrivals end");
     },
 
     set_expedition_position : function() {
@@ -101,7 +101,7 @@
           expedition.attr('style','');
         }
       });
-      console.log("update_expedition_positions end");
+      //console.log("update_expedition_positions end");
     
     },
 
@@ -121,13 +121,13 @@
             arrivals.not(item.arrival).removeClass(settings.active_class);
             item.arrival.addClass(settings.active_class);
             active_item = true;
-            console.log("ITEM.ARRIVAL");
+            //console.log("ITEM.ARRIVAL");
 
             return true;
           }
         });
-        console.log("")
-        console.log("UPDATE ARRIVALS END");
+        //console.log("")
+        //console.log("UPDATE ARRIVALS END");
         if (!active_item) arrivals.removeClass(settings.active_class);
       });
     },
@@ -145,7 +145,7 @@
 
 
       //arrivals = expedition.find('[' + self.add_namespace('data-magellan-arrival') + ']');
-      console.log("custom_change_event");
+      //console.log("custom_change_event");
     },
 
     offsets : function(expedition, window_offset) {

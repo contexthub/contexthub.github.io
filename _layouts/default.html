@@ -25,9 +25,8 @@
         <a href="#" class="button" data-dropdown="downDrop">Sections &#9662;</a>
         <ul id="downDrop" class="f-dropdown" data-dropdown-content>
             <!-- include menu was here  -->
-          {% assign pages_list = site.pages %}
-          {% assign group = 'ios' %}
-          {% include pages_list.html %}
+          {% include menu.html %}
+  
 
         </ul>
       </div>
@@ -37,7 +36,7 @@
 
     <div class="row content full-width">
       <div class="small-2 columns" id="sideNav">
-        <ul class="side-nav">
+        <ul class="side-nav scrollbar">
           {% include menu.html %}
           
 
@@ -74,6 +73,9 @@
       $("#activesection>dl").hide();
 
         //$('.content h1').after('<hr class="short">');
+
+
+
         $('#downDrop a').click(function() {
           Foundation.libs.dropdown.close($('#downDrop'));
         });

@@ -5,6 +5,16 @@ p {
 a {
   font-family: 'Open Sans', sans-serif;
 }
+#top h3{
+  padding-left: 30px;
+  color: #f15d37;
+  font-weight: normal;
+  text-transform: none;
+  letter-spacing: 0px;
+}
+h3 + p{
+  padding-left:30px;
+}
 
 ./*side-nav li a:not(.button) {
   display: block;
@@ -36,13 +46,15 @@ ul.magellan {width: 240px}
   background-color:transparent;
   /*background-color:#424b4e;*/
 }
+
 .sub-nav{
   margin-left: 0px;
-
 }
+
 .sub-nav dt a, .sub-nav dd a, .sub-nav li a{
   color:white;
 }
+
 .sub-nav dt.active a, .sub-nav dd.active a, .sub-nav li.active a{
   /*background-color:#424b4e;*/
   background-color:transparent;
@@ -59,6 +71,7 @@ ul.magellan {width: 240px}
 #activesection>dd{
 font-weight:lighter;
 }
+
 #activesection>dl>dd{
   font-weight: lighter;
 }
@@ -111,12 +124,15 @@ h2 {
 
 h3 {
   font-family: 'Open Sans', sans-serif;
-  color: #474747;
-  text-transform: uppercase;
+  color: #f15d37;
+  /*text-transform: uppercase;*/
   font-weight: 400;
   font-size: 20px;
   margin-bottom: 10px;
-  letter-spacing: 7px;
+  /*letter-spacing: 7px;*/
+
+
+
 }
 
 
@@ -337,6 +353,10 @@ header.global {
   /*position: fixed;*/
   background-color: #424b4e;
   height:100%;
+}
+.scrollbar{
+  overflow-y:scroll;
+  padding-bottom:80px;
 }
 
 .button {
