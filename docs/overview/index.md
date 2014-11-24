@@ -5,7 +5,7 @@ layout: default
 
 # OVERVIEW
 
-## Build contextual capabilities into your applications with just a few lines of code
+<p style="color:#82A2A7;font-size:18px;font-weight:normal;font-family:Open Sans Semibold">Build contextual capabilities into your applications with just a few lines of code</p>
 
 ContextHub provides a mechanism for third party developers to quickly and easily add powerful contextual capabilities to their applications with just a few lines of code. This enables developers to create unique and engaging experiences for their users.
 
