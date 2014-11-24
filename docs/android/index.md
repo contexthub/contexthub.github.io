@@ -43,7 +43,7 @@ Registering for push involves a one line call to `Push.init()` with your Google 
 <a name="PushNotifications-sendingtodevice"></a>
 <a data-magellan-destination="PushNotifications-sendingtodevice"></a>
 
-### Sending to device(s)
+### Sending to Device(s)
 
 Sending to a device is as simple as sending an array of device IDs along with the `NSDictionary` containing the message you want sent. The push message will then get queued to be processed in a first-in, first-out basis on the server.
 
@@ -53,7 +53,7 @@ Sending to a device is as simple as sending an array of device IDs along with th
 <a name="PushNotifications-sendingtoalias"></a>
 <a data-magellan-destination="PushNotifications-sendingtoalias"></a>
 
-### Sending to alias(es)
+### Sending to Alias(es)
 
 Sending to an alias is similar to sending to a device, where ContextHub will figure out which alias maps to a device to send a notification. Remember that unlike device IDs, aliases are not required to be unique, so sending a message to "Android" will send to *all* devices with that alias. It is therefore recommended to pick an alias that is unlikely to be conflicting at the global scope of your app (hashed usernames are a good choice).
 
@@ -63,7 +63,7 @@ Sending to an alias is similar to sending to a device, where ContextHub will fig
 <a name="PushNotifications-sendingtotags"></a>
 <a data-magellan-destination="PushNotifications-sendingtotags"></a>
 
-### Sending to tag(s)
+### Sending to Tag(s)
 
 Sending to tags are also similar to sending to devices and aliases where you specify the tags to send a message to. Tags also are not required to be unique, and since a device can have multiple tags, it is possible for a device to receive multiple messages if you send the same message to multiple tags. Keep this in mind when building the logic in your app if that is undesired behavior.
 
@@ -73,7 +73,7 @@ Sending to tags are also similar to sending to devices and aliases where you spe
 <a name="PushNotifications-sendingcustomdata"></a>
 <a data-magellan-destination="PushNotifications-sendingcustomdata"></a>
 
-### Sending custom data
+### Sending Custom Data
 
 In addition to sending simple push notifications with a message, you can also send notifications with custom data. To do this, create a class to represent your data structure and specify it as the generic type parameter when creating your `PushNotification` instance.
 
@@ -100,8 +100,8 @@ Events are generated in ContextHub through the `SensorPipeline` class which allo
 
 Note: In order to conserve battery life, only events which are subscribed to will generate events in ContextHub (with exception of *location_changed*)
 
-<a name="Events-protocols"></a>
-<a data-magellan-destination="Events-protocols"></a>
+<a name="Events-interfaces"></a>
+<a data-magellan-destination="Events-interfaces"></a>
 
 ### Interfaces
 
@@ -278,7 +278,7 @@ Creating a geofence contextual element in ContextHub is simple. Every geofence i
 <a name="geofences-retrievebytag"></a>
 <a data-magellan-destination="geofences-retrievebytag"></a>
 
-### Retrieving by tag
+### Retrieving by Tag
 
 Retrieve a group of geofences from ContextHub by passing a tag to `GeofenceProxy`. Adding more tags to the same method call filters only geofences that have *all* tags on the same geofence.
 
@@ -340,7 +340,7 @@ Creating a beacon contextual element in ContextHub is simple. Every beacon has a
 <a name="beacons-retrievebytag"></a>
 <a data-magellan-destination="beacons-retrievebytag"></a>
 
-### Retrieving by tag
+### Retrieving by Tag
 
 Retrieve a group of beacons from ContextHub by passing a tag to `BeaconProxy`. Adding more tags to the same method call filters only beacons that have *all* tags on the same beacon.
 
@@ -388,8 +388,8 @@ Deleting a beacon is similar to updating, and requires passing a structure simil
 <br/>
 <br/>
 
-<a name="Logging"></a>
-<a data-magellan-destination="Logging"></a>
+<a name="logging"></a>
+<a data-magellan-destination="logging"></a>
 
 ## Logging
 

@@ -1,6 +1,8 @@
+
 ;(function ($, window, document, undefined) {
   'use strict';
-
+var eventCount = 0;
+var lastActiveElement = null;
   Foundation.libs['magellan-expedition'] = {
     name : 'magellan-expedition',
 
@@ -17,6 +19,8 @@
     init : function (scope, method, options) {
       Foundation.inherit(this, 'throttle');
       this.bindings(method, options);
+      
+
     },
 
     events : function () {
@@ -133,13 +137,31 @@
     },
 
     custom_change_event : function(){
-      $("#activesection>dl").hide();
-      $("dd.active").parent().show();
+      eventCount++;
+      //console.log(eventCount);
 
-      var possibleSubNav = $("dd.active").next();
-      if($(possibleSubNav).hasClass("sub-nav")){
-        $(possibleSubNav).show();
-      }        
+      //For improvement purposes.  This halves the frequency this is called.  Think there is more lag related to the other stuff in this class however.
+      if(eventCount%2)
+      {
+
+        var possibleSubNav = $("dd.active").next();
+        if (lastActiveElement!= possibleSubNav[0]) {
+
+          console.log(lastActiveElement);
+          console.log(possibleSubNav[0]);
+          console.log("-------");
+          lastActiveElement = possibleSubNav[0];
+
+          $("#activesection>dl").hide();
+          $("dd.active").parent().show();
+
+          
+          if($(possibleSubNav).hasClass("sub-nav")){
+            $(possibleSubNav).show();
+          }  
+        };
+
+      }    
       // else
       //   alert("NOPE");
 

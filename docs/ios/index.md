@@ -35,7 +35,7 @@ Push notifications let you send foreground messages which your users will be ale
 
 ### Registering
 
-Registering for push involves telling the device what kind of notification types you wish to to use (badge, alert, sound). That triggers a request to the user asking for permission for those alerts (which they can deny), then Apple Push Notifications gives you a token which `CCHPush` uses along with an associated alias and set of tags to tell ContextHub which devices to get which messages. 
+Registering for push involves telling the device what kind of notification types you wish to use (badge, alert, sound). That triggers a request to the user asking for permission for those alerts (which they can deny), then Apple Push Notifications gives you a token which `CCHPush` uses along with an associated alias and set of tags to tell ContextHub which devices to get which messages. 
 
 {% gist CHLibrarian/8b4d81f756ef8588629c %}
 <br />
@@ -43,7 +43,7 @@ Registering for push involves telling the device what kind of notification types
 <a name="PushNotifications-settingup"></a>
 <a data-magellan-destination="PushNotifications-settingup"></a>
 
-### Setting up
+### Setting Up
 
 Setting up push involves creating an `NSDictionary` which the pre-specified keys to send the message you want. Keys are optional based on what kind of message you would like to send (foreground of background) and additional information can be sent along with the push. The total message must be under 256 bytes or it will not be delivered.
 
@@ -53,7 +53,7 @@ Setting up push involves creating an `NSDictionary` which the pre-specified keys
 <a name="PushNotifications-sendingtodevice"></a>
 <a data-magellan-destination="PushNotifications-sendingtodevice"></a>
 
-### Sending to device(s)
+### Sending to Device(s)
 
 Sending to a device is as simple as sending an array of device IDs along with the `NSDictionary` containing the message you want sent. The push message will then get queued to be processed in a first-in, first-out basis on the server.
 
@@ -63,7 +63,7 @@ Sending to a device is as simple as sending an array of device IDs along with th
 <a name="PushNotifications-sendingtoalias"></a>
 <a data-magellan-destination="PushNotifications-sendingtoalias"></a>
 
-### Sending to alias(es)
+### Sending to Alias(es)
 
 Sending to an alias is similar to sending to a device, where ContextHub will figure out which alias maps to a device to send out a message. Remember that unlike device IDs, aliases are not requiring to be unique, so sending a message to "iPhone" will send to *all* devices with that alias. It is therefore recommended to pick an alias that is unlikely to be confliciting at the global scope of your app (hashed usernames are a good choice).
 
@@ -73,7 +73,7 @@ Sending to an alias is similar to sending to a device, where ContextHub will fig
 <a name="PushNotifications-sendingtotags"></a>
 <a data-magellan-destination="PushNotifications-sendingtotags"></a>
 
-### Sending to tag(s)
+### Sending to Tag(s)
 
 Sending to tags are also similar to sending to devices and aliases where `CCHPush` takes an array of tags to send a message to. Tags also are not required to be unique, and since a device can have multiple tags, it is possible for a device to receive multiple messages if you send the same message to multiple tags. Keep this in mind when building the logic in your app if that is undesired behavior.
 
@@ -145,7 +145,7 @@ Finally, you'll start getting notifications sent to your method about events. Yo
 
 ### Unsubscribing
 
-nsubscribing to a tag is very similar to subscribing, and turns off the sensor pipeline to notifications from elements with that tag. Be sure to also stop observing posted notifications at the appropriate time in your app to prevent potential bugs and crashes.
+Unsubscribing to a tag is very similar to subscribing, and turns off the sensor pipeline to notifications from elements with that tag. Be sure to also stop observing posted notifications at the appropriate time in your app to prevent potential bugs and crashes.
 
 {% gist CHLibrarian/921338791c871c67d269 %}
 <br />
@@ -299,7 +299,7 @@ Creating a geofence contextual element in ContextHub is simple. Every geofence i
 <a name="geofences-retrievebytag"></a>
 <a data-magellan-destination="geofences-retrievebytag"></a>
 
-### Retrieving by tag
+### Retrieving by Tag
 
 Retrieve a group of geofences from ContextHub by passing a tag to `CCHGeofenceService`. Adding more tags to the same method call filters only geofence that have *all* tags on the same geofence.
 
@@ -333,7 +333,7 @@ Updating a geofence requires passing back a structure similar to the one returne
 
 ### Deleting
 
-Deleting a geofence is similar to updating, and requires passing a strecture similar to one returned to you from create/retrieve calls. The geofence is deleted from ContextHub, then triggers pushes to devices interested in geofence deletions with those specific tags.
+Deleting a geofence is similar to updating, and requires passing a structure similar to one returned to you from create/retrieve calls. The geofence is deleted from ContextHub, then triggers pushes to devices interested in geofence deletions with those specific tags.
 
 {% gist CHLibrarian/fec0abd474cf6c1acc36 %}
 <br />
@@ -361,7 +361,7 @@ Creating a beacon contextual element in ContextHub is simple. Every beacon has a
 <a name="beacons-retrievebytag"></a>
 <a data-magellan-destination="beacons-retrievebytag"></a>
 
-### Retrieving by tag
+### Retrieving by Tag
 
 Retrieve a group of beacons from ContextHub by passing a tag to `CCHBeaconService`. Adding more tags to the same method call filters only beacons that have *all* tags on the same beacon.
 
@@ -395,7 +395,7 @@ Updating a beacon requires passing back a structure similar to the one returned 
 
 ### Deleting
 
-Deleting a beacon is similar to updating, and requires passing a strecture similar to one returned to you from create/retrieve calls. The beacon is deleted from ContextHub, then triggers pushes to devices interested in beacon deletions with those specific tags.
+Deleting a beacon is similar to updating, and requires passing a structure similar to one returned to you from create/retrieve calls. The beacon is deleted from ContextHub, then triggers pushes to devices interested in beacon deletions with those specific tags.
 
 {% gist CHLibrarian/191d805bf82b563cabf0 %}
 <br />

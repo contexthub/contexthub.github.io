@@ -1,3 +1,8 @@
+body{
+  background-color: #f7f8f8;
+  font-family: 'Open Sans', sans-serif;
+
+}
 p {
   font-family: 'Open Sans', sans-serif;
 }
@@ -15,7 +20,9 @@ a {
 h3 + p{
   padding-left:30px;
 }
-
+.gist{
+  padding-left:30px;
+}
 ./*side-nav li a:not(.button) {
   display: block;
   color: white;
@@ -38,8 +45,15 @@ ul.magellan {width: 240px}
 
 #side-nav{
   background-color:#424b4e;
+/*  height:200px;
+  overflow-y:scroll;*/
   /*width:100%;
   max-width: 235px;*/
+}
+
+#downDrop #side-nav{
+  height:200px;
+  overflow-y:scroll;
 }
 
 .tabs dd > a{
@@ -53,11 +67,13 @@ ul.magellan {width: 240px}
 
 .sub-nav dt a, .sub-nav dd a, .sub-nav li a{
   color:white;
+  padding:3px 30px;
 }
+
 
 .sub-nav dt.active a, .sub-nav dd.active a, .sub-nav li.active a{
   /*background-color:#424b4e;*/
-  background-color:transparent;
+  background-color:#061E23;
   color:#f1411d;
 }
 .sub-nav dt.active a:hover, .sub-nav dd.active a:hover, .sub-nav li.active a:hover{
@@ -65,7 +81,7 @@ ul.magellan {width: 240px}
 }
 
 .sub-nav dt, .sub-nav dd, .sub-nav li{
-  margin-left:20px;
+  margin-left:0px;
 }
 
 #activesection>dd{
@@ -74,8 +90,15 @@ font-weight:lighter;
 
 #activesection>dl>dd{
   font-weight: lighter;
+  /*transition:;*/
+/*  -webkit-transition: height 300ms ease-out;
+    -moz-transition: height 300ms ease-out;
+    transition: height 300ms ease-out;*/
 }
 
+dd.active{
+  /*transition: height 1000ms;*/
+}
 
 .sub-nav dt .home, .sub-nav dd .home, .sub-nav li .home{
 
@@ -86,19 +109,29 @@ font-weight:lighter;
 }*/
 #activesection{
   background-color:#182b35;
+
   /*font-weight:lighter;*/
+  padding-top:16px;
+  padding-bottom:16px;
 }
 .home{
   font-weight: normal;
+  font-family: 'Open Sans', sans-serif;
+
+}
+.tabs dd > a{
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1em
 }
 
+#sideNav #side-nav .sub-nav .tabs dd > a:hover
 
 .heading{
   padding-top:15px;
 }
 
 dl#side-nav.sub-nav dl.sub-nav dd a{
-  padding-left: 40px;
+  padding-left: 60px;
 }
 
 
@@ -120,6 +153,7 @@ h2 {
   line-height: 1.4;
   
   margin-bottom: 40px;
+  margin-top:40px;
 }
 
 h3 {
@@ -149,6 +183,31 @@ pre {
   /*width:100%;
   max-width: 235px;*/
 }
+
+.scrollbar::-webkit-scrollbar{
+  width:6px;
+  background-color:#cccccc;
+} 
+
+
+.scrollbar::-webkit-scrollbar-thumb{
+background-color:#182b35;
+border-radius:10px;
+}
+/*.scrollbar::-webkit-scrollbar-thumb:hover{
+background-color:#BF4649;
+border:1px solid #333333;
+}
+.scrollbar::-webkit-scrollbar-thumb:active{
+background-color:#A6393D;
+border:1px solid #333333;
+} */
+#scrollbar::-webkit-scrollbar-track{
+border:1px gray solid;
+border-radius:10px;
+-webkit-box-shadow:0 0 6px gray inset;
+} 
+
 .side-nav h4 {
   font-family: 'Open Sans', sans-serif;
   text-transform: uppercase;
@@ -166,8 +225,8 @@ ul.side-nav{
 
 
 #top{
-  padding-right:2%;
-  padding-left:10px;
+  
+  padding: 20px 20px 10px 20px;
 }
 
 hr.short {
@@ -221,9 +280,12 @@ body > div.row.full-width {
   margin-right:0px;
 }
 .one-edge-shadow {
-  -webkit-box-shadow: 0 8px 6px -6px #808080;
+/*  -webkit-box-shadow: 0 8px 6px -6px #808080;
      -moz-box-shadow: 0 8px 6px -6px #808080;
-          box-shadow: 0 8px 6px -6px #808080;
+          box-shadow: 0 8px 6px -6px #808080;*/
+
+  border-bottom: 1px #eee solid;
+
 }
 
 .top-bar-section ul{
@@ -483,7 +545,7 @@ footer .closing p a {
 
 
 
-@media only screen and (max-width : 1024px) {
+@media only screen and (max-width : 950px) {
   .side-nav {
     display:none;
   }
@@ -545,26 +607,40 @@ footer .closing p a {
 }
 
 
-@media only screen and (max-width : 640px) {
+@media only screen and (max-width : 950px) {
   .top-bar .name h1 a {
     width:80%;
   }
-
+/*  #sideNav{
+    width:0px;
+  }*/
+  #top{
+    width:100%;
+  }
   .top-bar-section ul.right.dark a {
-    background: #E64B19;
+    /*background: #E64B19;*/
   }
 
   .top-bar-section ul.right.dark a:hover {
-    background: #F2511C;
+    /*background: #F2511C;*/
   }
 
   .top-bar-section li:not(.has-form) a:not(.button) {
     padding-top: 22px;
   }
+  .top-bar-section li.active:not(.has-form) a:not(.button){
+    border-bottom: 5px solid #FC5427;
+    background-color:#ffffff;
+    color:#3A5865;
+    font-weight: 400;
+    bottom:-1px;
+    position:relative;
+    padding-top:9px;
+  }
 
 }
 
-@media only screen and (min-width : 1025px) {
+@media only screen and (min-width : 951px) {
   .side-nav-mobile {
     display: none;
   }
@@ -584,9 +660,4 @@ footer .closing p a {
 
 }
 
-@media only screen (min-width : 641px) {
-  .top-bar-section li:not(.has-form) a:not(.button) {
-    background: #F2511C;
-  }
 
-}

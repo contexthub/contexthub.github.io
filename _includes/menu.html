@@ -11,6 +11,7 @@
 {% assign apilibraries = '/docs/apilibraries/index.html' %}
 {% assign downloads = '/docs/downloads/index.html' %}
 {% assign samples = '/docs/samples/index.html' %}
+{% assign apps = '/docs/samples/apps.html' %}
 
 
 <div class="magellan tabs vertical"  data-magellan-expedition="" >
@@ -24,17 +25,17 @@
         <dd ><a class="home" href="/docs/overview">Overview</a></dd>
     {% endif %}
 
-    {% if page.url == pushnotifications %}
+    <!-- {% if page.url == pushnotifications %}
         <div id="activesection">
             <dd ><a class="home" href="/docs/pushnotifications">Push Notifications</a></dd>
         </div>  
     {% else %}
         <dd ><a class="home" href="/docs/pushnotifications">Push Notifications</a></dd>
-    {% endif %}
+    {% endif %} -->
 
 
 
-    {% if page.url == admin %}
+    <!-- {% if page.url == admin %}
         <div id="activesection">
             <dd ><a class="home" href="/docs/admin">Admin Portal</a></dd>
 
@@ -71,7 +72,7 @@
         </div>  
     {% else %}
         <dd ><a class="home" href="/docs/admin">Admin Portal</a></dd>
-    {% endif %}
+    {% endif %} -->
 
 
 
@@ -164,26 +165,38 @@
     <div id="activesection">
         <dd ><a class="home" href="/docs/android">Android</a></dd>
             <dd data-magellan-arrival="RegistrationandSetup"><a href="#RegistrationandSetup">Registration and Setup</a></dd>
+
             <dd data-magellan-arrival="PushNotifications"><a href="#PushNotifications">Push Notifications</a></dd>
+            <dl class="sub-nav">
+                <dd data-magellan-arrival="PushNotifications-registering"><a href="#PushNotifications-registering">Registering</a></dd>
+                <dd data-magellan-arrival="PushNotifications-sendingtodevice"><a href="#PushNotifications-sendingtodevice">Sending to Device</a></dd>
+                <dd data-magellan-arrival="PushNotifications-sendingtoalias"><a href="#PushNotifications-sendingtoalias">Sending to Alias</a></dd>
+                <dd data-magellan-arrival="PushNotifications-sendingtotags"><a href="#PushNotifications-sendingtotags">Sending to Tags</a></dd>
+                <dd data-magellan-arrival="PushNotifications-sendingtotags"><a href="#PushNotifications-sendingcustomdata">Sending Custom Data</a></dd>
+                <dd data-magellan-arrival="PushNotifications-receiving"><a href="#PushNotifications-receiving">Receiving</a></dd>
+            </dl>
 
             <dd data-magellan-arrival="Events"><a href="#Events">Events</a></dd>
             <dl class="sub-nav">
-                <dd data-magellan-arrival="triggering"><a href="#triggering">Triggering</a></dd>
-                <dd data-magellan-arrival="delegate"><a href="#delegate">Delegate</a></dd>
-                <dd data-magellan-arrival="datasource"><a href="#datasource">Datasource</a></dd>
+                <dd data-magellan-arrival="Events-interfaces"><a href="#Events-interfaces">Interfaces</a></dd>
+                <dd data-magellan-arrival="Events-subscribing"><a href="#Events-subscribing">Subscribing</a></dd>
+                <dd data-magellan-arrival="Events-observing"><a href="#Events-observing">Observing</a></dd>
+                <dd data-magellan-arrival="Events-unsubscribing"><a href="#Events-unsubscribing">Unsubscribing</a></dd>
             </dl>
 
-            <dd data-magellan-arrival="DataDistribution"><a href="#DataDistribution">DataDistribution</a></dd>
+            <dd data-magellan-arrival="DataDistribution"><a href="#DataDistribution">Data Distribution</a></dd>
             <dl class="sub-nav">
-                <dd data-magellan-arrival="creating"><a href="#creating">Creating</a></dd>
-                <dd data-magellan-arrival="retrieving"><a href="#retrieving">Retrieving</a></dd>
-                <dd data-magellan-arrival="updating"><a href="#updating">Updating</a></dd>
-                <dd data-magellan-arrival="deleting"><a href="#deleting">Deleting</a></dd>
-                <dd data-magellan-arrival="subscribing"><a href="#subscribing">Subscribing</a></dd>
-            <!--     <dd data-magellan-arrival="backgroundpushnotifications"><a href="#backgroundpushnotifications">Background Push Notifications</a></dd>
-                <dd data-magellan-arrival="NSNotificationCenternotifications"><a href="#NSNotificationCenternotifications">NSNotificationCenter Notifications</a></dd>
-                <dd data-magellan-arrival="linktodatadistributionsection"><a href="#linktodatadistributionsection">Link to data distribution section</a></dd>
-             --></dl>
+                <dd data-magellan-arrival="DataDistribution-creating">   <a href="#DataDistribution-creating">Creating</a></dd>
+                <dd data-magellan-arrival="DataDistribution-retrievingbytags"> <a href="#DataDistribution-retrievingbytags">Retrieving By Tags</a></dd>
+                <dd data-magellan-arrival="DataDistribution-retrievingbyid"> <a href="#DataDistribution-retrievingbyid">Retrieving By ID</a></dd>
+                <dd data-magellan-arrival="DataDistribution-retrievingbykeypathval"> <a href="#DataDistribution-retrievingbykeypathval">Retrieving By KeyPath/Val</a></dd>
+                <dd data-magellan-arrival="DataDistribution-updating">   <a href="#DataDistribution-updating">Updating</a></dd>
+                <dd data-magellan-arrival="DataDistribution-deleting">   <a href="#DataDistribution-deleting">Deleting</a></dd>
+                <!-- <dd data-magellan-arrival="DataDistribution-subscribing"><a href="#DataDistribution-subscribing">Subscribing</a></dd> -->
+                <!-- <dd data-magellan-arrival="DataDistribution-backgroundpushnotifications"><a href="#DataDistribution-backgroundpushnotifications">Background Push Notifications</a></dd> -->
+                <!-- <dd data-magellan-arrival="DataDistribution-NSNotificationCenternotifications"><a href="#DataDistribution-NSNotificationCenternotifications">NSNotificationCenter Notifications</a></dd> -->
+                <!-- <dd data-magellan-arrival="DataDistribution-linktodatadistributionsection"><a href="#DataDistribution-linktodatadistributionsection">Link to data distribution section</a></dd> -->
+            </dl>
 
             <dd data-magellan-arrival="SubscriptionsandTags"><a href="#SubscriptionsandTags">Subscriptions and Tags</a></dd>
             <dl class="sub-nav">
@@ -193,12 +206,34 @@
             </dl>
 
             <dd data-magellan-arrival="UsingLocation"><a href="#UsingLocation">Using Location</a></dd>
+
+            <dd data-magellan-arrival="geofences"><a href="#geofences">Geofences</a></dd>
+            <dl class="sub-nav">
+                <dd data-magellan-arrival="geofences-creating"><a href="#geofences-creating">Creating</a></dd>
+                <dd data-magellan-arrival="geofences-retrievebytag"><a href="#geofences-retrievebytag">Retrieving by tag</a></dd>
+                <dd data-magellan-arrival="geofences-retrievebyid"><a href="#  geofences-retrievebyid">Retrieving by ID</a></dd>
+                <dd data-magellan-arrival="geofences-updating"><a href="#geofences-updating">Updating</a></dd>
+                <dd data-magellan-arrival="geofences-deleting"><a href="#geofences-deleting">Deleting</a></dd>
+            </dl>
+
+            <dd data-magellan-arrival="Beacons"><a href="#Beacons">Beacons</a></dd>
+            <dl class="sub-nav">
+                <dd data-magellan-arrival="beacons-creating">       <a href="#beacons-creating">Creating</a></dd>
+                <dd data-magellan-arrival="beacons-retrievebytag">  <a href="#beacons-retrievebytag">Retrieving by tag</a></dd>
+                <dd data-magellan-arrival="beacons-retrievebyid">   <a href="#beacons-retrievebyid">Retrieving by ID</a></dd>
+                <dd data-magellan-arrival="beacons-updating">       <a href="#beacons-updating">Updating</a></dd>
+                <dd data-magellan-arrival="beacons-deleting">       <a href="#beacons-deleting">Deleting</a></dd>
+            </dl>
+
+            <dd data-magellan-arrival="devices"><a href="#devices">Devices</a></dd>
+            <dd data-magellan-arrival="logging"><a href="#logging">Logging</a></dd>
+
     </div>
     {% else %}
         <dd ><a class="home" href="/docs/android">Android</a></dd>
     {% endif %}
 
-
+<!-- 
     {% if page.url == restapi %}
         <div id="activesection">
             <dd ><a class="home" href="/docs/restapi">Restapi</a></dd>
@@ -246,15 +281,43 @@
     {% else %}
         <dd ><a class="home" href="/docs/downloads">Downloads</a></dd>
     {% endif %}
-
+ -->
     {% if page.url == samples %}
         <div id="activesection">
-            <dd ><a class="home" href="/docs/samples">Samples</a></dd>
+        <dd ><a class="home" href="/docs/samples">Samples</a></dd>
+
+            <dd data-magellan-arrival="iOS"><a href="#iOS">iOS</a></dd>
+            <dl class="sub-nav">
+                <dd data-magellan-arrival="iOS-hellocontexthub"><a href="#iOS-hellocontexthub">Hello ContextHub</a></dd>
+                <dd data-magellan-arrival="iOS-awareness"><a href="#iOS-awareness">Awareness (Contexts)</a></dd>
+                <dd data-magellan-arrival="iOS-detectme"><a href="#iOS-detectme">Detect Me (Beacons)</a></dd>
+                <dd data-magellan-arrival="iOS-boundaries"><a href="#iOS-boundaries">Boundaries (Geofences)</a></dd>
+                <dd data-magellan-arrival="iOS-notifyme"><a href="#iOS-notifyme">Notify Me (Push)</a></dd>
+                <dd data-magellan-arrival="iOS-storage"><a href="#iOS-storage">Storage (Vault)</a></dd>
+            </dl>
+
+            <dd data-magellan-arrival="android"><a href="#android">Android</a></dd>
+            <dl class="sub-nav">
+                <dd data-magellan-arrival="android-hellocontexthub"><a href="#android-hellocontexthub">Hello ContextHub</a></dd>
+                <dd data-magellan-arrival="android-awareness"><a href="#android-awareness">Awareness (Contexts)</a></dd>
+                <dd data-magellan-arrival="android-detectme"><a href="#android-detectme">Detect Me (Beacons)</a></dd>
+                <dd data-magellan-arrival="android-boundaries"><a href="#android-boundaries">Boundaries (Geofences)</a></dd>
+                <dd data-magellan-arrival="android-notifyme"><a href="#android-notifyme">Notify Me (Push)</a></dd>
+                <dd data-magellan-arrival="android-storage"><a href="#android-storage">Storage (Vault)</a></dd>
+            </dl>
+
         </div>  
     {% else %}
         <dd ><a class="home" href="/docs/samples">Samples</a></dd>
     {% endif %}
 
+{% if page.url == apps %}
+        <div id="activesection">
+            <dd ><a class="home" href="/docs/apps">Apps</a></dd>
+        </div>  
+    {% else %}
+        <dd ><a class="home" href="/docs/apps">Apps</a></dd>
+    {% endif %}
 
 
   </dl>
