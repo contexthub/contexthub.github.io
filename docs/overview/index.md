@@ -1,5 +1,5 @@
 ---
-title: 
+title: Overview
 layout: default
 ---
 
@@ -17,6 +17,3 @@ ContextHub makes this possible through the following five major components:
 4. <span class="liText">**Application Services.** Provide a set of convenient cloud-based services that facilitate development of contextual applications and reduce the need for developers to establish and manage a back-end scalable infrastructure of their own - for example, data storage (Vault) or push messaging (Push).</span>
 5. <span class="liText">**Analytics Services.** Provide a robust set of analytical capabilities for developers and administrators.</span>
 
-<br />
-<br />
-<br />
