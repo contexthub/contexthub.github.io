@@ -148,9 +148,7 @@ var lastActiveElement = null;
       eventCount++;
       //console.log(eventCount);
 
-      //For improvement purposes.  This halves the frequency this is called.  Think there is more lag related to the other stuff in this class however.
-      if(eventCount%2)
-      {
+
 
         var possibleSubNav = $("dd.active").next();
         if (lastActiveElement!= possibleSubNav[0]) {
@@ -174,7 +172,7 @@ var lastActiveElement = null;
 
         };
 
-      }    
+          
       // else
       //   alert("NOPE");
 
