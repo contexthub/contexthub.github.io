@@ -20,6 +20,22 @@ a {
 h3 + p{
   padding-left:30px;
 }
+li{
+  color:#f15d37;
+}
+.liText{
+  color:black;
+}
+.subtitle{
+  color:#82A2A7;
+  font-size:18px;
+  font-weight:normal;
+  font-family:"Open Sans Semibold";
+}
+
+p:last-child {
+    padding-bottom:800px;
+}
 
 .photos ~ p{
   padding-left:30px;
@@ -181,10 +197,9 @@ pre {
 }
 #sideNav{
   padding-left:0px;
-  height:100%;
   position:fixed;
-
-
+  top:60px;
+  bottom:0px;
 
   /*width:100%;
   max-width: 235px;*/
@@ -424,7 +439,7 @@ header.global {
 }
 .scrollbar{
   overflow-y:scroll;
-  padding-bottom:80px;
+  /*padding-bottom:80px;*/
 }
 
 .button {

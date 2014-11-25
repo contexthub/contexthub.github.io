@@ -67,21 +67,17 @@
       $(document).foundation();
       $(document).ready(function() {
       $("#activesection>dl").hide();
+      var topDiv = $('#top');
 
-        //$('.content h1').after('<hr class="short">');
-
+        //Fix for last menu item in each section. - should be improved
+        // topDiv.height(topDiv.height()+ $(window).height()-200);
 
 
         $('#downDrop a').click(function() {
           Foundation.libs.dropdown.close($('#downDrop'));
         });
 
-      // $("#push_notifications").on("change",function(){
-      //   alert("The paragraph was clicked.");
-      // });
-      
-        // $('#push_notifications').trigger('cssClassChanged');
-        // $('#push_notifications').bind('cssClassChanged', data, function(){ console.log("HEY CLASS CHANGED"); });
+
 
 
       });

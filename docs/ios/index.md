@@ -409,8 +409,8 @@ Deleting a beacon is similar to updating, and requires passing a structure simil
 <br/>
 <br/>
 
-<a name="Logging"></a>
-<a data-magellan-destination="Logging"></a>
+<a name="logging"></a>
+<a data-magellan-destination="logging"></a>
 
 ## Logging
 

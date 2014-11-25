@@ -109,9 +109,12 @@ var lastActiveElement = null;
     
     },
 
+    //sets active on correct menu element based on scroll position.
     update_arrivals : function() {
       var self = this,
           window_top_offset = $(window).scrollTop();
+
+
 
       $('[' + this.attr_name() + ']', self.scope).each(function() {
         var expedition = $(this),
@@ -119,8 +122,11 @@ var lastActiveElement = null;
             offsets = self.offsets(expedition, window_top_offset),
             arrivals = expedition.find('[' + self.add_namespace('data-magellan-arrival') + ']'),
             active_item = false;
+
+            //go through each offset (list of all tags) and make active untill
         offsets.each(function(idx, item) {
-          if (item.viewport_offset >= item.top_offset) {
+          //if current viewport offset is greater than top of item, then set active
+          if (item.viewport_offset >= item.top_offset ) {
             var arrivals = expedition.find('[' + self.add_namespace('data-magellan-arrival') + ']');
             arrivals.not(item.arrival).removeClass(settings.active_class);
             item.arrival.addClass(settings.active_class);
@@ -130,6 +136,8 @@ var lastActiveElement = null;
             return true;
           }
         });
+        if(!active_item)
+          console.log("NOTACTIVE");
         //console.log("")
         //console.log("UPDATE ARRIVALS END");
         if (!active_item) arrivals.removeClass(settings.active_class);
@@ -147,18 +155,23 @@ var lastActiveElement = null;
         var possibleSubNav = $("dd.active").next();
         if (lastActiveElement!= possibleSubNav[0]) {
 
-          console.log(lastActiveElement);
-          console.log(possibleSubNav[0]);
-          console.log("-------");
+          // console.log(lastActiveElement);
+          // console.log(possibleSubNav[0]);
+          // console.log("-------");
           lastActiveElement = possibleSubNav[0];
 
-          $("#activesection>dl").hide();
-          $("dd.active").parent().show();
+          var isActiveSectionVisible = $("dd.active").is(":visible");
 
-          
-          if($(possibleSubNav).hasClass("sub-nav")){
-            $(possibleSubNav).show();
-          }  
+          if (!isActiveSectionVisible) {
+            // console.log("NOT VISIBLE YO");
+            $("#activesection>dl").hide();          
+            $("dd.active").parent().show(300);
+
+            if($(possibleSubNav).hasClass("sub-nav")){
+              $(possibleSubNav).show();
+            } 
+          }; 
+
         };
 
       }    
