@@ -1,6 +1,7 @@
 ---
 title: Beacons
 layout: default
+group: "element-services"
 ---
 #Element Services
 

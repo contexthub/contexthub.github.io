@@ -24,25 +24,26 @@
       <div class="side-nav-mobile">
         <a href="#" class="button" data-dropdown="downDrop">Sections &#9662;</a>
         <ul id="downDrop" class="f-dropdown" data-dropdown-content>
+            <!-- include menu was here  -->
           {% include menu.html %}
         </ul>
       </div>
     </div>
 
-    <div class="row content">
-      <div class="small-2 columns">
-        <ul class="side-nav">
+   
+
+    <div class="row content full-width">
+      <div class="small-3 medium-3 large-2 columns" id="sideNav">
+        <ul class="side-nav scrollbar">
           {% include menu.html %}
         </ul>
       </div>
 
-      <div class="small-10 columns right" id="top">
+      <div class="small-9 medium-9 large-10 columns right " id="top">
         {{ content }}
       </div>
       <!--End Content -->
     </div>
-
-    {% include footer.html %}
 
     <script src="{{ site.baseurl }}/js/vendor/jquery.js"></script>
     <script src="{{ site.baseurl }}/js/foundation.min.js"></script>
@@ -65,10 +66,20 @@
     <script>
       $(document).foundation();
       $(document).ready(function() {
-        $('.content h1').after('<hr class="short">');
+      $("#activesection>dl").hide();
+      var topDiv = $('#top');
+
+        //Fix for last menu item in each section. - should be improved
+        // topDiv.height(topDiv.height()+ $(window).height()-200);
+
+
         $('#downDrop a').click(function() {
           Foundation.libs.dropdown.close($('#downDrop'));
         });
+
+
+
+
       });
     </script>
   </body>

@@ -1,6 +1,8 @@
+
 ;(function ($, window, document, undefined) {
   'use strict';
-
+var eventCount = 0;
+var lastActiveElement = null;
   Foundation.libs['magellan-expedition'] = {
     name : 'magellan-expedition',
 
@@ -9,13 +11,16 @@
     settings : {
       active_class: 'active',
       threshold: 0, // pixels from the top of the expedition for it to become fixes
-      destination_threshold: 20, // pixels from the top of destination for it to be considered active
-      throttle_delay: 30 // calculation throttling to increase framerate
+      destination_threshold: 180, // pixels from the top of destination for it to be considered active
+      throttle_delay: 30, // calculation throttling to increase framerate
+      destination_offset:-68
     }, 
 
     init : function (scope, method, options) {
       Foundation.inherit(this, 'throttle');
       this.bindings(method, options);
+      
+
     },
 
     events : function () {
@@ -38,7 +43,7 @@
             if (target.length === 0) target = $('#'+hash);
 
             // Account for expedition height if fixed position
-            var scroll_top = target.offset().top;
+            var scroll_top = target.offset().top+settings.destination_offset;
             if (expedition.css('position') === 'fixed') {
               scroll_top = scroll_top - expedition.outerHeight();
             }
@@ -57,6 +62,8 @@
       var self = this;
       self.update_arrivals();
       self.update_expedition_positions();
+      self.custom_change_event();
+      //console.log("check for arrivals end");
     },
 
     set_expedition_position : function() {
@@ -98,11 +105,16 @@
           expedition.attr('style','');
         }
       });
+      //console.log("update_expedition_positions end");
+    
     },
 
+    //sets active on correct menu element based on scroll position.
     update_arrivals : function() {
       var self = this,
           window_top_offset = $(window).scrollTop();
+
+
 
       $('[' + this.attr_name() + ']', self.scope).each(function() {
         var expedition = $(this),
@@ -110,18 +122,65 @@
             offsets = self.offsets(expedition, window_top_offset),
             arrivals = expedition.find('[' + self.add_namespace('data-magellan-arrival') + ']'),
             active_item = false;
+
+            //go through each offset (list of all tags) and make active untill
         offsets.each(function(idx, item) {
-          if (item.viewport_offset >= item.top_offset) {
+          //if current viewport offset is greater than top of item, then set active
+          if (item.viewport_offset >= item.top_offset ) {
             var arrivals = expedition.find('[' + self.add_namespace('data-magellan-arrival') + ']');
             arrivals.not(item.arrival).removeClass(settings.active_class);
             item.arrival.addClass(settings.active_class);
             active_item = true;
+            //console.log("ITEM.ARRIVAL");
+
             return true;
           }
         });
-
+        if(!active_item)
+          console.log("NOTACTIVE");
+        //console.log("")
+        //console.log("UPDATE ARRIVALS END");
         if (!active_item) arrivals.removeClass(settings.active_class);
       });
+    },
+
+    custom_change_event : function(){
+      eventCount++;
+      //console.log(eventCount);
+
+      //For improvement purposes.  This halves the frequency this is called.  Think there is more lag related to the other stuff in this class however.
+      if(eventCount%2)
+      {
+
+        var possibleSubNav = $("dd.active").next();
+        if (lastActiveElement!= possibleSubNav[0]) {
+
+          // console.log(lastActiveElement);
+          // console.log(possibleSubNav[0]);
+          // console.log("-------");
+          lastActiveElement = possibleSubNav[0];
+
+          var isActiveSectionVisible = $("dd.active").is(":visible");
+
+          if (!isActiveSectionVisible) {
+            // console.log("NOT VISIBLE YO");
+            $("#activesection>dl").hide();          
+            $("dd.active").parent().show(300);
+
+            if($(possibleSubNav).hasClass("sub-nav")){
+              $(possibleSubNav).show();
+            } 
+          }; 
+
+        };
+
+      }    
+      // else
+      //   alert("NOPE");
+
+
+      //arrivals = expedition.find('[' + self.add_namespace('data-magellan-arrival') + ']');
+      //console.log("custom_change_event");
     },
 
     offsets : function(expedition, window_offset) {
