@@ -85,7 +85,9 @@ ul.magellan {width: 240px}
 .sub-nav{
   margin-left: 0px;
 }
-
+#activesection dl{
+  display:none;
+}
 .sub-nav dt a, .sub-nav dd a, .sub-nav li a{
   color:white;
   padding:3px 30px;
