@@ -649,7 +649,7 @@ footer .closing p a {
   }
 
   .top-bar-section li:not(.has-form) a:not(.button) {
-    padding-top: 22px;
+    /*padding-top: 22px;*/
   }
   .top-bar-section li.active:not(.has-form) a:not(.button){
     border-bottom: 5px solid #FC5427;
@@ -659,6 +659,9 @@ footer .closing p a {
     bottom:-1px;
     position:relative;
     padding-top:9px;
+  }
+  .top-bar-section li.active:not(.has-form) a:not(.button):hover{
+    background-color: #ffffff;
   }
 
 }
