@@ -5,6 +5,8 @@ body{
 }
 p {
   font-family: 'Open Sans', sans-serif;
+  font-size:18px;
+  font-weight:200;
 }
 
 a {
@@ -30,7 +32,7 @@ li{
   color:#82A2A7;
   font-size:18px;
   font-weight:normal;
-  font-family:"Open Sans Semibold";
+  font-family:"Open Sans";
 }
 
 p:last-child {
@@ -85,7 +87,9 @@ ul.magellan {width: 240px}
 .sub-nav{
   margin-left: 0px;
 }
-
+#activesection dl{
+  display:none;
+}
 .sub-nav dt a, .sub-nav dd a, .sub-nav li a{
   color:white;
   padding:3px 30px;
@@ -94,12 +98,12 @@ ul.magellan {width: 240px}
 
 .sub-nav dt.active a, .sub-nav dd.active a, .sub-nav li.active a{
   /*background-color:#424b4e;*/
-  background-color:#061E23;
+  background-color:#182B35;
   color:#f1411d;
   padding-left: 30px;
 }
 .sub-nav dt.active a:hover, .sub-nav dd.active a:hover, .sub-nav li.active a:hover{
-  background-color: transparent;
+  background-color: #82A2A7;
 }
 
 .sub-nav dt, .sub-nav dd, .sub-nav li{
@@ -137,16 +141,25 @@ dd.active{
   padding-bottom:16px;
 }
 .home{
-  font-weight: normal;
+  font-weight: bold;
   font-family: 'Open Sans', sans-serif;
+  font-size:18px;
 
 }
+
 .tabs dd > a{
   font-family: 'Open Sans', sans-serif;
-  font-size: 1em
+/*  font-size: 16px;
+  font-weight:normal;*/
 }
 
-#sideNav #side-nav .sub-nav .tabs dd > a:hover
+/*#sideNav #side-nav .sub-nav .tabs dd > a:hover*/
+
+.tabs dd > a:hover{
+  background-color: #82A2A7;
+  color:white;
+}
+
 
 .heading{
   padding-top:15px;
@@ -154,6 +167,14 @@ dd.active{
 
 dl#side-nav.sub-nav dl.sub-nav dd a{
   padding-left: 60px;
+color:#82A2A7;
+
+}
+dl#side-nav.sub-nav dl.sub-nav dd.active a{
+  color:#f1411d;
+}
+dl#side-nav.sub-nav dl.sub-nav dd a:hover{
+  color:white;
 }
 
 
@@ -162,28 +183,30 @@ dl#side-nav.sub-nav dl.sub-nav dd a{
 }*/
 
 h1 {
-  font-family: 'Abel', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   color:#f15d37;
-  text-transform: uppercase;
+  /*text-transform: uppercase;*/
+  font-weight:550;
 }
 
 h2 {
   font-family: 'Open Sans', sans-serif;
   color: #182b35;
   font-size: 24px;
-  font-weight: 400;
+  font-weight: bold;
   line-height: 1.4;
+  text-transform: uppercase;
   
-  margin-bottom: 40px;
-  margin-top:40px;
+  margin-bottom: 20px;
+  margin-top:20px;
 }
 
 h3 {
   font-family: 'Open Sans', sans-serif;
   color: #f15d37;
   /*text-transform: uppercase;*/
-  font-weight: 400;
-  font-size: 20px;
+  font-weight: bold;
+  font-size: 24px;
   margin-bottom: 10px;
   /*letter-spacing: 7px;*/
 
@@ -647,7 +670,7 @@ footer .closing p a {
   }
 
   .top-bar-section li:not(.has-form) a:not(.button) {
-    padding-top: 22px;
+    /*padding-top: 22px;*/
   }
   .top-bar-section li.active:not(.has-form) a:not(.button){
     border-bottom: 5px solid #FC5427;
@@ -657,6 +680,9 @@ footer .closing p a {
     bottom:-1px;
     position:relative;
     padding-top:9px;
+  }
+  .top-bar-section li.active:not(.has-form) a:not(.button):hover{
+    background-color: #ffffff;
   }
 
 }
