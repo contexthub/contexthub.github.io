@@ -25,7 +25,7 @@ Sign up for [ContextHub](http://www.contexthub.com) by either creating a usernam
 <a name="PushNotifications"></a>
 <a data-magellan-destination="PushNotifications"></a>
 
-## PushNotifications
+## Push Notifications
 
 Push notifications let you send foreground messages which your users will be alerted to as well as background notifications which trigger your app to run for up to 30 seconds. Combined with elements that trigger events, this allows for increased functionality that forms the foundation of most apps that use ContextHub. Here's how to use it:
 <br />
@@ -281,7 +281,7 @@ Unsubscribing from a tag is similar to subscribing by passing in a tag and optio
 <a name="geofences"></a>
 <a data-magellan-destination="geofences"></a>
 
-## Geo Fences
+## Geofences
 
 Geofences are pre-defined areas of interest that allow your application to be notified when a device has entered or exited that region. Here's how to use `CCHGeofenceService` to interact with geofences:
 <br />
