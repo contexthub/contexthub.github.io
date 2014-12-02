@@ -3,7 +3,7 @@ title: Overview
 layout: default
 ---
 
-# OVERVIEW
+# Overview
 
 <p class="subtitle">Build contextual capabilities into your applications with just a few lines of code</p>
 
