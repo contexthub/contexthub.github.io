@@ -23,7 +23,17 @@ h3 + p{
   padding-left:30px;
 }
 li{
-  color:#f15d37;
+  /*color:#f15d37;*/
+}
+
+h3 + p + ul{
+  color:black;
+  padding-left:30px;
+}
+
+/*I feel dirty, but what else*/
+h3 + p + ul + p{
+  padding-left:30px;
 }
 .liText{
   color:black;
@@ -281,7 +291,8 @@ hr.short {
 }
 
 hr {
-  margin: 3.5rem 0 3.5rem;
+  /*margin: 3.5rem 0 3.5rem;*/
+  margin: 10px 0px;
 }
 
 .top-bar {

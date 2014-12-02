@@ -25,7 +25,7 @@ Sign up for [ContextHub](http://www.contexthub.com) by either creating a usernam
 <a name="PushNotifications"></a>
 <a data-magellan-destination="PushNotifications"></a>
 
-## PushNotifications
+## Push Notifications
 
 Push notifications let you send foreground messages which your users will be alerted to as well as background notifications which trigger your app to run for up to 30 seconds. Combined with elements that trigger events, this allows for increased functionality that forms the foundation of most apps that use ContextHub. Here's how to use it:
 <br />
