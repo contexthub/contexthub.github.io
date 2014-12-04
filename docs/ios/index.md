@@ -276,7 +276,71 @@ Unsubscribing from a tag is similar to subscribing by passing in a tag and optio
 
 ## Using Location
 
-### Coming Soon
+Location services on iOS allow your application to use cellular, WiFi, GPS, and Bluetooth radios to determine a user's location with varying levels of accuracy based on your need. iOS uses these technologies to allow for location tracking while your app is running as well as region monitoring with beacons and geofences. Below are the specific details for interacting with geofences and beacons.
+
+Using these services requires explicit permission as of iOS 8. ContextHub will request this permission on your behalf as soon as a geofence or beacon has been set up to be monitored. You need to provide values for either the `NSLocationAlwaysAuthorization` or `NSLocationWhenInUseAuthorization` keys in your Info.plist to explain to users why Location Services is needed in your application. [NSHipster](http://nshipster.com/core-location-in-ios-8/) provides a great overview of these changes for you to read.
+
+<a name="Beacons"></a>
+<a data-magellan-destination="Beacons"></a>
+
+## Beacons
+
+Beacons are Bluetooth 4.0 Low Energy devices that allow devices to detect proximity to objects within 50 meters. This gives you the ability to give context-sensitive information to your users in areas where GPS, WiFi, and cellular towers cannot pinpoint a user's exact location, such as deep inside buildings or underground. Here's how to use `CCHBeaconService` to interact with beacons:
+<br />
+
+<a name="beacons-creating"></a>
+<a data-magellan-destination="beacons-creating"></a>
+
+### Creating
+
+Creating a beacon contextual element in ContextHub is simple. Every beacon has a UUID (32 digit hexadecimal character, a major value (ranging from 1-65535), and a minor value (also ranging from 1-65535). UUIDs you use should be unique so beacons from other user's do not interfere with your app. A combination of these three values should be unique for every beacon you have. You can also create a standard `CLBeaconRegion` class from the response for use in your app. After creation,`[CCHSensorPipeline synchronize:]` must be called if you do not have to push enabled so the sensor pipeline is ready to generate beacon events. 
+
+{% gist CHLibrarian/9a88528f3c94bc524a47 %}
+<br />
+
+<a name="beacons-retrievebytag"></a>
+<a data-magellan-destination="beacons-retrievebytag"></a>
+
+### Retrieving by Tag
+
+Retrieve a group of beacons from ContextHub by passing a tag to `CCHBeaconService`. Adding more tags to the same method call filters only beacons that have *all* tags on the same beacon.
+
+{% gist CHLibrarian/8a124104fe165ca06deb %}
+<br />
+
+<a name="beacons-retrievebyid"></a>
+<a data-magellan-destination="beacons-retrievebyid"></a>
+
+### Retrieving by ID
+
+Retrieve a specific beacon from ContextHub by passing a beacon ID present either in the ContextHub developer portal or given to you as a dictionary response from the SDK at the key "id".
+
+{% gist CHLibrarian/40cb8d5346a7773b0daa %}
+<br />
+
+
+<a name="beacons-updating"></a>
+<a data-magellan-destination="beacons-updating"></a>
+
+### Updating
+
+Updating a beacon requires passing back a structure similar to the one returned to you from create/retrieve calls. ContextHub then updates the beacon, and triggers pushes to devices interested in beacons with that specific tag.
+
+{% gist CHLibrarian/d9bc6b5675b062b11dbf %}
+<br />
+
+
+<a name="beacons-deleting"></a>
+<a data-magellan-destination="beacons-deleting"></a>
+
+### Deleting
+
+Deleting a beacon is similar to updating, and requires passing a structure similar to one returned to you from create/retrieve calls. The beacon is deleted from ContextHub, then triggers pushes to devices interested in beacon deletions with those specific tags.
+
+{% gist CHLibrarian/191d805bf82b563cabf0 %}
+<br />
+
+
 
 <a name="geofences"></a>
 <a data-magellan-destination="geofences"></a>
@@ -339,82 +403,72 @@ Deleting a geofence is similar to updating, and requires passing a structure sim
 <br />
 
 
-
-<a name="Beacons"></a>
-<a data-magellan-destination="Beacons"></a>
-
-## Beacons
-
-Beacons are Bluetooth 4.0 Low Energy devices that allow devices to detect proximity to objects within 50 meters. This gives you the ability to give context-sensitive information to your users in areas where GPS, WiFi, and cellular towers cannot pinpoint a user's exact location, such as deep inside buildings or underground. Here's how to use `CCHBeaconService` to interact with beacons:
-<br />
-
-<a name="beacons-creating"></a>
-<a data-magellan-destination="beacons-creating"></a>
-
-### Creating
-
-Creating a beacon contextual element in ContextHub is simple. Every beacon has a UUID (32 digit hexadecimal character, a major value (ranging from 1-65535), and a minor value (also ranging from 1-65535). UUIDs you use should be unique so beacons from other user's do not interfere with your app. A combination of these three values should be unique for every beacon you have. You can also create a standard `CLBeaconRegion` class from the response for use in your app. After creation,`[CCHSensorPipeline synchronize:]` must be called if you do not have to push enabled so the sensor pipeline is ready to generate beacon events. 
-
-{% gist CHLibrarian/9a88528f3c94bc524a47 %}
-<br />
-
-<a name="beacons-retrievebytag"></a>
-<a data-magellan-destination="beacons-retrievebytag"></a>
-
-### Retrieving by Tag
-
-Retrieve a group of beacons from ContextHub by passing a tag to `CCHBeaconService`. Adding more tags to the same method call filters only beacons that have *all* tags on the same beacon.
-
-{% gist CHLibrarian/8a124104fe165ca06deb %}
-<br />
-
-<a name="beacons-retrievebyid"></a>
-<a data-magellan-destination="beacons-retrievebyid"></a>
-
-### Retrieving by ID
-
-Retrieve a specific beacon from ContextHub by passing a beacon ID present either in the ContextHub developer portal or given to you as a dictionary response from the SDK at the key "id".
-
-{% gist CHLibrarian/40cb8d5346a7773b0daa %}
-<br />
-
-
-<a name="beacons-updating"></a>
-<a data-magellan-destination="beacons-updating"></a>
-
-### Updating
-
-Updating a beacon requires passing back a structure similar to the one returned to you from create/retrieve calls. ContextHub then updates the beacon, and triggers pushes to devices interested in beacons with that specific tag.
-
-{% gist CHLibrarian/d9bc6b5675b062b11dbf %}
-<br />
-
-
-<a name="beacons-deleting"></a>
-<a data-magellan-destination="beacons-deleting"></a>
-
-### Deleting
-
-Deleting a beacon is similar to updating, and requires passing a structure similar to one returned to you from create/retrieve calls. The beacon is deleted from ContextHub, then triggers pushes to devices interested in beacon deletions with those specific tags.
-
-{% gist CHLibrarian/191d805bf82b563cabf0 %}
-<br />
-
 <a name="devices"></a>
 <a data-magellan-destination="devices"></a>
 
 ## Devices
 
-### Coming soon!
-<br/>
-<br/>
+Devices in ContextHub currently represent the iOS and Android smartphones capable of interacting with the ContextHub server through provided SDKs and/or REST APIs.  Each device has a unique identifier representing the device, as well as non-unique alias, tags, and tag_string used for identification and push notifications, plus other fields in the additional_info field describing specific device name and type information. last_profile is also available, which contains the last device profile from an event sent to the ContextHub server. Below are the methods you can use on the `CCHDevice` object to retrieve devices as well as update device alias and tags for your current device.
+
+<a name="devices-deviceid"></a>
+<a data-magellan-destination="devices-deviceid"></a>
+
+### Device ID
+
+Device ID is a unique 32-hexadecimal character string which persists throughout an app install and uniquely identifies a device in ContextHub. When used with push services enabled, it allows developers to abstract away more transient push tokens which are subject to change at any time. This is a read-only variable, it cannot be changed by the developer, and only changes in response to all applications with the first two subdomains of the bundle id from a developer being deleted from a user's device. See Apple's [documentation](https://developer.apple.com/library/ios/documentation/Uikit/reference/UIDevice_Class/index.html#//apple_ref/occ/instp/UIDevice/identifierForVendor) on `identifierForVendor` for more information.
+
+{% gist CHLibrarian/f274049fe9414296ceca %}
+<br />
+
+<a name="devices-retrievebyid"></a>
+<a data-magellan-destination="devices-retrievebyid"></a>
+
+### Retrieving by ID
+
+Retrieve a specific device from ContextHub by passing a device ID present either in the ContextHub developer portal or given to you as a dictionary response from the SDK at the key "id".
+
+{% gist CHLibrarian/cf86a1e113d965c68bd4 %}
+<br />
+
+<a name="devices-retrievebyalias"></a>
+<a data-magellan-destination="devices-retrievebyalias"></a>
+
+### Retrieving by Alias
+
+Retrieve a group of devices from ContextHub by passing an alias to `CCHDevice`.
+
+{% gist CHLibrarian/a7209874f54caeadbf21 %}
+<br />
+
+<a name="devices-retrievebytag"></a>
+<a data-magellan-destination="devices-retrievebytag"></a>
+
+### Retrieving by Tag
+
+Retrieve a group of devices from ContextHub by passing a tag to `CCHDevice`. Adding more tags to the same method call filters only devices that have *all* tags on the same device.
+
+{% gist CHLibrarian/455d8e329173c5bc6402 %}
+<br />
+
+<a name="devices-setting"></a>
+<a data-magellan-destination="devices-setting"></a>
+
+### Setting Alias/Tag
+
+Sets the alias and tag for the current device in ContextHub.
+
+{% gist CHLibrarian/2c87c4bc87df047d221d %}
+<br />
 
 <a name="logging"></a>
 <a data-magellan-destination="logging"></a>
 
 ## Logging
 
-### Coming soon!
+ContextHub allows for you to log specific events to the server from the iOS SDK to assist you in developing and monitoring your applications. The method of interaction is simple, allowing you to send a simple message and JSON object to the server. 
+
+Note that ContextHub does not cache these log requests, you must have an active Internet connection for them to be received.
+
+{% gist CHLibrarian/1976bfd8ef49b7c44532 %}
 <br/>
-<br/>
-<br/>
+
