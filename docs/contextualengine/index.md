@@ -188,79 +188,194 @@ Nothing.
 
 Geofences are pre-defined areas of interest that allow your application to be notified when a device has entered or exited that region. Here's how to use the *geofence* object to interact with geofences:
 
+### geofence methods
+
+| Method    | Description |
+|-----------|-------------|
+| [create](#geofence-create)    | Creates a new geofence in ContextHub |
+| [find](#geofence-find)      | Finds a geofence by id |
+| [allTagged](#geofence-alltagged) | Finds geofences matching **all** of the given tags |
+| [anyTagged](#geofence-anytagged) | Finds geofences matching **any** of the given tags |
+| [search](#geofence-search) | Finds geofences within the geographical area |
+| [update](#geofence-update)    | Updates an existing geofence with new information  |
+| [destroy](#geofence-destroy)   | Deletes a geofence from the system |
+
 <a name="geofence-create" data-magellan-destination="geofence-create"></a>
 
 ---
 
-### Create
+#### Create
 
 Creating a geofence contextual element in ContextHub is simple. Every geofence is defined by a latitude and longitude indicating their center and a radius in meters to create the perimeter.
 
+##### Syntax
+`geofence.create(tags, name, latitude, longitude, radius)`
+
+##### Parameter Values
+
+| Parameter    | Description |
+|--------------|-------------|
+| tags         | Required. A comma separated string of tags to associate with the geofence. If you don't want to tag the geofence, you can pass in null or "".|
+| name         | Required. The name of the geofence |
+| latitude     | Required. The latitude of the center of the geofence. |
+| longitude    | Required. The longitude of the center of the geofence. |
+| radius       | Required. The radius *(in meters)* of the geofence. |
+
+##### Return Value
+The id of the newly created geofence.
+
+##### Example
 {% gist CHLibrarian/10308ee7887765d11b29 %}
-<br />
 
-<a name="geofence-response"></a>
-<a data-magellan-destination="geofence-response"></a>
+<a name="geofence-find" data-magellan-destination="geofence-find"></a>
 
-### Response
+---
 
-Once a geofence is created, a hash response is returned with the following keys:
+#### Find
+Retrieve a specific geofence from ContextHub by passing a geofence ID.
 
-- `id` - The unique id identifying the geofence
-- `name` - The name of the geofence
-- `latitude` - A float between -90 and 90 representiting the latitude coordinate
-- `longitude` - A float between -180 and 180 representing the longitude coordinate
-- `radius` - An integer representing the radius
-- `tags` - An array of strings representing the tags for the geofence
-- `tag_string` - An auto-generated read-only string representation of the tags used by Keen.io for analysis
+##### Syntax
+`geofence.find(id)`
 
-Here's the structure of a geofence that was created above:
+##### Parameter Values
 
+| Parameter | Description |
+|-----------|-------------|
+| id        | Required. The id of the geofence you want to retrieve. |
+
+##### Return Value
+A geofence object.
 {% gist CHLibrarian/27c84da6c401fd4e312c %}
-<br />
 
-<a name="geofence-retrievingbytag"></a>
-<a data-magellan-destination="geofence-retrievingbytag"></a>
 
-### Retrieving by Tag
-
-Retrieve a group of geofences from ContextHub by passing a tag to `geofence`. Adding more tags seperated by commas to the same function call filters only beacons that have *all* tags on the same geofence.
-
-{% gist CHLibrarian/4ed014db0c57e58fd3a2 %}
-<br />
-
-<a name="geofence-retrievingbyid"></a>
-<a data-magellan-destination="geofence-retrievingbyid"></a>
-
-### Retrieving by ID
-
-Retrieve a specific geofence from ContextHub by passing a geofence ID present either in the ContextHub developer portal or given to you as a hash response at the key `id` in a context rule.
-
+##### Example
 {% gist CHLibrarian/268b1e9bd2b3e1b157e2 %}
-<br />
 
-<a name="geofence-updating"></a>
-<a data-magellan-destination="geofence-updating"></a>
+<a name="geofence-alltagged" data-magellan-destination="geofence-alltagged"></a>
 
-### Updating
+---
 
-Updating a geofence is similar to creating one. ContextHub first updates the geofence on the server, then triggers pushes to devices interested in geofences with that specific tag.
+#### All Tagged
+Retrieves a group of geofences from ContextHub. Adding more tags seperated by commas to the same function call filters only geofences that have *all* tags on the same geofence.
 
+##### Syntax
+`geofence.allTagged(tags)`
+
+##### Parameter Values
+
+| Parameter | Description |
+|-----------|-------------|
+| tags      | Required. A string containing the tag(s) to search for. Multiple tags can be searched for by separating them with commas. Results will contain geofences that match **all** the specified tags. |
+
+##### Return Value
+An array of geofence objects.
+{% gist CHLibrarian/5af2bae24ae1156fea82 %}
+
+
+##### Example
+{% gist CHLibrarian/4ed014db0c57e58fd3a2 %}
+
+
+<a name="geofence-anytagged" data-magellan-destination="geofence-anytagged"></a>
+
+---
+
+#### Any Tagged
+Retrieves a group of geofences from ContextHub. This function returns geofences that match *any* of the given tags.
+
+##### Syntax
+`geofence.anyTagged(tags)`
+
+##### Parameter Values
+
+| Parameter | Description |
+|-----------|-------------|
+| tags      | Required. A string containing the tag(s) to search for. Multiple tags can be searched for by separating them with commas. Results will contain geofences that match **any** of the specified tags. |
+
+##### Return Value
+An array of geofence objects.
+{% gist CHLibrarian/5af2bae24ae1156fea82 %}
+
+
+##### Example
+{% gist CHLibrarian/58887ef915a15c1f860b %}
+
+<a name="geofence-search" data-magellan-destination="geofence-search"></a>
+
+---
+
+#### Search
+Retrieves geofences that are within the specified area.
+
+##### Syntax
+`search(latitude, longitude, radius)`
+
+##### Parameter Values
+
+| Parameter | Description |
+|-----------|-------------|
+| latitude     | Required. The latitude of the center of the search area. |
+| longitude    | Required. The longitude of the center of the search area. |
+| radius       | Required. The radius *(in meters)* of the search area. |
+
+##### Return Value
+An array of geofence objects.
+{% gist CHLibrarian/5af2bae24ae1156fea82 %}
+
+
+##### Example
+{% gist CHLibrarian/3331a6470c0dbe4fef27 %}
+
+<a name="geofence-update" data-magellan-destination="geofence-update"></a>
+
+---
+
+#### Update
+Updates an existing geofence.
+
+##### Syntax
+`geofence.update(id, data, tags)`
+
+##### Parameter Values
+
+| Parameter | Description |
+|-----------|-------------|
+| id        | Required. The id of the geofence you wish to update. |
+| data      | Required. Stringified JSON of the geofence attributes that you want updated. |
+| tags      | Optional. A string containing the tag(s) to assign to the geofence. Multiple tags can be assigned by separating them with commas. |
+
+##### Return Value
+Nothing.
+
+##### Example
 {% gist CHLibrarian/54183962334352202b4c %}
-<br />
 
-<a name="geofence-deleting"></a>
-<a data-magellan-destination="geofence-deleting"></a>
+<a name="geofence-destroy" data-magellan-destination="geofence-destroy"></a>
 
-### Deleting
+---
 
-Deleting a geofence only requires passing the id to the `geofence` object. The geofence is deleted from ContextHub, then triggers pushes to devices interested in geofence deletions with those specific tags.
+#### Destroy
+Destroying a geofence only requires passing the id of the *geofence* object. The geofence is deleted from ContextHub.
 
+##### Syntax
+`geofence.destroy(id)`
+
+##### Parameter Values
+
+| Parameter | Description |
+|-----------|-------------|
+| id        | Required. The id of the geofence you want to delete. |
+
+##### Return Value
+Nothing.
+
+##### Example
 {% gist CHLibrarian/fd892e5fa5075f97f19f %}
-<br />
 
-<a name="http"></a>
-<a data-magellan-destination="http"></a>
+
+<a name="http" data-magellan-destination="http"></a>
+
+---
 
 ## HTTP
 
