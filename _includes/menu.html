@@ -21,7 +21,7 @@
     {% if page.url == overview %}
         <div id="activesection">
             <dd ><a class="home" href="/docs/overview">Overview</a></dd>
-        </div>  
+        </div>
     {% else %}
         <dd ><a class="home" href="/docs/overview">Overview</a></dd>
     {% endif %}
@@ -30,7 +30,7 @@
     {% if page.url == introduction %}
         <div id="activesection">
             <dd ><a class="home" href="/docs/introduction">Introduction</a></dd>
-        </div>  
+        </div>
     {% else %}
         <dd ><a class="home" href="/docs/introduction">Introduction</a></dd>
     {% endif %}
@@ -39,7 +39,7 @@
     {% if page.url == pushnotifications %}
         <div id="activesection">
             <dd ><a class="home" href="/docs/pushnotifications">Push Notifications</a></dd>
-        </div>  
+        </div>
     {% else %}
         <dd ><a class="home" href="/docs/pushnotifications">Push Notifications</a></dd>
     {% endif %}
@@ -65,7 +65,7 @@
                 </dl>
 
                 <dd data-magellan-arrival="Devices"><a href="#Devices">Devices</a></dd>
-                
+
                 <dd data-magellan-arrival="Analytics"><a href="#Analytics">Analytics</a></dd>
                 <dl class="sub-nav">
                     <dd data-magellan-arrival="dashboard"><a href="#dashboard">Dashboard</a></dd>
@@ -80,7 +80,7 @@
                     <dd data-magellan-arrival="PushServices"><a href="#PushServices">Push Services</a></dd>
                     <dd data-magellan-arrival="Collaborators"><a href="#Collaborators">Collaborators</a></dd>
                 </dl>
-        </div>  
+        </div>
     {% else %}
         <dd ><a class="home" href="/docs/admin">Admin Portal</a></dd>
     {% endif %}
@@ -90,25 +90,52 @@
     {% if page.url == contextualengine %}
         <div id="activesection">
             <dd ><a class="home" href="/docs/contextualengine">Contextual Engine</a></dd>
-            
+
             <dd data-magellan-arrival="beacon"><a href="#beacon">Beacon</a></dd>
             <dl class="sub-nav">
-                <dd data-magellan-arrival="beacon-creating">        <a href="#beacon-creating">Creating</a></dd>
-                <dd data-magellan-arrival="beacon-response">        <a href="#beacon-response">Response</a></dd>
-                <dd data-magellan-arrival="beacon-retrievingbytag"> <a href="#beacon-retrievingbytag">Retrieving By Tag</a></dd>
-                <dd data-magellan-arrival="beacon-retrievingbyid">  <a href="#beacon-retrievingbyid">Retrieving By ID</a></dd>
-                <dd data-magellan-arrival="beacon-updating">        <a href="#beacon-updating">Updating</a></dd>
-                <dd data-magellan-arrival="beacon-deleting">        <a href="#beacon-deleting">Deleting</a></dd>
+                <dd data-magellan-arrival="beacon-create">
+                  <a href="#beacon-create">Create</a>
+                </dd>
+                <dd data-magellan-arrival="beacon-find">
+                  <a href="#beacon-find">Find</a>
+                </dd>
+                <dd data-magellan-arrival="beacon-alltagged">
+                  <a href="#beacon-alltagged">All Tagged</a>
+                </dd>
+                <dd data-magellan-arrival="beacon-anytagged">
+                  <a href="#beacon-anytagged">Any Tagged</a>
+                </dd>
+                <dd data-magellan-arrival="beacon-update">
+                  <a href="#beacon-update">Update</a>
+                </dd>
+                <dd data-magellan-arrival="beacon-destroy">
+                  <a href="#beacon-destroy">Destroy</a>
+                </dd>
             </dl>
 
             <dd data-magellan-arrival="geofence"><a href="#geofence">Geofence</a></dd>
             <dl class="sub-nav">
-                <dd data-magellan-arrival="geofence-creating">        <a href="#geofence-creating">Creating</a></dd>
-                <dd data-magellan-arrival="geofence-response">        <a href="#geofence-response">Response</a></dd>
-                <dd data-magellan-arrival="geofence-retrievingbytag"> <a href="#geofence-retrievingbytag">Retrieving By Tag</a></dd>
-                <dd data-magellan-arrival="geofence-retrievingbyid">  <a href="#geofence-retrievingbyid">Retrieving By ID</a></dd>
-                <dd data-magellan-arrival="geofence-updating">        <a href="#geofence-updating">Updating</a></dd>
-                <dd data-magellan-arrival="geofence-deleting">        <a href="#geofence-deleting">Deleting</a></dd>
+                <dd data-magellan-arrival="geofence-create">
+                  <a href="#geofence-create">Create</a>
+                </dd>
+                <dd data-magellan-arrival="geofence-find">
+                  <a href="#geofence-find">Find</a>
+                </dd>
+                <dd data-magellan-arrival="geofence-alltagged">
+                  <a href="#geofence-alltagged">All Tagged</a>
+                </dd>
+                <dd data-magellan-arrival="geofence-anytagged">
+                  <a href="#geofence-retrievingbyid">Any Tagged</a>
+                </dd>
+                <dd data-magellan-arrival="geofence-search">
+                  <a href="#geofence-search">Search</a>
+                </dd>
+                <dd data-magellan-arrival="geofence-update">
+                  <a href="#geofence-updating">Update</a>
+                </dd>
+                <dd data-magellan-arrival="geofence-destroy">
+                  <a href="#geofence-destroy">Destroy</a>
+                </dd>
             </dl>
 
             <dd data-magellan-arrival="http"><a href="#http">Http</a></dd>
@@ -153,7 +180,7 @@
                 <dd data-magellan-arrival="triggers-creating">        <a href="#triggers-creating">Creating</a></dd>
                 <dd data-magellan-arrival="triggers-posting">        <a href="#triggers-posting">Posting</a></dd>
             </dl>
-        </div>  
+        </div>
     {% else %}
         <dd ><a class="home" href="/docs/contextualengine">Contextual Engine</a></dd>
     {% endif %}
@@ -233,7 +260,7 @@
     {% else %}
         <dd ><a class="home" href="/docs/ios">iOS</a></dd>
     {% endif %}
-    
+
 
      {% if page.url == android %}
     <div id="activesection">
@@ -311,7 +338,7 @@
     {% if page.url == restapi %}
         <div id="activesection">
             <dd ><a class="home" href="/docs/restapi">Rest API</a></dd>
-        </div>  
+        </div>
     {% else %}
         <dd ><a class="home" href="/contexthub-api">Rest API</a></dd>
     {% endif %}
@@ -319,7 +346,7 @@
 <!--     {% if page.url == xamarin %}
         <div id="activesection">
             <dd ><a class="home" href="/docs/xamarin">Xamarin</a></dd>
-        </div>  
+        </div>
     {% else %}
         <dd ><a class="home" href="/docs/xamarin">Xamarin</a></dd>
     {% endif %} -->
@@ -327,7 +354,7 @@
     {% if page.url == distributeddata %}
         <div id="activesection">
             <dd ><a class="home" href="/docs/distributeddata">Distributed Data</a></dd>
-        </div>  
+        </div>
     {% else %}
         <dd ><a class="home" href="/docs/distributeddata">Distributed Data</a></dd>
     {% endif %}
@@ -335,7 +362,7 @@
     {% if page.url == feeds %}
         <div id="activesection">
             <dd ><a class="home" href="/docs/feeds">Feeds</a></dd>
-        </div>  
+        </div>
     {% else %}
         <dd ><a class="home" href="/docs/feeds">Feeds</a></dd>
     {% endif %}
@@ -343,7 +370,7 @@
     {% if page.url == apilibraries %}
         <div id="activesection">
             <dd ><a class="home" href="/docs/apilibraries">Api Libraries</a></dd>
-        </div>  
+        </div>
     {% else %}
         <dd ><a class="home" href="/docs/apilibraries">Api Libraries</a></dd>
     {% endif %}
@@ -351,7 +378,7 @@
     {% if page.url == downloads %}
         <div id="activesection">
             <dd ><a class="home" href="/docs/downloads">Downloads</a></dd>
-        </div>  
+        </div>
     {% else %}
         <dd ><a class="home" href="/docs/downloads">Downloads</a></dd>
     {% endif %}
@@ -380,7 +407,7 @@
                 <dd data-magellan-arrival="android-storage"><a href="#android-storage">Storage (Vault)</a></dd>
             </dl> -->
 
-        </div>  
+        </div>
     {% else %}
         <dd ><a class="home" href="/docs/samples">Samples</a></dd>
     {% endif %}
@@ -394,7 +421,7 @@
                     <dd data-magellan-arrival="ios-wayfinder"><a href="#ios-wayfinder">Wayfinder</a></dd>
                     <dd data-magellan-arrival="ios-beaconbits"><a href="#ios-beaconbits">Beacon Bits</a></dd>
                 </dl>
-        </div>  
+        </div>
     {% else %}
         <dd ><a class="home" href="/docs/apps">Apps</a></dd>
     {% endif %}
