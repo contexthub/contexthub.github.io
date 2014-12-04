@@ -71,9 +71,11 @@ tt, kbd, code {
   border: 1px solid #ddd;
   border-bottom: 1px solid #ccc;
   white-space: pre-wrap;
-  display: block;
 }
 
+pre code {
+  display: block;
+}
 /*.side-nav li a:not(.button) {
   display: block;
   color: white;
