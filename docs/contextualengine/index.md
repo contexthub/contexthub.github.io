@@ -378,32 +378,70 @@ Nothing.
 ---
 
 ## HTTP
+The *http* object allows you to send http requests to external services in a context rule. This allows you
+to send data to external servers when interesting events occur inside ContextHub. You will see the status
+of your request in your logs, but you will not be able to do anything with the response.
 
-The HTTP object allows you to fire webhooks to other services in a context rule. This allows you to communicate with external servers inside ContextHub to provide two-way communication with devices that have generated events such as IoT-like devices like the Raspberry Pi, Arduino, or Electric Imp.
-<br />
+### http methods
 
-<a name="http-get"></a>
-<a data-magellan-destination="http-get"></a>
+| Method    | Description |
+|-----------|-------------|
+| [get](#http-get)   | Makes a http GET request to the specified url. |
+| [post](#http-post)   | Makes a http POST request to the specified url. |
 
-### GET
+<a name="http-get" data-magellan-destination="http-get"></a>
 
-The GET method allows you to perform an HTTP GET request to a specific URL. The `parameters` parameter lets you pass in a hash which will be converted to a long string-escaped GET URL (`?message=get%20message%20from%20webhook`)
+---
 
+#### GET
+
+Allows you to perform an http GET request to a specific URL. You can specify optional query parameters and headers with the *params*, and *headers* parameters. These need to be in the form of JSON strings.
+
+##### Syntax
+`http.get(url, params, headers)`
+
+##### Parameter Values
+
+| Parameter | Description |
+|-----------|-------------|
+| url       | Required. The url you are making the request to. |
+| params    | Optional. Stringified JSON of any query parameters that you want to include. |
+| headers   | Optional. Stringified JSON of any request headers that you want to include. |
+
+##### Return Value
+Nothing.
+
+##### Example
 {% gist CHLibrarian/9a5e0f673a526ee790a2 %}
-<br />
 
-<a name="http-post"></a>
-<a data-magellan-destination="http-post"></a>
+<a name="http-post" data-magellan-destination="http-post"></a>
 
-### POST
+---
 
-The POST method allows you to perform HTTP POST request to a sepcific URL. The `body` parameter lets you pass a body with the request, and headers lets you set custom headers with the request.
+#### POST
 
+Allows you to perform an http POST request to a specific URL. You can specify optional headers with the  *headers* parameter. This needs to be in the form of a JSON string.
+
+##### Syntax
+`http.get(url, body, headers)`
+
+##### Parameter Values
+
+| Parameter | Description |
+|-----------|-------------|
+| url       | Required. The url you are making the request to. |
+| body      | Optional. The body of the post request. |
+| headers   | Optional. Stringified JSON of any request headers that you want to include. |
+
+##### Return Value
+Nothing.
+
+##### Example
 {% gist CHLibrarian/ae16587c627cf3e8d520 %}
-<br />
 
-<a name="push"></a>
-<a data-magellan-destination="push"></a>
+<a name="push" data-magellan-destination="push"></a>
+
+---
 
 ## Push
 
