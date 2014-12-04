@@ -26,15 +26,17 @@ Beacons are Bluetooth 4.0 Low Energy devices that allow devices to detect proxim
 
 | Method    | Description |
 |-----------|-------------|
-| create    | Creates a new beacon in ContextHub |
-| find      | Finds a beacon by id |
-| allTagged | Finds beacons matching **all** of the given tags |
-| anyTagged | Finds beacons matching **any** of the given tags |
-| update    | Updates an existing beacon with new information  |
-| destroy   | Deletes a beacon from the system |
+| [create](#beacon-create)    | Creates a new beacon in ContextHub |
+| [find](#beacon-find)      | Finds a beacon by id |
+| [allTagged](#beacon-alltagged) | Finds beacons matching **all** of the given tags |
+| [anyTagged](#beacon-anytagged) | Finds beacons matching **any** of the given tags |
+| [update](#beacon-update)    | Updates an existing beacon with new information  |
+| [destroy](#beacon-destroy)   | Deletes a beacon from the system |
+
+
+<a name="beacon-create" data-magellan-destination="beacon-create"></a>
 
 ---
-<a name="beacon-create" data-magellan-destination="beacon-create"></a>
 
 #### Create
 
@@ -59,8 +61,9 @@ The id of the newly created beacon.
 ##### Example
 {% gist CHLibrarian/9c62b626473a434dfc5b %}
 
----
 <a name="beacon-find" data-magellan-destination="beacon-find"></a>
+
+---
 
 #### Find
 Retrieve a specific beacon from ContextHub by passing a beacon ID.
@@ -82,9 +85,9 @@ A beacon object.
 ##### Example
 {% gist CHLibrarian/494e611bd57f6d0d8863 %}
 
+<a name="beacon-alltagged" data-magellan-destination="beacon-alltagged"></a>
 
 ---
-<a name="beacon-alltags" data-magellan-destination="beacon-alltags"></a>
 
 #### All Tagged
 Retrieves a group of beacons from ContextHub. Adding more tags seperated by commas to the same function call filters only beacons that have *all* tags on the same beacon.
@@ -107,8 +110,9 @@ An array of beacon objects.
 {% gist CHLibrarian/1bc45aa1d2b7008fa6f2 %}
 
 
+<a name="beacon-anytagged" data-magellan-destination="beacon-anytagged"></a>
+
 ---
-<a name="beacon-anytags" data-magellan-destination="beacon-anytags"></a>
 
 #### Any Tagged
 Retrieves a group of beacons from ContextHub. This function returns beacons that match *any* of the given tags.
@@ -130,12 +134,11 @@ An array of beacon objects.
 ##### Example
 {% gist CHLibrarian/8de11d7ba0cf2a1763bd %}
 
-
-
----
 <a  name="beacon-update" data-magellan-destination="beacon-update"></a>
 
-### Update
+---
+
+#### Update
 Updates an existing beacon.
 
 ##### Syntax
@@ -146,41 +149,50 @@ Updates an existing beacon.
 | Parameter | Description |
 |-----------|-------------|
 | id        | Required. The id of the beacon you wish to update. |
-| data      | Required.
+| data      | Required. Stringified JSON of the beacon attributes that you want updated. |
 | tags      | Optional. A string containing the tag(s) to assign to the beacon. Multiple tags can be assigned by separating them with commas. |
 
 ##### Return Value
-An array of beacon objects.
-{% gist CHLibrarian/02f5dd4bdc9ea708d52d %}
-
+Nothing.
 
 ##### Example
-{% gist CHLibrarian/8de11d7ba0cf2a1763bd %}
-
 {% gist CHLibrarian/84a08b4677d54937dc81 %}
-<br />
 
-<a name="beacon-deleting" data-magellan-destination="beacon-deleting"></a>
+<a name="beacon-destroy" data-magellan-destination="beacon-destroy"></a>
 
-### Deleting
+---
 
-Deleting a beacon only requires passing the id to the `beacon` object. The beacon is deleted from ContextHub, then triggers pushes to devices interested in beacon deletions with those specific tags.
+#### Destroy
+Destroying a beacon only requires passing the id of the *beacon* object. The beacon is deleted from ContextHub.
 
+##### Syntax
+`beacon.destroy(id)`
+
+##### Parameter Values
+
+| Parameter | Description |
+|-----------|-------------|
+| id        | Required. The id of the beacon you want to delete. |
+
+##### Return Value
+Nothing.
+
+##### Example
 {% gist CHLibrarian/6bb47bccf63793f6864c %}
-<br />
 
 <a name="geofence" data-magellan-destination="geofence"></a>
 
+---
+
 ## Geofence
 
-Geofences are pre-defined areas of interest that allow your application to be notified when a device has entered or exited that region. Here's how to use the `geofence` object to interact with geofences:
-<br />
-<br />
+Geofences are pre-defined areas of interest that allow your application to be notified when a device has entered or exited that region. Here's how to use the *geofence* object to interact with geofences:
 
-<a name="geofence-creating"></a>
-<a data-magellan-destination="geofence-creating"></a>
+<a name="geofence-create" data-magellan-destination="geofence-create"></a>
 
-### Creating
+---
+
+### Create
 
 Creating a geofence contextual element in ContextHub is simple. Every geofence is defined by a latitude and longitude indicating their center and a radius in meters to create the perimeter.
 
