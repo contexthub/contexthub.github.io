@@ -465,23 +465,48 @@ When sending notifications to multiple platforms, you need to be mindful of payl
 
 #### Deliver
 
-There are four ways to send a push message to devices in the foreground: token, device id, alias, and tags. Each method takes the identifier plus the message to be sent.
+Delivers a push notification to one or more devices. There a few ways to determine which devices will receive the notification: *push_tokens*, *device_ids*, *alias*, *tags*. You need to use at least one of those keys to successfully send a notification.
 
+##### Syntax
+`push.deliver(jsonString)`
+
+##### Parameter Values
+
+| Parameter  | Description |
+|------------|-------------|
+| jsonString | Required. Stringified JSON of the push object to send. See the table below to see all the available options. |
+
+| Key | Platform | Type | Description |
+|-----|----------|------|-------------|
+| push_tokens | APNS/GCM | Array | An array of APNS device tokens and/or GCM registration ids to send a notification to.|
+| alias | APNS/GCM | Array | An array of device aliases to send a notification to. |
+| device_ids | APNS/GCM | Array | An array device ids to send a notification to. This is the preferred way to send notifications to a single device.|
+| tags | APNS/GCM | Array | An array of device tags to send a notification to. This is the preferred way to send notifications to multiple devices. |
+| tag_operator | APNS/GCM | String | By default, tag matching will match on _ANY_ of the given tags. If you want to send notifications to devices that match _ALL_ of the given tags, set the tag_operator parameter to ALL. The default value is _ANY_. |
+| exclude_device_ids | APNS/GCM | Array | Array of device ids that you want to exclude from delivering a message to. This is handy when sending notifications to tagged devices and want to exclude one or more devices from that group. |
+| exclude_push_tokens | APNS/GCM | Array | Array of push tokens that you want to exclude from delivering a message to. This is handy when sending notifications to tagged devices and want to exclude one or more devices from that group. |
+| mdm | APNS | String | APNS Mobile Device Management magic key. You most likely don’t want to use this. This is an APNS specific key. |
+| priority | APNS | Integer | Sets the APNS priority. Can be either be set to 10 (immediate) or 5 (conserve power). This is an APNS specific key. Defaults to 10. |
+| expiry | APNS/GCM | Integer | Identifies when a notification is no longer valid and can be discarded. APNS notifications default to one day. GCM notifications default to 4 weeks. |
+| category | APNS | String | Sets the APNS category for push. This key will be added to the GCM data payload if it exists and the data payload does not already contain a category key. |
+| url_args | APNS | String | Sets the url-args in the aps section of the APNS payload. This is an APNS specific key used for notifications to web browsers. |
+| badge | APNS | Integer | The number to display as the badge of the app icon. If this property is absent, the badge is not changed. To remove the badge, set the value of this property to 0. This key will be added to the GCM data payload if it exists and the data payload does not already contain a badge key. |
+| sound | APNS | String | The name of a sound file in the app bundle. The sound in this file is played as an alert. If the sound file doesn’t exist or default is specified as the value, the default alert sound is played. The audio must be in one of the audio data formats that are compatible with system sounds. This key will be added to the GCM data payload if it exists and the data payload does not already contain a sound key. |
+| alert | APNS | String or Object | If this property is included, the system displays a standard alert. You may specify a string as the value of alert or a dictionary as its value. If you specify a string, it becomes the message text of an alert with two buttons: Close and View. If the user taps View, the app is launched. Alternatively, you can specify a dictionary as the value of alert. This key will be added to the GCM data payload if it exists and the data payload does not already contain a alert key. |
+| content_available | APNS | Integer | Provide this key with a value of 1 to indicate that new content is available. Including this key and value means that when your app is launched in the background or resumed, application:didReceiveRemoteNotification:fetchCompletionHandler: is called. Newsstand apps are guaranteed to be able to receive at least one push with this key per 24-hour window. This is an APNS specific key. |
+| collapse_key | GCM | String | A collapse key is an arbitrary string that is used to collapse a group of like messages when the device is offline, so that only the most recent message gets sent to the client. For example, *New mail*, *Updates available*, and so on. GCM allows a maximum of 4 different collapse keys to be used by the GCM server at any given time. If you exceed this number GCM will only keep 4 collapse keys, with no guarantees about which ones they will be. This is an GCM specific key. |
+| data | APNS/GCM | Object | For APNS devices, this adds custom keys to the payload data. For GCM devices, this is the message payload. Any valid JSON is acceptable. GCM messages will have the ‘alert’, ‘badge’, ‘sound’, ‘category’ keys added to the payload if they have been set and the keys do not already exist in the payload. |
+
+##### Return Value
+Nothing.
+
+##### Example
 {% gist CHLibrarian/f5aab36ce20d86828099 %}
-<br />
 
-<a name="push-sendingbackground"></a>
-<a data-magellan-destination="push-sendingbackground"></a>
 
-### Sending (Background)
+<a name="vault" data-magellan-destination="vault"></a>
 
-There are four ways to send a push message to devices in the background: token, device id, alias, and tags. Each method takes the identifier, the data to be sent, and an optional sound to be played when a push is received (a push with "" for a sound isn't played at all and becomes a silent notification). For iOS devices, silent notifications do not have guaranteed delivery, and may piggyback a foreground notification if rate-limited.
-
-{% gist CHLibrarian/00bbaea42964509b55b1 %}
-<br />
-
-<a name="vault"></a>
-<a data-magellan-destination="vault"></a>
+---
 
 ## Vault
 
