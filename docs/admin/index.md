@@ -101,6 +101,6 @@ The collaborators subsection allows you to manage additional people who need acc
 
 ## Logs
 
-The logs subsection contains the log page which contains a list of the last 100 log messages retained in your application. These log messages are generated from a variety of different places; the ContextHub mobile SDKs, contextual rules, and REST API endpoint. You have the option to filter by different types, whether they are resource updates, custom messages, errors, or webhook requests. 
+The logs subsection contains the log page which contains a list of the last 1000 log messages retained in your application. These log messages are generated from a variety of different places; the ContextHub mobile SDKs, contextual rules, and REST API endpoint. You have the option to filter by different types, whether they are resource updates, custom messages, errors, or webhook requests. 
 
 Note: High-frequency logging of messages in a short period of time do not have a guaranteed order of being saved.
