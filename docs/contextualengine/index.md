@@ -445,14 +445,25 @@ Nothing.
 
 ## Push
 
-The push object allows you to send foreground and background notifications to devices in a context rule. You have the option of sending notifications to devices based on their token, device id, alias, or one of many tags they may have. By allowing for notifications to be sent based on different groups, you can abstract away some of the complexity of sending push messages to devices and focus more on the core logic of your application. Here's how to use the `push` object to send push notifications:
-<br />
-<br />
+The *push* object allows you to send push notifications across all service platforms *(APNS & GCM)*. By sending notifications to devices with a certain tag, you can send a single notification to IOS and Android devices. Certain APNS keys (alert, badge, sound, category) will be duplicated in the GCM message payload to simplify sending similar messages to different platforms.
 
-<a name="push-sendingforeground"></a>
-<a data-magellan-destination="push-sendingforeground"></a>
+When sending notifications to multiple platforms, you need to be mindful of payload size limits:
 
-### Sending (Foreground)
+* IOS 7.1 and lower: 256 bytes
+* IOS 8.0 and above: 2048 bytes
+* Android: 4096 bytes
+
+### push methods
+
+| Method    | Description |
+|-----------|-------------|
+| [deliver](#push-deliver) | Sends a push notification to iOS *and/or* Android devices. |
+
+<a name="push-deliver" data-magellan-destination="push-deliver"></a>
+
+---
+
+#### Deliver
 
 There are four ways to send a push message to devices in the foreground: token, device id, alias, and tags. Each method takes the identifier plus the message to be sent.
 
