@@ -13,21 +13,22 @@ group: "android"
 
 ## Registration and Setup
 
-### Registration
-
-On ContextHub, you create a separate app for each of your mobile applications. Each app has its own application id which you will use to register with the ContextHub Android SDK. Each account on ContextHub can have multiple application ids for multiple apps. This lets you accommodate both testing and production versions of your app with the same account.
-
 ### Sign Up
 
 Sign up for [ContextHub](http://www.contexthub.com) by either creating a username/password or using your GitHub credentials.
 
+### Registration
+
+On ContextHub, you create a separate app for each of your mobile applications. Each app has its own application id which you will use to register with the ContextHub Android SDK. Each account on ContextHub can have multiple application ids for multiple apps. This lets you accommodate both testing and production versions of your app with the same account.
+
+{% gist CHLibrarian/fdc6b2ad855e0a0a9bdd %}
 
 <a name="PushNotifications"></a>
 <a data-magellan-destination="PushNotifications"></a>
 
-## PushNotifications
+## Push Notifications
 
-Push notifications let you send foreground messages which your users will be alerted to as well as background notifications which trigger your app to perform processing. Combined with elements that trigger events, this allows for increased functionality that forms the foundation of most apps that use ContextHub. Here's how to use it:
+Push notifications let you send foreground messages to alert your users and background notifications to trigger processing in your app. Combined with elements that trigger events, this allows for increased functionality that forms the foundation of most apps that use ContextHub. Here's how to use it:
 <br />
 
 <a name="PushNotifications-registering"></a>
@@ -45,7 +46,7 @@ Registering for push involves a one line call to `Push.init()` with your Google 
 
 ### Sending to Device(s)
 
-Sending to a device is as simple as sending an array of device IDs along with the `NSDictionary` containing the message you want sent. The push message will then get queued to be processed in a first-in, first-out basis on the server.
+Sending to a device is as simple as passing an array of device IDs along with the `PushNotification` object containing the data you want to send. The push message will then get queued to be processed in a first-in, first-out basis on the server.
 
 {% gist CHLibrarian/5e6c22663d79a8cbfadd %}
 <br />
@@ -96,7 +97,7 @@ Receiving a notification is as simple as implementing the `PushPayloadHandler` i
 
 ## Events
 
-Events are generated in ContextHub through the `SensorPipeline` class which allows your application to turn on and off what elements a device is aware of and will then flow up to ContextHub for processing. You can listen in on a variety of events including *beacon_in*/*beacon_out*/*beacon_changed*, *geofence_in*/*geofence_out*, *location_changed*, and *motion_changed* events.
+Events are generated in ContextHub through the `SensorPipeline` class which allows your application to turn on and off what elements a device is aware of and will then flow up to ContextHub for processing. You can listen in on a variety of events including *beacon_in*, *beacon_out*, *beacon_changed*, *geofence_in*, *geofence_out*, *location_changed*, and *motion_changed* events.
 
 Note: In order to conserve battery life, only events which are subscribed to will generate events in ContextHub (with exception of *location_changed*)
 
@@ -332,7 +333,7 @@ Beacons are Bluetooth 4.0 Low Energy devices that allow devices to detect proxim
 
 ### Creating
 
-Creating a beacon contextual element in ContextHub is simple. Every beacon has a UUID (32 digit hexadecimal character, a major value (ranging from 1-65535), and a minor value (also ranging from 1-65535). UUIDs you use should be unique so beacons from other users do not interfere with your app. A combination of these three values should be unique for every beacon you have. After creation,`ProximityService.getInstance().synchronize()` must be called if you do not have to push enabled so the sensor pipeline is ready to generate beacon events.
+Creating a beacon contextual element in ContextHub is simple. Every beacon has a UUID (32 digit hexadecimal character, a major value (ranging from 1-65535), and a minor value (also ranging from 1-65535). UUIDs you use should be unique so beacons from other users do not interfere with your app. A combination of these three values should be unique for every beacon you have. After creation,`ProximityService.getInstance().synchronize()` must be called if you do not have push enabled so the sensor pipeline is ready to generate beacon events.
 
 {% gist CHLibrarian/41b57e8adda63d3cdc8d %}
 <br />

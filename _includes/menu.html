@@ -48,7 +48,7 @@
 
     {% if page.url == admin %}
         <div id="activesection">
-            <dd ><a class="home" href="/docs/admin">Admin Portal</a></dd>
+            <dd ><a class="home" href="/docs/admin">Developer Portal</a></dd>
 
                 <dd data-magellan-arrival="Elements"><a href="#Elements">Elements</a></dd>
                 <dl class="sub-nav">
@@ -59,30 +59,28 @@
                 <dd data-magellan-arrival="Events"><a href="#Events">Events</a></dd>
                 <dd data-magellan-arrival="Contexts"><a href="#Contexts">Contexts</a></dd>
 
-                <dd data-magellan-arrival="Application"><a href="#Application">Application</a></dd>
-                <dl class="sub-nav">
-                    <dd data-magellan-arrival="Vault"><a href="#Vault">Vault</a></dd>
-                </dl>
+                <dd data-magellan-arrival="Vault"><a href="#Vault">Vault</a></dd>
 
                 <dd data-magellan-arrival="Devices"><a href="#Devices">Devices</a></dd>
                 
                 <dd data-magellan-arrival="Analytics"><a href="#Analytics">Analytics</a></dd>
                 <dl class="sub-nav">
-                    <dd data-magellan-arrival="dashboard"><a href="#dashboard">Dashboard</a></dd>
-                    <dd data-magellan-arrival="custom"><a href="#custom">Custom</a></dd>
+                    <dd data-magellan-arrival="Dashboard"><a href="#Dashboard">Dashboard</a></dd>
+                    <dd data-magellan-arrival="Custom"><a href="#Custom">Custom</a></dd>
                 </dl>
 
-                <dd data-magellan-arrival="Feeds"><a href="#Feeds">Feeds</a></dd>
-                <dd data-magellan-arrival="Logs"><a href="#Logs">Logs</a></dd>
-
+                <dd data-magellan-arrival="Triggers"><a href="#Triggers">Triggers</a></dd>
+                
                 <dd data-magellan-arrival="Settings"><a href="#Settings">Settings</a></dd>
                 <dl class="sub-nav">
                     <dd data-magellan-arrival="PushServices"><a href="#PushServices">Push Services</a></dd>
                     <dd data-magellan-arrival="Collaborators"><a href="#Collaborators">Collaborators</a></dd>
                 </dl>
+
+                <dd data-magellan-arrival="Logs"><a href="#Logs">Logs</a></dd>
         </div>  
     {% else %}
-        <dd ><a class="home" href="/docs/admin">Admin Portal</a></dd>
+        <dd ><a class="home" href="/docs/admin">Developer Portal</a></dd>
     {% endif %}
 
 
@@ -111,7 +109,7 @@
                 <dd data-magellan-arrival="geofence-deleting">        <a href="#geofence-deleting">Deleting</a></dd>
             </dl>
 
-            <dd data-magellan-arrival="http"><a href="#http">Http</a></dd>
+            <dd data-magellan-arrival="http"><a href="#http">HTTP</a></dd>
              <dl class="sub-nav">
                 <dd data-magellan-arrival="http-get">        <a href="#http-get">Get</a></dd>
                 <dd data-magellan-arrival="http-post">        <a href="#http-post">Post</a></dd>
@@ -208,15 +206,6 @@
 
             <dd data-magellan-arrival="UsingLocation"><a href="#UsingLocation">Using Location</a></dd>
 
-            <dd data-magellan-arrival="geofences"><a href="#geofences">Geofences</a></dd>
-            <dl class="sub-nav">
-                <dd data-magellan-arrival="geofences-creating"><a href="#geofences-creating">Creating</a></dd>
-                <dd data-magellan-arrival="geofences-retrievebytag"><a href="#geofences-retrievebytag">Retrieving by Tag</a></dd>
-                <dd data-magellan-arrival="geofences-retrievebyid"><a href="#  geofences-retrievebyid">Retrieving by ID</a></dd>
-                <dd data-magellan-arrival="geofences-updating"><a href="#geofences-updating">Updating</a></dd>
-                <dd data-magellan-arrival="geofences-deleting"><a href="#geofences-deleting">Deleting</a></dd>
-            </dl>
-
             <dd data-magellan-arrival="Beacons"><a href="#Beacons">Beacons</a></dd>
             <dl class="sub-nav">
                 <dd data-magellan-arrival="beacons-creating">       <a href="#beacons-creating">Creating</a></dd>
@@ -226,7 +215,25 @@
                 <dd data-magellan-arrival="beacons-deleting">       <a href="#beacons-deleting">Deleting</a></dd>
             </dl>
 
+            <dd data-magellan-arrival="geofences"><a href="#geofences">Geofences</a></dd>
+            <dl class="sub-nav">
+                <dd data-magellan-arrival="geofences-creating"><a href="#geofences-creating">Creating</a></dd>
+                <dd data-magellan-arrival="geofences-retrievebytag"><a href="#geofences-retrievebytag">Retrieving by Tag</a></dd>
+                <dd data-magellan-arrival="geofences-retrievebyid"><a href="#  geofences-retrievebyid">Retrieving by ID</a></dd>
+                <dd data-magellan-arrival="geofences-updating"><a href="#geofences-updating">Updating</a></dd>
+                <dd data-magellan-arrival="geofences-deleting"><a href="#geofences-deleting">Deleting</a></dd>
+            </dl>
+
             <dd data-magellan-arrival="devices"><a href="#devices">Devices</a></dd>
+            <dl class="sub-nav">
+                <dd data-magellan-arrival="devices-deviceid"><a href="#devices-deviceid">Device ID</a></dd>
+                <dd data-magellan-arrival="devices-retrievebyid"><a href="#devices-retrievebyid">Retrieving by ID</a></dd>
+                <dd data-magellan-arrival="devices-retrievebyalias"><a href="#devices-retrievebyalias">Retrieving by Alias</a></dd>
+                <dd data-magellan-arrival="devices-retrievebytag"><a href="#devices-retrievebytag">Retrieving by Tag</a></dd>
+                <dd data-magellan-arrival="devices-setting"><a href="#devices-setting">Setting Alias/Tag</a></dd>
+            </dl>
+
+
             <dd data-magellan-arrival="logging"><a href="#logging">Logging</a></dd>
 
     </div>
