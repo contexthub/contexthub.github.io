@@ -509,60 +509,126 @@ Nothing.
 ---
 
 ## Vault
+The *vault* object provides access to the vault document store.
 
-Vaults are pre-defined areas of interest that allow your application to be notified when a device has entered or exited that region. Here's how to use the `vault` object to interact with vault:
-<br />
-<br />
+### vault methods
 
-<a name="vault-creating"></a>
-<a data-magellan-destination="vault-creating"></a>
+| Method    | Description |
+|-----------|-------------|
+| [create](#vault-create)   | Adds a new document to the vault. |
+| [find](#vault-find)       | Retreives a document from the vault via id. |
+| [allTagged](#vault-alltagged) | Finds vault objects matching **all** of the given tags |
+| [anyTagged](#vault-anytagged) | Finds vault objects matching **any** of the given tags |
+| [keyPath](#vault-keypath) | Finds vault objects with the given key path. |
+| [contains](#vault-contains) | Finds vault objects containing the given term.
+| [update](#vault-update)    | Updates an existing vault object with new information  |
+| [destroy](#vault-destroy)   | Deletes a vault object from the system |
 
-### Creating
+<a name="vault-create" data-magellan-destination="vault-create"></a>
 
-Creating a vault item is simple. Vault items need to be JSON-serializable `NSDictionary` items so they can be saved properly in ContextHub. In general, values stored are numbers, strings, arrays, and dictionaries, which allows for an arbitrary nesting of values. Below is an example of creating a vault item:
+---
 
+#### Create
+Stores the given json data in the vault with the given tags.
+
+##### Syntax
+`vault.create(data, tags)`
+
+##### Parameter Values
+
+| Parameter    | Description |
+|--------------|-------------|
+| data         | Required. Stringified JSON of the data you want to store in the vault. |
+| tags         | Required. A comma separated string of tags to associate with the vault object. If you don't want to tag the vault object, you can pass in null or "".|
+
+##### Return Value
+The id of the newly created vault object.
+
+##### Example
 {% gist CHLibrarian/a098fd2a92e835982b20 %}
-<br />
 
-<a name="vault-response"></a>
-<a data-magellan-destination="vault-response"></a>
+<a name="vault-find" data-magellan-destination="vault-find"></a>
 
-### Response
+---
 
-Once a vault item is created, a hash response is returned with the following keys:
+#### Find
+Retreives a document from the vault via id.
 
-- `data` - A hash containing your stored data
-- `vault_info` - A hash containing metadata about the vault item
-    - `id` - A 32-hexadecimal character string displayed in five groups separated by hyphens, in standardized UUID/GUID format (`8-4-4-4-12`), uniquely identifying a vault item
-    - `created_at` - An ISO 8601 timestamp representing when a vault item was created
-    - `updated_at` - An ISO 8601 timestamp representing when a vault item was last updated
-    - `tags` - An array of strings representing the tags for the vault item
-    - `tag_string` - An auto-generated read-only string representation of the tags used by Keen.io for analysis
+##### Syntax
+`vault.find(id)`
 
-Here's the structure of a vault item that was created above:
+##### Parameter Values
 
+| Parameter  | Description |
+|------------|-------------|
+| id         | Required. The id of the vault object to find. |
+
+##### Return Value
+A vault object.
 {% gist CHLibrarian/f03d82ad1e2e1c4b5d0c %}
-<br />
 
-<a name="vault-retrievingbytag"></a>
-<a data-magellan-destination="vault-retrievingbytag"></a>
+| Property   | Description |
+|------------|-------------|
+| data       | Your data is stored under the data propery. |
+| vault_info | Object containing metadata about the vault object.|
 
-### Retrieving by Tag
+| vault_info Properties | Description |
+|-----------------------|-------------|
+| **id** | The vault object id. |
+| **tags** | Array of tags assigned to the vault object. |
+| **created_at** | Timestamp of when the object was created. |
+| **updated_at** | Timestamp of when the object was last updated. |
+| **tag_string** | Tags as a comma separated string |
 
-Retrieve a group of vault items from ContextHub by passing a tag to `vault`. Adding more tags seperated by commas to the same function call filters only beacons that have *all* tags on the same vault items.
-
-{% gist CHLibrarian/f95de5fabe8af80431ce %}
-<br />
-
-<a name="vault-retrievingbyid"></a>
-<a data-magellan-destination="vault-retrievingbyid"></a>
-
-### Retrieving by ID
-
-Retrieve a specific vault item from ContextHub by passing a vault ID present either in the ContextHub developer portal or given to you as a hash response at the key `id` in a context rule.
-
+##### Example
 {% gist CHLibrarian/08e7a097a018ae13b8b2 %}
-<br />
+
+<a name="vault-alltagged" data-magellan-destination="vault-alltagged"></a>
+
+---
+
+#### All Tagged
+Finds vault objects that contain *all* the specified tags.
+
+##### Syntax
+`vault.allTagged(tags)`
+
+##### Parameter Values
+
+| Parameter | Description |
+|-----------|-------------|
+| tags      | Required. A string containing the tag(s) to search for. Multiple tags can be searched for by separating them with commas. Results will contain vault objects that match **all** the specified tags. |
+
+##### Return Value
+An array of vault objects.
+{% gist CHLibrarian/a9409c08102b01815250 %}
+
+##### Example
+{% gist CHLibrarian/f95de5fabe8af80431ce %}
+
+<a name="vault-anytagged" data-magellan-destination="vault-anytagged"></a>
+
+---
+
+#### Any Tagged
+Finds vault objects that contain *any* of the specified tags.
+
+##### Syntax
+`vault.anyTagged(tags)`
+
+##### Parameter Values
+
+| Parameter | Description |
+|-----------|-------------|
+| tags      | Required. A string containing the tag(s) to search for. Multiple tags can be searched for by separating them with commas. Results will contain vault objects that match **any** the specified tags. |
+
+##### Return Value
+An array of vault objects.
+{% gist CHLibrarian/a9409c08102b01815250 %}
+
+##### Example
+{% gist CHLibrarian/f95de5fabe8af80431ce %}
+
 
 <a name="vault-retrievingbyvalue"></a>
 <a data-magellan-destination="vault-retrievingbyvalue"></a>
