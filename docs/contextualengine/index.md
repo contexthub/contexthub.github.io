@@ -180,6 +180,152 @@ Nothing.
 ##### Example
 {% gist CHLibrarian/6bb47bccf63793f6864c %}
 
+<a name="console" data-magellan-destination="console"></a>
+
+---
+
+## Console
+The *console* object allows you to log activity inside your context rule.
+
+### Console Methods
+
+| Method    | Description |
+|-----------|-------------|
+| [log](#console-log)   | Makes a http GET request to the specified url. |
+
+<a name="console-log" data-magellan-destination="console-log"></a>
+
+---
+
+#### Log
+
+Logs the message to the console. You can see the logs from the *Logs* screen in the [developer portal](https://app.contexthub.com).
+
+##### Syntax
+`console.log(message)`
+
+##### Parameter Values
+
+| Parameter | Description |
+|-----------|-------------|
+| message   | Required. Message to log to the console. |
+
+##### Return Value
+Nothing.
+
+##### Example
+{% gist CHLibrarian/25f12ebc450a8dba7027 %}
+
+<a name="device" data-magellan-destination="device"></a>
+
+---
+
+## Device
+The *device* object you allows to find devices in your application.
+
+###  Device Methods
+
+| Method                             | Description                                       |
+|------------------------------------|---------------------------------------------------|
+| [findByAlias](#device-findbyalias) | Finds devices by their alias.                     |
+| [findById](#device-findbyid)       | Finds devices by their device id.                 |
+| [allTagged](#device-alltagged)     | Finds devices matching **all** of the given tags. |
+| [anyTagged](#device-anytagged)     | Finds devices matching **any** of the given tags. |
+
+<a name="device-findbyalias" data-magellan-destination="device-findbyalias"></a>
+
+---
+
+#### Find By Alias
+Finds devices by their alias.
+
+##### Syntax
+`device.findByAlias(alias,...,aliasN)`
+
+##### Parameter Values
+
+| Parameter | Description |
+|-----------|-------------|
+| alias     | Required. One or more aliases to find. |
+
+##### Return Value
+Array of device objects.
+{% gist CHLibrarian/1754b5904fbe118ebbee %}
+
+##### Example
+{% gist CHLibrarian/324803e628f6f651eaad %}
+
+<a name="device-findbyid" data-magellan-destination="device-findbyid"></a>
+
+---
+
+#### Find By Id
+Finds devices by their device id.
+
+##### Syntax
+`device.findById(id,...,idN)`
+
+##### Parameter Values
+
+| Parameter | Description |
+|-----------|-------------|
+| id        | Required. One or more ids to find. |
+
+##### Return Value
+Array of device objects.
+{% gist CHLibrarian/1754b5904fbe118ebbee %}
+
+##### Example
+{% gist CHLibrarian/324803e628f6f651eaad %}
+
+<a name="device-alltagged" data-magellan-destination="device-alltagged"></a>
+
+---
+
+#### All Tagged
+Finds devices by tags. Adding more tags seperated by commas to the same function call filters only devices that have *all* tags on the same device.
+
+##### Syntax
+`device.allTagged(tags)`
+
+##### Parameter Values
+
+| Parameter | Description |
+|-----------|-------------|
+| tags      | Required. A string containing the tag(s) to search for. Multiple tags can be searched for by separating them with commas. Results will contain devices that match **all** the specified tags. |
+
+##### Return Value
+Array of device objects.
+{% gist CHLibrarian/1754b5904fbe118ebbee %}
+
+##### Example
+{% gist CHLibrarian/324803e628f6f651eaad %}
+
+
+<a name="device-anytagged" data-magellan-destination="device-anytagged"></a>
+
+---
+
+#### Any Tagged
+Finds devices by tags. This function returns devices that match *any* of the given tags.
+
+##### Syntax
+`device.anyTagged(tags)`
+
+##### Parameter Values
+
+| Parameter | Description |
+|-----------|-------------|
+| tags      | Required. A string containing the tag(s) to search for. Multiple tags can be searched for by separating them with commas. Results will contain devices that match **any** of the specified tags. |
+
+##### Return Value
+Array of device objects.
+{% gist CHLibrarian/1754b5904fbe118ebbee %}
+
+##### Example
+{% gist CHLibrarian/324803e628f6f651eaad %}
+
+
 <a name="geofence" data-magellan-destination="geofence"></a>
 
 ---
@@ -393,7 +539,7 @@ of your request in your logs, but you will not be able to do anything with the r
 
 ---
 
-#### GET
+#### Get
 
 Allows you to perform an http GET request to a specific URL. You can specify optional query parameters and headers with the *params*, and *headers* parameters. These need to be in the form of JSON strings.
 
@@ -418,7 +564,7 @@ Nothing.
 
 ---
 
-#### POST
+#### Post
 
 Allows you to perform an http POST request to a specific URL. You can specify optional headers with the  *headers* parameter. This needs to be in the form of a JSON string.
 
@@ -519,8 +665,8 @@ The *vault* object provides access to the vault document store.
 | [find](#vault-find)       | Retreives a document from the vault via id. |
 | [allTagged](#vault-alltagged) | Finds vault objects matching **all** of the given tags |
 | [anyTagged](#vault-anytagged) | Finds vault objects matching **any** of the given tags |
-| [keyPath](#vault-keypath) | Finds vault objects with the given key path. |
 | [contains](#vault-contains) | Finds vault objects containing the given term.
+| [keyPath](#vault-keypath) | Finds vault objects with the given key path. |
 | [update](#vault-update)    | Updates an existing vault object with new information  |
 | [destroy](#vault-destroy)   | Deletes a vault object from the system |
 
@@ -629,46 +775,97 @@ An array of vault objects.
 ##### Example
 {% gist CHLibrarian/f95de5fabe8af80431ce %}
 
+---
 
-<a name="vault-retrievingbyvalue"></a>
-<a data-magellan-destination="vault-retrievingbyvalue"></a>
+<a name="vault-contains" data-magellan-destination="vault-contains"></a>
 
-### Retrieving by Value
+#### Contains
+Finds all vault objects that contain the given term.
 
-Contains allows you to search inside a vault item for a particular value.
+##### Syntax
+`vault.contains(term)`
 
+##### Parameter Values
+
+| Parameter | Description |
+|-----------|-------------|
+| term      | Required. A string containing the term to search for. Any documents containing the term will be returned. |
+
+##### Return Value
+An array of vault objects.
+{% gist CHLibrarian/a9409c08102b01815250 %}
+
+##### Example
 {% gist CHLibrarian/ccd10b6bf887a37037fc %}
-<br />
 
-<a name="vault-retrievingbykeypathvalue"></a>
-<a data-magellan-destination="vault-retrievingbykeypathvalue"></a>
+<a name="vault-keypath" data-magellan-destination="vault-keypath"></a>
 
-### Retrieving by Matching KeyPath/Value
+---
 
-KeyPath search allows you to get all items which a matching value for a specific keypath.
+#### KeyPath
+Finds all vault objects that have the specified key path. If a value is provided, then documents that have the value
+at the key path will be returned.
 
+##### Syntax
+`vault.keyPath(key, value)`
+
+##### Parameter Values
+
+| Parameter | Description |
+|-----------|-------------|
+| key       | Required. A string containing the key to search for. Use dot notation *'address.city'* for specifying a nested key. |
+| value     | Optional. If provided documents that match the value at the key will be returned. Otherwise, all documents that contain the key will be returned. |
+
+##### Return Value
+An array of vault objects.
+{% gist CHLibrarian/a9409c08102b01815250 %}
+
+##### Example
 {% gist CHLibrarian/833335fce9bb9e522407 %}
-<br />
 
-<a name="vault-updating"></a>
-<a data-magellan-destination="vault-updating"></a>
+<a name="vault-update" data-magellan-destination="vault-update"></a>
 
-### Updating
+---
 
-Updating a vault item is similar to creating one. ContextHub first updates the vault item on the server, then triggers pushes to devices interested in vault items with those specific tags.
+#### Update
+Replaces the vault object at the given id with the given data.
 
+##### Syntax
+`vault.update(id, data, tags = nil)`
+
+##### Parameter Values
+
+| Parameter | Description |
+|-----------|-------------|
+| id        | Required. The id of the vault object to update. |
+| data      | Required. Stringified JSON of the data you want to store in the vault. |
+| tags      | Optional. A comma separated string of tags to associate with the vault object. If you don't want to update the tags, you can omit this parameter. |
+
+##### Return Value
+Nothing.
+
+##### Example
 {% gist CHLibrarian/cd7dc04e6624ebbc35e2 %}
-<br />
 
-<a name="vault-deleting"></a>
-<a data-magellan-destination="vault-deleting"></a>
+<a name="vault-destroy" data-magellan-destination="vault-destroy"></a>
 
-### Deleting
+#### Destroy
+Deleting a vault items only requires passing the id to the *vault* object. The vault item is deleted from ContextHub.
 
-Deleting a vault items only requires passing the id to the `vault` object. The vault item is deleted from ContextHub, then triggers pushes to devices interested in vault item deletions with those specific tags.
+##### Syntax
+`vault.destroy(id)`
 
+##### Parameter Values
+
+| Parameter | Description |
+|-----------|-------------|
+| id        | Required. The id of the vault object to delete. |
+
+##### Return Value
+Nothing.
+
+##### Example
 {% gist CHLibrarian/a55f094872efed65ad3b %}
-<br />
 
 
 <a name="events"></a>
