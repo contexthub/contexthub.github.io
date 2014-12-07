@@ -8,7 +8,7 @@
 {% assign restapi = '/docs/restapi/index.html' %}
 {% assign xamarin = '/docs/xamarin/index.html' %}
 {% assign distributeddata = '/docs/distributeddata/index.html' %}
-{% assign feeds = '/docs/feeds/index.html' %}
+{% assign triggers = '/docs/triggers/index.html' %}
 {% assign apilibraries = '/docs/apilibraries/index.html' %}
 {% assign downloads = '/docs/downloads/index.html' %}
 {% assign samples = '/docs/samples/index.html' %}
@@ -136,12 +136,30 @@
                 </dd>
             </dl>
 
-            <dd data-magellan-arrival="event"><a href="#event">Event</a></dd>
-            <dl class="sub-nav">
-                <dd data-magellan-arrival="event">
-                  <a href="#push-deliver">asdf</a>
-                </dd>
-            </dl>
+           <dd data-magellan-arrival="event"><a href="#event">Event</a></dd>
+           <dl class="sub-nav">
+               <dd data-magellan-arrival="event-sampleevent">
+                 <a href="#event-sampleevent">Sample Event</a>
+               </dd>
+               <dd data-magellan-arrival="event-beaconinout">
+                 <a href="#event-beaconinout">Beacon In/Out</a>
+               </dd>
+               <dd data-magellan-arrival="event-beaconchanged">
+                 <a href="#event-beaconchanged">Beacon Changed</a>
+               </dd>
+               <dd data-magellan-arrival="event-geofenceinout">
+                 <a href="#event-geofenceinout">Geofence In/Out</a>
+               </dd>
+               <dd data-magellan-arrival="event-locationchanged">
+                 <a href="#event-locationchanged">Location Changed</a>
+               </dd>
+               <dd data-magellan-arrival="event-tick">
+                 <a href="#event-tick">Tick</a>
+               </dd>
+               <dd data-magellan-arrival="event-customevents">
+                 <a href="#event-customevents">Custom Events</a>
+               </dd>
+           </dl>
 
             <dd data-magellan-arrival="geofence"><a href="#geofence">Geofence</a></dd>
             <dl class="sub-nav">
@@ -213,22 +231,6 @@
                 </dd>
             </dl>
 
-            <dd data-magellan-arrival="events"><a href="#events">Events</a></dd>
-            <dl class="sub-nav">
-                <dd data-magellan-arrival="events-sampleevent">        <a href="#events-sampleevent">Sample Event</a></dd>
-                <dd data-magellan-arrival="events-beaconinout">        <a href="#events-beaconinout">Beacon In/Out</a></dd>
-                <dd data-magellan-arrival="events-beaconchanged"> <a href="#events-beaconchanged">Beacon Changed</a></dd>
-                <dd data-magellan-arrival="events-geofenceinout">  <a href="#events-geofenceinout">Geofence In/Out</a></dd>
-                <dd data-magellan-arrival="events-locationchanged">        <a href="#events-locationchanged">Location Changed</a></dd>
-                <dd data-magellan-arrival="events-tick">        <a href="#events-tick">Tick</a></dd>
-                <dd data-magellan-arrival="events-customevents">        <a href="#events-customevents">Custom Events</a></dd>
-            </dl>
-
-            <dd data-magellan-arrival="triggers"><a href="#triggers">Triggers</a></dd>
-            <dl class="sub-nav">
-                <dd data-magellan-arrival="triggers-creating">        <a href="#triggers-creating">Creating</a></dd>
-                <dd data-magellan-arrival="triggers-posting">        <a href="#triggers-posting">Posting</a></dd>
-            </dl>
         </div>
     {% else %}
         <dd ><a class="home" href="/docs/contextualengine">Contextual Engine</a></dd>
@@ -408,9 +410,17 @@
         <dd ><a class="home" href="/docs/distributeddata">Distributed Data</a></dd>
     {% endif %}
 
-    {% if page.url == feeds %}
+    {% if page.url == triggers %}
         <div id="activesection">
-            <dd ><a class="home" href="/docs/triggers">Triggers</a></dd>
+          <dd data-magellan-arrival="triggers"><a href="#triggers">Triggers</a></dd>
+          <dl class="sub-nav">
+              <dd data-magellan-arrival="triggers-creating">
+                <a href="#triggers-creating">Creating</a>
+              </dd>
+              <dd data-magellan-arrival="triggers-posting">
+                <a href="#triggers-posting">Posting</a>
+              </dd>
+          </dl>
         </div>
     {% else %}
         <dd ><a class="home" href="/docs/triggers">Triggers</a></dd>
