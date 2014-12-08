@@ -1,5 +1,4 @@
 {% assign overview = '/docs/overview/index.html' %}
-{% assign introduction = '/docs/introduction/index.html' %}
 {% assign pushnotifications = '/docs/pushnotifications/index.html' %}
 {% assign admin = '/docs/admin/index.html' %}
 {% assign contextualengine = '/docs/contextualengine/index.html' %}
@@ -20,21 +19,19 @@
 
     {% if page.url == overview %}
         <div id="activesection">
-            <dd ><a class="home" href="/docs/overview">Overview</a></dd>
+          <dd>
+            <a class="home" href="#overview">Overview</a>
+          </dd>
+          <dd data-magellan-arrival="introduction">
+            <a href="#introduction">Introduction</a>
+          </dd>
+          <dd data-magellan-arrival="getting-started">
+            <a href="#getting-started">Getting Started</a>
+          </dd>
         </div>
     {% else %}
         <dd ><a class="home" href="/docs/overview">Overview</a></dd>
     {% endif %}
-
-
-    {% if page.url == introduction %}
-        <div id="activesection">
-            <dd ><a class="home" href="/docs/introduction">Introduction</a></dd>
-        </div>
-    {% else %}
-        <dd ><a class="home" href="/docs/introduction">Introduction</a></dd>
-    {% endif %}
-
 
     {% if page.url == pushnotifications %}
         <div id="activesection">
@@ -70,7 +67,7 @@
                 </dl>
 
                 <dd data-magellan-arrival="Triggers"><a href="#Triggers">Triggers</a></dd>
-                
+
                 <dd data-magellan-arrival="Settings"><a href="#Settings">Settings</a></dd>
                 <dl class="sub-nav">
                     <dd data-magellan-arrival="PushServices"><a href="#PushServices">Push Services</a></dd>
@@ -427,15 +424,15 @@
 
     {% if page.url == triggers %}
         <div id="activesection">
-          <dd data-magellan-arrival="triggers"><a href="#triggers">Triggers</a></dd>
-          <dl class="sub-nav">
-              <dd data-magellan-arrival="triggers-creating">
-                <a href="#triggers-creating">Creating</a>
-              </dd>
-              <dd data-magellan-arrival="triggers-posting">
-                <a href="#triggers-posting">Posting</a>
-              </dd>
-          </dl>
+          <dd data-magellan-arrival="triggers">
+            <a class="home" href="#triggers">Triggers</a>
+          </dd>
+          <dd data-magellan-arrival="triggers-creating">
+            <a href="#triggers-creating">Creating</a>
+          </dd>
+          <dd data-magellan-arrival="triggers-posting">
+            <a href="#triggers-posting">Posting</a>
+          </dd>
         </div>
     {% else %}
         <dd ><a class="home" href="/docs/triggers">Triggers</a></dd>
