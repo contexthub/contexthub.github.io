@@ -19,6 +19,11 @@ a {
   text-transform: none;
   letter-spacing: 0px;
 }
+
+#top hr {
+  padding-bottom: 60px;
+}
+
 h3 + p{
   padding-left:30px;
 }
@@ -56,7 +61,22 @@ p:last-child {
 .gist{
   padding-left:30px;
 }
-./*side-nav li a:not(.button) {
+
+tt, kbd, code {
+  font-family: Monaco, monospace;
+  font-size: 80%;
+  color: black;
+  background-color: #fff;
+  padding: .15em;
+  border: 1px solid #ddd;
+  border-bottom: 1px solid #ccc;
+  white-space: pre-wrap;
+}
+
+pre code {
+  display: block;
+}
+/*.side-nav li a:not(.button) {
   display: block;
   color: white;
 }*/
@@ -206,7 +226,7 @@ h2 {
   font-weight: bold;
   line-height: 1.4;
   text-transform: uppercase;
-  
+
   margin-bottom: 20px;
   margin-top:20px;
 }
@@ -241,7 +261,7 @@ pre {
 .scrollbar::-webkit-scrollbar{
   width:6px;
   background-color:#cccccc;
-} 
+}
 
 
 .scrollbar::-webkit-scrollbar-thumb{
@@ -260,7 +280,7 @@ border:1px solid #333333;
 border:1px gray solid;
 border-radius:10px;
 -webkit-box-shadow:0 0 6px gray inset;
-} 
+}
 
 .side-nav h4 {
   font-family: 'Open Sans', sans-serif;
@@ -279,7 +299,7 @@ ul.side-nav{
 
 
 #top{
-  
+
   padding: 20px 20px 10px 20px;
 }
 
@@ -451,7 +471,7 @@ body > div.row.full-width {
 header.global {
   z-index: 99;
   position: relative;
-  background: #fff; 
+  background: #fff;
 }
 
 .fixed {
@@ -463,7 +483,7 @@ header.global {
 /*  padding-top: 0px !important;
 */}
 
-.side-nav 
+.side-nav
 {
 /*  padding-left:15px;
   padding-right:15px;*/
@@ -554,7 +574,7 @@ div.panel {
 /************ Footer *****************/
 footer {
   background-color: #fff;
-  
+
   background-repeat: no-repeat;
 }
 
