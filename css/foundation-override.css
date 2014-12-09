@@ -594,6 +594,10 @@ div.panel {
   text-align: center;
 }
 
+/*ugly fix for small amount of content of overview */
+.overview-push-footer {
+  padding-bottom:450px;
+}
 /************ Footer *****************/
 
 
