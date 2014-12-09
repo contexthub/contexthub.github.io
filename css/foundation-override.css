@@ -108,6 +108,9 @@ ul.magellan {width: 240px}
   height:200px;
   overflow-y:scroll;
 }
+.tabs.vertical dd {
+  min-height: 62px;
+}
 
 .tabs dd > a{
   background-color:transparent;
@@ -159,8 +162,7 @@ dd.active{
 .sub-nav dt .home, .sub-nav dd .home, .sub-nav li .home{
 
   margin-left: -15px;
-  padding-top: 8px;
-  padding-bottom: 8px;
+  line-height: 62px;
 }
 /*.side-nav li a:not(.button){
   color :#fff;
@@ -193,10 +195,8 @@ dd.active{
 }
 
 #activesection dd > a:hover {
-background-color: rgba(255,255,255,0.2);
-color: #f15d37;
-/* border-top: 1px dashed #82a2a7; */
-border-bottom: 1px dashed #82a2a7;
+  background-color: rgba(255,255,255,0.2);
+  color: #f15d37;
 }
 
 dl#side-nav.sub-nav dl.sub-nav dd a:hover {
@@ -210,8 +210,7 @@ background-color: rgba(255,255,255,0.25);
 
 dl#side-nav.sub-nav dl.sub-nav dd a{
   padding-left: 60px;
-color:#82A2A7;
-
+  color:#82A2A7;
 }
 dl#side-nav.sub-nav dl.sub-nav dd.active a{
   color:#f1411d;
@@ -219,7 +218,9 @@ dl#side-nav.sub-nav dl.sub-nav dd.active a{
 dl#side-nav.sub-nav dl.sub-nav dd a:hover{
   color:white;
 }
-
+[data-magellan-expedition] .sub-nav a {
+  line-height: 62px;
+}
 
 /*h1, h2, h3, h4, h5, h6 {
   font-family: 'Abel', sans-serif;
@@ -318,7 +319,7 @@ text-transform: none;
 }
 #top{
   
-  padding: 20px 20px 10px 20px;
+  padding: 20px 20px 0 20px;
 }
 
 hr.short {
@@ -597,18 +598,13 @@ div.panel {
 
 
 footer {
-background-color: #ebebeb;
-background-repeat: no-repeat;
-position: absolute;
-right: 0;
-/* bottom: -100px; */
-width: 102%;
-margin: 0;
-padding: 0;
-margin-left: 20px;
-z-index: -2;
-height: 64px;
-/* bottom: 1vh; */
+  background-color: #ebebeb;
+  margin: 0;
+  padding: 0;
+  margin-left: -35px;
+  z-index: -2;
+  height: 64px;
+  margin-right: -20px;
 }
 footer .contact {
   padding:60px 0px 30px 0px;
@@ -616,6 +612,10 @@ footer .contact {
 
 footer p {
   margin:20px;
+  font-size: 14px;
+}
+footer a {
+  color:#f15d37;
 }
 
 footer p:last-child {
