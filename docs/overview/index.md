@@ -11,21 +11,12 @@ ContextHub provides a mechanism for third party developers to quickly and easily
 
 ContextHub makes this possible through the following five major components:
 
-<<<<<<< HEAD
-<ol class="overview-push-footer">
-<li><span class="liText"><strong>Element Services.</strong> Enable the creation of contextual object abstractions in ContextHub. These can be elements like geofences, beacons, motion states, thermal or proximity ranges, etc.) so applications can monitor and respond to user interactions or changes with them.</span></li>
-<li><span class="liText"><strong>Event Services.</strong> Establish interfaces with mobile devices and other smart objects, to allow easy collection of sensor data (GPS, motion, accelerometer, etc.). This allows their data and capabilities to become available not only locally, but remotely as well.</span></li>
-<li><span class="liText"><strong>Contextual Engine.</strong> Provides developers with a central, cloud-based rules engine that responds to contextual events, with a context-aware language that allows triggering customized actions based on an evaluation of relevant data.</span></li>
-<li><span class="liText"><strong>Application Services.</strong> Provide a set of convenient cloud-based services that facilitate development of contextual applications and reduce the need for developers to establish and manage a back-end scalable infrastructure of their own - for example, data storage (Vault) or push messaging (Push).</span></li>
-<li><span class="liText"><strong>Analytics Services.</strong> Provide a robust set of analytical capabilities for developers and administrators.</span></li>
-</ol>
-=======
+
 1. <span class="liText">**Element Services.** Enable the creation of contextual object abstractions in ContextHub. These can be elements like geofences, beacons, motion states, thermal or proximity ranges, etc., so applications can monitor and respond to user interactions or changes with them.</span>
 2. <span class="liText">**Event Services.** Establish interfaces with mobile devices and other smart objects, to allow easy collection of sensor data (GPS, motion, accelerometer, etc.). This allows their data and capabilities to become available not only locally, but remotely as well.</span>
 3. <span class="liText">**Contextual Engine.** Provides developers with a central, cloud-based rules engine that responds to contextual events, with a context-aware language that allows triggering customized actions based on an evaluation of relevant data.</span>
 4. <span class="liText">**Application Services.** Provide a set of convenient cloud-based services that facilitate development of contextual applications and reduce the need for developers to establish and manage a back-end scalable infrastructure of their own - for example, data storage (Vault) or push messaging (Push).</span>
 5. <span class="liText">**Analytics Services.** Provide a robust set of analytical capabilities for developers and administrators.</span>
->>>>>>> FETCH_HEAD
 
 ## Introduction
 {: data-magellan-destination="introduction"}
