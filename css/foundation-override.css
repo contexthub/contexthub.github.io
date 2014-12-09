@@ -3,37 +3,57 @@ body{
   font-family: 'Open Sans', sans-serif;
 
 }
-p {
+p,
+a,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: 'Open Sans', sans-serif;
+
+}
+p {
   font-size:18px;
   font-weight:200;
+
 }
 
 a {
-  font-family: 'Open Sans', sans-serif;
+  cursor: pointer !important;
 }
 #top h3{
-  padding-left: 30px;
+  padding-left: 20px;
   color: #f15d37;
   font-weight: normal;
   text-transform: none;
   letter-spacing: 0px;
+  padding-top: 25px; /*give headlines a little breathing room up top */
 }
-h3 + p{
-  padding-left:30px;
+/* super low down dirty shame...gangnum style */
+h2 + p {
+padding-left: 0;
+}
+
+h3 + p,
+h3 + p + p,
+h3 + p + p + ul + p, 
+h3 + p + p + ul + p + p {
+  padding-left:20px;
 }
 li{
-  /*color:#f15d37;*/
+  color:#f15d37;
 }
 
 h3 + p + ul{
   color:black;
-  padding-left:30px;
+  padding-left:20px;
 }
 
 /*I feel dirty, but what else*/
-h3 + p + ul + p{
-  padding-left:30px;
+h3 + p + ul + p, h3 + p + p + ul{
+  padding-left:20px;
 }
 .liText{
   color:black;
@@ -139,6 +159,8 @@ dd.active{
 .sub-nav dt .home, .sub-nav dd .home, .sub-nav li .home{
 
   margin-left: -15px;
+  padding-top: 8px;
+  padding-bottom: 8px;
 }
 /*.side-nav li a:not(.button){
   color :#fff;
@@ -147,13 +169,13 @@ dd.active{
   background-color:#182b35;
 
   /*font-weight:lighter;*/
-  padding-top:16px;
-  padding-bottom:16px;
+  /*padding-top:16px;
+  padding-bottom:16px;*/
 }
 .home{
-  font-weight: bold;
-  font-family: 'Open Sans', sans-serif;
+  /*font-family: 'Open Sans', sans-serif;*/
   font-size:18px;
+  font-weight: 600;
 
 }
 
@@ -170,6 +192,17 @@ dd.active{
   color:white;
 }
 
+#activesection dd > a:hover {
+background-color: rgba(255,255,255,0.2);
+color: #f15d37;
+/* border-top: 1px dashed #82a2a7; */
+border-bottom: 1px dashed #82a2a7;
+}
+
+dl#side-nav.sub-nav dl.sub-nav dd a:hover {
+color: white;
+background-color: rgba(255,255,255,0.25);
+}
 
 .heading{
   padding-top:15px;
@@ -245,7 +278,7 @@ pre {
 
 
 .scrollbar::-webkit-scrollbar-thumb{
-background-color:#182b35;
+background-color:#797979;
 border-radius:10px;
 }
 /*.scrollbar::-webkit-scrollbar-thumb:hover{
@@ -276,8 +309,13 @@ ul.side-nav{
   /*width:100%;*/
   /*max-width:235px;*/
 }
+h2#ios {
+text-transform: none;
+}
 
-
+.p-indent-30 {
+  padding-left:30px;
+}
 #top{
   
   padding: 20px 20px 10px 20px;
@@ -476,6 +514,10 @@ header.global {
   /*padding-bottom:80px;*/
 }
 
+.sub-nav dt.active a, .sub-nav dd.active a, .sub-nav li.active a {
+  border-radius: 0;
+}
+
 .button {
   border-style: solid;
   border-width: 0px;
@@ -552,14 +594,32 @@ div.panel {
 }
 
 /************ Footer *****************/
-footer {
-  background-color: #fff;
-  
-  background-repeat: no-repeat;
-}
 
+
+footer {
+background-color: #ebebeb;
+background-repeat: no-repeat;
+position: absolute;
+right: 0;
+/* bottom: -100px; */
+width: 102%;
+margin: 0;
+padding: 0;
+margin-left: 20px;
+z-index: -2;
+height: 64px;
+/* bottom: 1vh; */
+}
 footer .contact {
   padding:60px 0px 30px 0px;
+}
+
+footer p {
+  margin:20px;
+}
+
+footer p:last-child {
+  padding-bottom: 0;
 }
 
 footer h1 {
@@ -717,5 +777,24 @@ footer .closing p a {
   }
 
 }
+@media only screen and (max-width:400px) {
+  #top h3{
+    padding-left: 0;
+  }
 
+  h3 + p,
+  h3 + p + p,
+  h3 + p + p + ul + p, 
+  h3 + p + p + ul + p + p {
+    padding-left:0;
+  }
 
+  h3 + p + ul{
+    padding-left:2px;
+  }
+
+  /*I feel dirty, but what else*/
+  h3 + p + ul + p, h3 + p + p + ul{
+    padding-left:0;
+  }
+}
