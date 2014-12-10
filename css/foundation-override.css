@@ -355,6 +355,7 @@ text-transform: none;
 #top{
 
   padding: 20px 20px 0 20px;
+  min-height: 950px;
 }
 
 hr.short {
@@ -373,6 +374,10 @@ hr {
   background: #fff;
   height: 60px;
 }
+.top-bar-section ul.right {
+padding-right: 10px;
+}
+
 .contain-to-grid .top-bar{
   max-width: 100%;
 }
@@ -641,10 +646,8 @@ footer {
   background-color: #ebebeb;
   margin: 0;
   padding: 0;
-  margin-left: -35px;
   z-index: -2;
   height: 64px;
-  margin-right: -20px;
 }
 footer .contact {
   padding:60px 0px 30px 0px;
