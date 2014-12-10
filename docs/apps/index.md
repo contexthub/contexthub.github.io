@@ -14,6 +14,26 @@ layout: default
 <a name="ios-wayfinder"></a>
 <a data-magellan-destination="ios-wayfinder"></a>
 
+### Beacon Bits
+
+<div class="text-center">
+  {% include beaconbits_thumbs.html %}
+</div>
+
+This utility is for developers building beacon/iBeacon applications, to make testing more convenient. 
+
+When first building an a beacon-enabled app, you may not have a box of Estimote beacons or other beacon hardware laying around to help you test, but you've probably got access to two or more iOS devices. This app turns your device into a beacon, or can act as a beacon locator – helping you test and debug.
+
+[Download Beacon Bits from the iTunes AppStore.](https://itunes.apple.com/us/app/beacon-bits/id908415047?ls=1&mt=8)
+
+<a href="https://itunes.apple.com/us/app/beacon-bits/id908415047?ls=1&mt=8"><img src="/img/apple_app_logo.png" style="padding-bottom:35px;" /></a>
+
+
+
+
+
+
+
 ### WayFinder
 
 <div class="text-center">
@@ -30,15 +50,3 @@ Grab the [source](https://github.com/contexthub/Wayfinder) off of GitHub, and bu
 
 <a name="ios-beaconbits"></a>
 <a data-magellan-destination="ios-beaconbits"></a>
-
-### Beacon Bits
-
-<div class="text-center">
-  {% include beaconbits_thumbs.html %}
-</div>
-
-This utility is for developers building beacon/iBeacon applications, to make testing more convenient. 
-
-When first building an a beacon-enabled app, you may not have a box of Estimote beacons or other beacon hardware laying around to help you test, but you've probably got access to two or more iOS devices. This app turns your device into a beacon, or can act as a beacon locator – helping you test and debug.
-
-[Download Beacon Bits from the iTunes AppStore.](https://itunes.apple.com/us/app/beacon-bits/id908415047?ls=1&mt=8)

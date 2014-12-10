@@ -1,4 +1,4 @@
-{% assign overview = '/docs/overview/index.html' %}
+{% assign overview = '/index.html' %}
 {% assign pushnotifications = '/docs/pushnotifications/index.html' %}
 {% assign admin = '/docs/admin/index.html' %}
 {% assign contextualengine = '/docs/contextualengine/index.html' %}
@@ -30,7 +30,7 @@
           </dd>
         </div>
     {% else %}
-        <dd ><a class="home" href="/docs/overview">Overview</a></dd>
+        <dd ><a class="home" href="/">Overview</a></dd>
     {% endif %}
 
     {% if page.url == pushnotifications %}
@@ -110,19 +110,10 @@
 
             <dd data-magellan-arrival="console"><a href="#console">Console</a></dd>
             <dl class="sub-nav">
-                <dd data-magellan-arrival="console-log">
-                <dd data-magellan-arrival="geofence-response">        <a href="#geofence-response">Response</a></dd>
-                <dd data-magellan-arrival="geofence-retrievingbytag"> <a href="#geofence-retrievingbytag">Retrieving By Tag</a></dd>
-                <dd data-magellan-arrival="geofence-retrievingbyid">  <a href="#geofence-retrievingbyid">Retrieving By ID</a></dd>
-                <dd data-magellan-arrival="geofence-updating">        <a href="#geofence-updating">Updating</a></dd>
-                <dd data-magellan-arrival="geofence-deleting">        <a href="#geofence-deleting">Deleting</a></dd>
-            </dl>
-
-            <dd data-magellan-arrival="http"><a href="#http">HTTP</a></dd>
-             <dl class="sub-nav">
-                  <a href="#console-log">Log</a>
-                </dd>
-            </dl>
+              <dd data-magellan-arrival="console-log">
+                <a href="#console-log">Log</a>
+              </dd>
+           </dl>
 
             <dd data-magellan-arrival="device"><a href="#device">Device</a></dd>
             <dl class="sub-nav">
@@ -489,8 +480,8 @@
 
                 <dd data-magellan-arrival="ios"><a href="#ios">iOS</a></dd>
                 <dl class="sub-nav">
-                    <dd data-magellan-arrival="ios-wayfinder"><a href="#ios-wayfinder">Wayfinder</a></dd>
                     <dd data-magellan-arrival="ios-beaconbits"><a href="#ios-beaconbits">Beacon Bits</a></dd>
+                    <dd data-magellan-arrival="ios-wayfinder"><a href="#ios-wayfinder">Wayfinder</a></dd>
                 </dl>
         </div>
     {% else %}
