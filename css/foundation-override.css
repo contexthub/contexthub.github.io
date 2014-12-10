@@ -43,7 +43,7 @@ padding-left: 0;
 
 h3 + p,
 h3 + p + p,
-h3 + p + p + ul + p, 
+h3 + p + p + ul + p,
 h3 + p + p + ul + p + p {
   padding-left:20px;
 }
@@ -60,9 +60,24 @@ h3 + p + ul{
 h3 + p + ul + p, h3 + p + p + ul{
   padding-left:20px;
 }
-.liText{
-  color:black;
+
+/* allows for orange number and black text without adding html to the markdown */
+ol li {
+    list-style-type: none;
+    counter-increment: list;
+    position: relative;
+    color: black;
 }
+
+ol li:before {
+    content: counter(list) ".";
+    position: absolute;
+    left: -2.5em;
+    width: 2em;
+    text-align: right;
+    color: #f15d37;
+}
+
 .subtitle{
   color:#82A2A7;
   font-size:18px;
@@ -338,7 +353,7 @@ text-transform: none;
   padding-left:30px;
 }
 #top{
-  
+
   padding: 20px 20px 0 20px;
 }
 
@@ -618,6 +633,7 @@ div.panel {
 .overview-push-footer {
   padding-bottom:450px;
 }
+
 /************ Footer *****************/
 
 
@@ -808,7 +824,7 @@ footer .closing p a {
 
   h3 + p,
   h3 + p + p,
-  h3 + p + p + ul + p, 
+  h3 + p + p + ul + p,
   h3 + p + p + ul + p + p {
     padding-left:0;
   }
