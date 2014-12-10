@@ -14,3 +14,7 @@ layout: default
 
 * [Android Framework](https://github.com/contexthub/contexthub-android-framework){: target="_blank"}
 * [Android Reference](/contexthub-android-framework/){: target="_blank"}
+
+## REST
+
+* [REST API Reference](/contexthub-api)
