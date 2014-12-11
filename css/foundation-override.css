@@ -57,9 +57,14 @@ h3 + p + ul{
 }
 
 /*I feel dirty, but what else*/
-h3 + p + ul + p, h3 + p + p + ul{
+h3 + p + ul + p, 
+h3 + p + p + ul{
   padding-left:20px;
 }
+h3 + table {
+  margin-left: 20px;
+}
+
 
 /* allows for orange number and black text without adding html to the markdown */
 ol li {
@@ -86,7 +91,7 @@ ol li:before {
 }
 
 p:last-child {
-    padding-bottom:800px;
+    /*padding-bottom:800px;*/
 }
 
 .photos ~ p{
@@ -96,6 +101,49 @@ p:last-child {
 .gist{
   padding-left:20px;
 }
+h5 + p + .gist {
+padding-left: 0;
+}
+
+#gist14197912,
+#gist14198495,
+#gist14198119,
+#gist16810514,
+#gist14198045,
+#gist16810514,
+#gist16811265,
+#gist14198200,
+#gist14198731,
+#gist16879546,
+#gist16880573,
+#gist16901883,
+#gist16880573,
+#gist16901883,
+#gist16880573,
+#gist16901883,
+#gist16880573,
+#gist16901883
+ {
+  padding-left:0;
+}
+
+/*i give up  */
+h5 + script + link + .gist {
+  padding-left:0;
+}
+h1#contextual-engine h3 ~ p {
+  padding-left: 0;
+}
+h3 ~ p {
+  padding-left:20px;
+}
+h3 ~ ul {
+  padding-left:22px;
+}
+h4 ~ p {
+  padding-left:0;
+}
+
 
 tt, kbd, code {
   font-family: Monaco, monospace;
@@ -287,10 +335,6 @@ h3 {
   font-weight: bold;
   font-size: 24px;
   margin-bottom: 10px;
-  /*letter-spacing: 7px;*/
-
-
-
 }
 
 
@@ -302,9 +346,6 @@ pre {
   position:fixed;
   top:60px;
   bottom:0px;
-
-  /*width:100%;
-  max-width: 235px;*/
 }
 
 .scrollbar::-webkit-scrollbar{
@@ -317,14 +358,7 @@ pre {
 background-color:#797979;
 border-radius:10px;
 }
-/*.scrollbar::-webkit-scrollbar-thumb:hover{
-background-color:#BF4649;
-border:1px solid #333333;
-}
-.scrollbar::-webkit-scrollbar-thumb:active{
-background-color:#A6393D;
-border:1px solid #333333;
-} */
+
 #scrollbar::-webkit-scrollbar-track{
 border:1px gray solid;
 border-radius:10px;
@@ -709,12 +743,18 @@ footer .closing p a {
   }
   .side-nav-mobile a {
     width:100%;
+      
   }
 
+  .sticky-side-nav-mobile {
+
+  }
   .f-dropdown {
     width:100%;
     max-width: 100%;
     margin-top: 0px;
+
+
   }
 
   ul #downDrop .f-dropdown .open {
@@ -741,37 +781,12 @@ footer .closing p a {
     position: absolute !important;
   }
 
-  /*.logomark {
-    background-image: url("../img/animated-logo-static.png");
-    height: 25px;
-    width: 25px;
-    margin-top: 10px;
-    margin-right: 8px;
-    position: relative;
-    float: left;
-    background-size: 25px 25px;
-    background-repeat: no-repeat;
-  }
-
-  .logo-hub {
-    font-size: 19px;
-  }
-
-  .logo-context {
-    font-size: 19px;
-  }*/
-
-
-}
-
-
-@media only screen and (max-width : 950px) {
   .top-bar .name h1 a {
     width:80%;
   }
-/*  #sideNav{
-    width:0px;
-  }*/
+  #downDrop #side-nav {
+    height: auto;
+  }
   #top{
     width:100%;
   }
@@ -798,6 +813,15 @@ footer .closing p a {
   .top-bar-section li.active:not(.has-form) a:not(.button):hover{
     background-color: #ffffff;
   }
+  .sub-nav dd .home {
+    margin-left: 0;
+  }
+
+}
+
+
+@media only screen and (max-width : 950px) {
+  
 
 }
 
