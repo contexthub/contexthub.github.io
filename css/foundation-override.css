@@ -44,7 +44,9 @@ padding-left: 0;
 h3 + p,
 h3 + p + p,
 h3 + p + p + ul + p,
-h3 + p + p + ul + p + p {
+h3 + p + p + ul + p + p,
+h3 + p + p + pre + p,
+h3 + p + p + pre + p + p {
   padding-left:20px;
 }
 li{
@@ -64,6 +66,7 @@ h3 + p + p + ul{
 h3 + table {
   margin-left: 20px;
 }
+
 
 
 /* allows for orange number and black text without adding html to the markdown */
@@ -95,7 +98,7 @@ p:last-child {
 }
 
 .photos ~ p{
-  padding-left:30px;
+  padding-left:20px;
 }
 
 .gist{
@@ -134,13 +137,11 @@ h5 + script + link + .gist {
 h1#contextual-engine h3 ~ p {
   padding-left: 0;
 }
-h3 ~ p {
-  padding-left:20px;
-}
+
 h3 ~ ul {
   padding-left:22px;
 }
-h4 ~ p {
+h4 + p {
   padding-left:0;
 }
 
@@ -192,7 +193,7 @@ ul.magellan {width: 240px}
   overflow-y:scroll;
 }
 .tabs.vertical dd {
-  min-height: 62px;
+  min-height: 50px;
 }
 
 .tabs dd > a{
@@ -213,7 +214,6 @@ ul.magellan {width: 240px}
 
 
 .sub-nav dt.active a, .sub-nav dd.active a, .sub-nav li.active a{
-  /*background-color:#424b4e;*/
   background-color:#182B35;
   color:#f1411d;
   padding-left: 30px;
@@ -232,10 +232,6 @@ font-weight:lighter;
 
 #activesection>dl>dd{
   font-weight: lighter;
-  /*transition:;*/
-/*  -webkit-transition: height 300ms ease-out;
-    -moz-transition: height 300ms ease-out;
-    transition: height 300ms ease-out;*/
 }
 
 dd.active{
@@ -245,7 +241,7 @@ dd.active{
 .sub-nav dt .home, .sub-nav dd .home, .sub-nav li .home{
 
   margin-left: -15px;
-  line-height: 62px;
+  line-height: 50px;
 }
 /*.side-nav li a:not(.button){
   color :#fff;
@@ -266,11 +262,8 @@ dd.active{
 
 .tabs dd > a{
   font-family: 'Open Sans', sans-serif;
-/*  font-size: 16px;
-  font-weight:normal;*/
 }
 
-/*#sideNav #side-nav .sub-nav .tabs dd > a:hover*/
 
 .tabs dd > a:hover{
   background-color: #82A2A7;
@@ -302,7 +295,7 @@ dl#side-nav.sub-nav dl.sub-nav dd a:hover{
   color:white;
 }
 [data-magellan-expedition] .sub-nav a {
-  line-height: 62px;
+  line-height: 50px;
 }
 
 /*h1, h2, h3, h4, h5, h6 {
