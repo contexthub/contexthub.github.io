@@ -232,6 +232,7 @@ The *device* object you allows to find devices in your application.
 | [findById](#device-findbyid)       | Finds devices by their device id.                 |
 | [allTagged](#device-alltagged)     | Finds devices matching **all** of the given tags. |
 | [anyTagged](#device-anytagged)     | Finds devices matching **any** of the given tags. |
+| [near](#device-near)               | Finds devices near a location                     |
 
 <a name="device-findbyalias" data-magellan-destination="device-findbyalias"></a>
 
@@ -326,8 +327,35 @@ Array of device objects.
 ##### Example
 {% gist CHLibrarian/324803e628f6f651eaad %}
 
+<a name="device-near" data-magellan-destination="device-near"></a>
+
+---
+
+#### Near
+Finds devices near a location.
+
+##### Syntax
+`device.near(latitude, longitude, radius)`
+
+##### Parameter Values
+
+| Parameter | Description |
+|-----------|-------------|
+| latitude  | Required. The latitude of the position you want to find devices near.  |
+| longitude | Required. The longitude of the position you want to find devices near. |
+| radius    | Required. The radius *(in meters)* from the position you want to find devices near.  |
+
+##### Return Value
+Array of device objects.
+{% gist CHLibrarian/1754b5904fbe118ebbee %}
+
+##### Example
+{% gist CHLibrarian/324803e628f6f651eaad %}
+
 
 <a name="event" data-magellan-destination="event"></a>
+
+---
 
 ##EVENT
 Sensors in modern devices generate a lot of data which ContextHub packages today into an event. The `event` object contains the event that triggered the execution of the context rule. The `event` object is readonly and contains the following properties:
