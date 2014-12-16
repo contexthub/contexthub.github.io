@@ -1,6 +1,7 @@
 body{
   background-color: #f7f8f8;
   font-family: 'Open Sans', sans-serif;
+  height: 100%;
 
 }
 p,
@@ -420,6 +421,10 @@ body > div.row.full-width {
   margin-left: 0;
   margin-right: 0;
   max-width: 100%;
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -111px;
 }
 
 .full-width {
@@ -675,6 +680,7 @@ footer {
   padding: 0;
   z-index: -2;
   height: 64px;
+  clear:both;
 }
 footer .contact {
   padding:60px 0px 30px 0px;
