@@ -11,3 +11,4 @@ Push notifications lets you send foreground messages which your users will be al
 	<li><a href="http://docs.contexthub.com/docs/android/#PushNotifications">Android Push Notifications</li>
 </ul>
 
+You can also send Push Notifications to both iOS and Android devices using our <a href="http://docs.contexthub.com/contexthub-api/">REST API</a>. 
