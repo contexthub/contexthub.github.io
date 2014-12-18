@@ -630,7 +630,7 @@ button:hover, button:focus, .button:hover, .button:focus {
 }
 
 .sticky-side-nav-mobile {
-    position: fixed !important;
+    /*position: fixed !important;*/
     width: 100%;
     left: 0;
     top: 0px !important;
