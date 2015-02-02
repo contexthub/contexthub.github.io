@@ -224,6 +224,12 @@ Nothing.
 ## Device
 The *device* object you allows to find devices in your application.
 
+### Device Properties
+
+| Property  | Description |
+|-----------|-------------|
+| triggeringDevice | The device that triggered the event in this context rule. This can be `null` if the event originated from a trigger and not a device. |
+
 ###  Device Methods
 
 | Method                             | Description                                       |
