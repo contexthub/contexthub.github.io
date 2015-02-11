@@ -783,7 +783,7 @@ The *vault* object provides access to the vault document store.
 | [find](#vault-find)       | Retreives a document from the vault via id. |
 | [allTagged](#vault-alltagged) | Finds vault objects matching **all** of the given tags |
 | [anyTagged](#vault-anytagged) | Finds vault objects matching **any** of the given tags |
-| [contains](#vault-contains) | Finds vault objects containing the given term.
+| [search](#vault-search) | Finds vault objects containing the given term.
 | [keyPath](#vault-keypath) | Finds vault objects with the given key path. |
 | [update](#vault-update)    | Updates an existing vault object with new information  |
 | [destroy](#vault-destroy)   | Deletes a vault object from the system |
@@ -895,13 +895,19 @@ An array of vault objects.
 
 ---
 
-<a name="vault-contains" data-magellan-destination="vault-contains"></a>
+<a name="vault-search" data-magellan-destination="vault-search"></a>
 
-#### Contains
-Finds all vault objects that contain the given term.
+#### Search
+Finds all vault objects that contain the given term. You can use the following search operators in your queries to fine tune your results. You can use parentheses to set operator precedence.
+
+| Operator | Example |
+|----------|---------|
+| **Not**  | !term   |
+| **And**  | term1 & term2 |
+| **Or**   | term1 \| term2 |
 
 ##### Syntax
-`vault.contains(term)`
+`vault.search(term)`
 
 ##### Parameter Values
 
