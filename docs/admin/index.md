@@ -20,7 +20,7 @@ You can add one or more tags to a beacon in addition to its primary attributes. 
 
 ## Geofences
 
-The geofence page manages all of the geofences present in your application. Individiual geofences can be added through the portal either with an address or directly with latitude/longitude.
+The geofence page manages all of the geofences present in your application. Individual geofences can be added through the portal either with an address or directly with latitude/longitude.
 You can add one or more tags to a geofence in addition to its primary attributes. These tags are what devices subscribe to to be notified when changes have been made on the server. Changes made here are "live" and are pushed to iOS and Android client apps if push notifications have been properly enabled.
 
 
