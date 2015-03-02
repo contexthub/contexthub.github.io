@@ -239,6 +239,9 @@ The *device* object you allows to find devices in your application.
 | [allTagged](#device-alltagged)     | Finds devices matching **all** of the given tags. |
 | [anyTagged](#device-anytagged)     | Finds devices matching **any** of the given tags. |
 | [near](#device-near)               | Finds devices near a location                     |
+| [setTags](#device-settags)         | Replaces a device's tags with the given tag list  |
+| [addTags](#device-addtags)         | Adds tags to a device                             |
+| [removeTags](#device-removetags)   | Removes tags from a device                        |
 
 <a name="device-findbyalias" data-magellan-destination="device-findbyalias"></a>
 
@@ -358,6 +361,74 @@ Array of device objects.
 ##### Example
 {% gist CHLibrarian/324803e628f6f651eaad %}
 
+<a name="device-settags" data-magellan-destination="device-settags"></a>
+
+---
+
+#### Set Tags
+Replaces a device's tags with the given tag list.
+
+##### Syntax
+`device.setTags(device_id, tag1, .., tagN)`
+
+##### Parameter Values
+
+| Parameter | Description |
+|-----------|-------------|
+| device_id | Required. The device id of the device whose tags will be replaced. |
+| tag1,..,tagN | Required. The tags that will replace the current tag list. Each tag should be its own parameter. If you wish to remove all tags, set the tag parameter to be _null_. |
+
+##### Return Value
+Boolean. True if the operation was successfull, false otherwise.
+
+##### Example
+{% gist CHLibrarian/2370ca019fa378246f90 %}
+
+<a name="device-addtags" data-magellan-destination="device-addtags"></a>
+
+---
+
+#### Add Tags
+Adds additional tags to the given device.
+
+##### Syntax
+`device.addTags(device_id, tag1, .., tagN)`
+
+##### Parameter Values
+
+| Parameter | Description |
+|-----------|-------------|
+| device_id | Required. The device id of the device to add tags to. |
+| tag1,..,tagN | Required. The tags that will be added the current tag list. Each tag should be its own parameter. |
+
+##### Return Value
+Boolean. True if the operation was successfull, false otherwise.
+
+##### Example
+{% gist CHLibrarian/2370ca019fa378246f90 %}
+
+<a name="device-removetags" data-magellan-destination="device-removetags"></a>
+
+---
+
+#### Remove Tags
+Removes tags from the given device.
+
+##### Syntax
+`device.removeTags(device_id, tag1, .., tagN)`
+
+##### Parameter Values
+
+| Parameter | Description |
+|-----------|-------------|
+| device_id | Required. The device id of the device to remove tags from. |
+| tag1,..,tagN | Required. The tags that will be removed the device. Each tag should be its own parameter. |
+
+##### Return Value
+Boolean. True if the operation was successfull, false otherwise.
+
+##### Example
+{% gist CHLibrarian/2370ca019fa378246f90 %}
 
 <a name="event" data-magellan-destination="event"></a>
 
