@@ -687,7 +687,7 @@ Nothing.
 Allows you to perform an http POST request to a specific URL. You can specify optional headers with the  *headers* parameter. This needs to be in the form of a JSON string.
 
 ##### Syntax
-`http.get(url, body, headers)`
+`http.post(url, body, headers)`
 
 ##### Parameter Values
 
