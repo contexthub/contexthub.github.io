@@ -291,7 +291,7 @@ Array of device objects.
 ---
 
 #### All Tagged
-Finds devices by tags. Adding more tags seperated by commas to the same function call filters only devices that have *all* tags on the same device.
+Finds devices by tags. Adding more tags separated by commas to the same function call filters only devices that have *all* tags on the same device.
 
 ##### Syntax
 `device.allTagged(tags)`
@@ -520,7 +520,7 @@ A geofence object.
 ---
 
 #### All Tagged
-Retrieves a group of geofences from ContextHub. Adding more tags seperated by commas to the same function call filters only geofences that have *all* tags on the same geofence.
+Retrieves a group of geofences from ContextHub. Adding more tags separated by commas to the same function call filters only geofences that have *all* tags on the same geofence.
 
 ##### Syntax
 `geofence.allTagged(tags)`
