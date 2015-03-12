@@ -91,7 +91,7 @@ A beacon object.
 ---
 
 #### All Tagged
-Retrieves a group of beacons from ContextHub. Adding more tags seperated by commas to the same function call filters only beacons that have *all* tags on the same beacon.
+Retrieves a group of beacons from ContextHub. Adding more tags separated by commas to the same function call filters only beacons that have *all* tags on the same beacon.
 
 ##### Syntax
 `beacon.allTagged(tags)`
